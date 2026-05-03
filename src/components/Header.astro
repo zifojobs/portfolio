@@ -1,0 +1,131 @@
+---
+// Header — navigation principale
+// Inclut : logo SD, nav (offres, études de cas, à propos, contact), toggle bilingue
+---
+
+<header class="sticky top-0 z-50 backdrop-blur-md bg-creme/80 border-b border-sable-300">
+	<div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+
+		<!-- Logo SD -->
+		<a href="/" class="flex items-center gap-3 group">
+			<span class="font-serif font-semibold text-2xl tracking-tight text-noir-cafe transition-opacity group-hover:opacity-70">
+				Saïbo Danfakha
+			</span>
+		</a>
+
+		<!-- Navigation desktop -->
+		<nav class="hidden md:flex items-center gap-8">
+			<a href="#offres" class="text-sm font-medium text-sable-900 hover:text-terracotta transition-colors">
+				Offres
+			</a>
+			<a href="#etudes-de-cas" class="text-sm font-medium text-sable-900 hover:text-terracotta transition-colors">
+				Études de cas
+			</a>
+			<a href="#a-propos" class="text-sm font-medium text-sable-900 hover:text-terracotta transition-colors">
+				À propos
+			</a>
+			<a href="#contact" class="text-sm font-medium text-sable-900 hover:text-terracotta transition-colors">
+				Contact
+			</a>
+		</nav>
+
+		<!-- Bouton toggle thème clair/sombre -->
+		<button
+			id="theme-toggle"
+			class="hidden md:inline-flex items-center justify-center w-9 h-9 rounded-full bg-sable-100 border border-sable-300 text-noir-cafe hover:bg-sable-300 transition-colors"
+			aria-label="Basculer thème clair/sombre"
+		>
+			<!-- Icône lune (visible en mode clair, on basculera vers sombre) -->
+			<svg class="theme-icon-moon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+				<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+			</svg>
+			<!-- Icône soleil (visible en mode sombre, on basculera vers clair) -->
+			<svg class="theme-icon-sun hidden" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+				<circle cx="12" cy="12" r="4"></circle>
+				<path d="M12 2v2"></path><path d="M12 20v2"></path>
+				<path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path>
+				<path d="M2 12h2"></path><path d="M20 12h2"></path>
+				<path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path>
+			</svg>
+		</button>
+
+		<!-- Toggle bilingue Diaspora / Sénégal -->
+		<div class="hidden md:flex items-center gap-1 bg-sable-100 border border-sable-300 rounded-full p-1 text-xs font-medium" id="region-toggle">
+			<button class="region-btn px-3 py-1 rounded-full transition-colors" data-region="diaspora">
+				€ Diaspora
+			</button>
+			<button class="region-btn px-3 py-1 rounded-full transition-colors" data-region="senegal">
+				FCFA Sénégal
+			</button>
+		</div>
+
+		<!-- Script qui gère les toggles (région + thème) -->
+		<script is:inline>
+			(function () {
+				const html = document.documentElement;
+
+				// === 1. Toggle Région (Diaspora / Sénégal) ===
+				const regionButtons = document.querySelectorAll("#region-toggle .region-btn");
+
+				function applyRegion(region) {
+					html.classList.remove("region-diaspora", "region-senegal");
+					html.classList.add("region-" + region);
+					html.dataset.region = region;
+					localStorage.setItem("region", region);
+					regionButtons.forEach((btn) => {
+						const active = btn.dataset.region === region;
+						btn.classList.toggle("bg-noir-cafe", active);
+						btn.classList.toggle("text-creme", active);
+						btn.classList.toggle("text-sable-600", !active);
+						btn.classList.toggle("hover:text-noir-cafe", !active);
+					});
+				}
+
+				applyRegion(html.dataset.region || "diaspora");
+				regionButtons.forEach((btn) => {
+					btn.addEventListener("click", () => applyRegion(btn.dataset.region));
+				});
+
+				// === 2. Toggle Thème (clair / sombre) ===
+				const themeBtn = document.getElementById("theme-toggle");
+				const moonIcon = themeBtn?.querySelector(".theme-icon-moon");
+				const sunIcon = themeBtn?.querySelector(".theme-icon-sun");
+
+				function syncThemeIcons() {
+					const isDark = !html.classList.contains("theme-light");
+					// En mode sombre on affiche le soleil (clic = passer en clair)
+					// En mode clair on affiche la lune (clic = passer en sombre)
+					moonIcon?.classList.toggle("hidden", isDark);
+					sunIcon?.classList.toggle("hidden", !isDark);
+				}
+
+				function toggleTheme() {
+					const isCurrentlyDark = !html.classList.contains("theme-light");
+					if (isCurrentlyDark) {
+						html.classList.add("theme-light");
+						html.dataset.theme = "light";
+						localStorage.setItem("theme", "light");
+					} else {
+						html.classList.remove("theme-light");
+						html.dataset.theme = "dark";
+						localStorage.setItem("theme", "dark");
+					}
+					syncThemeIcons();
+				}
+
+				syncThemeIcons();
+				themeBtn?.addEventListener("click", toggleTheme);
+			})();
+		</script>
+
+		<!-- Bouton menu mobile (placeholder, à activer plus tard) -->
+		<button class="md:hidden text-noir-cafe" aria-label="Menu">
+			<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+				<line x1="4" y1="6" x2="20" y2="6"></line>
+				<line x1="4" y1="12" x2="20" y2="12"></line>
+				<line x1="4" y1="18" x2="20" y2="18"></line>
+			</svg>
+		</button>
+
+	</div>
+</header>

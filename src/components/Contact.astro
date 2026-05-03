@@ -1,0 +1,186 @@
+---
+// Section Contact — CTA final + formulaire qualifiant
+// Formulaire connecté à Formspree (endpoint: mvzlzlkg) → soumissions vers zifo1819@gmail.com
+---
+
+<section id="contact" class="relative py-24 md:py-32 bg-sable-100">
+	<div class="max-w-6xl mx-auto px-6">
+
+		<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+
+			<!-- Colonne gauche : intro + contacts directs -->
+			<div data-animate class="lg:col-span-5">
+				<p class="text-sm font-medium uppercase tracking-wider text-terracotta mb-4">
+					Parlons-en
+				</p>
+				<h2 class="text-4xl md:text-5xl font-semibold leading-tight tracking-tight text-noir-cafe mb-6">
+					Votre projet mérite une vraie discussion.
+				</h2>
+				<p class="text-lg text-sable-600 leading-relaxed mb-12">
+					Décrivez-moi votre besoin en quelques lignes. Je réponds sous 48h ouvrées avec un premier retour honnête : faisable, à quel prix, dans quel délai.
+				</p>
+
+				<!-- Contacts directs -->
+				<div class="space-y-5">
+					<div>
+						<p class="text-xs font-medium uppercase tracking-wider text-sable-600 mb-1">Email</p>
+						<a href="mailto:zifo1819@gmail.com" class="text-noir-cafe hover:text-terracotta transition-colors font-medium break-all">
+							zifo1819@gmail.com
+						</a>
+					</div>
+					<div>
+						<p class="text-xs font-medium uppercase tracking-wider text-sable-600 mb-1">WhatsApp / Téléphone</p>
+						<a href="https://wa.me/221775277164" target="_blank" rel="noopener noreferrer" class="text-noir-cafe hover:text-terracotta transition-colors font-medium">
+							+221 77 527 71 64
+						</a>
+					</div>
+					<div>
+						<p class="text-xs font-medium uppercase tracking-wider text-sable-600 mb-1">Disponibilité</p>
+						<p class="text-noir-cafe">Lundi - Samedi · 9h - 19h (GMT)</p>
+					</div>
+					<div>
+						<p class="text-xs font-medium uppercase tracking-wider text-sable-600 mb-1">Localisation</p>
+						<p class="text-noir-cafe">Sénégal — disponible à distance partout dans le monde</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- Colonne droite : formulaire qualifiant -->
+			<div data-animate style="transition-delay: 150ms;" class="lg:col-span-7">
+				<form
+					action="https://formspree.io/f/mvzlzlkg"
+					method="POST"
+					class="bg-creme border border-sable-300 rounded-xl p-8 md:p-10 space-y-6"
+				>
+					<!-- Nom -->
+					<div>
+						<label for="name" class="block text-sm font-medium text-noir-cafe mb-2">
+							Votre nom <span class="text-terracotta">*</span>
+						</label>
+						<input
+							type="text"
+							id="name"
+							name="name"
+							required
+							class="w-full px-4 py-3 bg-sable-100 border border-sable-300 rounded-md text-noir-cafe placeholder:text-sable-600 focus:outline-none focus:border-terracotta focus:ring-2 focus:ring-terracotta/20 transition-all"
+							placeholder="Aïssatou Diop"
+						/>
+					</div>
+
+					<!-- Email -->
+					<div>
+						<label for="email" class="block text-sm font-medium text-noir-cafe mb-2">
+							Email <span class="text-terracotta">*</span>
+						</label>
+						<input
+							type="email"
+							id="email"
+							name="email"
+							required
+							class="w-full px-4 py-3 bg-sable-100 border border-sable-300 rounded-md text-noir-cafe placeholder:text-sable-600 focus:outline-none focus:border-terracotta focus:ring-2 focus:ring-terracotta/20 transition-all"
+							placeholder="aissatou@exemple.com"
+						/>
+					</div>
+
+					<!-- Type de projet -->
+					<div>
+						<label for="project_type" class="block text-sm font-medium text-noir-cafe mb-2">
+							Type de projet <span class="text-terracotta">*</span>
+						</label>
+						<select
+							id="project_type"
+							name="project_type"
+							required
+							class="w-full px-4 py-3 bg-sable-100 border border-sable-300 rounded-md text-noir-cafe focus:outline-none focus:border-terracotta focus:ring-2 focus:ring-terracotta/20 transition-all"
+						>
+							<option value="">Sélectionnez —</option>
+							<option value="vitrine">Site Vitrine (one-page → 5 pages)</option>
+							<option value="complet">Site Complet (10+ pages, e-commerce, blog)</option>
+							<option value="application">Application web sur-mesure</option>
+							<option value="autre">Autre / À discuter</option>
+						</select>
+					</div>
+
+					<!-- Budget -->
+					<div>
+						<label for="budget" class="block text-sm font-medium text-noir-cafe mb-2">
+							Budget envisagé
+						</label>
+						<select
+							id="budget"
+							name="budget"
+							class="w-full px-4 py-3 bg-sable-100 border border-sable-300 rounded-md text-noir-cafe focus:outline-none focus:border-terracotta focus:ring-2 focus:ring-terracotta/20 transition-all"
+						>
+							<option value="">Sélectionnez —</option>
+							<option value="<400">Moins de 400€ / 175 000 FCFA</option>
+							<option value="400-800">400 - 800€ / 175 000 - 350 000 FCFA</option>
+							<option value="800-1500">800 - 1 500€ / 350 000 - 800 000 FCFA</option>
+							<option value="1500-3000">1 500 - 3 000€ / 800 000 - 1 600 000 FCFA</option>
+							<option value="3000+">Plus de 3 000€ / 1 600 000 FCFA+</option>
+							<option value="discuss">À discuter</option>
+						</select>
+					</div>
+
+					<!-- Délai souhaité -->
+					<div>
+						<label class="block text-sm font-medium text-noir-cafe mb-3">
+							Délai souhaité
+						</label>
+						<div class="grid grid-cols-3 gap-2">
+							<label class="cursor-pointer">
+								<input type="radio" name="delai" value="urgent" class="peer sr-only" />
+								<div class="text-center px-3 py-3 border border-sable-300 rounded-md text-sm bg-sable-100 hover:border-noir-cafe peer-checked:bg-noir-cafe peer-checked:text-creme peer-checked:border-noir-cafe transition-all">
+									Urgent
+								</div>
+							</label>
+							<label class="cursor-pointer">
+								<input type="radio" name="delai" value="1-3-mois" class="peer sr-only" />
+								<div class="text-center px-3 py-3 border border-sable-300 rounded-md text-sm bg-sable-100 hover:border-noir-cafe peer-checked:bg-noir-cafe peer-checked:text-creme peer-checked:border-noir-cafe transition-all">
+									1-3 mois
+								</div>
+							</label>
+							<label class="cursor-pointer">
+								<input type="radio" name="delai" value="flexible" class="peer sr-only" />
+								<div class="text-center px-3 py-3 border border-sable-300 rounded-md text-sm bg-sable-100 hover:border-noir-cafe peer-checked:bg-noir-cafe peer-checked:text-creme peer-checked:border-noir-cafe transition-all">
+									Flexible
+								</div>
+							</label>
+						</div>
+					</div>
+
+					<!-- Message -->
+					<div>
+						<label for="message" class="block text-sm font-medium text-noir-cafe mb-2">
+							Décrivez votre projet <span class="text-terracotta">*</span>
+						</label>
+						<textarea
+							id="message"
+							name="message"
+							rows="5"
+							required
+							class="w-full px-4 py-3 bg-sable-100 border border-sable-300 rounded-md text-noir-cafe placeholder:text-sable-600 focus:outline-none focus:border-terracotta focus:ring-2 focus:ring-terracotta/20 transition-all resize-none"
+							placeholder="Quelques lignes sur votre activité, votre besoin, ce qui vous a amené à me contacter..."
+						></textarea>
+					</div>
+
+					<!-- Submit -->
+					<button
+						type="submit"
+						class="w-full inline-flex items-center justify-center gap-2 bg-terracotta text-creme px-8 py-4 rounded-md font-medium hover:bg-noir-cafe transition-colors duration-200"
+					>
+						Envoyer la demande
+						<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+							<line x1="5" y1="12" x2="19" y2="12"></line>
+							<polyline points="12 5 19 12 12 19"></polyline>
+						</svg>
+					</button>
+
+					<p class="text-xs text-sable-600 text-center">
+						Réponse sous 48h ouvrées. Vos informations restent confidentielles.
+					</p>
+				</form>
+			</div>
+		</div>
+
+	</div>
+</section>

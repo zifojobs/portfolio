@@ -1,0 +1,59 @@
+---
+// Footer — pied de page
+// Inclut : signature, liens nav secondaire, contact rapide, copyright
+const annee = new Date().getFullYear();
+---
+
+<footer class="bg-noir-cafe text-creme mt-24">
+	<div class="max-w-6xl mx-auto px-6 py-16">
+
+		<div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+
+			<!-- Colonne 1 — signature / wordmark -->
+			<div class="md:col-span-2">
+				<h2 class="font-serif font-semibold text-3xl tracking-tight mb-4">
+					Saïbo Danfakha
+				</h2>
+				<p class="text-sable-300 text-sm leading-relaxed max-w-md">
+					Designer & développeur web freelance basé à Kaolack, Sénégal. Sites premium et identités visuelles pour entrepreneurs et institutions.
+				</p>
+			</div>
+
+			<!-- Colonne 2 — Navigation -->
+			<div>
+				<h3 class="font-serif text-sm font-semibold uppercase tracking-wider text-sable-300 mb-4">
+					Navigation
+				</h3>
+				<ul class="space-y-3 text-sm">
+					<li><a href="#offres" class="hover:text-terracotta transition-colors">Offres</a></li>
+					<li><a href="#etudes-de-cas" class="hover:text-terracotta transition-colors">Études de cas</a></li>
+					<li><a href="#a-propos" class="hover:text-terracotta transition-colors">À propos</a></li>
+					<li><a href="#contact" class="hover:text-terracotta transition-colors">Contact</a></li>
+				</ul>
+			</div>
+
+			<!-- Colonne 3 — Contact -->
+			<div>
+				<h3 class="font-serif text-sm font-semibold uppercase tracking-wider text-sable-300 mb-4">
+					Contact
+				</h3>
+				<ul class="space-y-3 text-sm">
+					<li>
+						<a href="mailto:zifo1819@gmail.com" class="hover:text-terracotta transition-colors break-all">
+							zifo1819@gmail.com
+						</a>
+					</li>
+					<li class="text-sable-300">Sénégal</li>
+				</ul>
+			</div>
+
+		</div>
+
+		<!-- Bas du footer -->
+		<div class="mt-16 pt-8 border-t border-sable-600/30 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 text-xs text-sable-300">
+			<p>© {annee} Saïbo Danfakha. Tous droits réservés.</p>
+			<p>Conçu et développé avec soin au Sénégal 🇸🇳</p>
+		</div>
+
+	</div>
+</footer>

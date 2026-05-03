@@ -1,0 +1,92 @@
+---
+// Section À propos — angle pro pur, méthodologie + parcours web
+const principes = [
+	{
+		numero: "01",
+		titre: "Cadrage avant code",
+		description: "Avant la moindre ligne de code, on aligne objectifs, cible, contenu et indicateurs de succès. Un site bien cadré se livre vite et rapporte longtemps.",
+	},
+	{
+		numero: "02",
+		titre: "Design sur-mesure",
+		description: "Pas de template recyclé. Chaque interface est conçue pour la marque qu'elle représente. Identité, typographie, rythme : tout est intentionnel.",
+	},
+	{
+		numero: "03",
+		titre: "Performance native",
+		description: "Stack moderne (Astro, Next.js, Tailwind). Sites statiques, chargement sous 2s, SEO optimal. La vitesse n'est pas un luxe, c'est un signal de sérieux.",
+	},
+	{
+		numero: "04",
+		titre: "Accompagnement après livraison",
+		description: "Formation à l'utilisation, documentation, 1 mois de support inclus. Le site n'est pas un livrable jeté par-dessus le mur — c'est un outil que vous prenez en main.",
+	},
+];
+
+const stats = [
+	{ chiffre: "6+", label: "projets livrés" },
+	{ chiffre: "100%", label: "design sur-mesure" },
+	{ chiffre: "<2s", label: "chargement moyen" },
+	{ chiffre: "FR · EN", label: "bilingue dispo" },
+];
+---
+
+<section id="a-propos" class="relative pt-24 md:pt-32 pb-16 md:pb-20 bg-sable-100">
+	<div class="max-w-6xl mx-auto px-6">
+
+		<!-- En-tête + intro -->
+		<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-20">
+			<div data-animate class="lg:col-span-5">
+				<p class="text-sm font-medium uppercase tracking-wider text-terracotta mb-4">
+					À propos
+				</p>
+				<h2 class="text-4xl md:text-5xl font-semibold leading-tight tracking-tight text-noir-cafe">
+					Spécialiste sites web et applications web.
+				</h2>
+			</div>
+
+			<div data-animate style="transition-delay: 150ms;" class="lg:col-span-7 space-y-5 text-lg leading-relaxed text-sable-900">
+				<p>
+					Designer et développeur web freelance basé au <strong class="text-noir-cafe">Sénégal</strong>, j'accompagne entrepreneurs, PME et institutions de la diaspora francophone et d'Afrique de l'Ouest qui ont besoin d'un site qui inspire confiance et convertit.
+				</p>
+				<p>
+					Mon parcours est un peu particulier. J'ai commencé par des études de développement web, que j'ai abandonnées. Puis j'y suis revenu — par moi-même, en autodidacte, parce que c'était le métier que je voulais vraiment exercer. Plusieurs années plus tard, j'ai construit des sites pour des clients en France, au Canada et au Sénégal. <strong class="text-noir-cafe">Aujourd'hui, je reprends du service avec une seule conviction : faire moins, mais mieux.</strong>
+				</p>
+				<p>
+					Concrètement, ça veut dire <strong class="text-noir-cafe">me concentrer sur ce que je sais faire le mieux : les sites web et applications web premium sur-mesure.</strong> Pas de template recyclé. Pas de WordPress générique. Pas de raccourci.
+				</p>
+				<p>
+					Mon approche tient en quatre principes simples — appliqués à chaque projet, du one-page entrepreneur au site institutionnel multilingue.
+				</p>
+			</div>
+		</div>
+
+		<!-- Les 4 principes -->
+		<div data-animate-stagger class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-20">
+			{principes.map((p) => (
+				<article data-animate class="bg-creme border border-sable-300 rounded-xl p-8 transition-all duration-300 hover:border-noir-cafe">
+					<div class="flex items-baseline gap-3 mb-3">
+						<span class="text-sm font-mono text-sable-600">{p.numero}</span>
+						<h3 class="text-xl font-semibold text-noir-cafe leading-tight">{p.titre}</h3>
+					</div>
+					<p class="text-sable-900 leading-relaxed">{p.description}</p>
+				</article>
+			))}
+		</div>
+
+		<!-- Stats clés (encadrées par 2 lignes en haut et en bas) -->
+		<div data-animate class="border-y border-sable-300 py-12">
+			<div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+				{stats.map((s) => (
+					<div class="text-center md:text-left">
+						<p class="font-serif text-4xl md:text-5xl font-semibold text-noir-cafe leading-none mb-2">
+							{s.chiffre}
+						</p>
+						<p class="text-sm text-sable-600">{s.label}</p>
+					</div>
+				))}
+			</div>
+		</div>
+
+	</div>
+</section>

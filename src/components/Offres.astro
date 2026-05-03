@@ -1,0 +1,145 @@
+---
+// Section Offres — 3 cards avec switch tarifaire €/FCFA
+// Source : offres-freelance.md (Projet Claude)
+
+const offres = [
+	{
+		numero: "01",
+		titre: "Sites Vitrine Premium",
+		pourQui: "Indépendants, entrepreneurs, petites marques. Du one-page percutant au site 5 pages complet.",
+		prixEur: "à partir de 400€",
+		prixFcfa: "à partir de 175 000 FCFA",
+		delai: "1 à 3 semaines",
+		inclus: [
+			"Design sur-mesure (1 à 5 pages selon ton projet)",
+			"100% responsive (mobile, tablette, desktop)",
+			"Animations et micro-interactions soignées",
+			"SEO de base + performance optimale",
+			"2 cycles de révision",
+			"Hébergement gratuit la 1re année",
+		],
+	},
+	{
+		numero: "02",
+		titre: "Identité Visuelle Complète",
+		pourQui: "Entrepreneurs en lancement ou repositionnement de marque.",
+		prixEur: "à partir de 500€",
+		prixFcfa: "à partir de 200 000 FCFA",
+		delai: "1 à 2 semaines",
+		inclus: [
+			"Logo principal + déclinaisons (mono, sombre, clair)",
+			"Charte graphique PDF (8-12 pages)",
+			"3 supports de communication au choix",
+			"3 cycles de révision sur le logo",
+			"Tous les fichiers sources (AI, SVG, PNG, PDF)",
+		],
+	},
+	{
+		numero: "03",
+		titre: "Site Complet & Applications sur-mesure",
+		pourQui: "E-commerce, sites multi-pages avec SEO avancé, applications métier, espaces clients — pour toute structure qui a besoin de plus qu'un vitrine.",
+		prixEur: "à partir de 1 500€",
+		prixFcfa: "à partir de 800 000 FCFA",
+		delai: "4 à 8 semaines",
+		inclus: [
+			"Audit gratuit 30 min en visio",
+			"Phase de cadrage avant développement",
+			"Site complet ou application web sur-mesure",
+			"E-commerce, SEO avancé, espaces privés au besoin",
+			"Espace administrateur sans technique",
+			"Formation 1h + documentation",
+			"1 mois de support après livraison",
+		],
+		featured: true,
+	},
+];
+---
+
+<section id="offres" class="relative py-24 md:py-32 bg-sable-100">
+	<div class="max-w-6xl mx-auto px-6">
+
+		<!-- En-tête de section -->
+		<div data-animate class="max-w-2xl mb-16">
+			<p class="text-sm font-medium uppercase tracking-wider text-terracotta mb-4">
+				Mes offres
+			</p>
+			<h2 class="text-4xl md:text-5xl font-semibold leading-tight tracking-tight text-noir-cafe">
+				Trois manières de travailler ensemble.
+			</h2>
+			<p class="mt-6 text-lg text-sable-600 leading-relaxed">
+				Des offres claires, à prix annoncés. Modalité de paiement en 2 ou 3 fois sans frais sur tous les forfaits supérieurs à 800€.
+			</p>
+		</div>
+
+		<!-- Grille des 3 offres -->
+		<div data-animate-stagger class="grid grid-cols-1 md:grid-cols-3 gap-6">
+			{offres.map((offre) => (
+				<article data-animate class={`relative rounded-xl p-8 transition-all duration-300 hover:-translate-y-1 ${offre.featured ? "bg-noir-cafe text-creme" : "bg-creme border border-sable-300 hover:border-noir-cafe"}`}>
+
+					<!-- Badge "featured" -->
+					{offre.featured && (
+						<div class="absolute -top-3 left-8 px-3 py-1 bg-terracotta text-creme text-xs font-medium rounded-full">
+							Le plus demandé
+						</div>
+					)}
+
+					<!-- Numéro + titre -->
+					<div class="flex items-baseline gap-3 mb-4">
+						<span class={`text-sm font-mono ${offre.featured ? "text-sable-300" : "text-sable-600"}`}>
+							{offre.numero}
+						</span>
+						<h3 class={`text-2xl font-semibold leading-tight ${offre.featured ? "text-creme" : "text-noir-cafe"}`}>
+							{offre.titre}
+						</h3>
+					</div>
+
+					<!-- Pour qui -->
+					<p class={`text-sm leading-relaxed mb-6 ${offre.featured ? "text-sable-300" : "text-sable-600"}`}>
+						{offre.pourQui}
+					</p>
+
+					<!-- Prix avec switch région -->
+					<div class="mb-2">
+						<span class={`price-eur block text-3xl font-serif font-semibold tracking-tight ${offre.featured ? "text-creme" : "text-noir-cafe"}`}>
+							{offre.prixEur}
+						</span>
+						<span class={`price-fcfa block text-3xl font-serif font-semibold tracking-tight ${offre.featured ? "text-creme" : "text-noir-cafe"}`}>
+							{offre.prixFcfa}
+						</span>
+					</div>
+					<p class={`text-xs mb-8 ${offre.featured ? "text-sable-300" : "text-sable-600"}`}>
+						Délai : {offre.delai}
+					</p>
+
+					<!-- Liste inclus -->
+					<ul class="space-y-3 mb-8">
+						{offre.inclus.map((item) => (
+							<li class={`flex gap-3 text-sm leading-relaxed ${offre.featured ? "text-creme/90" : "text-sable-900"}`}>
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class={`flex-shrink-0 mt-0.5 ${offre.featured ? "text-terracotta" : "text-terracotta"}`}>
+									<polyline points="20 6 9 17 4 12"></polyline>
+								</svg>
+								<span>{item}</span>
+							</li>
+						))}
+					</ul>
+
+					<!-- CTA -->
+					<a href="#contact" class={`inline-flex items-center justify-center w-full gap-2 px-6 py-3 rounded-md font-medium transition-colors ${offre.featured ? "bg-terracotta text-creme hover:bg-creme hover:text-noir-cafe" : "bg-noir-cafe text-creme hover:bg-terracotta"}`}>
+						Demander un devis
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+							<line x1="5" y1="12" x2="19" y2="12"></line>
+							<polyline points="12 5 19 12 12 19"></polyline>
+						</svg>
+					</a>
+
+				</article>
+			))}
+		</div>
+
+		<!-- Note basse -->
+		<p class="mt-12 text-center text-sm text-sable-600">
+			Besoin d'une offre sur-mesure ? <a href="#contact" class="text-noir-cafe underline underline-offset-4 hover:text-terracotta transition-colors">Parlons-en directement.</a>
+		</p>
+
+	</div>
+</section>

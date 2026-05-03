@@ -1,0 +1,138 @@
+---
+// Section Études de cas — index visuel des 3 projets phares
+
+const etudes = [
+	{
+		slug: "s5l",
+		titre: "S5L Productions",
+		secteur: "Production vidéo & marketing",
+		type: "Site corporate + landing pages",
+		localisation: "Canada",
+		description: "Partenariat long-terme : 3 livrables successifs pour une agence de production vidéo positionnée comme partenaire stratégique des marques.",
+		urlLive: "https://s5lproductions.com",
+		image: "/etudes-de-cas/s5l.jpg",
+		accent: "terracotta",
+	},
+	{
+		slug: "rtzw",
+		titre: "Road to Zero Waste",
+		secteur: "ONG · Sécurité alimentaire",
+		type: "Site institutionnel + collecte de dons",
+		localisation: "Toronto, Canada",
+		description: "Reconstruction d'urgence du site d'une ONG canadienne pour rétablir la collecte de dons alimentant des centaines de familles chaque semaine.",
+		urlLive: "https://roadtozerowaste.org",
+		image: "/etudes-de-cas/rtzw.jpg",
+		accent: "vert-savane",
+	},
+	{
+		slug: "registon",
+		titre: "Registon Building Restoration",
+		secteur: "B2B · Restauration de bâtiments",
+		type: "Site corporate + génération de leads",
+		localisation: "Mississauga, Canada",
+		description: "Site B2B technique pour une entreprise de restauration structurelle qui devait inspirer la confiance immédiate auprès de gestionnaires immobiliers.",
+		urlLive: "https://registon.ca",
+		image: "/etudes-de-cas/registon.jpg",
+		accent: "noir-cafe",
+	},
+];
+---
+
+<section id="etudes-de-cas" class="relative py-24 md:py-32 bg-creme">
+	<div class="max-w-6xl mx-auto px-6">
+
+		<!-- En-tête -->
+		<div data-animate class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
+			<div class="max-w-2xl">
+				<p class="text-sm font-medium uppercase tracking-wider text-terracotta mb-4">
+					Études de cas
+				</p>
+				<h2 class="text-4xl md:text-5xl font-semibold leading-tight tracking-tight text-noir-cafe">
+					Quelques projets dont je suis fier.
+				</h2>
+			</div>
+			<p class="text-sable-600 md:text-right md:max-w-xs">
+				3 missions livrées, 3 contextes très différents — preuve que la méthode tient quel que soit le secteur.
+			</p>
+		</div>
+
+		<!-- Grille des études -->
+		<div data-animate-stagger class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+			{etudes.map((e) => (
+				<article data-animate class="group flex flex-col bg-sable-100 border border-sable-300 rounded-xl overflow-hidden transition-all duration-300 hover:border-noir-cafe hover:-translate-y-1">
+
+					<!-- Vignette : image floue en arrière-plan + overlay sombre + titre par-dessus -->
+					<div class={`relative aspect-[4/3] flex items-center justify-center overflow-hidden ${
+						e.accent === "terracotta" ? "bg-terracotta" :
+						e.accent === "vert-savane" ? "bg-vert-savane" :
+						"bg-noir-cafe"
+					}`}>
+						<!-- Image en arrière-plan (légèrement floue + zoomée pour cacher les bords) -->
+						<img
+							src={e.image}
+							alt={`Aperçu du site ${e.titre}`}
+							loading="lazy"
+							class="absolute inset-0 w-full h-full object-cover scale-105 blur-[3px] transition-transform duration-700 group-hover:scale-110"
+						/>
+
+						<!-- Overlay sombre pour assurer le contraste du titre (plus léger qu'avant) -->
+						<div class="absolute inset-0 bg-noir-cafe/40"></div>
+
+						<!-- Décorations géométriques très subtiles -->
+						<div class="absolute -top-10 -right-10 w-40 h-40 bg-creme/10 rounded-full blur-2xl"></div>
+
+						<!-- Nom du projet par-dessus -->
+						<div class="relative text-center px-6 z-10">
+							<p class="text-xs font-medium uppercase tracking-widest text-creme/70 mb-3">
+								{e.localisation}
+							</p>
+							<h3 class="font-serif text-3xl md:text-4xl font-semibold text-creme leading-tight tracking-tight drop-shadow-lg">
+								{e.titre}
+							</h3>
+						</div>
+					</div>
+
+					<!-- Contenu textuel -->
+					<div class="flex-1 flex flex-col p-6 md:p-8">
+						<!-- Tags secteur -->
+						<div class="flex flex-wrap gap-2 mb-4 text-xs">
+							<span class="px-2.5 py-1 bg-creme text-sable-600 rounded-full">
+								{e.secteur}
+							</span>
+							<span class="px-2.5 py-1 bg-creme text-sable-600 rounded-full">
+								{e.type}
+							</span>
+						</div>
+
+						<!-- Description -->
+						<p class="text-sable-900 leading-relaxed mb-6 flex-1">
+							{e.description}
+						</p>
+
+						<!-- Liens -->
+						<div class="flex flex-col gap-2 pt-6 border-t border-sable-300 text-sm">
+							<a href={e.urlLive} target="_blank" rel="noopener noreferrer"
+								class="inline-flex items-center justify-between gap-2 text-noir-cafe hover:text-terracotta font-medium transition-colors">
+								<span>Voir le projet en ligne</span>
+								<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+									<path d="M7 17L17 7"></path>
+									<path d="M7 7h10v10"></path>
+								</svg>
+							</a>
+							<a href={`/etudes-de-cas/${e.slug}/`}
+								class="inline-flex items-center justify-between gap-2 text-sable-600 hover:text-noir-cafe transition-colors">
+								<span>Lire l'étude détaillée</span>
+								<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+									<line x1="5" y1="12" x2="19" y2="12"></line>
+									<polyline points="12 5 19 12 12 19"></polyline>
+								</svg>
+							</a>
+						</div>
+					</div>
+
+				</article>
+			))}
+		</div>
+
+	</div>
+</section>

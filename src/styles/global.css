@@ -1,0 +1,105 @@
+@import "tailwindcss";
+
+/* ==========================================
+   DESIGN TOKENS — Africain Contemporain
+   Source : design-system.md (Projet Claude)
+
+   ARCHITECTURE DUAL THEME :
+   - Le @theme déclare les valeurs LIGHT (référence pour Tailwind utilities)
+   - Le sélecteur html:not(.theme-light) override en DARK WARM (= défaut du site)
+   - L'utilisateur peut ajouter .theme-light via le toggle pour repasser en clair
+   - Les classes existantes (bg-creme, text-noir-cafe, etc.) se "flippent"
+     automatiquement selon le thème actif → pas de refactor des composants nécessaire
+   ========================================== */
+
+@theme {
+  /* --- Couleurs principales (valeurs LIGHT, override en dark plus bas) --- */
+  --color-noir-cafe: #2A1810;
+  --color-creme: #FEF3E2;
+  --color-terracotta: #C2410C;
+  --color-vert-savane: #65733A;
+
+  /* --- Couleurs neutres (échelle sable, valeurs LIGHT) --- */
+  --color-sable-100: #FAF6EE;
+  --color-sable-300: #E8DFCB;
+  --color-sable-600: #7A6F5A;
+  --color-sable-900: #3D352A;
+
+  /* --- Polices --- */
+  --font-serif: "Fraunces", Georgia, serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+}
+
+/* ==========================================
+   THÈME DARK WARM (défaut du site)
+   Override des tokens : les classes existantes se flippent automatiquement
+   ========================================== */
+html:not(.theme-light) {
+  --color-noir-cafe: #FEF3E2;   /* utilisé comme texte/dark accent → devient crème en dark */
+  --color-creme: #1A1410;        /* utilisé comme fond clair → devient dark warm en dark */
+  --color-sable-100: #241B14;    /* surfaces → darker warm */
+  --color-sable-300: #3D2E22;    /* bordures → darker warm */
+  --color-sable-600: #C9BBA5;    /* texte secondaire → cream atténué */
+  --color-sable-900: #FEF3E2;    /* texte principal → crème */
+  /* terracotta et vert-savane restent identiques (chargés bien sur dark warm) */
+
+  color-scheme: dark; /* indique au navigateur le mode pour scrollbars, form controls */
+}
+
+html.theme-light {
+  color-scheme: light;
+}
+
+/* --- Styles globaux par défaut (dans @layer base pour que les utilities Tailwind gagnent toujours) --- */
+@layer base {
+  body {
+    background-color: var(--color-creme);
+    color: var(--color-sable-900);
+    font-family: var(--font-sans);
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Titres en Fraunces par défaut. Pas de color forcée ici — chaque composant
+     gère sa couleur via les classes Tailwind (text-creme, text-noir-cafe, etc.) */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+    letter-spacing: -0.02em;
+  }
+}
+
+/* --- Visibilité des prix selon la région active --- */
+.region-diaspora .price-fcfa { display: none; }
+.region-senegal .price-eur { display: none; }
+
+/* --- Animations d'entrée au scroll (Intersection Observer) --- */
+[data-animate] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+[data-animate].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger : délais successifs pour les enfants (cards qui apparaissent en cascade) */
+[data-animate-stagger] > *:nth-child(1) { transition-delay: 0ms; }
+[data-animate-stagger] > *:nth-child(2) { transition-delay: 120ms; }
+[data-animate-stagger] > *:nth-child(3) { transition-delay: 240ms; }
+[data-animate-stagger] > *:nth-child(4) { transition-delay: 360ms; }
+
+/* Respecter prefers-reduced-motion : pas d'animation pour ceux qui n'aiment pas */
+@media (prefers-reduced-motion: reduce) {
+  [data-animate] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

@@ -1,0 +1,168 @@
+---
+// Hero — section d'entrée principale
+// Objectif : positionnement clair en 3 secondes, CTA évident
+---
+
+<section class="relative overflow-hidden">
+	<!-- Décoration : formes géométriques discrètes en arrière-plan (animées en parallax) -->
+	<div class="hero-shape-1 absolute -top-20 -right-20 w-96 h-96 bg-terracotta/5 rounded-full blur-3xl pointer-events-none" aria-hidden="true"></div>
+	<div class="hero-shape-2 absolute top-40 -left-32 w-80 h-80 bg-vert-savane/5 rounded-full blur-3xl pointer-events-none" aria-hidden="true"></div>
+
+	<div class="relative max-w-6xl mx-auto px-6 py-24 md:py-32">
+
+		<!-- Badge supérieur -->
+		<div class="hero-badge opacity-0 inline-flex items-center gap-2 px-4 py-1.5 bg-sable-100 border border-sable-300 rounded-full text-xs font-medium text-sable-600 mb-8">
+			<span class="w-2 h-2 bg-vert-savane rounded-full"></span>
+			Disponible pour 2 nouveaux projets
+		</div>
+
+		<!-- Titre principal — chaque mot animé individuellement avec GSAP -->
+		<h1 class="hero-title text-5xl md:text-7xl lg:text-8xl font-semibold leading-[1.05] tracking-tight text-noir-cafe max-w-4xl">
+			<span class="hero-line block overflow-hidden">
+				<span class="hero-word inline-block">Sites</span>
+				<span class="hero-word inline-block">&amp;</span>
+				<span class="hero-word inline-block">identités</span>
+			</span>
+			<span class="hero-line block overflow-hidden italic text-terracotta">
+				<span class="hero-word inline-block">qui</span>
+				<span class="hero-word inline-block">inspirent</span>
+				<span class="hero-word inline-block">confiance</span>
+			</span>
+		</h1>
+
+		<!-- Sous-titre / proposition de valeur -->
+		<p class="hero-subtitle opacity-0 mt-8 text-lg md:text-xl text-sable-600 max-w-2xl leading-relaxed">
+			Designer & développeur web freelance basé au Sénégal. J'accompagne entrepreneurs, ONG et institutions de la diaspora francophone et d'Afrique de l'Ouest.
+		</p>
+
+		<!-- CTAs -->
+		<div class="hero-ctas opacity-0 mt-12 flex flex-col sm:flex-row gap-4">
+			<a href="#offres" class="inline-flex items-center justify-center gap-2 bg-terracotta text-creme px-8 py-4 rounded-md font-medium hover:bg-noir-cafe transition-colors duration-200">
+				Découvrir mes offres
+				<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+					<line x1="5" y1="12" x2="19" y2="12"></line>
+					<polyline points="12 5 19 12 12 19"></polyline>
+				</svg>
+			</a>
+			<a href="#etudes-de-cas" class="inline-flex items-center justify-center border border-noir-cafe text-noir-cafe px-8 py-4 rounded-md font-medium hover:bg-sable-100 transition-colors duration-200">
+				Voir mes réalisations
+			</a>
+		</div>
+
+		<!-- Preuve sociale rapide -->
+		<div class="hero-social opacity-0 mt-16 pt-8 border-t border-sable-300 flex flex-wrap items-center gap-x-8 gap-y-4 text-sm text-sable-600">
+			<div class="flex items-center gap-2">
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-terracotta">
+					<polyline points="20 6 9 17 4 12"></polyline>
+				</svg>
+				<span>6+ projets livrés</span>
+			</div>
+			<div class="flex items-center gap-2">
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-terracotta">
+					<polyline points="20 6 9 17 4 12"></polyline>
+				</svg>
+				<span>Clients au Sénégal & partout dans le monde</span>
+			</div>
+			<div class="flex items-center gap-2">
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-terracotta">
+					<polyline points="20 6 9 17 4 12"></polyline>
+				</svg>
+				<span>Disponible en français, anglais</span>
+			</div>
+		</div>
+
+	</div>
+</section>
+
+<!-- Animations GSAP du Hero (entrance + parallax + magnetic buttons) -->
+<script>
+	import { gsap } from "gsap";
+	import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+	gsap.registerPlugin(ScrollTrigger);
+
+	// === 1. Entrance animation timeline ===
+	const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+
+	// Préparer les mots du titre (état initial : invisibles, décalés vers le bas)
+	gsap.set(".hero-word", { y: "110%", opacity: 0 });
+
+	tl
+		.fromTo(".hero-badge",
+			{ opacity: 0, y: 16 },
+			{ opacity: 1, y: 0, duration: 0.6 }
+		)
+		.to(".hero-word", {
+			y: "0%",
+			opacity: 1,
+			duration: 0.8,
+			stagger: 0.08,
+			ease: "expo.out",
+		}, "-=0.3")
+		.fromTo(".hero-subtitle",
+			{ opacity: 0, y: 20 },
+			{ opacity: 1, y: 0, duration: 0.7 },
+			"-=0.5"
+		)
+		.fromTo(".hero-ctas",
+			{ opacity: 0, y: 20 },
+			{ opacity: 1, y: 0, duration: 0.6 },
+			"-=0.4"
+		)
+		.fromTo(".hero-social",
+			{ opacity: 0, y: 20 },
+			{ opacity: 1, y: 0, duration: 0.6 },
+			"-=0.3"
+		);
+
+	// === 2. Parallax sur les formes décoratives (au scroll) ===
+	gsap.to(".hero-shape-1", {
+		yPercent: 30,
+		ease: "none",
+		scrollTrigger: {
+			trigger: "section",
+			start: "top top",
+			end: "bottom top",
+			scrub: 1,
+		},
+	});
+
+	gsap.to(".hero-shape-2", {
+		yPercent: -20,
+		ease: "none",
+		scrollTrigger: {
+			trigger: "section",
+			start: "top top",
+			end: "bottom top",
+			scrub: 1,
+		},
+	});
+
+	// === 3. Magnetic buttons (CTAs qui suivent légèrement la souris) ===
+	const magneticButtons = document.querySelectorAll(".hero-ctas a");
+
+	magneticButtons.forEach((btn) => {
+		const button = btn as HTMLElement;
+		button.addEventListener("mousemove", (e: Event) => {
+			const evt = e as MouseEvent;
+			const rect = button.getBoundingClientRect();
+			const x = evt.clientX - rect.left - rect.width / 2;
+			const y = evt.clientY - rect.top - rect.height / 2;
+			gsap.to(button, {
+				x: x * 0.25,
+				y: y * 0.4,
+				duration: 0.4,
+				ease: "power2.out",
+			});
+		});
+
+		button.addEventListener("mouseleave", () => {
+			gsap.to(button, {
+				x: 0,
+				y: 0,
+				duration: 0.5,
+				ease: "elastic.out(1, 0.4)",
+			});
+		});
+	});
+</script>

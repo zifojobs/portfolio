@@ -1,0 +1,65 @@
+---
+// Section Témoignages — preuves sociales clients
+const temoignages = [
+	{
+		quote: "Saïbo est un développeur exceptionnel qui perfectionne constamment son art et prend toujours en compte les retours avec professionnalisme. Il a déjà réalisé trois projets pour S5L Productions, tous excellents, et nous avons hâte d'en développer de nombreux autres avec lui. Travailler avec Saïbo a été une expérience formidable : il fournit un travail de qualité constante, évolue à chaque projet et accorde une grande importance aux retours.",
+		auteur: "Shabeeb Hasan",
+		role: "CEO, S5L Productions",
+		localisation: "Canada",
+	},
+	{
+		quote: "Quand notre site web est tombé en panne, il l'a reconstruit en un temps record — et ce délai a fait toute la différence. Sans cela, nous n'aurions pas pu collecter les dons nécessaires pour nourrir des centaines de familles chaque semaine. Il travaille avec le cœur, ses délais sont rapides, et il fait vraiment les recherches nécessaires pour livrer ce dont le client a besoin. MashAllah — une excellente personne avec qui travailler.",
+		auteur: "Laylo",
+		role: "Fondatrice, Road to Zero Waste",
+		localisation: "Toronto, Canada",
+	},
+];
+---
+
+<section id="temoignages" class="relative py-24 md:py-32 bg-creme">
+	<div class="max-w-6xl mx-auto px-6">
+
+		<!-- En-tête -->
+		<div data-animate class="max-w-2xl mb-16">
+			<p class="text-sm font-medium uppercase tracking-wider text-terracotta mb-4">
+				Ce qu'ils en disent
+			</p>
+			<h2 class="text-4xl md:text-5xl font-semibold leading-tight tracking-tight text-noir-cafe">
+				La confiance se construit sur des résultats.
+			</h2>
+		</div>
+
+		<!-- Grille des témoignages -->
+		<div data-animate-stagger class="grid grid-cols-1 md:grid-cols-2 gap-8">
+			{temoignages.map((t) => (
+				<figure data-animate class="relative bg-sable-100 border border-sable-300 rounded-xl p-8 md:p-10 transition-all duration-300 hover:border-noir-cafe">
+
+					<!-- Guillemet décoratif -->
+					<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="currentColor" class="text-terracotta/20 mb-4">
+						<path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+					</svg>
+
+					<!-- Quote -->
+					<blockquote class="font-serif text-lg md:text-xl leading-relaxed text-noir-cafe italic mb-8">
+						{t.quote}
+					</blockquote>
+
+					<!-- Attribution -->
+					<figcaption class="flex items-start gap-4 pt-6 border-t border-sable-300">
+						<!-- Avatar placeholder (initiales) -->
+						<div class="flex-shrink-0 w-12 h-12 rounded-full bg-noir-cafe text-creme flex items-center justify-center font-serif font-semibold text-lg">
+							{t.auteur.split(" ").map((n) => n[0]).join("").slice(0, 2)}
+						</div>
+						<div>
+							<p class="font-semibold text-noir-cafe">{t.auteur}</p>
+							<p class="text-sm text-sable-600">{t.role}</p>
+							<p class="text-xs text-sable-600 mt-0.5">{t.localisation}</p>
+						</div>
+					</figcaption>
+
+				</figure>
+			))}
+		</div>
+
+	</div>
+</section>
