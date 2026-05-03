@@ -12,7 +12,7 @@ interface Props {
 const SITE_URL = "https://saibodanfakha.com";
 const {
 	title = "Saïbo Danfakha — Sites web premium pour entrepreneurs & institutions",
-	description = "Designer et développeur web freelance basé au Sénégal. Sites premium sur-mesure pour entrepreneurs, PME et institutions de la diaspora francophone et d'Afrique de l'Ouest.",
+	description = "Designer et développeur web freelance basé au Sénégal. Sites premium sur-mesure pour entrepreneurs, PME et institutions au Sénégal, en Afrique et à l'international — clients francophones et anglophones.",
 	image = "/og-image.jpg",
 } = Astro.props;
 
@@ -29,7 +29,7 @@ const ogImageUrl = new URL(image, SITE_URL).toString();
 		<title>{title}</title>
 		<meta name="description" content={description} />
 		<meta name="author" content="Saïbo Danfakha" />
-		<meta name="keywords" content="développeur web, designer web, freelance, Sénégal, site web premium, Astro, sur-mesure, diaspora, Afrique de l'Ouest" />
+		<meta name="keywords" content="développeur web, designer web, freelance, Sénégal, site web premium, Astro, sur-mesure, Afrique de l'Ouest, international, francophone, anglophone, web developer Senegal" />
 		<link rel="canonical" href={canonicalUrl} />
 
 		<!-- Script région + thème : appliqué AVANT le rendu pour éviter le flash de contenu -->
