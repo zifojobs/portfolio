@@ -118,14 +118,120 @@
 			})();
 		</script>
 
-		<!-- Bouton menu mobile (placeholder, à activer plus tard) -->
-		<button class="md:hidden text-noir-cafe" aria-label="Menu">
-			<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+		<!-- Bouton menu mobile -->
+		<button id="mobile-menu-btn" class="md:hidden text-noir-cafe" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-menu">
+			<svg class="mobile-icon-open" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 				<line x1="4" y1="6" x2="20" y2="6"></line>
 				<line x1="4" y1="12" x2="20" y2="12"></line>
 				<line x1="4" y1="18" x2="20" y2="18"></line>
 			</svg>
+			<svg class="mobile-icon-close hidden" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+				<line x1="6" y1="6" x2="18" y2="18"></line>
+				<line x1="6" y1="18" x2="18" y2="6"></line>
+			</svg>
 		</button>
 
 	</div>
+
+	<!-- Menu mobile (drawer) -->
+	<div id="mobile-menu" class="md:hidden hidden border-t border-sable-300 bg-creme/95 backdrop-blur-md">
+		<nav class="max-w-6xl mx-auto px-6 py-6 flex flex-col gap-4">
+			<a href="#offres" class="mobile-link text-base font-medium text-sable-900 hover:text-terracotta transition-colors py-2">Offres</a>
+			<a href="#etudes-de-cas" class="mobile-link text-base font-medium text-sable-900 hover:text-terracotta transition-colors py-2">Études de cas</a>
+			<a href="#a-propos" class="mobile-link text-base font-medium text-sable-900 hover:text-terracotta transition-colors py-2">À propos</a>
+			<a href="#contact" class="mobile-link text-base font-medium text-sable-900 hover:text-terracotta transition-colors py-2">Contact</a>
+
+			<div class="flex items-center gap-3 pt-4 border-t border-sable-300">
+				<!-- Toggle thème mobile -->
+				<button
+					id="theme-toggle-mobile"
+					class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-sable-100 border border-sable-300 text-noir-cafe hover:bg-sable-300 transition-colors"
+					aria-label="Basculer thème clair/sombre"
+				>
+					<svg class="theme-icon-moon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+						<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+					</svg>
+					<svg class="theme-icon-sun hidden" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+						<circle cx="12" cy="12" r="4"></circle>
+						<path d="M12 2v2"></path><path d="M12 20v2"></path>
+						<path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path>
+						<path d="M2 12h2"></path><path d="M20 12h2"></path>
+						<path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path>
+					</svg>
+				</button>
+
+				<!-- Toggle région mobile -->
+				<div class="flex items-center gap-1 bg-sable-100 border border-sable-300 rounded-full p-1 text-xs font-medium" id="region-toggle-mobile">
+					<button class="region-btn-mobile px-3 py-1 rounded-full transition-colors" data-region="diaspora">€ Diaspora</button>
+					<button class="region-btn-mobile px-3 py-1 rounded-full transition-colors" data-region="senegal">FCFA Sénégal</button>
+				</div>
+			</div>
+		</nav>
+	</div>
+
+	<!-- Script menu mobile -->
+	<script is:inline>
+		(function () {
+			const btn = document.getElementById("mobile-menu-btn");
+			const menu = document.getElementById("mobile-menu");
+			const iconOpen = btn?.querySelector(".mobile-icon-open");
+			const iconClose = btn?.querySelector(".mobile-icon-close");
+			if (!btn || !menu) return;
+
+			function setOpen(open) {
+				menu.classList.toggle("hidden", !open);
+				iconOpen?.classList.toggle("hidden", open);
+				iconClose?.classList.toggle("hidden", !open);
+				btn.setAttribute("aria-expanded", String(open));
+				btn.setAttribute("aria-label", open ? "Fermer le menu" : "Ouvrir le menu");
+			}
+
+			btn.addEventListener("click", () => {
+				setOpen(menu.classList.contains("hidden"));
+			});
+
+			menu.querySelectorAll(".mobile-link").forEach((a) => {
+				a.addEventListener("click", () => setOpen(false));
+			});
+
+			// Bouton thème mobile : déclenche le toggle desktop
+			document.getElementById("theme-toggle-mobile")?.addEventListener("click", () => {
+				document.getElementById("theme-toggle")?.click();
+				const html = document.documentElement;
+				const isDark = !html.classList.contains("theme-light");
+				const m = document.querySelector("#theme-toggle-mobile .theme-icon-moon");
+				const s = document.querySelector("#theme-toggle-mobile .theme-icon-sun");
+				m?.classList.toggle("hidden", isDark);
+				s?.classList.toggle("hidden", !isDark);
+			});
+
+			// Boutons région mobile : déclenchent le toggle desktop
+			document.querySelectorAll("#region-toggle-mobile .region-btn-mobile").forEach((btn) => {
+				btn.addEventListener("click", () => {
+					const region = btn.dataset.region;
+					document.querySelector(`#region-toggle .region-btn[data-region="${region}"]`)?.click();
+					document.querySelectorAll("#region-toggle-mobile .region-btn-mobile").forEach((b) => {
+						const active = b.dataset.region === region;
+						b.classList.toggle("bg-noir-cafe", active);
+						b.classList.toggle("text-creme", active);
+						b.classList.toggle("text-sable-600", !active);
+					});
+				});
+			});
+
+			// Init état région mobile au chargement
+			const initialRegion = document.documentElement.dataset.region || "diaspora";
+			document.querySelectorAll("#region-toggle-mobile .region-btn-mobile").forEach((b) => {
+				const active = b.dataset.region === initialRegion;
+				b.classList.toggle("bg-noir-cafe", active);
+				b.classList.toggle("text-creme", active);
+				b.classList.toggle("text-sable-600", !active);
+			});
+
+			// Init état thème mobile au chargement
+			const isDarkInit = !document.documentElement.classList.contains("theme-light");
+			document.querySelector("#theme-toggle-mobile .theme-icon-moon")?.classList.toggle("hidden", isDarkInit);
+			document.querySelector("#theme-toggle-mobile .theme-icon-sun")?.classList.toggle("hidden", !isDarkInit);
+		})();
+	</script>
 </header>
