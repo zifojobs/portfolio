@@ -6,12 +6,18 @@ import Footer from "../components/Footer.astro";
 interface Props {
 	title?: string;
 	description?: string;
+	image?: string;
 }
 
+const SITE_URL = "https://saibodanfakha.com";
 const {
-	title = "Saïbo Danfakha — Designer & Web",
-	description = "Designer et développeur web freelance. Sites premium et identités visuelles pour entrepreneurs et institutions.",
+	title = "Saïbo Danfakha — Sites web premium pour entrepreneurs & institutions",
+	description = "Designer et développeur web freelance basé au Sénégal. Sites premium sur-mesure pour entrepreneurs, PME et institutions de la diaspora francophone et d'Afrique de l'Ouest.",
+	image = "/og-image.jpg",
 } = Astro.props;
+
+const canonicalUrl = new URL(Astro.url.pathname, SITE_URL).toString();
+const ogImageUrl = new URL(image, SITE_URL).toString();
 ---
 
 <html lang="fr">
@@ -22,6 +28,9 @@ const {
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 		<meta name="description" content={description} />
+		<meta name="author" content="Saïbo Danfakha" />
+		<meta name="keywords" content="développeur web, designer web, freelance, Sénégal, site web premium, Astro, sur-mesure, diaspora, Afrique de l'Ouest" />
+		<link rel="canonical" href={canonicalUrl} />
 
 		<!-- Script région + thème : appliqué AVANT le rendu pour éviter le flash de contenu -->
 		<script is:inline>
@@ -41,10 +50,36 @@ const {
 			})();
 		</script>
 
-		<!-- Open Graph (partages réseaux sociaux) -->
+		<!-- Open Graph (partages WhatsApp, LinkedIn, Facebook) -->
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
 		<meta property="og:type" content="website" />
+		<meta property="og:url" content={canonicalUrl} />
+		<meta property="og:site_name" content="Saïbo Danfakha" />
+		<meta property="og:locale" content="fr_FR" />
+		<meta property="og:image" content={ogImageUrl} />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
+		<meta property="og:image:alt" content="Saïbo Danfakha — Designer & développeur web" />
+
+		<!-- Twitter Card -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={ogImageUrl} />
+
+		<!-- Schema.org (référencement) -->
+		<script type="application/ld+json" set:html={JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "Person",
+			"name": "Saïbo Danfakha",
+			"jobTitle": "Designer & développeur web freelance",
+			"url": SITE_URL,
+			"email": "zifo1819@gmail.com",
+			"telephone": "+221775277164",
+			"address": { "@type": "PostalAddress", "addressCountry": "SN" },
+			"sameAs": []
+		})} />
 
 		<!-- Google Fonts : Fraunces (titres) + Inter (texte) -->
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
