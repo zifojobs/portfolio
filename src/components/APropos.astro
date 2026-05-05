@@ -79,9 +79,18 @@ const stats = [
 			<div class="grid grid-cols-2 md:grid-cols-4 gap-8">
 				{stats.map((s) => (
 					<div class="text-center md:text-left">
-						<p class="font-serif text-4xl md:text-5xl font-semibold text-noir-cafe leading-none mb-2">
-							{s.chiffre}
-						</p>
+						{s.chiffre === "6+" ? (
+							<p
+								class="font-serif text-4xl md:text-5xl font-semibold text-noir-cafe leading-none mb-2"
+								data-counter
+								data-counter-target="6"
+								data-counter-suffix="+"
+							>0+</p>
+						) : (
+							<p class="font-serif text-4xl md:text-5xl font-semibold text-noir-cafe leading-none mb-2">
+								{s.chiffre}
+							</p>
+						)}
 						<p class="text-sm text-sable-600">{s.label}</p>
 					</div>
 				))}
