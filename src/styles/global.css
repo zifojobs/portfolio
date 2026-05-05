@@ -151,25 +151,23 @@ html:not(.theme-light) .card-hover:hover {
   position: fixed;
   top: 0;
   left: 0;
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
   background: var(--color-terracotta);
   pointer-events: none;
   z-index: 9999;
   transform: translate(-50%, -50%);
-  transition: width 0.25s ease, height 0.25s ease, background 0.25s ease, opacity 0.2s ease;
-  mix-blend-mode: difference;
+  transition: width 0.25s ease, height 0.25s ease, opacity 0.2s ease;
   opacity: 0;
 }
 .custom-cursor.is-active {
-  opacity: 0.85;
+  opacity: 1;
 }
 .custom-cursor.is-hover {
   width: 56px;
   height: 56px;
-  background: var(--color-terracotta);
-  opacity: 0.6;
+  opacity: 0.45;
 }
 /* Quand le custom cursor est actif, masquer le natif sur desktop */
 html.has-custom-cursor,

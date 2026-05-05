@@ -107,28 +107,24 @@ const ogImageUrl = new URL(image, SITE_URL).toString();
 			import { initTextReveal } from "../scripts/textReveal";
 			import { initCounters } from "../scripts/counters";
 
-			// 1. Smooth scroll premium (active dès que le DOM est prêt)
-			initSmoothScroll();
+			// Wrapper défensif : si un init plante, on log et on continue.
+			function safe(label: string, fn: () => void) {
+				try { fn(); } catch (err) { console.error(`[${label}] init failed:`, err); }
+			}
 
-			// 2. Curseur custom (desktop uniquement, désactivé en reduced-motion)
-			initCustomCursor();
+			safe("smoothScroll", initSmoothScroll);
+			safe("customCursor", initCustomCursor);
+			safe("magnetic", initMagnetic);
+			safe("textReveal", initTextReveal);
+			safe("counters", initCounters);
 
-			// 3. Boutons magnétiques (desktop uniquement)
-			initMagnetic();
-
-			// 4. Reveal de titres au scroll
-			initTextReveal();
-
-			// 5. Compteurs animés
-			initCounters();
-
-			// 6. Observer pour animations d'entrée (déjà existant)
+			// Observer pour animations d'entrée — DOIT toujours tourner
 			const observer = new IntersectionObserver(
 				(entries) => {
 					entries.forEach((entry) => {
 						if (entry.isIntersecting) {
 							entry.target.classList.add("is-visible");
-							observer.unobserve(entry.target); // animation une seule fois
+							observer.unobserve(entry.target);
 						}
 					});
 				},

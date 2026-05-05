@@ -9,10 +9,9 @@ export function initCustomCursor(): void {
 	if (typeof window === "undefined") return;
 	if (window.innerWidth < BREAKPOINT) return;
 	if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-	if (!window.matchMedia("(pointer: fine)").matches) return;
 
 	const cursor = document.createElement("div");
-	cursor.className = "custom-cursor";
+	cursor.className = "custom-cursor is-active";
 	document.body.appendChild(cursor);
 	document.documentElement.classList.add("has-custom-cursor");
 
@@ -20,11 +19,11 @@ export function initCustomCursor(): void {
 	let targetY = window.innerHeight / 2;
 	let currentX = targetX;
 	let currentY = targetY;
+	cursor.style.transform = `translate(${currentX}px, ${currentY}px) translate(-50%, -50%)`;
 
 	const onMove = (e: MouseEvent) => {
 		targetX = e.clientX;
 		targetY = e.clientY;
-		if (!cursor.classList.contains("is-active")) cursor.classList.add("is-active");
 	};
 
 	const tick = () => {
@@ -49,12 +48,8 @@ export function initCustomCursor(): void {
 	};
 	bindHovers();
 
-	// MutationObserver pour les éléments ajoutés dynamiquement
 	const mo = new MutationObserver(bindHovers);
 	mo.observe(document.body, { childList: true, subtree: true });
 
 	requestAnimationFrame(tick);
-
-	// Désactiver si l'utilisateur quitte la fenêtre
-	window.addEventListener("blur", () => cursor.classList.remove("is-active"));
 }
