@@ -104,6 +104,7 @@ const ogImageUrl = new URL(image, SITE_URL).toString();
 			import { initSmoothScroll } from "../scripts/smoothScroll";
 			import { initCustomCursor } from "../scripts/cursor";
 			import { initMagnetic } from "../scripts/magnetic";
+			import { initTextReveal } from "../scripts/textReveal";
 
 			// 1. Smooth scroll premium (active dès que le DOM est prêt)
 			initSmoothScroll();
@@ -114,7 +115,10 @@ const ogImageUrl = new URL(image, SITE_URL).toString();
 			// 3. Boutons magnétiques (desktop uniquement)
 			initMagnetic();
 
-			// 4. Observer pour animations d'entrée (déjà existant)
+			// 4. Reveal de titres au scroll
+			initTextReveal();
+
+			// 5. Observer pour animations d'entrée (déjà existant)
 			const observer = new IntersectionObserver(
 				(entries) => {
 					entries.forEach((entry) => {
