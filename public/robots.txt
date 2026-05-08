@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://saibodanfakha.com/sitemap.xml
+
+# Crawl-delay pour éviter la surcharge du serveur
+Crawl-delay: 1
+
+# Interdire l'accès aux fichiers de configuration
+Disallow: /_astro/
+Disallow: /.git/
+Disallow: /node_modules/

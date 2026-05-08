@@ -1,0 +1,26 @@
+{
+  "background_color": "#F5F0E8",
+  "categories": ["business", "design", "technology"],
+  "description": "Développeur web freelance Sénégal. Création de sites web sur-mesure pour entrepreneurs diaspora, PME et ONG. Design web premium, confiance et performance.",
+  "dir": "ltr",
+  "display": "standalone",
+  "icons": [
+    {
+      "purpose": "any maskable",
+      "sizes": "any",
+      "src": "/favicon.svg",
+      "type": "image/svg+xml"
+    },
+    {
+      "sizes": "64x64 32x32 24x24 16x16",
+      "src": "/favicon.ico",
+      "type": "image/x-icon"
+    }
+  ],
+  "lang": "fr",
+  "name": "Saïbo Danfakha — Développeur Web Freelance Sénégal",
+  "orientation": "portrait-primary",
+  "short_name": "Saïbo Danfakha",
+  "start_url": "/",
+  "theme_color": "#C75B4E"
+}

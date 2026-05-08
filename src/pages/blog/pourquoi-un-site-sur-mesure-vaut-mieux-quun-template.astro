@@ -1,0 +1,250 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+const article = {
+	slug: "pourquoi-un-site-sur-mesure-vaut-mieux-quun-template",
+	titre: "Pourquoi un site sur-mesure vaut mieux qu'un template",
+	extrait: "Les coûts cachés des sites templates (Wix, Squarespace) et pourquoi un site sur-mesure est un investissement, pas une dépense.",
+	date: "2026-05-08",
+	tags: ["webdesign", "sur-mesure", "templates", "conseils"],
+	tempsLecture: "6 min",
+};
+---
+
+<Layout
+	title={`${article.titre} — Blog — Saïbo Danfakha`}
+	description={article.extrait}
+>
+	<article class="max-w-3xl mx-auto px-6 py-24 md:py-32">
+		<a href="/blog/" class="inline-flex items-center gap-2 text-sm text-sable-600 hover:text-noir-cafe transition-colors mb-12">
+			<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+				<line x1="19" y1="12" x2="5" y2="12"></line>
+				<polyline points="12 19 5 12 12 5"></polyline>
+			</svg>
+			Retour au blog
+		</a>
+
+		<header class="mb-12">
+			<div class="flex items-center gap-3 text-sm text-sable-600 mb-4">
+				<time datetime={article.date}>
+					{new Date(article.date).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}
+				</time>
+				<span>·</span>
+				<span>{article.tempsLecture} de lecture</span>
+			</div>
+
+			<h1 class="text-4xl md:text-5xl font-semibold leading-tight tracking-tight text-noir-cafe mb-6">
+				{article.titre}
+			</h1>
+
+			<div class="flex flex-wrap gap-2">
+				{article.tags.map((tag) => (
+					<span class="px-2.5 py-1 bg-terracotta/10 text-terracotta rounded-full text-xs">
+						#{tag}
+					</span>
+				))}
+			</div>
+		</header>
+
+		<div class="prose prose-lg prose-noir-cafe max-w-none">
+			<p class="text-xl text-sable-600 mb-8 leading-relaxed">
+				"Pourquoi payer 2000€ pour un site sur-mesure quand je peux avoir un site Wix à 15€/mois ?"
+			</p>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				C'est la question que j'entends le plus souvent. La réponse courte : parce que le "15€/mois" est un mensonge.
+			</p>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Voici les coûts cachés des sites templates et pourquoi un site sur-mesure est souvent moins cher sur le long terme.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Le piège du "site gratuit" ou "pas cher"</h2>
+
+			<h3 class="text-xl font-semibold text-noir-cafe mt-8 mb-4">Wix, Squarespace, WordPress avec template : ce qu'on ne vous dit pas</h3>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				<strong>Coût réel sur 3 ans :</strong>
+			</p>
+
+			<table class="w-full border-collapse border border-sable-300 my-6">
+				<thead>
+					<tr class="bg-sable-100">
+						<th class="border border-sable-300 p-3 text-left text-noir-cafe">Service</th>
+						<th class="border border-sable-300 p-3 text-left text-noir-cafe">Coût affiché</th>
+						<th class="border border-sable-300 p-3 text-left text-noir-cafe">Coût réel sur 3 ans</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="border border-sable-300 p-3 text-sable-600">Wix Premium</td>
+						<td class="border border-sable-300 p-3 text-sable-600">15€/mois</td>
+						<td class="border border-sable-300 p-3 text-sable-600">540€</td>
+					</tr>
+					<tr>
+						<td class="border border-sable-300 p-3 text-sable-600">Template premium</td>
+						<td class="border border-sable-300 p-3 text-sable-600">50-200€</td>
+						<td class="border border-sable-300 p-3 text-sable-600">50-200€</td>
+					</tr>
+					<tr>
+						<td class="border border-sable-300 p-3 text-sable-600">Images stock</td>
+						<td class="border border-sable-300 p-3 text-sable-600">20-50€</td>
+						<td class="border border-sable-300 p-3 text-sable-600">20-50€</td>
+					</tr>
+					<tr>
+						<td class="border border-sable-300 p-3 text-sable-600">Extensions payantes</td>
+						<td class="border border-sable-300 p-3 text-sable-600">10-30€/mois</td>
+						<td class="border border-sable-300 p-3 text-sable-600">360-1080€</td>
+					</tr>
+					<tr class="bg-sable-50">
+						<td class="border border-sable-300 p-3 text-noir-cafe font-semibold"><strong>Total</strong></td>
+						<td class="border border-sable-300 p-3 text-noir-cafe font-semibold"><strong>"Pas cher"</strong></td>
+						<td class="border border-sable-300 p-3 text-noir-cafe font-semibold"><strong>970-1870€</strong></td>
+					</tr>
+				</tbody>
+			</table>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Et ce n'est même pas un site sur-mesure. C'est un site qui ressemble à 10 000 autres.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Les 3 problèmes majeurs des templates</h2>
+
+			<h3 class="text-xl font-semibold text-noir-cafe mt-8 mb-4">1. Vous êtes limité par le template</h3>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Un template, c'est comme une maison préfabriquée. Vous pouvez changer la couleur des murs, mais vous ne pouvez pas :
+			</p>
+
+			<ul class="list-disc pl-6 text-sable-600 mb-6 space-y-2">
+				<li>Déplacer une pièce</li>
+				<li>Changer la structure</li>
+				<li>Ajouter une fonctionnalité spécifique à votre business</li>
+			</ul>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Résultat : votre business s'adapte au template, pas l'inverse.
+			</p>
+
+			<h3 class="text-xl font-semibold text-noir-cafe mt-8 mb-4">2. Le design générique tue la confiance</h3>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Un visiteur qui voit votre site template pense immédiatement :
+			</p>
+
+			<ul class="list-disc pl-6 text-sable-600 mb-6 space-y-2">
+				<li>"C'est une entreprise sérieuse ou un amateur ?"</li>
+				<li>"Pourquoi ils n'ont pas investi dans leur image ?"</li>
+				<li>"Est-ce que je peux leur faire confiance ?"</li>
+			</ul>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Dans un monde où tout se joue en 3 secondes, un design générique = clients perdus.
+			</p>
+
+			<h3 class="text-xl font-semibold text-noir-cafe mt-8 mb-4">3. Vous êtes prisonnier de la plateforme</h3>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Avec Wix ou Squarespace :
+			</p>
+
+			<ul class="list-disc pl-6 text-sable-600 mb-6 space-y-2">
+				<li>Vous ne possédez rien</li>
+				<li>Vous ne pouvez pas migrer facilement</li>
+				<li>Vous êtes à la merci de leurs hausses de prix</li>
+				<li>Vous ne pouvez pas ajouter des fonctionnalités avancées</li>
+			</ul>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Un jour, vous voudrez quelque chose que la plateforme ne permet pas. Et là, c'est trop tard.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Quand un template suffit (et quand il ne suffit pas)</h2>
+
+			<h3 class="text-xl font-semibold text-noir-cafe mt-8 mb-4">Un template peut suffire si :</h3>
+
+			<ul class="list-disc pl-6 text-sable-600 mb-6 space-y-2">
+				<li>✅ Vous avez un budget très limité (< 500€)</li>
+				<li>✅ Votre business est simple (pas de fonctionnalités complexes)</li>
+				<li>✅ Vous n'avez pas besoin de vous différencier</li>
+				<li>✅ Vous acceptez d'avoir un site "comme les autres"</li>
+			</ul>
+
+			<h3 class="text-xl font-semibold text-noir-cafe mt-8 mb-4">Un sur-mesure est nécessaire si :</h3>
+
+			<ul class="list-disc pl-6 text-sable-600 mb-6 space-y-2">
+				<li>✅ Vous voulez vous différencier de vos concurrents</li>
+				<li>✅ Vous avez des fonctionnalités spécifiques (réservation, e-commerce, CRM)</li>
+				<li>✅ Vous voulez un design qui reflète votre marque</li>
+				<li>✅ Vous voulez posséder votre site et pouvoir l'évoluer</li>
+			</ul>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Le vrai calcul du ROI</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Prenons un exemple concret :
+			</p>
+
+			<div class="bg-sable-100 border border-sable-300 rounded-lg p-6 my-6">
+				<h4 class="font-semibold text-noir-cafe mb-4">Site template (Wix) :</h4>
+				<ul class="list-disc pl-6 text-sable-600 space-y-2">
+					<li>Coût sur 3 ans : ~1500€</li>
+					<li>Taux de conversion : 1%</li>
+					<li>Chiffre d'affaires généré : 10 000€</li>
+				</ul>
+			</div>
+
+			<div class="bg-terracotta/10 border border-terracotta/30 rounded-lg p-6 my-6">
+				<h4 class="font-semibold text-noir-cafe mb-4">Site sur-mesure :</h4>
+				<ul class="list-disc pl-6 text-sable-600 space-y-2">
+					<li>Coût sur 3 ans : 2500€ (1000€ + 0€/mois)</li>
+					<li>Taux de conversion : 3% (design premium, confiance)</li>
+					<li>Chiffre d'affaires généré : 30 000€</li>
+				</ul>
+			</div>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				<strong>Différence :</strong> +20 000€ de CA pour 1000€ de plus.
+			</p>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Le site sur-mesure n'est pas une dépense. C'est un investissement.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">En résumé</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Les sites templates ont leur place pour les projets simples avec budget limité. Mais pour un business qui veut :
+			</p>
+
+			<ul class="list-disc pl-6 text-sable-600 mb-6 space-y-2">
+				<li>Se différencier</li>
+				<li>Convertir mieux</li>
+				<li>Évoluer sans contraintes</li>
+				<li>Posséder son outil</li>
+			</ul>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Le sur-mesure est souvent moins cher sur le long terme.
+			</p>
+
+			<hr class="my-12 border-sable-300" />
+
+			<div class="bg-terracotta/10 border border-terracotta/30 rounded-xl p-6">
+				<h3 class="text-lg font-semibold text-noir-cafe mb-3">
+					Vous voulez un site sur-mesure qui convertit ?
+				</h3>
+				<p class="text-sable-600 mb-4">
+					Je crée des sites premium pour entrepreneurs et PME, avec un design unique et des fonctionnalités adaptées à votre business.
+				</p>
+				<a href="/#contact" class="inline-flex items-center gap-2 bg-noir-cafe text-creme px-6 py-3 rounded-md font-medium hover:bg-terracotta transition-colors">
+					Me contacter
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+						<line x1="5" y1="12" x2="19" y2="12"></line>
+						<polyline points="12 5 19 12 12 19"></polyline>
+					</svg>
+				</a>
+			</div>
+		</div>
+	</article>
+</Layout>

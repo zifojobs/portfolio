@@ -12,7 +12,7 @@ interface Props {
 const SITE_URL = "https://saibodanfakha.com";
 const {
 	title = "Saïbo Danfakha — Sites web premium pour entrepreneurs & institutions",
-	description = "Designer et développeur web freelance basé au Sénégal. Sites premium sur-mesure pour entrepreneurs, PME et institutions au Sénégal, en Afrique et à l'international — clients francophones et anglophones.",
+	description = "Développeur web freelance Sénégal. Création de sites web sur-mesure pour entrepreneurs diaspora, PME et ONG. Design web premium, confiance et performance.",
 	image = "/og-image.jpg",
 } = Astro.props;
 
@@ -26,11 +26,16 @@ const ogImageUrl = new URL(image, SITE_URL).toString();
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="generator" content={Astro.generator} />
+		<meta name="google-site-verification" content="VeRzKfcCtLeD01MgzAiy6-YMu9kggyFKzA91nTTslAI" />
 		<title>{title}</title>
 		<meta name="description" content={description} />
 		<meta name="author" content="Saïbo Danfakha" />
-		<meta name="keywords" content="développeur web, designer web, freelance, Sénégal, site web premium, Astro, sur-mesure, Afrique de l'Ouest, international, francophone, anglophone, web developer Senegal" />
 		<link rel="canonical" href={canonicalUrl} />
+
+		<!-- Hreflang pour contenu bilingue FR/EN -->
+		<link rel="alternate" hreflang="fr" href={canonicalUrl} />
+		<link rel="alternate" hreflang="en" href={canonicalUrl} />
+		<link rel="alternate" hreflang="x-default" href={canonicalUrl} />
 
 		<!-- Script région + thème : appliqué AVANT le rendu pour éviter le flash de contenu -->
 		<script is:inline>
@@ -71,13 +76,47 @@ const ogImageUrl = new URL(image, SITE_URL).toString();
 		<!-- Schema.org (référencement) -->
 		<script type="application/ld+json" set:html={JSON.stringify({
 			"@context": "https://schema.org",
-			"@type": "Person",
+			"@type": "ProfessionalService",
 			"name": "Saïbo Danfakha",
-			"jobTitle": "Designer & développeur web freelance",
+			"image": ogImageUrl,
+			"description": description,
 			"url": SITE_URL,
-			"email": "zifo1819@gmail.com",
 			"telephone": "+221775277164",
-			"address": { "@type": "PostalAddress", "addressCountry": "SN" },
+			"email": "zifo1819@gmail.com",
+			"address": {
+				"@type": "PostalAddress",
+				"addressCountry": "SN",
+				"addressLocality": "Dakar"
+			},
+			"geo": {
+				"@type": "GeoCoordinates",
+				"latitude": "14.7167",
+				"longitude": "-17.4677"
+			},
+			"openingHoursSpecification": {
+				"@type": "OpeningHoursSpecification",
+				"dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+				"opens": "09:00",
+				"closes": "19:00"
+			},
+			"priceRange": "€€€",
+			"areaServed": ["SN", "FR", "CA", "US", "GB"],
+			"availableLanguage": ["French", "English"],
+			"serviceType": [
+				"Web Design",
+				"Web Development",
+				"UI/UX Design",
+				"SEO Services"
+			],
+			"founder": {
+				"@type": "Person",
+				"name": "Saïbo Danfakha",
+				"jobTitle": "Designer & développeur web freelance",
+				"sameAs": [
+					"https://www.linkedin.com/in/saibodanfakha/",
+					"https://www.instagram.com/zira1819/"
+				]
+			},
 			"sameAs": [
 				"https://www.linkedin.com/in/saibodanfakha/",
 				"https://www.instagram.com/zira1819/"

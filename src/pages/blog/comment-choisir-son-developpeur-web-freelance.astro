@@ -1,0 +1,201 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+const article = {
+	slug: "comment-choisir-son-developpeur-web-freelance",
+	titre: "Comment choisir son développeur web freelance",
+	extrait: "Les 5 critères essentiels pour trouver un développeur web freelance fiable et éviter les mauvaises surprises.",
+	date: "2026-05-08",
+	tags: ["freelance", "webdesign", "conseils"],
+	tempsLecture: "5 min",
+};
+---
+
+<Layout
+	title={`${article.titre} — Blog — Saïbo Danfakha`}
+	description={article.extrait}
+>
+	<article class="max-w-3xl mx-auto px-6 py-24 md:py-32">
+		<a href="/blog/" class="inline-flex items-center gap-2 text-sm text-sable-600 hover:text-noir-cafe transition-colors mb-12">
+			<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+				<line x1="19" y1="12" x2="5" y2="12"></line>
+				<polyline points="12 19 5 12 12 5"></polyline>
+			</svg>
+			Retour au blog
+		</a>
+
+		<header class="mb-12">
+			<div class="flex items-center gap-3 text-sm text-sable-600 mb-4">
+				<time datetime={article.date}>
+					{new Date(article.date).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}
+				</time>
+				<span>·</span>
+				<span>{article.tempsLecture} de lecture</span>
+			</div>
+
+			<h1 class="text-4xl md:text-5xl font-semibold leading-tight tracking-tight text-noir-cafe mb-6">
+				{article.titre}
+			</h1>
+
+			<div class="flex flex-wrap gap-2">
+				{article.tags.map((tag) => (
+					<span class="px-2.5 py-1 bg-terracotta/10 text-terracotta rounded-full text-xs">
+						#{tag}
+					</span>
+				))}
+			</div>
+		</header>
+
+		<div class="prose prose-lg prose-noir-cafe max-w-none">
+			<p class="text-xl text-sable-600 mb-8 leading-relaxed">
+				Vous avez décidé de créer ou refaire votre site web. Vous cherchez un développeur freelance, mais vous ne savez pas comment faire le bon choix. C'est normal.
+			</p>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Un mauvais choix peut coûter cher : site livré en retard, design générique, bugs qui ne s'arrêtent jamais, développeur fantôme après paiement.
+			</p>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Voici 5 critères concrets pour choisir un développeur freelance qui vous fera gagner du temps, pas des cheveux blancs.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">1. Regardez ses réalisations, pas ses promesses</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Un portfolio vide ou avec des projets "fictifs" ? Fuyez.
+			</p>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Ce qui compte, ce sont les sites <strong>réels</strong> livrés à des clients. Cherchez :
+			</p>
+
+			<ul class="list-disc pl-6 text-sable-600 mb-6 space-y-2">
+				<li>Des sites en ligne que vous pouvez visiter</li>
+				<li>Des projets variés (pas que des sites de restaurants)</li>
+				<li>Des designs qui ont du caractère (pas des templates Wix déguisés)</li>
+			</ul>
+
+			<div class="bg-sable-100 border border-sable-300 rounded-lg p-4 my-6">
+				<p class="text-sm text-noir-cafe font-medium mb-1">Question à poser :</p>
+				<p class="text-sm text-sable-600">"Montrez-moi 3 sites que vous avez livrés à des clients réels."</p>
+			</div>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">2. Vérifiez la communication avant de signer</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Un développeur qui ne répond pas à vos messages dans les 24h avant le projet ? Il sera pire après.
+			</p>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				La communication est le #1 cause d'échec des projets web. Cherchez :
+			</p>
+
+			<ul class="list-disc pl-6 text-sable-600 mb-6 space-y-2">
+				<li>Réponses claires à vos questions (pas de jargon incompréhensible)</li>
+				<li>Disponibilité régulière (pas "je suis en voyage pendant 2 semaines")</li>
+				<li>Honnêteté sur les délais (pas "c'est prêt demain" pour vous faire plaisir)</li>
+			</ul>
+
+			<div class="bg-sable-100 border border-sable-300 rounded-lg p-4 my-6">
+				<p class="text-sm text-noir-cafe font-medium mb-1">Question à poser :</p>
+				<p class="text-sm text-sable-600">"Comment communiquez-vous pendant un projet ? À quelle fréquence ?"</p>
+			</div>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">3. Demandez des références (et contactez-les)</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Un développeur qui refuse de vous donner des références ? C'est suspect.
+			</p>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Les références vous disent ce que le portfolio ne peut pas :
+			</p>
+
+			<ul class="list-disc pl-6 text-sable-600 mb-6 space-y-2">
+				<li>Respecte-t-il les délais ?</li>
+				<li>Est-il réactif aux demandes de modification ?</li>
+				<li>Le site tient-il dans le temps (pas de bugs 6 mois après) ?</li>
+			</ul>
+
+			<div class="bg-sable-100 border border-sable-300 rounded-lg p-4 my-6">
+				<p class="text-sm text-noir-cafe font-medium mb-1">Question à poser :</p>
+				<p class="text-sm text-sable-600">"Pouvez-vous me donner 2-3 clients que je peux contacter ?"</p>
+			</div>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">4. Comprenez ce qui est inclus dans le prix</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Un prix bas peut cacher des coûts cachés. Demandez clairement :
+			</p>
+
+			<ul class="list-disc pl-6 text-sable-600 mb-6 space-y-2">
+				<li>Le design est-il inclus ou en supplément ?</li>
+				<li>Les images sont-elles fournies ou vous devez les acheter ?</li>
+				<li>Le responsive mobile est-il inclus ?</li>
+				<li>Y a-t-il des frais mensuels après la livraison ?</li>
+			</ul>
+
+			<div class="bg-sable-100 border border-sable-300 rounded-lg p-4 my-6">
+				<p class="text-sm text-noir-cafe font-medium mb-1">Question à poser :</p>
+				<p class="text-sm text-sable-600">"Qu'est-ce qui est inclus dans ce prix ? Y a-t-il des coûts supplémentaires ?"</p>
+			</div>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">5. Vérifiez l'après-vente</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Un site web, ce n'est pas "livré et oublié". Vous aurez besoin de :
+			</p>
+
+			<ul class="list-disc pl-6 text-sable-600 mb-6 space-y-2">
+				<li>Corrections mineures (texte, image)</li>
+				<li>Mises à jour de sécurité</li>
+				<li>Support technique si quelque chose casse</li>
+			</ul>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Un développeur qui disparaît après la livraison ? Ce n'est pas un partenaire, c'est un prestataire à la va-comme-je-te.
+			</p>
+
+			<div class="bg-sable-100 border border-sable-300 rounded-lg p-4 my-6">
+				<p class="text-sm text-noir-cafe font-medium mb-1">Question à poser :</p>
+				<p class="text-sm text-sable-600">"Que se passe-t-il après la livraison ? Y a-t-il un support ?"</p>
+			</div>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">En résumé</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Choisir un développeur freelance, c'est comme choisir un partenaire d'affaires. Regardez :
+			</p>
+
+			<ul class="list-disc pl-6 text-sable-600 mb-6 space-y-2">
+				<li>✅ Ses réalisations réelles</li>
+				<li>✅ Sa communication</li>
+				<li>✅ Ses références</li>
+				<li>✅ La clarté de son prix</li>
+				<li>✅ Son engagement après-vente</li>
+			</ul>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Un développeur qui coche ces 5 cases ? Vous avez trouvé quelqu'un de fiable.
+			</p>
+
+			<hr class="my-12 border-sable-300" />
+
+			<div class="bg-terracotta/10 border border-terracotta/30 rounded-xl p-6">
+				<h3 class="text-lg font-semibold text-noir-cafe mb-3">
+					Vous cherchez un développeur freelance pour votre projet ?
+				</h3>
+				<p class="text-sable-600 mb-4">
+					Je livre des sites premium pour entrepreneurs et PME, avec une communication claire et un engagement sur le long terme.
+				</p>
+				<a href="/#contact" class="inline-flex items-center gap-2 bg-noir-cafe text-creme px-6 py-3 rounded-md font-medium hover:bg-terracotta transition-colors">
+					Me contacter
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+						<line x1="5" y1="12" x2="19" y2="12"></line>
+						<polyline points="12 5 19 12 12 19"></polyline>
+					</svg>
+				</a>
+			</div>
+		</div>
+	</article>
+</Layout>
