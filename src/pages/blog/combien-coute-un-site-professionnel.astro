@@ -1,0 +1,65 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+const article = {
+	slug: "combien-coute-un-site-professionnel",
+	titre: "Combien coûte vraiment un site web professionnel en 2026 ?",
+	extrait: "Décodage des prix : de 1000€ à 50 000€. Les facteurs qui influencent le coût et comment bien négocier avec un développeur.",
+	date: "2026-06-02",
+	tags: ["budget", "webdesign", "sur-mesure"],
+	tempsLecture: "7 min",
+	draft: true,
+};
+---
+
+<Layout
+	title={`${article.titre} — Blog — Saïbo Danfakha`}
+	description={article.extrait}
+>
+	<article class="max-w-3xl mx-auto px-6 py-24 md:py-32">
+		<a href="/blog/" class="inline-flex items-center gap-2 text-sm text-sable-600 hover:text-noir-cafe transition-colors mb-12">
+			<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+				<line x1="19" y1="12" x2="5" y2="12"></line>
+				<polyline points="12 19 5 12 12 5"></polyline>
+			</svg>
+			Retour au blog
+		</a>
+
+		<header class="mb-12">
+			<div class="flex items-center gap-3 text-sm text-sable-600 mb-4">
+				<time datetime={article.date}>
+					{new Date(article.date).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}
+				</time>
+				<span>·</span>
+				<span>{article.tempsLecture} de lecture</span>
+			</div>
+
+			<h1 class="text-4xl md:text-5xl font-semibold leading-tight tracking-tight text-noir-cafe mb-6">
+				{article.titre}
+			</h1>
+
+			<div class="flex flex-wrap gap-2">
+				{article.tags.map((tag) => (
+					<span class="px-2.5 py-1 bg-terracotta/10 text-terracotta rounded-full text-xs">
+						#{tag}
+					</span>
+				))}
+			</div>
+		</header>
+
+		<figure class="mb-12 -mx-6 md:mx-0">
+			<img
+				src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=630&fit=crop&auto=format&q=80"
+				alt="Tableau de bord avec graphiques — calcul de budget web"
+				loading="eager"
+				class="w-full aspect-[16/9] object-cover md:rounded-xl"
+			/>
+		</figure>
+
+		<div class="prose prose-lg prose-noir-cafe max-w-none">
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				À rédiger : contenu complet de l'article sur les coûts des sites web professionnels.
+			</p>
+		</div>
+	</article>
+</Layout>

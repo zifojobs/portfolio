@@ -1,0 +1,45 @@
+name: Publish Blog Articles
+
+on:
+  schedule:
+    # Every Tuesday at 09:00 UTC (= 09:00 Africa/Dakar)
+    - cron: '0 9 * * 2'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Publish scheduled articles
+        run: node scripts/publish-articles.js
+        env:
+          PUBLISH_DATE: ${{ github.event.repository.updated_at || github.event.schedule }}
+
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Actions"
+
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "No articles to publish"
+            exit 0
+          fi
+
+          git add src/pages/blog/*.astro src/pages/blog/index.astro
+          git commit -m "✅ Publish blog articles (scheduled)"
+          git push origin main
