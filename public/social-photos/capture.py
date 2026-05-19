@@ -13,6 +13,8 @@ files = [
     {"html": "article2-instagram-post.html", "width": 1080, "height": 1080},
     {"html": "article2-linkedin-post.html", "width": 1200, "height": 627},
     {"html": "article2-whatsapp-status.html", "width": 1080, "height": 1920},
+    {"html": "article3-instagram-post.html", "width": 1080, "height": 1080},
+    {"html": "article3-whatsapp-status.html", "width": 1080, "height": 1920},
 ]
 
 script_dir = os.path.dirname(os.path.abspath(__file__))

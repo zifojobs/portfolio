@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr"><head><meta charset="UTF-8"><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { width: 1080px; height: 1080px; overflow: hidden; font-family: 'Inter', sans-serif; }
+.canvas { width: 1080px; height: 1080px; position: relative; background: linear-gradient(135deg, #FEF3E2 0%, #FAF6EE 100%); display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 80px; }
+.badge { position: absolute; top: 60px; left: 60px; background: #C2410C; color: #FEF3E2; padding: 12px 24px; border-radius: 30px; font-size: 14px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; }
+.content { text-align: center; max-width: 880px; }
+.number { font-family: 'Fraunces', serif; font-size: 160px; font-weight: 600; color: #C2410C; line-height: 1; margin-bottom: 20px; }
+.title { font-family: 'Fraunces', serif; font-size: 44px; font-weight: 600; color: #2A1810; line-height: 1.2; margin-bottom: 24px; letter-spacing: -0.02em; }
+.subtitle-row { display: flex; align-items: center; justify-content: center; gap: 18px; margin-bottom: 14px; }
+.subtitle-price { font-family: 'Fraunces', serif; font-size: 32px; font-weight: 600; color: #C2410C; letter-spacing: -0.01em; }
+.subtitle-sep { font-size: 32px; color: #7A6F5A; }
+.subtitle-note { font-size: 18px; color: #7A6F5A; }
+.content-tranche { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.prices { display: flex; flex-direction: column; align-items: center; gap: 4px; margin-bottom: 12px; }
+.price-fcfa, .price-eur { font-family: 'Fraunces', serif; font-size: 72px; font-weight: 700; line-height: 1.05; letter-spacing: -0.02em; white-space: nowrap; }
+.price-fcfa.highlight, .price-eur.highlight { font-size: 82px; }
+.label { font-family: 'Fraunces', serif; font-size: 40px; font-weight: 600; color: #2A1810; margin-bottom: 6px; margin-top: 12px; }
+.warning { font-size: 20px; color: #7A6F5A; margin-bottom: 36px; font-style: italic; }
+.points { display: flex; flex-direction: column; gap: 14px; align-items: flex-start; max-width: 700px; margin: 0 auto; }
+.point { display: flex; align-items: flex-start; gap: 16px; text-align: left; }
+.point span { font-size: 22px; color: #2A1810; line-height: 1.4; font-weight: 500; }
+.point svg { flex-shrink: 0; margin-top: 4px; }
+.content-cta { display: flex; flex-direction: column; align-items: center; gap: 16px; }
+.cta-headline { font-family: 'Fraunces', serif; font-size: 48px; font-weight: 600; color: #2A1810; letter-spacing: -0.02em; }
+.cta-subhead { font-size: 28px; color: #7A6F5A; margin-bottom: 16px; }
+.cta-url { font-family: 'Fraunces', serif; font-size: 56px; font-weight: 700; color: #C2410C; letter-spacing: -0.02em; margin-bottom: 30px; }
+.arrow-icon { margin-top: 10px; }
+.swipe { position: absolute; bottom: 60px; left: 60px; font-size: 16px; color: #7A6F5A; font-weight: 600; letter-spacing: 0.05em; }
+.pagination { position: absolute; bottom: 60px; left: 60px; font-size: 16px; color: #7A6F5A; font-weight: 600; letter-spacing: 0.05em; }
+.brand { position: absolute; bottom: 60px; right: 60px; font-family: 'Fraunces', serif; font-size: 20px; font-weight: 600; color: #2A1810; letter-spacing: -0.02em; }
+</style></head>
+<body><div class="canvas">
+        <div class="badge">Article 03</div>
+        <div class="content content-cta">
+            <div class="cta-headline">Pour lire l'article complet,</div>
+            <div class="cta-subhead">rendez-vous sur</div>
+            <div class="cta-url">saibodanfakha.com/blog</div>
+            <svg class="arrow-icon" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+        </div>
+        <div class="brand">Saïbo Danfakha</div>
+        </div></body></html>
