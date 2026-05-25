@@ -4,221 +4,379 @@ import LayoutYahdi from "../layouts/LayoutYahdi.astro";
 const niveaux = [
 	{
 		numero: "01",
-		titre: "Apprendre l'arabe à partir de 0",
-		description: "Commence ton voyage avec la méthode Al-Qaa'ida An-Nouraniyyah. Tu apprendras à reconnaître et prononcer chaque lettre correctement.",
+		titre: "Débuts — Al-Qaa'ida",
+		description: "Reconnais et prononce chaque lettre du Coran avec confiance.",
 		sousPoints: [
-			"Reconnaître et prononcer chaque lettre",
-			"Lire des mots du Coran en peu de temps",
-			"Te familiariser avec les versets du livre d'Allah dès les premiers jours",
+			"Alphabet arabe complet",
+			"Prononcer correctement",
+			"Lire les premiers versets",
 		],
-		tagline: "Lis le Coran avec confiance et douceur, pas à pas.",
+		tagline: "Lis le Coran avec confiance, pas à pas.",
 	},
 	{
 		numero: "02",
-		titre: "Fondamentaux de la grammaire arabe",
-		description: "Entre dans la structure du langage du Coran. Maîtrise les fondements de la grammaire en identifiant les éléments essentiels d'une phrase coranique.",
+		titre: "Grammaire — An-Nahw",
+		description: "Comprends la structure du Coran et ses éléments essentiels.",
 		sousPoints: [
-			"Maîtriser les fondements de la grammaire",
-			"Identifier les éléments essentiels d'une phrase coranique",
-			"Analyser des versets simples et comprendre leur sens",
+			"Fondements grammaticaux",
+			"Éléments de phrase coranique",
+			"Analyse de versets simples",
 		],
-		tagline: "Parce que chaque mot du Qur'an a une sagesse, et chaque structure a un secret.",
-		bonus: "Étude grammaticale complète de la sourate AL FAATIHA",
+		tagline: "Chaque structure a un secret.",
+		bonus: "Étude complète de Sourate AL FAATIHA",
 	},
 	{
 		numero: "03",
-		titre: "Morphologie des mots (As-Sarf)",
-		description: "Plonge dans la puissance linguistique du Coran. Comprends la racine des mots arabes et découvre comment les sens se transforment selon les formes.",
+		titre: "Morphologie — As-Sarf",
+		description: "Découvre les racines des mots et comment les sens se transforment.",
 		sousPoints: [
-			"Comprendre la racine des mots arabes",
-			"Découvrir comment les sens se transforment selon les formes",
-			"Conjuguer parfaitement en arabe",
+			"Racines arabes",
+			"Formes et sens variables",
+			"Conjugaison parfaite",
 		],
-		tagline: "Tu ne liras plus les mots, tu les ressentiras et tu les comprendras.",
+		tagline: "Tu ressentiras chaque mot.",
 	},
 	{
 		numero: "04",
-		titre: "Grammaire et structures avancées",
-		description: "Atteins le niveau où le Coran s'ouvre devant toi. Comprends les structures complexes et analyse approfondie des versets.",
+		titre: "Avancé — Tafsil",
+		description: "Le Coran s'ouvre devant toi. Structures complexes, analyse profonde.",
 		sousPoints: [
-			"Comprendre les structures complexes du Coran",
-			"Analyse approfondie des versets",
-			"Lecture consciente, réfléchie et spirituelle",
+			"Structures complexes",
+			"Analyse des versets",
+			"Lecture consciente et spirituelle",
 		],
-		tagline: "Chaque verset deviendra une lumière et une certitude dans ton cœur.",
+		tagline: "Chaque verset, une lumière.",
 	},
 ];
 ---
 
 <style>
-	:root {
-		--or: #D4AF37;
-		--or-fonce: #B8860B;
-		--rouge: #C41E3A;
-		--rouge-clair: #E8B4B8;
-		--blanc-creme: #F9F7F3;
-		--gris-clair: #E8E6E1;
-		--noir-texte: #2B2B2B;
-		--noir-cafe: #1a1a1a;
+	/* Hero animation */
+	.hero-word {
+		display: inline-block;
+		overflow: hidden;
 	}
 
-	body {
-		background-color: var(--noir-cafe);
-		color: var(--blanc-creme);
-		font-family: "Crimson Text", "Georgia", serif;
+	.hero-blur {
+		position: absolute;
+		pointer-events: none;
 	}
 
-	.pattern-geometric {
-		background-image:
-			linear-gradient(45deg, transparent 48%, rgba(212, 175, 55, 0.05) 49%, rgba(212, 175, 55, 0.05) 51%, transparent 52%),
-			linear-gradient(-45deg, transparent 48%, rgba(212, 175, 55, 0.05) 49%, rgba(212, 175, 55, 0.05) 51%, transparent 52%);
-		background-size: 30px 30px;
-		background-position: 0 0, 15px 15px;
-		background-repeat: repeat;
+	.hero-blur-1 {
+		width: 400px;
+		height: 400px;
+		border-radius: 50%;
+		background: radial-gradient(circle, rgba(212, 175, 55, 0.06) 0%, transparent 70%);
+		filter: blur(80px);
+		top: 10%;
+		right: -10%;
 	}
 
-	.accent-or {
-		color: var(--or);
+	.hero-blur-2 {
+		width: 350px;
+		height: 350px;
+		border-radius: 50%;
+		background: radial-gradient(circle, rgba(196, 30, 58, 0.06) 0%, transparent 70%);
+		filter: blur(80px);
+		bottom: 5%;
+		left: -5%;
 	}
 
-	.accent-rouge {
-		color: var(--rouge);
+	/* Grid 2x2 pour les niveaux */
+	.levels-grid {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 2rem;
 	}
 
-	.border-or {
-		border-color: var(--or);
+	@media (min-width: 768px) {
+		.levels-grid {
+			grid-template-columns: repeat(2, 1fr);
+		}
 	}
 
-	.bg-or {
-		background-color: var(--or);
+	/* Card premium */
+	.level-card {
+		background-color: #111111;
+		border: 1px solid rgba(212, 175, 55, 0.08);
+		padding: 2.5rem;
+		position: relative;
+		overflow: hidden;
+		transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 	}
 
-	.bg-rouge {
-		background-color: var(--rouge);
+	.level-card:hover {
+		transform: translateY(-4px) scale(1.005);
+		box-shadow: 0 20px 40px rgba(212, 175, 55, 0.12);
 	}
 
-	.hover-shine:hover {
-		text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+	.level-number {
+		font-family: "Fraunces", Georgia, serif;
+		font-size: 3.5rem;
+		font-weight: 700;
+		color: #D4AF37;
+		opacity: 0.6;
+		text-align: right;
+		margin-bottom: 1rem;
+		line-height: 1;
+	}
+
+	.level-title {
+		font-family: "Fraunces", Georgia, serif;
+		font-size: 1.25rem;
+		font-weight: 600;
+		color: #F5F0E8;
+		margin-bottom: 0.75rem;
+	}
+
+	.level-points {
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+		margin: 1.5rem 0;
+	}
+
+	.level-point {
+		display: flex;
+		gap: 0.75rem;
+		color: #9CA3AF;
+		font-size: 0.95rem;
+		line-height: 1.5;
+	}
+
+	.level-point-icon {
+		color: #D4AF37;
+		font-weight: bold;
+		flex-shrink: 0;
+		margin-top: 0.125rem;
+	}
+
+	.level-tagline {
+		font-family: "Crimson Text", Georgia, serif;
+		font-style: italic;
+		color: #6B7280;
+		margin-top: 1rem;
+		padding-left: 1rem;
+		border-left: 2px solid rgba(196, 30, 58, 0.3);
+		font-size: 0.95rem;
+	}
+
+	.level-bonus {
+		margin-top: 1rem;
+		padding: 0.875rem;
+		background-color: rgba(212, 175, 55, 0.08);
+		border-left: 2px solid #D4AF37;
+		font-size: 0.85rem;
+	}
+
+	.level-bonus-label {
+		color: #D4AF37;
+		font-weight: 600;
+	}
+
+	.level-bonus-text {
+		color: #F5F0E8;
+	}
+
+	/* Stats */
+	.stats-section {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 2rem;
+	}
+
+	@media (min-width: 768px) {
+		.stats-section {
+			grid-template-columns: repeat(3, 1fr);
+		}
+	}
+
+	.stat-block {
+		text-align: center;
+		border-top: 4px solid #D4AF37;
+		padding-top: 2rem;
+	}
+
+	.stat-number {
+		font-family: "Fraunces", Georgia, serif;
+		font-size: 3rem;
+		@media (min-width: 768px) {
+			font-size: 3.75rem;
+		}
+		font-weight: 700;
+		color: #D4AF37;
+		line-height: 1;
+		margin-bottom: 0.5rem;
+	}
+
+	.stat-label {
+		font-size: 0.875rem;
+		color: #9CA3AF;
+	}
+
+	/* Bouton CTA premium */
+	.cta-button {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		padding: 1.25rem 2rem;
+		background-color: #D4AF37;
+		color: #0a0a0a;
+		font-weight: 600;
+		font-size: 1rem;
+		border: none;
+		cursor: pointer;
+		transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+	}
+
+	.cta-button:hover {
+		box-shadow: 0 0 40px rgba(212, 175, 55, 0.3);
+		transform: translateY(-2px);
 	}
 </style>
 
-<LayoutYahdi title="Programme Rêve — Apprendre l'arabe du Coran | Yahdi Qalbah" description="Cours d'arabe en ligne, méthode progressive du Programme Rêve. 4 niveaux du zéro au niveau avancé avec une approche spirituelle.">
-	<!-- Hero Section — Spirituel et calme -->
-	<section class="relative py-24 md:py-40 overflow-hidden">
-		<div class="absolute inset-0 opacity-10 pattern-geometric"></div>
-		<div class="absolute top-20 right-0 w-96 h-96 rounded-full bg-or/5 blur-3xl -mr-48"></div>
-		<div class="absolute bottom-0 left-0 w-72 h-72 rounded-full bg-rouge/5 blur-3xl -ml-36"></div>
+<LayoutYahdi
+	title="Programme Rêve — Apprendre l'arabe du Coran | Yahdi Qalbah"
+	description="Cours d'arabe en ligne, méthode progressive du Programme Rêve. 4 niveaux du zéro au niveau avancé avec une approche spirituelle."
+>
+	<!-- Hero Section -->
+	<section style="background-color: #0a0a0a; position: relative; padding: 6rem 1.5rem; overflow: hidden;">
+		<!-- Background blurs -->
+		<div class="hero-blur hero-blur-1"></div>
+		<div class="hero-blur hero-blur-2"></div>
 
-		<div class="relative max-w-5xl mx-auto px-6 text-center">
-			<!-- Logo Yahdi Qalbah -->
-			<div class="mb-12 flex justify-center">
-				<img src="/yahdi-logo.png" alt="Yahdi Qalbah Institute" class="h-16 md:h-20" />
+		<div style="max-width: 56rem; margin: 0 auto; position: relative; text-align: center;">
+			<!-- Badge -->
+			<div
+				data-animate
+				style="display: inline-block; background-color: rgba(212, 175, 55, 0.1); border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 9999px; padding: 0.5rem 1rem; margin-bottom: 2rem; color: #D4AF37; font-size: 0.875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;"
+			>
+				Programme Rêve
 			</div>
 
-			<!-- Titre principal -->
-			<h1 class="text-5xl md:text-7xl font-serif font-semibold mb-6 accent-or leading-tight hover-shine transition-all duration-300">
-				Apprendre l'arabe du Coran
+			<!-- H1 with hero words -->
+			<h1
+				style="font-family: 'Fraunces', Georgia, serif; font-size: 3.75rem; @media(min-width: 768px) { font-size: 4.5rem; } @media(min-width: 1024px) { font-size: 5rem; } font-weight: 600; line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 1.5rem;"
+			>
+				<div style="overflow: hidden; display: inline;">
+					<span class="hero-word" style="color: #F5F0E8;">Apprendre</span>
+				</div>
+				<div style="overflow: hidden; display: inline;">
+					<span class="hero-word" style="color: #F5F0E8;">l'arabe</span>
+				</div>
+				<br />
+				<div style="overflow: hidden; display: inline;">
+					<span class="hero-word" style="color: #D4AF37; font-style: italic;">du Coran</span>
+				</div>
 			</h1>
 
-			<!-- Sous-titre spirituel -->
-			<p class="text-lg md:text-xl text-sable-300 font-serif italic mb-8 max-w-3xl mx-auto leading-relaxed">
-				Un voyage progressif vers la compréhension profonde du Qur'an, guidé par la méthode du Programme Rêve.
+			<!-- Subtitle -->
+			<p
+				data-animate
+				style="font-family: 'Crimson Text', Georgia, serif; font-style: italic; font-size: 1.125rem; color: #9CA3AF; margin-bottom: 2rem; max-width: 42rem; margin-left: auto; margin-right: auto;"
+			>
+				Un voyage progressif vers la compréhension profonde du Qur'an.
 			</p>
 
-			<!-- Séparateur OR -->
-			<div class="flex justify-center gap-3 mb-12">
-				<div class="w-3 h-3 bg-or rounded-full"></div>
-				<div class="w-3 h-3 bg-or rounded-full"></div>
-				<div class="w-3 h-3 bg-or rounded-full"></div>
+			<!-- Separator -->
+			<div data-animate style="display: flex; justify-content: center; gap: 0.75rem; margin-bottom: 2rem;">
+				<div style="width: 0.75rem; height: 0.75rem; background-color: #D4AF37; border-radius: 50%;"></div>
+				<div style="width: 0.75rem; height: 0.75rem; background-color: #D4AF37; border-radius: 50%;"></div>
+				<div style="width: 0.75rem; height: 0.75rem; background-color: #D4AF37; border-radius: 50%;"></div>
 			</div>
 
-			<!-- CTA Primaire -->
-			<a href="https://wa.me/221775277164?text=Salam, je suis intéressé par les cours d'arabe du Programme Rêve" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-10 py-4 bg-or text-noir-cafe font-semibold text-lg rounded transition-all duration-300 hover:bg-or-fonce hover:shadow-xl hover:shadow-or/30">
+			<!-- CTA -->
+			<a
+				data-animate
+				href="https://wa.me/221775277164?text=Salam, je suis intéressé par les cours d'arabe du Programme Rêve"
+				target="_blank"
+				rel="noopener noreferrer"
+				data-magnetic
+				class="cta-button"
+			>
 				M'inscrire via WhatsApp
+				<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+					<line x1="5" y1="12" x2="19" y2="12"></line>
+					<polyline points="12 5 19 12 12 19"></polyline>
+				</svg>
 			</a>
+
+			<!-- Stats -->
+			<div data-animate style="margin-top: 3rem; display: flex; justify-content: center; gap: 2rem; font-size: 0.875rem; color: #9CA3AF;">
+				<span>1 élève actif</span>
+				<span>•</span>
+				<span>40€/mois</span>
+				<span>•</span>
+				<span>100% en ligne</span>
+			</div>
 		</div>
 	</section>
 
-	<!-- Section À propos du Programme Rêve -->
-	<section class="relative py-24 md:py-32 bg-noir-cafe/50 border-y border-or/10">
-		<div class="max-w-3xl mx-auto px-6 text-center">
-			<h2 class="text-3xl md:text-4xl font-serif font-semibold mb-8 accent-or">
+	<!-- Section Programme Rêve -->
+	<section style="background-color: #0d0d0d; border-top: 1px solid rgba(212, 175, 55, 0.1); border-bottom: 1px solid rgba(212, 175, 55, 0.1); padding: 4rem 1.5rem;">
+		<div style="max-width: 48rem; margin: 0 auto; text-align: center;">
+			<h2
+				data-animate
+				style="font-family: 'Fraunces', Georgia, serif; font-size: 2rem; @media(min-width: 768px) { font-size: 2.25rem; } font-weight: 600; color: #D4AF37; margin-bottom: 2rem;"
+			>
 				Le Programme Rêve
 			</h2>
-			<p class="text-lg text-sable-300 font-serif italic mb-8 leading-relaxed">
-				"Rêve" signifie que tu commences là où tu es et que tu chemines progressivement vers la maîtrise. Inspirée de la pédagogie de Nouman Ali Khan et de l'approche Bayyinah, cette méthode place le Coran au cœur de chaque leçon.
+			<p
+				data-animate
+				style="font-family: 'Crimson Text', Georgia, serif; font-style: italic; font-size: 1.125rem; color: #F5F0E8; margin-bottom: 2rem; line-height: 1.8;"
+			>
+				"Rêve" signifie que tu commences là où tu es et que tu chemines progressivement vers la maîtrise. Inspirée de la pédagogie de Nouman Ali Khan et de Bayyinah, cette méthode place le Coran au cœur de chaque leçon.
 			</p>
-			<div class="space-y-4 text-sable-200 text-base leading-relaxed">
-				<p>
-					Tu ne mémorises pas des règles abstraites. Tu apprends à <span class="accent-or font-semibold">lire, sentir et comprendre</span> chaque mot du Coran comme s'il parlait directement à ton cœur.
-				</p>
-				<p>
-					Chaque niveau te rapproche d'une compréhension plus profonde, plus consciente, plus spirituelle. À la fin, le Coran n'est plus un texte en arabe — c'est un message vivant.
-				</p>
-			</div>
+			<p
+				data-animate
+				style="color: #9CA3AF; margin-bottom: 1.5rem; line-height: 1.8;"
+			>
+				Tu ne mémorises pas des règles abstraites. Tu apprends à <span style="color: #D4AF37; font-weight: 500;">lire, sentir et comprendre</span> chaque mot du Coran comme s'il parlait directement à ton cœur.
+			</p>
 		</div>
 	</section>
 
-	<!-- Section Niveaux REVE — Cartes spirituelles -->
-	<section id="programme" class="relative py-24 md:py-32">
-		<!-- Motifs géométriques -->
-		<div class="absolute left-0 top-1/4 w-40 h-40 border-2 border-or/10 rounded-3xl -translate-x-20"></div>
-		<div class="absolute right-0 bottom-1/4 w-48 h-48 border-2 border-rouge/10 rounded-full translate-x-24"></div>
-
-		<div class="relative max-w-5xl mx-auto px-6">
-			<!-- En-tête Section -->
-			<div class="mb-20 text-center">
-				<p class="text-sm font-semibold uppercase tracking-widest text-or mb-3">Le chemin d'apprentissage</p>
-				<h2 class="text-4xl md:text-5xl font-serif font-semibold accent-or leading-tight mb-6">
+	<!-- Section Niveaux -->
+	<section id="programme" style="background-color: #0a0a0a; padding: 4rem 1.5rem;">
+		<div style="max-w-5xl; margin: 0 auto;">
+			<!-- Header -->
+			<div data-animate style="text-align: center; margin-bottom: 4rem;">
+				<p style="font-size: 0.875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #D4AF37; margin-bottom: 1rem;">
+					Le chemin d'apprentissage
+				</p>
+				<h2
+					style="font-family: 'Fraunces', Georgia, serif; font-size: 2.25rem; @media(min-width: 768px) { font-size: 3rem; } font-weight: 600; color: #F5F0E8; margin-bottom: 1.5rem; letter-spacing: -0.02em;"
+				>
 					Les 4 Niveaux du Programme Rêve
 				</h2>
-				<p class="text-lg text-sable-300 font-serif italic max-w-2xl mx-auto">
-					Chaque niveau vous rapproche de la compréhension profonde et spirituelle du Qur'an.
+				<p style="color: #9CA3AF; font-size: 1.125rem;">
+					Chaque niveau te rapproche de la compréhension profonde et spirituelle du Qur'an.
 				</p>
 			</div>
 
-			<!-- Grille des niveaux -->
-			<div class="space-y-8">
-				{niveaux.map((niveau, index) => (
-					<div class={`relative border-l-4 border-or p-8 md:p-12 bg-noir-cafe/40 backdrop-blur-sm rounded-sm transition-all duration-300 hover:bg-noir-cafe/60 hover:shadow-lg hover:shadow-or/10 ${index % 2 === 0 ? '' : 'md:ml-8'}`}>
-						<!-- Numéro et titre -->
-						<div class="flex items-start gap-6 mb-8">
-							<div class="flex-shrink-0">
-								<span class="text-5xl font-serif font-semibold accent-or">{niveau.numero}</span>
-							</div>
-							<div class="flex-1">
-								<h3 class="text-2xl md:text-3xl font-serif font-semibold text-blanc-creme mb-3">
-									{niveau.titre}
-								</h3>
-								<p class="text-sable-300 leading-relaxed">
-									{niveau.description}
-								</p>
-							</div>
-						</div>
+			<!-- Cards grid -->
+			<div class="levels-grid" data-animate-stagger>
+				{niveaux.map((niveau) => (
+					<div class="level-card" data-animate>
+						<div class="level-number">{niveau.numero}</div>
+						<h3 class="level-title">{niveau.titre}</h3>
+						<p style="color: #9CA3AF; font-size: 0.95rem; margin-bottom: 1rem;">{niveau.description}</p>
 
-						<!-- Points clés -->
-						<div class="ml-20 space-y-3 mb-8">
+						<div class="level-points">
 							{niveau.sousPoints.map((point) => (
-								<div class="flex gap-3 items-start">
-									<span class="text-or font-semibold text-lg leading-none mt-1">✦</span>
-									<p class="text-sable-200">{point}</p>
+								<div class="level-point">
+									<span class="level-point-icon">✦</span>
+									<span>{point}</span>
 								</div>
 							))}
 						</div>
 
-						<!-- Tagline italique -->
-						<div class="ml-20 pl-4 border-l-2 border-rouge/30 mb-4">
-							<p class="text-sable-300 italic font-serif text-lg">
-								"{niveau.tagline}"
-							</p>
-						</div>
+						<div class="level-tagline">"{niveau.tagline}"</div>
 
-						<!-- Bonus si présent -->
 						{niveau.bonus && (
-							<div class="ml-20 p-4 bg-or/10 border-l-2 border-or rounded-sm">
-								<p class="text-sm text-blanc-creme">
-									<span class="font-semibold accent-or">✨ Bonus :</span> {niveau.bonus}
-								</p>
+							<div class="level-bonus">
+								<span class="level-bonus-label">✨ Bonus :</span>
+								<span class="level-bonus-text"> {niveau.bonus}</span>
 							</div>
 						)}
 					</div>
@@ -227,70 +385,100 @@ const niveaux = [
 		</div>
 	</section>
 
-	<!-- Section Infos Pratiques — Minimaliste OR/ROUGE -->
-	<section class="relative py-20 md:py-24 bg-noir-cafe/50 border-y border-or/10">
-		<div class="max-w-5xl mx-auto px-6">
-			<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-				<!-- Info 1 — Prix -->
-				<div class="text-center border-t-4 border-or pt-8">
-					<p class="text-4xl md:text-5xl font-serif font-semibold accent-or mb-2">40€</p>
-					<p class="text-sable-300 font-serif italic text-lg">Par mois</p>
-					<p class="text-sm text-sable-400 mt-2">Cours individuels 1-1</p>
+	<!-- Section Infos pratiques -->
+	<section style="background-color: #0a0a0a; border-top: 1px solid rgba(212, 175, 55, 0.1); border-bottom: 1px solid rgba(212, 175, 55, 0.1); padding: 3rem 1.5rem;">
+		<div style="max-w-5xl; margin: 0 auto;">
+			<div class="stats-section" data-animate>
+				<div class="stat-block">
+					<div class="stat-number">40€</div>
+					<p style="color: #9CA3AF; font-style: italic;">Par mois</p>
+					<p class="stat-label">Cours individuels 1-1</p>
 				</div>
 
-				<!-- Info 2 — Temps -->
-				<div class="text-center border-t-4 border-rouge pt-8">
-					<p class="text-4xl md:text-5xl font-serif font-semibold accent-rouge mb-2">1h</p>
-					<p class="text-sable-300 font-serif italic text-lg">Par semaine</p>
-					<p class="text-sm text-sable-400 mt-2">Rythme flexible selon ton niveau</p>
+				<div class="stat-block">
+					<div class="stat-number">1h</div>
+					<p style="color: #9CA3AF; font-style: italic;">Par semaine</p>
+					<p class="stat-label">Rythme flexible selon ton niveau</p>
 				</div>
 
-				<!-- Info 3 — Format -->
-				<div class="text-center border-t-4 border-or pt-8">
-					<p class="text-4xl md:text-5xl font-serif font-semibold accent-or mb-2">100%</p>
-					<p class="text-sable-300 font-serif italic text-lg">En ligne</p>
-					<p class="text-sm text-sable-400 mt-2">De n'importe où, à ton rythme</p>
+				<div class="stat-block">
+					<div class="stat-number">100%</div>
+					<p style="color: #9CA3AF; font-style: italic;">En ligne</p>
+					<p class="stat-label">De n'importe où, à ton rythme</p>
 				</div>
 			</div>
 		</div>
 	</section>
 
 	<!-- Section CTA Final -->
-	<section id="contact" class="relative py-24 md:py-32">
-		<div class="absolute inset-0 opacity-10 pattern-geometric"></div>
+	<section id="contact" style="background-color: #0a0a0a; position: relative; padding: 5rem 1.5rem; text-align: center;">
+		<!-- Gradient ambient -->
+		<div style="position: absolute; inset: 0; pointer-events: none; background: radial-gradient(ellipse at center, rgba(212,175,55,0.03) 0%, transparent 70%);"></div>
 
-		<div class="relative max-w-2xl mx-auto px-6 text-center">
-			<!-- En-tête -->
-			<h2 class="text-4xl md:text-5xl font-serif font-semibold accent-or mb-6 leading-tight">
+		<div style="max-width: 42rem; margin: 0 auto; position: relative;">
+			<h2
+				data-animate
+				style="font-family: 'Fraunces', Georgia, serif; font-size: 2rem; @media(min-width: 768px) { font-size: 2.5rem; } font-weight: 600; color: #D4AF37; margin-bottom: 1rem; letter-spacing: -0.02em;"
+			>
 				Prêt à commencer le voyage ?
 			</h2>
-			<p class="text-lg text-sable-300 font-serif italic mb-2">
+
+			<p data-animate style="color: #9CA3AF; margin-bottom: 0.5rem;">
 				Réserve ta première leçon de découverte, entièrement gratuite.
 			</p>
-			<p class="text-sm text-sable-400 mb-10">
+
+			<p data-animate style="color: #6B7280; font-size: 0.95rem; margin-bottom: 2.5rem;">
 				Pas d'engagement — juste une conversation pour voir si le Programme Rêve te convient.
 			</p>
 
-			<!-- Séparateur -->
-			<div class="flex justify-center gap-2 mb-10">
-				<div class="w-2 h-2 bg-or rounded-full"></div>
-				<div class="w-2 h-2 bg-or rounded-full"></div>
-				<div class="w-2 h-2 bg-or rounded-full"></div>
+			<!-- Separator -->
+			<div data-animate style="display: flex; justify-content: center; gap: 0.5rem; margin-bottom: 2rem;">
+				<div style="width: 0.5rem; height: 0.5rem; background-color: #D4AF37; border-radius: 50%;"></div>
+				<div style="width: 0.5rem; height: 0.5rem; background-color: #D4AF37; border-radius: 50%;"></div>
+				<div style="width: 0.5rem; height: 0.5rem; background-color: #D4AF37; border-radius: 50%;"></div>
 			</div>
 
 			<!-- CTA Button -->
-			<a href="https://wa.me/221775277164?text=Salam, je suis intéressé par les cours d'arabe du Programme Rêve. Je voudrais une séance découverte gratuite." target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-12 py-5 bg-or text-noir-cafe font-semibold text-lg rounded transition-all duration-300 hover:bg-or-fonce hover:shadow-xl hover:shadow-or/40 hover:scale-105">
+			<a
+				data-animate
+				href="https://wa.me/221775277164?text=Salam, je suis intéressé par les cours d'arabe du Programme Rêve. Je voudrais une séance découverte gratuite."
+				target="_blank"
+				rel="noopener noreferrer"
+				data-magnetic
+				class="cta-button"
+				style="font-size: 1.125rem; padding: 1.5rem 2.5rem;"
+			>
 				Ouvrir WhatsApp
-				<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2">
+				<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
 					<line x1="5" y1="12" x2="19" y2="12"></line>
 					<polyline points="12 5 19 12 12 19"></polyline>
 				</svg>
 			</a>
 
-			<!-- Alternative -->
-			<p class="text-center text-sm text-sable-400 mt-8">
-				Ou envoie-moi un message via WhatsApp directement au <a href="https://wa.me/221775277164" target="_blank" rel="noopener noreferrer" class="text-or font-semibold hover:text-or-fonce transition-colors">+221 77 527 71 64</a>
+			<p data-animate style="color: #6B7280; font-size: 0.875rem; margin-top: 2rem;">
+				Ou WhatsApp directement au <a href="https://wa.me/221775277164" target="_blank" rel="noopener noreferrer" style="color: #D4AF37; font-weight: 600;">+221 77 527 71 64</a>
 			</p>
 		</div>
 	</section>
+
+	<!-- GSAP Hero Animation -->
+	<script>
+		import gsap from "gsap";
+
+		// Hero words animation
+		const heroWords = document.querySelectorAll(".hero-word");
+		const timeline = gsap.timeline();
+
+		heroWords.forEach((word, index) => {
+			timeline.fromTo(
+				word,
+				{ y: "110%", opacity: 0 },
+				{ y: "0%", opacity: 1, duration: 0.8, ease: "expo.out" },
+				index * 0.08
+			);
+		});
+
+		// Animate badge and subtitle
+		timeline.fromTo(".cta-button", { y: "20px", opacity: 0 }, { y: "0", opacity: 1, duration: 0.6, ease: "expo.out" }, "-=0.2");
+	</script>
 </LayoutYahdi>
