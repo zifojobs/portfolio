@@ -1,0 +1,217 @@
+---
+// LayoutYahdi — Layout dédié à Yahdi Qalbah Institute
+// Header/Footer Yahdi, pas de toggles thème/région
+import "../styles/global.css";
+
+interface Props {
+	title?: string;
+	description?: string;
+	image?: string;
+}
+
+const SITE_URL = "https://saibodanfakha.com";
+const {
+	title = "Apprendre l'arabe du Coran — Yahdi Qalbah Institute",
+	description = "Programme Rêve : apprenez l'arabe du Coran à partir de zéro. Cours en ligne 1-1, méthode progressive, spirituelle.",
+	image = "/yahdi-og.jpg",
+} = Astro.props;
+
+const canonicalUrl = new URL(Astro.url.pathname, SITE_URL).toString();
+const ogImageUrl = new URL(image, SITE_URL).toString();
+const currentYear = new Date().getFullYear();
+---
+
+<html lang="fr">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<meta name="author" content="Yahdi Qalbah Institute" />
+		<link rel="canonical" href={canonicalUrl} />
+
+		<!-- Open Graph -->
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={canonicalUrl} />
+		<meta property="og:site_name" content="Yahdi Qalbah" />
+		<meta property="og:locale" content="fr_FR" />
+		<meta property="og:image" content={ogImageUrl} />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
+
+		<!-- Twitter Card -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={ogImageUrl} />
+
+		<!-- Google Fonts : Fraunces + serif classique -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Crimson+Text:ital@0;1&display=swap"
+			rel="stylesheet"
+		/>
+	</head>
+	<body class="min-h-screen flex flex-col bg-noir-cafe text-creme">
+		<!-- Header Yahdi Qalbah -->
+		<header class="sticky top-0 z-50 bg-noir-cafe border-b border-or/20">
+			<div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+				<!-- Logo Yahdi Qalbah -->
+				<a href="/" class="flex items-center gap-3 group">
+					<img src="/yahdi-logo.png" alt="Yahdi Qalbah Institute" class="h-10 md:h-12" />
+				</a>
+
+				<!-- Navigation desktop -->
+				<nav class="hidden md:flex items-center gap-8">
+					<a href="#programme" class="nav-link text-sm font-medium text-sable-200 hover:text-or transition-colors">
+						Programme Rêve
+					</a>
+					<a href="#contact" class="nav-link text-sm font-medium text-sable-200 hover:text-or transition-colors">
+						Nous contacter
+					</a>
+					<a href="https://www.youtube.com/@yahdiqalbah" target="_blank" rel="noopener noreferrer" class="nav-link text-sm font-medium text-sable-200 hover:text-or transition-colors">
+						YouTube
+					</a>
+				</nav>
+
+				<!-- Bouton menu mobile -->
+				<button id="mobile-menu-btn" class="md:hidden text-or" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-menu">
+					<svg class="mobile-icon-open" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+						<line x1="4" y1="6" x2="20" y2="6"></line>
+						<line x1="4" y1="12" x2="20" y2="12"></line>
+						<line x1="4" y1="18" x2="20" y2="18"></line>
+					</svg>
+					<svg class="mobile-icon-close hidden" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+						<line x1="6" y1="6" x2="18" y2="18"></line>
+						<line x1="6" y1="18" x2="18" y2="6"></line>
+					</svg>
+				</button>
+			</div>
+
+			<!-- Menu mobile -->
+			<div id="mobile-menu" class="md:hidden hidden border-t border-or/20 bg-noir-cafe/95 backdrop-blur-md">
+				<nav class="max-w-6xl mx-auto px-6 py-6 flex flex-col gap-4">
+					<a href="#programme" class="mobile-link text-base font-medium text-sable-200 hover:text-or transition-colors py-2">Programme Rêve</a>
+					<a href="#contact" class="mobile-link text-base font-medium text-sable-200 hover:text-or transition-colors py-2">Nous contacter</a>
+					<a href="https://www.youtube.com/@yahdiqalbah" target="_blank" rel="noopener noreferrer" class="mobile-link text-base font-medium text-sable-200 hover:text-or transition-colors py-2">YouTube</a>
+				</nav>
+			</div>
+
+			<!-- Script menu mobile -->
+			<script is:inline>
+				(function () {
+					const btn = document.getElementById("mobile-menu-btn");
+					const menu = document.getElementById("mobile-menu");
+					const iconOpen = btn?.querySelector(".mobile-icon-open");
+					const iconClose = btn?.querySelector(".mobile-icon-close");
+					if (!btn || !menu) return;
+
+					function setOpen(open) {
+						menu.classList.toggle("hidden", !open);
+						iconOpen?.classList.toggle("hidden", open);
+						iconClose?.classList.toggle("hidden", !open);
+						btn.setAttribute("aria-expanded", String(open));
+					}
+
+					btn.addEventListener("click", () => {
+						setOpen(menu.classList.contains("hidden"));
+					});
+
+					menu.querySelectorAll(".mobile-link").forEach((a) => {
+						a.addEventListener("click", () => setOpen(false));
+					});
+				})();
+			</script>
+		</header>
+
+		<!-- Main content -->
+		<main class="flex-1">
+			<slot />
+		</main>
+
+		<!-- Footer Yahdi Qalbah -->
+		<footer class="bg-noir-cafe border-t-4 border-or mt-24 py-16">
+			<div class="max-w-6xl mx-auto px-6">
+				<div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+					<!-- Logo + Description -->
+					<div>
+						<img src="/yahdi-logo.png" alt="Yahdi Qalbah Institute" class="h-12 mb-4" />
+						<p class="text-sable-300 text-sm leading-relaxed">
+							Institut Yahdi Qalbah — Apprendre l'arabe du Coran avec le Programme Rêve. Un voyage progressif vers la compréhension profonde du Qur'an.
+						</p>
+					</div>
+
+					<!-- Navigation -->
+					<div>
+						<h3 class="font-serif text-sm font-semibold uppercase tracking-wider text-or mb-4">
+							Navigation
+						</h3>
+						<ul class="space-y-3 text-sm">
+							<li><a href="#programme" class="hover:text-or transition-colors">Programme Rêve</a></li>
+							<li><a href="#contact" class="hover:text-or transition-colors">Nous contacter</a></li>
+							<li><a href="https://www.youtube.com/@yahdiqalbah" target="_blank" rel="noopener noreferrer" class="hover:text-or transition-colors">YouTube</a></li>
+						</ul>
+					</div>
+
+					<!-- Contact -->
+					<div>
+						<h3 class="font-serif text-sm font-semibold uppercase tracking-wider text-or mb-4">
+							Contact
+						</h3>
+						<ul class="space-y-3 text-sm">
+							<li>
+								<a href="https://wa.me/221775277164?text=Salam, je suis intéressé par les cours d'arabe du Programme Rêve" target="_blank" rel="noopener noreferrer" class="hover:text-or transition-colors">
+									WhatsApp
+								</a>
+							</li>
+							<li>
+								<a href="mailto:courses@yahdiqalbah.com" class="hover:text-or transition-colors">
+									courses@yahdiqalbah.com
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+				<!-- Copyright -->
+				<div class="border-t border-or/20 pt-8 text-xs text-sable-400 text-center">
+					<p>© {currentYear} Yahdi Qalbah Institute. "Lis le Coran avec confiance et douceur, pas à pas."</p>
+				</div>
+			</div>
+		</footer>
+
+		<!-- Smooth scroll + animations -->
+		<script>
+			import { initSmoothScroll } from "../scripts/smoothScroll";
+			import { initMagnetic } from "../scripts/magnetic";
+			import { initTextReveal } from "../scripts/textReveal";
+
+			function safe(label: string, fn: () => void) {
+				try { fn(); } catch (err) { console.error(`[${label}] init failed:`, err); }
+			}
+
+			safe("smoothScroll", initSmoothScroll);
+			safe("magnetic", initMagnetic);
+			safe("textReveal", initTextReveal);
+
+			const observer = new IntersectionObserver(
+				(entries) => {
+					entries.forEach((entry) => {
+						if (entry.isIntersecting) {
+							entry.target.classList.add("is-visible");
+							observer.unobserve(entry.target);
+						}
+					});
+				},
+				{ threshold: 0.15, rootMargin: "0px 0px -50px 0px" }
+			);
+
+			document.querySelectorAll("[data-animate]").forEach((el) => observer.observe(el));
+		</script>
+	</body>
+</html>

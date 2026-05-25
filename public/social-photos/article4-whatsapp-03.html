@@ -7,58 +7,54 @@ html, body { width: 1080px; height: 1920px; overflow: hidden; font-family: 'Inte
 .badge { position: absolute; top: 100px; background: #C2410C; color: #FEF3E2; padding: 14px 28px; border-radius: 30px; font-size: 16px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; }
 .content { text-align: center; max-width: 900px; }
 .number { font-family: 'Fraunces', serif; font-size: 220px; font-weight: 600; color: #C2410C; line-height: 1; margin-bottom: 30px; }
-.title { font-family: 'Fraunces', serif; font-size: 56px; font-weight: 600; color: #FEF3E2; line-height: 1.2; margin-bottom: 30px; letter-spacing: -0.02em; }
-.subtitle-row { display: flex; align-items: center; justify-content: center; margin-bottom: 8px; }
-.subtitle-price { font-family: 'Fraunces', serif; font-size: 44px; font-weight: 600; color: #C2410C; letter-spacing: -0.01em; }
-.subtitle-note { font-size: 24px; color: #E8DFCB; margin-top: 20px; }
-.content-tranche { display: flex; flex-direction: column; align-items: center; gap: 8px; }
-.prices { display: flex; flex-direction: column; align-items: center; gap: 4px; margin-bottom: 20px; }
-.price-fcfa, .price-eur { font-family: 'Fraunces', serif; font-size: 86px; font-weight: 700; line-height: 1.05; letter-spacing: -0.02em; white-space: nowrap; }
-.price-fcfa.highlight, .price-eur.highlight { font-size: 100px; }
-.label { font-family: 'Fraunces', serif; font-size: 50px; font-weight: 600; color: #FEF3E2; margin-bottom: 8px; margin-top: 16px; }
-.warning { font-size: 26px; color: #E8DFCB; margin-bottom: 50px; font-style: italic; }
-.points { display: flex; flex-direction: column; gap: 22px; align-items: flex-start; max-width: 800px; margin: 0 auto; }
-.point { display: flex; align-items: flex-start; gap: 18px; text-align: left; }
-.point span { font-size: 26px; color: #FEF3E2; line-height: 1.4; font-weight: 500; }
-.point svg { flex-shrink: 0; margin-top: 6px; }
+.title { font-family: 'Fraunces', serif; font-size: 64px; font-weight: 600; color: #FEF3E2; line-height: 1.15; margin-bottom: 30px; letter-spacing: -0.02em; }
+.subtitle-main { font-size: 36px; color: #E8DFCB; margin-bottom: 20px; font-weight: 500; }
+.subtitle-note { font-size: 24px; color: #E8DFCB; font-style: italic; }
+.content-comparison { display: flex; flex-direction: column; align-items: center; gap: 40px; }
+.points { display: flex; flex-direction: column; gap: 28px; align-items: center; }
+.point { display: flex; align-items: flex-start; gap: 18px; text-align: center; max-width: 800px; }
+.point span { font-size: 28px; color: #FEF3E2; line-height: 1.4; font-weight: 500; }
+.point svg { flex-shrink: 0; margin-top: 2px; }
+.cta-box { background: rgba(194, 65, 12, 0.2); border-left: 6px solid #C2410C; padding: 24px 32px; border-radius: 8px; font-size: 24px; color: #E8DFCB; font-weight: 600; }
+.content-pricing { display: flex; flex-direction: column; align-items: center; gap: 32px; }
+.headline { font-family: 'Fraunces', serif; font-size: 52px; font-weight: 600; color: #FEF3E2; margin-bottom: 24px; }
+.price-row { display: flex; align-items: center; justify-content: center; gap: 16px; }
+.price-item { font-family: 'Fraunces', serif; font-size: 44px; font-weight: 700; color: #C2410C; letter-spacing: -0.01em; }
+.price-sep { font-size: 32px; color: #E8DFCB; font-weight: 600; margin: 16px 0; }
+.note { font-size: 26px; color: #E8DFCB; font-style: italic; }
 .content-cta { display: flex; flex-direction: column; align-items: center; gap: 20px; }
 .cta-headline { font-family: 'Fraunces', serif; font-size: 60px; font-weight: 600; color: #FEF3E2; letter-spacing: -0.02em; }
-.cta-subhead { font-size: 36px; color: #E8DFCB; margin-bottom: 24px; }
-.cta-url { font-family: 'Fraunces', serif; font-size: 72px; font-weight: 700; color: #C2410C; letter-spacing: -0.02em; margin-bottom: 40px; }
+.cta-subhead { font-size: 36px; color: #E8DFCB; }
+.cta-url { font-family: 'Fraunces', serif; font-size: 72px; font-weight: 700; color: #C2410C; letter-spacing: -0.02em; margin-bottom: 30px; }
 .arrow-icon { margin-top: 20px; }
 .swipe { position: absolute; bottom: 100px; left: 100px; font-size: 20px; color: #E8DFCB; font-weight: 600; letter-spacing: 0.05em; }
 .pagination { position: absolute; bottom: 100px; left: 100px; font-size: 20px; color: #E8DFCB; font-weight: 600; letter-spacing: 0.05em; }
 .brand { position: absolute; bottom: 100px; right: 100px; font-family: 'Fraunces', serif; font-size: 24px; font-weight: 600; color: #FEF3E2; letter-spacing: -0.02em; }
 </style></head>
 <body><div class="canvas">
-        <div class="badge" style="background: #65733A;">Tranche 3 ⭐</div>
-        <div class="content content-tranche">
-            <div class="prices">
-                <div class="price-fcfa highlight" style="color: #65733A;">1M à 5M FCFA</div>
-                <div class="price-eur highlight" style="color: #65733A;">1 500 à 7 500€</div>
-            </div>
-            <div class="label">LE SWEET SPOT</div>
-            <div class="warning">Freelance expérimenté</div>
+        <div class="badge" style="background: #65733A;">MULTI-PAGES</div>
+        <div class="content content-comparison">
             <div class="points">
             <div class="point">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#65733A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                     <polyline points="20 6 9 17 4 12"></polyline>
                 </svg>
-                <span>Site sur-mesure qui reflète votre identité</span>
+                <span>Contenu en profondeur</span>
             </div>
             <div class="point">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#65733A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                     <polyline points="20 6 9 17 4 12"></polyline>
                 </svg>
-                <span>Code propre, performant, optimisé SEO</span>
+                <span>SEO puissant (Google t'aime)</span>
             </div>
             <div class="point">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#65733A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                     <polyline points="20 6 9 17 4 12"></polyline>
                 </svg>
-                <span>Communication claire, délais respectés</span>
+                <span>Facile à grandir</span>
             </div></div>
+            <div class="cta-box">Parfait pour : PME, blog, croissance</div>
         </div>
-        <div class="pagination">4 / 5</div>
+        <div class="pagination">3 / 5</div>
         <div class="brand">Saïbo Danfakha</div>
         </div></body></html>

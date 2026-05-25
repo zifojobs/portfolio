@@ -1,0 +1,54 @@
+---
+// Section CoursArabe — teaser homepage pour les cours d'arabe Yahdi Qalbah
+---
+
+<section class="relative py-24 md:py-32 bg-noir-cafe">
+	<div class="max-w-6xl mx-auto px-6">
+		<!-- En-tête de section -->
+		<div data-animate class="max-w-2xl mb-16">
+			<div class="mb-4">
+				<img src="/yahdi-logo.png" alt="Yahdi Qalbah Institute" class="h-8 md:h-10" />
+			</div>
+			<h2 data-text-reveal class="text-4xl md:text-5xl font-semibold leading-tight tracking-tight text-creme">
+				Apprendre l'arabe du Coran
+			</h2>
+			<p class="mt-6 text-lg text-sable-300 leading-relaxed">
+				Le Programme Rêve : une approche progressive, spirituelle et consciente vers la compréhension profonde du Qur'an. Cours 1-1 en ligne, à ton rythme.
+			</p>
+		</div>
+
+		<!-- Grille teaser des 4 niveaux -->
+		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
+			{[
+				{ numero: "01", titre: "Débuts" },
+				{ numero: "02", titre: "Grammaire" },
+				{ numero: "03", titre: "Morphologie" },
+				{ numero: "04", titre: "Avancé" },
+			].map((level) => (
+				<div data-animate class="p-6 bg-noir-cafe/50 border border-sable-600/30 rounded-sm text-center hover:border-or/50 transition-colors">
+					<div class="text-3xl font-serif font-semibold text-or mb-2">{level.numero}</div>
+					<p class="text-sm text-sable-300">{level.titre}</p>
+				</div>
+			))}
+		</div>
+
+		<!-- Info + CTA -->
+		<div class="flex flex-col sm:flex-row items-center gap-6 pt-8 border-t border-sable-600/30">
+			<div class="flex-1">
+				<p class="text-sable-300 text-base">
+					À partir de <span class="text-or font-semibold">40€/mois</span> — Cours 1-1, 100% en ligne.
+				</p>
+			</div>
+			<a href="/arabe" data-magnetic class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-or text-noir-cafe font-semibold rounded transition-colors hover:bg-or/90">
+				Découvrir le programme
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+					<line x1="5" y1="12" x2="19" y2="12"></line>
+					<polyline points="12 5 19 12 12 19"></polyline>
+				</svg>
+			</a>
+		</div>
+	</div>
+
+	<!-- Motif de fond subtil -->
+	<div class="absolute inset-0 opacity-5 pointer-events-none" style="background-image: radial-gradient(circle at 20% 50%, rgba(212,175,55,0.1) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(196,30,58,0.1) 0%, transparent 50%);"></div>
+</section>

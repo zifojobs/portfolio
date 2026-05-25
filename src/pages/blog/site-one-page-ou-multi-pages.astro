@@ -1,0 +1,245 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+const article = {
+	slug: "site-one-page-ou-multi-pages",
+	titre: "Site one-page ou multi-pages ? Lequel choisir pour votre entreprise au Sénégal ?",
+	extrait: "One-page vs multi-pages : quelle architecture pour votre site ? Guide clair avec exemples et cas d'usage.",
+	date: "2026-05-26",
+	tags: ["architecture", "strategie", "ux", "conversion"],
+	tempsLecture: "8 min",
+};
+---
+
+<Layout
+	title={`${article.titre} — Blog — Saïbo Danfakha`}
+	description={article.extrait}
+>
+	<article class="max-w-3xl mx-auto px-6 py-24 md:py-32">
+		<a href="/blog/" class="inline-flex items-center gap-2 text-sm text-sable-600 hover:text-noir-cafe transition-colors mb-12">
+			<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+				<line x1="19" y1="12" x2="5" y2="12"></line>
+				<polyline points="12 19 5 12 12 5"></polyline>
+			</svg>
+			Retour au blog
+		</a>
+
+		<header class="mb-12">
+			<div class="flex items-center gap-3 text-sm text-sable-600 mb-4">
+				<time datetime={article.date}>
+					{new Date(article.date).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}
+				</time>
+				<span>·</span>
+				<span>{article.tempsLecture} de lecture</span>
+			</div>
+
+			<h1 class="text-4xl md:text-5xl font-semibold leading-tight tracking-tight text-noir-cafe mb-6">
+				{article.titre}
+			</h1>
+
+			<div class="flex flex-wrap gap-2">
+				{article.tags.map((tag) => (
+					<span class="px-2.5 py-1 bg-vert-olive/10 text-vert-olive rounded-full text-xs">
+						#{tag}
+					</span>
+				))}
+			</div>
+		</header>
+
+		<figure class="mb-12 -mx-6 md:mx-0">
+			<img
+				src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=630&fit=crop&auto=format&q=80"
+				alt="Écran avec architecture web schématisée"
+				loading="eager"
+				class="w-full aspect-[16/9] object-cover md:rounded-xl"
+			/>
+		</figure>
+
+		<div class="prose prose-lg prose-noir-cafe max-w-none">
+			<p class="text-xl text-sable-600 mb-8 leading-relaxed">
+				"On-page ou plusieurs pages ?" — souvent la première décision architecturale avant de lancer un site. Et pourtant, beaucoup d'entrepreneurs choisissent par défaut ou par économie, plutôt que par stratégie.
+			</p>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				En réalité, le choix entre un <strong>site one-page</strong> (une seule page scrollable) et un <strong>site multi-pages</strong> (plusieurs pages distinctes) n'est pas cosmétique. C'est une décision qui impacte la conversion, le SEO, la maintenabilité, et — oui — le prix de développement.
+			</p>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Voici un guide clair pour savoir lequel choisir.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Site one-page : c'est quoi ?</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Un site one-page regroupe tout le contenu sur une seule page HTML. Quand l'utilisateur clique sur un lien (ex: "Services"), au lieu d'aller sur une nouvelle page, la page <strong>scroll vers la section correspondante</strong>.
+			</p>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				<strong>Exemple :</strong> Votre propre portfolio (saibodanfakha.com) est un site one-page : une landing page avec sections Hero, À Propos, Études de cas, Contact. Pas de pages distinctes.
+			</p>
+
+			<h3 class="text-xl font-semibold text-noir-cafe mt-8 mb-4">Avantages d'un site one-page</h3>
+
+			<ul class="list-disc pl-6 text-sable-600 mb-6 space-y-2">
+				<li><strong>Impact immédiat</strong> — tout le contenu en un coup d'œil (ou presque)</li>
+				<li><strong>Expérience fluide</strong> — smooth scrolling, animations, moins de rechargements</li>
+				<li><strong>Développement plus rapide</strong> — une seule page à construire</li>
+				<li><strong>Coût initial réduit</strong> — moins de pages = moins de travail</li>
+				<li><strong>Mobile-friendly naturellement</strong> — le scrolling est le paradigme mobile</li>
+			</ul>
+
+			<h3 class="text-xl font-semibold text-noir-cafe mt-8 mb-4">Inconvénients</h3>
+
+			<ul class="list-disc pl-6 text-sable-600 mb-8 space-y-2">
+				<li><strong>SEO limité</strong> — une seule page = un seul point d'entrée pour les moteurs de recherche</li>
+				<li><strong>Moins de profondeur</strong> — difficile de couvrir des sujets complexes en détail</li>
+				<li><strong>Poids du fichier</strong> — tout charge au démarrage (impact sur la vitesse)</li>
+				<li><strong>Analytics fragmentées</strong> — impossible de suivre les pages individuellement</li>
+				<li><strong>Partage sur réseaux sociaux</strong> — on ne peut partager que l'URL racine</li>
+			</ul>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Site multi-pages : c'est quoi ?</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Un site multi-pages a plusieurs fichiers HTML distincts. Chaque section a sa propre URL (ex: /services/, /blog/, /contact/). Quand l'utilisateur clique sur un lien, il navigue vers une <strong>nouvelle page</strong>.
+			</p>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				<strong>Exemple :</strong> Un site d'école avec /accueil/, /programmes/, /inscriptions/, /blog/ — chaque section est une page à part entière.
+			</p>
+
+			<h3 class="text-xl font-semibold text-noir-cafe mt-8 mb-4">Avantages d'un site multi-pages</h3>
+
+			<ul class="list-disc pl-6 text-sable-600 mb-6 space-y-2">
+				<li><strong>SEO puissant</strong> — chaque page peut se classer sur des mots-clés différents</li>
+				<li><strong>Contenu en profondeur</strong> — idéal pour des blogs, docs, tutoriels</li>
+				<li><strong>Performance granulaire</strong> — on ne charge que ce qui est nécessaire</li>
+				<li><strong>Analytics clairs</strong> — on sait exactement quelle page attire le trafic</li>
+				<li><strong>Partage précis</strong> — chaque article a son URL unique</li>
+				<li><strong>Scalabilité</strong> — facile d'ajouter 100 pages sans surcharger</li>
+			</ul>
+
+			<h3 class="text-xl font-semibold text-noir-cafe mt-8 mb-4">Inconvénients</h3>
+
+			<ul class="list-disc pl-6 text-sable-600 mb-8 space-y-2">
+				<li><strong>Coût développement plus élevé</strong> — plus de pages = plus de structure</li>
+				<li><strong>Temps de chargement</strong> — chaque navigation rechargement la page</li>
+				<li><strong>Maintenance plus complexe</strong> — cohérence du design à travers plusieurs pages</li>
+				<li><strong>Risque de fragmentation</strong> — le visiteur peut se perdre</li>
+			</ul>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Lequel choisir ? Un guide clair</h2>
+
+			<div class="bg-vert-olive/5 border-l-4 border-vert-olive px-6 py-4 mb-8 rounded">
+				<p class="text-sable-600"><strong>Choisi un site one-page si :</strong></p>
+				<ul class="list-disc pl-6 text-sable-600 mt-3 space-y-1 text-sm">
+					<li>Vous êtes freelancer ou petit prestataire (portfolio, services simples)</li>
+					<li>Votre objectif est une conversion unique (démonstration, contact, landing)</li>
+					<li>Vous avez très peu de contenu (5-10 sections max)</li>
+					<li>Budget serré et délai court</li>
+					<li>L'esthétique et l'expérience fluide sont prioritaires</li>
+				</ul>
+			</div>
+
+			<div class="bg-terracotta/5 border-l-4 border-terracotta px-6 py-4 mb-8 rounded">
+				<p class="text-sable-600"><strong>Choisis un site multi-pages si :</strong></p>
+				<ul class="list-disc pl-6 text-sable-600 mt-3 space-y-1 text-sm">
+					<li>Vous avez beaucoup de contenu ou de services différents</li>
+					<li>Vous voulez un blog (oui, c'est important pour le SEO)</li>
+					<li>Vous visez le classement Google sur des mots-clés spécifiques</li>
+					<li>Votre audience cherche de l'information avant de décider</li>
+					<li>Vous envisagez de grandir (ajouter du contenu facilement)</li>
+					<li>Vous voulez analyser le comportement par section</li>
+				</ul>
+			</div>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Impact sur le prix</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Bien sûr, le choix impacte le coût de développement.
+			</p>
+
+			<table class="w-full text-sable-600 mb-8 border-collapse">
+				<thead>
+					<tr class="border-b-2 border-vert-olive">
+						<th class="text-left py-3 pr-4 text-noir-cafe font-semibold">Type</th>
+						<th class="text-left py-3 pr-4 text-noir-cafe font-semibold">Délai</th>
+						<th class="text-right py-3 text-noir-cafe font-semibold">Budget (FCFA)</th>
+						<th class="text-right py-3 text-noir-cafe font-semibold">Budget (€)</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="border-b border-sable-200">
+						<td class="py-4 pr-4"><strong>One-page simple</strong></td>
+						<td class="py-4 pr-4">1-2 semaines</td>
+						<td class="text-right py-4">300 000 - 600 000</td>
+						<td class="text-right py-4">450 - 900€</td>
+					</tr>
+					<tr class="border-b border-sable-200">
+						<td class="py-4 pr-4"><strong>One-page design</strong></td>
+						<td class="py-4 pr-4">2-3 semaines</td>
+						<td class="text-right py-4">600 000 - 1 200 000</td>
+						<td class="text-right py-4">900 - 1 800€</td>
+					</tr>
+					<tr class="border-b border-sable-200">
+						<td class="py-4 pr-4"><strong>Multi-pages (5-7)</strong></td>
+						<td class="py-4 pr-4">3-4 semaines</td>
+						<td class="text-right py-4">1 000 000 - 2 500 000</td>
+						<td class="text-right py-4">1 500 - 3 750€</td>
+					</tr>
+					<tr>
+						<td class="py-4 pr-4"><strong>Multi-pages + blog</strong></td>
+						<td class="py-4 pr-4">4-6 semaines</td>
+						<td class="text-right py-4">2 000 000 - 4 000 000+</td>
+						<td class="text-right py-4">3 000 - 6 000€+</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				<strong>Note :</strong> Ces prix incluent design, développement et intégration. Hors hébergement, domaine et maintenance annuelle.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">En pratique : les trois pièges à éviter</h2>
+
+			<h3 class="text-xl font-semibold text-noir-cafe mt-8 mb-4">1. Choisir one-page par économie, puis regretter</h3>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Beaucoup de PME lancent un one-page pour faire économique. Six mois plus tard, elles veulent un blog, des cas d'usage détaillés, des landing pages pour chaque service. Résultat : refonte coûteuse.
+			</p>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Mieux vaut anticiper : un site multi-pages peut être lancé en phases (phase 1 : pages essentielles, phase 2 : blog + CMS).
+			</p>
+
+			<h3 class="text-xl font-semibold text-noir-cafe mt-8 mb-4">2. Charger tout dans un one-page</h3>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Un one-page avec 20 sections, 100 images, 3 vidéos = page qui pèse 5-10 MB. Résultat : très lent sur mobile, haut rebond, visiteurs partis avant de terminer le scroll.
+			</p>
+
+			<h3 class="text-xl font-semibold text-noir-cafe mt-8 mb-4">3. Ignorer le SEO dans la décision</h3>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Si votre objectif est "être trouvé sur Google pour 'développeur web à Kaolack'", un one-page ne vous aidera pas. Vous avez besoin d'un multi-pages avec un blog actif.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Notre recommandation</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Pour <strong>90% des petites entreprises au Sénégal</strong>, un <strong>site multi-pages avec un blog</strong> est le bon choix. Voici pourquoi :
+			</p>
+
+			<ul class="list-disc pl-6 text-sable-600 mb-8 space-y-2">
+				<li>Coût initial pas beaucoup plus élevé (500€ de différence, négligeable)</li>
+				<li>Capacité à grandir sans refonte</li>
+				<li>SEO qui marche (priceless si votre business en dépend)</li>
+				<li>Flexibilité : ajouter du contenu sans appel au dev</li>
+			</ul>
+
+			<p class="text-sable-600 leading-relaxed">
+				One-page ? Réservé aux freelancers, aux landing pages et aux startups testant un concept.
+			</p>
+		</div>
+	</article>
+</Layout>
