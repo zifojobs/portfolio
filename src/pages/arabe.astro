@@ -1,0 +1,349 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const niveaux = [
+	{
+		numero: "01",
+		titre: "Apprendre l'arabe à partir de 0",
+		description: "Commence ton voyage avec la méthode Al-Qaa'ida An-Nouraniyyah. Tu apprendras à reconnaître et prononcer chaque lettre correctement.",
+		sousPoints: [
+			"Reconnaître et prononcer chaque lettre",
+			"Lire des mots du Coran en peu de temps",
+			"Te familiariser avec les versets du livre d'Allah dès les premiers jours",
+		],
+		tagline: "Lis le Coran avec confiance et douceur, pas à pas.",
+	},
+	{
+		numero: "02",
+		titre: "Fondamentaux de la grammaire arabe",
+		description: "Entre dans la structure du langage du Coran. Maîtrise les fondements de la grammaire en identifiant les éléments essentiels d'une phrase coranique.",
+		sousPoints: [
+			"Maîtriser les fondements de la grammaire",
+			"Identifier les éléments essentiels d'une phrase coranique",
+			"Analyser des versets simples et comprendre leur sens",
+		],
+		tagline: "Parce que chaque mot du Qur'an a une sagesse, et chaque structure a un secret.",
+		bonus: "Étude grammaticale complète de la sourate AL FAATIHA",
+	},
+	{
+		numero: "03",
+		titre: "Morphologie des mots (As-Sarf)",
+		description: "Plonge dans la puissance linguistique du Coran. Comprends la racine des mots arabes et découvre comment les sens se transforment selon les formes.",
+		sousPoints: [
+			"Comprendre la racine des mots arabes",
+			"Découvrir comment les sens se transforment selon les formes",
+			"Conjuguer parfaitement en arabe",
+		],
+		tagline: "Tu ne liras plus les mots, tu les ressentiras et tu les comprendras.",
+	},
+	{
+		numero: "04",
+		titre: "Grammaire et structures avancées",
+		description: "Atteins le niveau où le Coran s'ouvre devant toi. Comprends les structures complexes et analyse approfondie des versets.",
+		sousPoints: [
+			"Comprendre les structures complexes du Coran",
+			"Analyse approfondie des versets",
+			"Lecture consciente, réfléchie et spirituelle",
+		],
+		tagline: "Chaque verset deviendra une lumière et une certitude dans ton cœur.",
+	},
+];
+---
+
+<style>
+	:root {
+		--or: #D4AF37;
+		--or-fonce: #B8860B;
+		--rouge: #C41E3A;
+		--rouge-clair: #E8B4B8;
+		--blanc-creme: #F9F7F3;
+		--gris-clair: #E8E6E1;
+		--noir-texte: #2B2B2B;
+	}
+
+	body {
+		background-color: var(--blanc-creme);
+		color: var(--noir-texte);
+		font-family: "Crimson Text", "Georgia", serif;
+	}
+
+	.pattern-geometric {
+		background-image:
+			linear-gradient(45deg, transparent 48%, var(--gris-clair) 49%, var(--gris-clair) 51%, transparent 52%),
+			linear-gradient(-45deg, transparent 48%, var(--gris-clair) 49%, var(--gris-clair) 51%, transparent 52%);
+		background-size: 30px 30px;
+		background-position: 0 0, 15px 15px;
+		background-repeat: repeat;
+	}
+
+	.accent-or {
+		color: var(--or);
+	}
+
+	.accent-rouge {
+		color: var(--rouge);
+	}
+
+	.border-or {
+		border-color: var(--or);
+	}
+
+	.bg-or {
+		background-color: var(--or);
+	}
+
+	.bg-rouge {
+		background-color: var(--rouge);
+	}
+</style>
+
+<Layout>
+	<!-- Hero Section — Spirituel et calme -->
+	<section class="relative py-24 md:py-32 bg-gradient-to-b from-noir-cafe to-sable-950">
+		<div class="absolute inset-0 opacity-5 pattern-geometric"></div>
+
+		<div class="relative max-w-6xl mx-auto px-6 text-center">
+			<!-- Logo Yahdi Qalbah -->
+			<div class="mb-8 flex justify-center">
+				<img src="/yahdi-logo.png" alt="Yahdi Qalbah Institute" class="h-12 md:h-16" />
+			</div>
+
+			<!-- Titre principal -->
+			<h1 class="text-5xl md:text-6xl font-serif font-semibold mb-4 accent-or leading-tight">
+				Apprendre l'arabe du Coran
+			</h1>
+
+			<!-- Sous-titre spirituel -->
+			<p class="text-lg md:text-xl text-sable-300 font-serif italic mb-8 max-w-2xl mx-auto leading-relaxed">
+				Un voyage progressif vers la compréhension profonde du Qur'an, guidé par la méthode du Programme Rêve.
+			</p>
+
+			<!-- Séparateur OR -->
+			<div class="flex justify-center gap-2 mb-12">
+				<div class="w-2 h-2 bg-or rounded-full"></div>
+				<div class="w-2 h-2 bg-or rounded-full"></div>
+				<div class="w-2 h-2 bg-or rounded-full"></div>
+			</div>
+
+			<!-- CTA Primaire -->
+			<div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+				<a href="#niveaux" class="px-8 py-3 bg-or text-noir-cafe font-semibold rounded hover:bg-or-fonce transition-colors">
+					Découvrir les niveaux
+				</a>
+				<a href="#inscription" class="px-8 py-3 border-2 border-or text-or font-semibold rounded hover:bg-or hover:text-noir-cafe transition-colors">
+					S'inscrire
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- Section Niveaux REVE — Cartes spirituelles -->
+	<section id="niveaux" class="relative py-24 md:py-32">
+		<!-- Motif géométrique en arrière-plan -->
+		<div class="absolute left-0 top-0 w-32 h-32 border-4 border-or/20 rounded-3xl -translate-x-16 -translate-y-16"></div>
+		<div class="absolute right-0 bottom-0 w-48 h-48 border-4 border-rouge/10 rounded-full translate-x-24 translate-y-24"></div>
+
+		<div class="relative max-w-5xl mx-auto px-6">
+			<!-- En-tête Section -->
+			<div class="mb-20 text-center">
+				<p class="text-sm font-semibold uppercase tracking-widest text-or mb-2">Le chemin d'apprentissage</p>
+				<h2 class="text-4xl md:text-5xl font-serif font-semibold accent-or leading-tight mb-6">
+					Les 4 Niveaux du Programme Rêve
+				</h2>
+				<p class="text-lg text-sable-700 font-serif italic max-w-2xl mx-auto">
+					Chaque niveau vous rapproche de la compréhension profonde et spirituelle du Qur'an.
+				</p>
+			</div>
+
+			<!-- Grille des niveaux -->
+			<div class="space-y-8">
+				{niveaux.map((niveau, index) => (
+					<div class={`relative border-l-4 border-or p-8 md:p-10 bg-blanc-creme rounded-none hover:shadow-md transition-shadow ${index % 2 === 0 ? '' : 'md:ml-8'}`}>
+						<!-- Numéro et titre -->
+						<div class="flex items-start gap-6 mb-6">
+							<div class="flex-shrink-0">
+								<span class="text-4xl font-serif font-semibold accent-or">{niveau.numero}</span>
+							</div>
+							<div class="flex-1">
+								<h3 class="text-2xl md:text-3xl font-serif font-semibold text-noir-cafe mb-2">
+									{niveau.titre}
+								</h3>
+								<p class="text-sable-700 leading-relaxed">
+									{niveau.description}
+								</p>
+							</div>
+						</div>
+
+						<!-- Points clés -->
+						<div class="ml-20 space-y-3 mb-6">
+							{niveau.sousPoints.map((point) => (
+								<div class="flex gap-3 items-start">
+									<span class="text-or font-semibold text-lg leading-none mt-1">✦</span>
+									<p class="text-sable-800">{point}</p>
+								</div>
+							))}
+						</div>
+
+						<!-- Tagline italique -->
+						<div class="ml-20 pl-4 border-l-2 border-rouge/30 mb-4">
+							<p class="text-sable-700 italic font-serif">
+								"{niveau.tagline}"
+							</p>
+						</div>
+
+						<!-- Bonus si présent -->
+						{niveau.bonus && (
+							<div class="ml-20 p-3 bg-or/5 border-l-2 border-or">
+								<p class="text-sm text-noir-cafe">
+									<span class="font-semibold accent-or">Bonus :</span> {niveau.bonus}
+								</p>
+							</div>
+						)}
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- Section Infos Pratiques — Minimaliste OR/ROUGE -->
+	<section class="relative py-20 md:py-24 bg-noir-cafe">
+		<div class="max-w-5xl mx-auto px-6">
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+				<!-- Info 1 -->
+				<div class="text-center border-t-4 border-or pt-6">
+					<p class="text-4xl font-serif font-semibold accent-or mb-2">40€</p>
+					<p class="text-creme font-serif italic">Par mois</p>
+					<p class="text-sm text-sable-400 mt-1">Cours individuels 1-1</p>
+				</div>
+
+				<!-- Info 2 -->
+				<div class="text-center border-t-4 border-rouge pt-6">
+					<p class="text-4xl font-serif font-semibold accent-rouge mb-2">1h</p>
+					<p class="text-creme font-serif italic">Par semaine</p>
+					<p class="text-sm text-sable-400 mt-1">Rythme flexible selon ton niveau</p>
+				</div>
+
+				<!-- Info 3 -->
+				<div class="text-center border-t-4 border-or pt-6">
+					<p class="text-4xl font-serif font-semibold accent-or mb-2">100%</p>
+					<p class="text-creme font-serif italic">En ligne</p>
+					<p class="text-sm text-sable-400 mt-1">De n'importe où, à ton rythme</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Section Inscription — Élégante et calme -->
+	<section id="inscription" class="relative py-24 md:py-32 bg-blanc-creme">
+		<div class="absolute inset-0 opacity-3 pattern-geometric"></div>
+
+		<div class="relative max-w-2xl mx-auto px-6">
+			<!-- En-tête -->
+			<div class="mb-12 text-center">
+				<h2 class="text-4xl md:text-5xl font-serif font-semibold accent-or mb-4 leading-tight">
+					Commencer le voyage
+				</h2>
+				<p class="text-lg text-sable-700 font-serif italic">
+					Réserve ta première leçon de découverte, entièrement gratuite.
+				</p>
+
+				<!-- Séparateur -->
+				<div class="flex justify-center gap-2 mt-6 mb-8">
+					<div class="w-1.5 h-1.5 bg-or rounded-full"></div>
+					<div class="w-1.5 h-1.5 bg-or rounded-full"></div>
+					<div class="w-1.5 h-1.5 bg-or rounded-full"></div>
+				</div>
+			</div>
+
+			<!-- Formulaire -->
+			<div class="bg-sable-950 p-8 md:p-10 border-l-4 border-or">
+				<form class="space-y-6">
+					<!-- Nom + Email -->
+					<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+						<div>
+							<label for="nom" class="block text-sm font-semibold accent-or uppercase tracking-wide mb-2">
+								Prénom & Nom
+							</label>
+							<input
+								type="text"
+								id="nom"
+								name="nom"
+								class="w-full px-4 py-2 bg-sable-900 border-b-2 border-or text-creme placeholder:text-sable-500 focus:outline-none focus:border-rouge transition-colors"
+								placeholder="Ton nom"
+								required
+							/>
+						</div>
+						<div>
+							<label for="email" class="block text-sm font-semibold accent-or uppercase tracking-wide mb-2">
+								Email
+							</label>
+							<input
+								type="email"
+								id="email"
+								name="email"
+								class="w-full px-4 py-2 bg-sable-900 border-b-2 border-or text-creme placeholder:text-sable-500 focus:outline-none focus:border-rouge transition-colors"
+								placeholder="ton@email.com"
+								required
+							/>
+						</div>
+					</div>
+
+					<!-- Niveau -->
+					<div>
+						<label for="niveau" class="block text-sm font-semibold accent-or uppercase tracking-wide mb-2">
+							Ton niveau actuel
+						</label>
+						<select
+							id="niveau"
+							name="niveau"
+							class="w-full px-4 py-2 bg-sable-900 border-b-2 border-or text-creme focus:outline-none focus:border-rouge transition-colors"
+							required
+						>
+							<option value="" class="bg-sable-900">Sélectionne un niveau</option>
+							<option value="debutant" class="bg-sable-900">Débutant (REVE 1)</option>
+							<option value="confirme" class="bg-sable-900">Confirmé (REVE 2-3)</option>
+							<option value="avance" class="bg-sable-900">Avancé (REVE 4+)</option>
+						</select>
+					</div>
+
+					<!-- Message -->
+					<div>
+						<label for="message" class="block text-sm font-semibold accent-or uppercase tracking-wide mb-2">
+							Message (optionnel)
+						</label>
+						<textarea
+							id="message"
+							name="message"
+							rows="4"
+							class="w-full px-4 py-2 bg-sable-900 border-b-2 border-or text-creme placeholder:text-sable-500 focus:outline-none focus:border-rouge transition-colors resize-none"
+							placeholder="Une question ? Une attente particulière ?"
+						></textarea>
+					</div>
+
+					<!-- Bouton -->
+					<button
+						type="submit"
+						class="w-full py-3 mt-8 bg-or text-noir-cafe font-semibold uppercase tracking-widest hover:bg-or-fonce transition-colors"
+					>
+						Réserver ma séance découverte
+					</button>
+
+					<!-- Lien Calendly -->
+					<p class="text-center text-sm text-sable-500 border-t border-sable-700 pt-6">
+						Ou directement sur <a href="https://calendly.com/saibo" target="_blank" rel="noopener noreferrer" class="text-or font-semibold hover:text-rouge">mon Calendly</a>
+					</p>
+				</form>
+			</div>
+		</div>
+	</section>
+
+	<!-- Footer Spirituel -->
+	<section class="bg-noir-cafe py-12 border-t-4 border-or text-center">
+		<p class="text-sable-400 font-serif italic">
+			"Lis le Coran avec confiance et douceur, pas à pas."
+		</p>
+		<p class="text-sm text-sable-600 mt-2">
+			Institut Yahdi Qalbah — Apprendre l'arabe du Coran
+		</p>
+	</section>
+</Layout>
