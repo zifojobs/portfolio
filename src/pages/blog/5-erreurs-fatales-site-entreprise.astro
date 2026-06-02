@@ -1,12 +1,278 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-const article = { slug: "5-erreurs-fatales-site-entreprise", titre: "5 erreurs fatales sur un site d'entreprise (et comment les éviter)", extrait: "Design, UX, contenu, SEO, performance : les erreurs qui tuent la conversion.", date: "2026-06-02", tags: ["UX", "conseils", "conversion"], tempsLecture: "6 min", draft: true };
+
+const article = {
+	slug: "5-erreurs-fatales-site-entreprise",
+	titre: "5 erreurs fatales que les entreprises sénégalaises font avec leur site web",
+	extrait: "Pourquoi la plupart des sites sénégalais ne génèrent pas un seul client. Et comment les corriger.",
+	date: "2026-06-02",
+	tags: ["UX", "conseils", "conversion"],
+	tempsLecture: "6 min",
+};
 ---
-<Layout title={`${article.titre} — Blog — Saïbo Danfakha`} description={article.extrait}>
+
+<Layout
+	title={`${article.titre} — Blog — Saïbo Danfakha`}
+	description={article.extrait}
+>
 	<article class="max-w-3xl mx-auto px-6 py-24 md:py-32">
-		<a href="/blog/" class="inline-flex items-center gap-2 text-sm text-sable-600 hover:text-noir-cafe transition-colors mb-12"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>Retour au blog</a>
-		<header class="mb-12"><div class="flex items-center gap-3 text-sm text-sable-600 mb-4"><time datetime={article.date}>{new Date(article.date).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}</time><span>·</span><span>{article.tempsLecture} de lecture</span></div><h1 class="text-4xl md:text-5xl font-semibold leading-tight tracking-tight text-noir-cafe mb-6">{article.titre}</h1><div class="flex flex-wrap gap-2">{article.tags.map((tag) => (<span class="px-2.5 py-1 bg-terracotta/10 text-terracotta rounded-full text-xs">#{tag}</span>))}</div></header>
-		<figure class="mb-12 -mx-6 md:mx-0"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=630&fit=crop&auto=format&q=80" alt="Article à rédiger" loading="eager" class="w-full aspect-[16/9] object-cover md:rounded-xl" /></figure>
-		<div class="prose prose-lg prose-noir-cafe max-w-none"><p class="text-sable-600 mb-8 leading-relaxed">À rédiger : contenu complet de cet article.</p></div>
+		<a href="/blog/" class="inline-flex items-center gap-2 text-sm text-sable-600 hover:text-noir-cafe transition-colors mb-12">
+			<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+				<line x1="19" y1="12" x2="5" y2="12"></line>
+				<polyline points="12 19 5 12 12 5"></polyline>
+			</svg>
+			Retour au blog
+		</a>
+
+		<header class="mb-12">
+			<div class="flex items-center gap-3 text-sm text-sable-600 mb-4">
+				<time datetime={article.date}>
+					{new Date(article.date).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}
+				</time>
+				<span>·</span>
+				<span>{article.tempsLecture} de lecture</span>
+			</div>
+
+			<h1 class="text-4xl md:text-5xl font-semibold leading-tight tracking-tight text-noir-cafe mb-6">
+				{article.titre}
+			</h1>
+
+			<div class="flex flex-wrap gap-2">
+				{article.tags.map((tag) => (
+					<span class="px-2.5 py-1 bg-terracotta/10 text-terracotta rounded-full text-xs">
+						#{tag}
+					</span>
+				))}
+			</div>
+		</header>
+
+		<figure class="mb-12 -mx-6 md:mx-0">
+			<img
+				src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&h=630&fit=crop&auto=format&q=80"
+				alt="Bureau moderne épuré — un site d'entreprise pensé pour convertir"
+				loading="eager"
+				class="w-full aspect-[16/9] object-cover md:rounded-xl"
+			/>
+		</figure>
+
+		<div class="prose prose-lg prose-noir-cafe max-w-none">
+			<p class="text-xl text-sable-600 mb-8 leading-relaxed">
+				Votre site existe. Personne n'appelle. Vous vous demandez pourquoi.
+			</p>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				La réponse, c'est que <strong>90% des sites sénégalais commettent les mêmes erreurs</strong> — des erreurs qui ne sont pas visibles à l'œil nu, mais qui tuent silencieusement vos chances de vendre.
+			</p>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Voici les cinq plus destructrices.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Erreur 1 : Un template générique qui ressemble à tous les autres</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Un site n'est pas juste une vitrine — c'est votre signature commerciale.
+			</p>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Quand vous visitez un site sénégalais, dites-moi : vous voyez quoi ?
+			</p>
+
+			<ul class="list-disc pl-6 text-sable-600 mb-6 space-y-2">
+				<li>Bloc bleu en haut, logo au milieu, trois carrés en bas.</li>
+				<li>Galerie de photos, formulaire de contact, "Nous sommes pionniers depuis 1995".</li>
+				<li>Zéro couleur, zéro personnalité.</li>
+			</ul>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				<strong>Pourquoi c'est fatal :</strong>
+			</p>
+
+			<ul class="list-disc pl-6 text-sable-600 mb-6 space-y-2">
+				<li>Votre prospect le visite. Il pense : "c'est l'agence d'à côté, j'ai l'impression."</li>
+				<li>Pas de mémoire. Pas de confiance. Pas de contact.</li>
+			</ul>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Un site générique, c'est un site qui demande aux clients de faire la moitié du travail — ils doivent deviner que vous êtes compétents.
+			</p>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Un site sur-mesure, c'est un site qui <strong>leur prouve</strong> en 3 secondes que vous êtes sérieux.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Erreur 2 : Pas de call-to-action clair</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Votre client arrive sur votre site. Il a une question. Et ensuite... quoi ?
+			</p>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				La plupart des sites sénégalais ne disent pas ce qu'on doit faire après. Pas de "Demander un devis", pas de "Prendre rendez-vous", pas de "Appeler maintenant".
+			</p>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Juste... du texte.
+			</p>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				<strong>Pourquoi c'est fatal :</strong>
+			</p>
+
+			<ul class="list-disc pl-6 text-sable-600 mb-6 space-y-2">
+				<li>L'intention est là. Mais pas la porte d'entrée.</li>
+				<li>95% partent sans rien faire.</li>
+				<li>Les 5% qui restent, vous devez les chercher — travail supplémentaire pour vous.</li>
+			</ul>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Un call-to-action clair, ce n'est pas une arnaque. C'est un <em>raccourci</em>. C'est dire à votre client : "Vous êtes intéressé ? C'est par ici."
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Erreur 3 : Un site lent qui ne marche pas sur mobile</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Votre prospect vous cherche sur son téléphone — en 4G au marché de Kaolack, pas en fibre optique.
+			</p>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Et votre site met <strong>8 secondes</strong> à charger.
+			</p>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Il est parti.
+			</p>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				<strong>Pourquoi c'est fatal :</strong>
+			</p>
+
+			<ul class="list-disc pl-6 text-sable-600 mb-6 space-y-2">
+				<li>75% des recherches se font sur mobile au Sénégal.</li>
+				<li>Un site lent tue vos ventes directement.</li>
+				<li>C'est aussi facile à vérifier que de frotter une lampe magique : ouvrez votre site sur un téléphone, attendez, et comptez les secondes.</li>
+			</ul>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Un site rapide, ça coûte zéro euro de plus à héberger. C'est une question de technique.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Erreur 4 : Zéro optimisation pour Google local</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Vous êtes une clinique à Dakar. Un directeur de clinique tape "clinique Dakar" sur Google.
+			</p>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Vous <strong>n'apparaissez pas en première page</strong> — même pas en troisième page.
+			</p>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Pourquoi ? Parce que votre site n'a jamais entendu parler de <strong>SEO local</strong>. Pas de fiche Google My Business, pas de mots-clés régionaux, pas de données structurées.
+			</p>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				<strong>Pourquoi c'est fatal :</strong>
+			</p>
+
+			<ul class="list-disc pl-6 text-sable-600 mb-6 space-y-2">
+				<li>Google ne sait pas que vous existez.</li>
+				<li>Vos clients le savent — mais Google ne sait pas qu'ils devraient vous trouver.</li>
+				<li>Résultat : zéro trafic organique. Zéro clients de recherche.</li>
+			</ul>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				L'optimisation locale, c'est gratuit. C'est simplement du travail minutieux au démarrage.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Erreur 5 : Un site mort qui n'est jamais mis à jour</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Vous lancez un site en 2023. Vous le laissez tel quel.
+			</p>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				En 2026, les visiteurs voient :
+			</p>
+
+			<ul class="list-disc pl-6 text-sable-600 mb-6 space-y-2">
+				<li>Des prix obsolètes.</li>
+				<li>Des articles de 2023.</li>
+				<li>Une adresse qui a changé il y a deux ans.</li>
+				<li>Un numéro WhatsApp qui n'existe plus.</li>
+			</ul>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				<strong>Pourquoi c'est fatal :</strong>
+			</p>
+
+			<ul class="list-disc pl-6 text-sable-600 mb-6 space-y-2">
+				<li>Un site mort, c'est pire que pas de site. Ça dit : "Cette entreprise a oublié d'exister."</li>
+				<li>Vous perdez la confiance en 10 secondes.</li>
+				<li>Google vous pénalise aussi (les sites morts, il les abaisse dans les résultats).</li>
+			</ul>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Un site vivant, c'est un site qui respire. Qui change, qui se met à jour, qui parle à ses clients en direct.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">La vraie question</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Combien de vos clients potentiels <strong>consultent votre site avant de vous contacter</strong> ?
+			</p>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Probablement 100%.
+			</p>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Combien vous appellent après ? Probablement moins de 5%.
+			</p>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				La différence entre ces deux chiffres, c'est tout ce que vous laissez sur la table — des contrats, des revenus, du développement.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Et maintenant ?</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Ces cinq erreurs ne sont pas difficiles à corriger. Elles demandent simplement :
+			</p>
+
+			<ol class="list-decimal pl-6 text-sable-600 mb-6 space-y-2">
+				<li><strong>Un design qui vous ressemble</strong> — pas un clone.</li>
+				<li><strong>Une direction claire</strong> pour vos visiteurs.</li>
+				<li><strong>Un site technique qui marche</strong>, vite et partout.</li>
+				<li><strong>Une présence sur Google locale</strong> — où vos clients vous cherchent.</li>
+				<li><strong>Une mise à jour régulière</strong> — parce qu'une entreprise vivante, c'est un site qui vit.</li>
+			</ol>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Si vous êtes une <strong>clinique, une agence, un acteur du secteur public ou une entreprise de services sénégalaise</strong>, et que vous voyez 3 de ces erreurs chez vous, alors vous perdez probablement <strong>des milliers de francs par mois</strong> en clients qui vous ont trouvé... puis n'ont pas cliqué.
+			</p>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Le coût de corriger ça ? Probablement moins que vous ne gagnerez en deux mois avec le trafic retrouvé.
+			</p>
+
+			<hr class="my-12 border-sable-300" />
+
+			<div class="bg-terracotta/10 border border-terracotta/30 rounded-xl p-6">
+				<h3 class="text-lg font-semibold text-noir-cafe mb-3">
+					Prêt à un site qui convertit ?
+				</h3>
+				<p class="text-sable-600 mb-4">
+					Je crée des sites sur-mesure pour entreprises sénégalaises — des sites qui rassemblent vos clients et qui les transforment en devis. Pas de template. Pas de perte de temps.
+				</p>
+				<a href="/#contact" class="inline-flex items-center gap-2 bg-noir-cafe text-creme px-6 py-3 rounded-md font-medium hover:bg-terracotta transition-colors">
+					Me contacter
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+						<line x1="5" y1="12" x2="19" y2="12"></line>
+						<polyline points="12 5 19 12 12 19"></polyline>
+					</svg>
+				</a>
+			</div>
+		</div>
 	</article>
 </Layout>
