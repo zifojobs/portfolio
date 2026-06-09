@@ -7,6 +7,7 @@ interface Props {
 	title?: string;
 	description?: string;
 	image?: string;
+	article?: { headline: string; datePublished: string };
 }
 
 const SITE_URL = "https://saibodanfakha.com";
@@ -14,6 +15,7 @@ const {
 	title = "Saïbo Danfakha — Sites web premium pour entrepreneurs & institutions",
 	description = "Développeur web freelance Sénégal. Création de sites web sur-mesure pour entrepreneurs diaspora, PME et ONG. Design web premium, confiance et performance.",
 	image = "/og-image.jpg",
+	article,
 } = Astro.props;
 
 const canonicalUrl = new URL(Astro.url.pathname, SITE_URL).toString();
@@ -31,11 +33,6 @@ const ogImageUrl = new URL(image, SITE_URL).toString();
 		<meta name="description" content={description} />
 		<meta name="author" content="Saïbo Danfakha" />
 		<link rel="canonical" href={canonicalUrl} />
-
-		<!-- Hreflang pour contenu bilingue FR/EN -->
-		<link rel="alternate" hreflang="fr" href={canonicalUrl} />
-		<link rel="alternate" hreflang="en" href={canonicalUrl} />
-		<link rel="alternate" hreflang="x-default" href={canonicalUrl} />
 
 		<!-- Script région + thème : appliqué AVANT le rendu pour éviter le flash de contenu -->
 		<script is:inline>
@@ -82,7 +79,7 @@ const ogImageUrl = new URL(image, SITE_URL).toString();
 			"description": description,
 			"url": SITE_URL,
 			"telephone": "+221775277164",
-			"email": "zifo1819@gmail.com",
+			"email": "youmou@saibodanfakha.com",
 			"address": {
 				"@type": "PostalAddress",
 				"addressCountry": "SN",
@@ -122,6 +119,24 @@ const ogImageUrl = new URL(image, SITE_URL).toString();
 				"https://www.instagram.com/zira1819/"
 			]
 		})} />
+
+		<!-- Schema.org Article (uniquement sur les pages de blog) -->
+		{article && (
+			<script type="application/ld+json" set:html={JSON.stringify({
+				"@context": "https://schema.org",
+				"@type": "BlogPosting",
+				"headline": article.headline,
+				"description": description,
+				"image": ogImageUrl,
+				"datePublished": article.datePublished,
+				"dateModified": article.datePublished,
+				"inLanguage": "fr-FR",
+				"author": { "@type": "Person", "name": "Saïbo Danfakha", "url": SITE_URL },
+				"publisher": { "@type": "Person", "name": "Saïbo Danfakha", "url": SITE_URL },
+				"mainEntityOfPage": { "@type": "WebPage", "@id": canonicalUrl },
+				"url": canonicalUrl
+			})} />
+		)}
 
 		<!-- Google Fonts : Fraunces (titres) + Inter (texte) -->
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
