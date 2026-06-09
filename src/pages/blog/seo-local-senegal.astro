@@ -1,0 +1,244 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+const article = {
+	slug: "seo-local-senegal",
+	titre: "SEO local au Sénégal : comment se positionner sur Google",
+	extrait: "Vos clients vous cherchent sur Google. La vraie question : est-ce qu'ils vous trouvent ? Le guide concret du référencement local au Sénégal.",
+	date: "2026-06-09",
+	tags: ["SEO", "marketing", "local"],
+	tempsLecture: "7 min",
+};
+---
+
+<Layout
+	title={`${article.titre} — Blog — Saïbo Danfakha`}
+	description={article.extrait}
+>
+	<article class="max-w-3xl mx-auto px-6 py-24 md:py-32">
+		<a href="/blog/" class="inline-flex items-center gap-2 text-sm text-sable-600 hover:text-noir-cafe transition-colors mb-12">
+			<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+				<line x1="19" y1="12" x2="5" y2="12"></line>
+				<polyline points="12 19 5 12 12 5"></polyline>
+			</svg>
+			Retour au blog
+		</a>
+
+		<header class="mb-12">
+			<div class="flex items-center gap-3 text-sm text-sable-600 mb-4">
+				<time datetime={article.date}>
+					{new Date(article.date).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}
+				</time>
+				<span>·</span>
+				<span>{article.tempsLecture} de lecture</span>
+			</div>
+
+			<h1 class="text-4xl md:text-5xl font-semibold leading-tight tracking-tight text-noir-cafe mb-6">
+				{article.titre}
+			</h1>
+
+			<div class="flex flex-wrap gap-2">
+				{article.tags.map((tag) => (
+					<span class="px-2.5 py-1 bg-terracotta/10 text-terracotta rounded-full text-xs">
+						#{tag}
+					</span>
+				))}
+			</div>
+		</header>
+
+		<figure class="mb-12 -mx-6 md:mx-0">
+			<img
+				src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=1200&h=630&fit=crop&auto=format&q=80"
+				alt="Recherche sur ordinateur — se positionner sur Google au niveau local"
+				loading="eager"
+				class="w-full aspect-[16/9] object-cover md:rounded-xl"
+			/>
+		</figure>
+
+		<div class="prose prose-lg prose-noir-cafe max-w-none">
+			<p class="text-xl text-sable-600 mb-8 leading-relaxed">
+				Vos clients vous cherchent sur Google. La vraie question, ce n'est pas « est-ce qu'ils tapent votre nom ? ». C'est : <strong>est-ce qu'ils vous trouvent quand ils tapent votre métier ?</strong>
+			</p>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Quelqu'un à Dakar tape « clinique dentaire près de moi ». Quelqu'un à Kaolack tape « réparateur clim Kaolack ». Quelqu'un dans la diaspora tape « agence voyage Umrah Sénégal ». Dans ces trois cas, Google choisit qui afficher en premier.
+			</p>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Si ce n'est pas vous, ce sera votre concurrent. Voici comment renverser ça — sans budget publicitaire, juste avec du travail bien fait.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">D'abord : qu'est-ce que le SEO local, vraiment ?</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Le SEO classique, c'est se positionner sur des mots-clés. Le SEO <em>local</em>, c'est se positionner sur des mots-clés <strong>liés à un lieu</strong> — votre quartier, votre ville, votre région.
+			</p>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Concrètement, deux choses se jouent quand quelqu'un cherche un service près de lui :
+			</p>
+
+			<ul class="list-disc pl-6 text-sable-600 mb-6 space-y-2">
+				<li>Le <strong>« pack local »</strong> — la carte avec 3 entreprises affichées tout en haut, avant même les résultats classiques.</li>
+				<li>Les <strong>résultats organiques</strong> — la liste des sites en dessous.</li>
+			</ul>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Apparaître dans ce pack de 3, c'est le jackpot. C'est là que 90 % des clics partent. Et la bonne nouvelle : au Sénégal, la plupart de vos concurrents ne font rien pour y être. La place est libre.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Étape 1 : Votre fiche Google Business Profile (le levier n°1)</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				C'est gratuit, ça prend une heure, et c'est <strong>ce qui fait la plus grosse différence</strong>. La fiche Google Business Profile (l'ancien « Google My Business »), c'est ce qui vous fait apparaître sur la carte et dans Maps.
+			</p>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Pour qu'elle travaille pour vous :
+			</p>
+
+			<ul class="list-disc pl-6 text-sable-600 mb-6 space-y-2">
+				<li><strong>Remplissez tout</strong> — catégorie précise, horaires, zone desservie, numéro WhatsApp, site web.</li>
+				<li><strong>Choisissez la bonne catégorie principale.</strong> « Restaurant sénégalais » convertit mieux que « Restaurant » tout court.</li>
+				<li><strong>Ajoutez de vraies photos</strong> — votre devanture, vos locaux, vos réalisations. Pas des images banque d'images.</li>
+				<li><strong>Postez régulièrement</strong> (offres, nouveautés). Une fiche vivante, Google la pousse plus haut.</li>
+			</ul>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Une fiche complète et active peut vous placer dans le pack local <strong>même sans gros site web</strong>. C'est le premier chantier, toujours.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Étape 2 : Les avis clients (votre preuve sociale)</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Entre deux entreprises identiques, le client choisit celle qui a <strong>15 avis 5 étoiles</strong> plutôt que celle qui en a zéro. Et Google fait exactement le même calcul pour décider qui afficher.
+			</p>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Les avis, ce n'est pas un détail. C'est un signal de classement <em>et</em> un argument de vente. Comment en obtenir, simplement :
+			</p>
+
+			<ul class="list-disc pl-6 text-sable-600 mb-6 space-y-2">
+				<li>Demandez. Après chaque client satisfait — un message WhatsApp avec le lien direct vers votre fiche.</li>
+				<li>Facilitez. Un client ne cherchera pas votre fiche tout seul. Donnez-lui le lien en un clic.</li>
+				<li>Répondez à <strong>tous</strong> les avis, même les négatifs. Une réponse calme et professionnelle à une critique rassure plus que dix avis parfaits.</li>
+			</ul>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Objectif réaliste : 10 avis dans le premier mois. C'est suffisant pour dépasser la majorité de vos concurrents locaux.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Étape 3 : Des mots-clés locaux sur votre site</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Google ne devine pas où vous êtes. Il faut le lui dire — clairement, sur votre site.
+			</p>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				La plupart des sites sénégalais écrivent « Nous proposons des services de qualité ». Ça ne se positionne sur rien. Comparez avec :
+			</p>
+
+			<ul class="list-disc pl-6 text-sable-600 mb-6 space-y-2">
+				<li>« <strong>Clinique dentaire à Dakar</strong> — Plateau et Almadies »</li>
+				<li>« <strong>Réparation de climatiseurs à Kaolack</strong> et environs »</li>
+				<li>« <strong>Agence de voyage Umrah</strong> au Sénégal et pour la diaspora »</li>
+			</ul>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Où placer ces mots-clés :
+			</p>
+
+			<ul class="list-disc pl-6 text-sable-600 mb-6 space-y-2">
+				<li>Le <strong>titre</strong> de votre page d'accueil (la balise &lt;title&gt;).</li>
+				<li>Le <strong>premier paragraphe</strong> visible.</li>
+				<li>Les <strong>titres de sections</strong> (vos H1 et H2).</li>
+				<li>Une page dédiée par ville si vous couvrez plusieurs zones.</li>
+			</ul>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Pas de bourrage. On écrit pour un humain d'abord. Mais on nomme explicitement <strong>le métier + le lieu</strong>.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Étape 4 : Cohérence NAP (le détail qui fait toute la différence)</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				NAP, c'est <strong>Nom, Adresse, Téléphone</strong>. La règle est simple : ces trois infos doivent être <strong>identiques partout</strong> — sur votre site, votre fiche Google, votre page Facebook, vos annuaires.
+			</p>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Si votre numéro est écrit « 77 527 71 64 » à un endroit et « +221775277164 » à un autre, Google hésite. Et quand Google hésite, il vous rétrograde.
+			</p>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				C'est invisible, mais c'est exactement le genre de détail qui sépare une entreprise qui apparaît d'une entreprise qui reste enterrée page 3.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Étape 5 : Mobile et vitesse (75 % des recherches au Sénégal)</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Au Sénégal, on cherche sur son téléphone, en 4G, parfois avec une connexion capricieuse. Si votre site met 8 secondes à charger, le client est déjà parti — et Google l'a remarqué.
+			</p>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Google classe les sites rapides et adaptés au mobile <strong>au-dessus</strong> des autres. Ce n'est pas une option, c'est un critère de positionnement direct.
+			</p>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Un site rapide ne coûte pas plus cher à héberger. C'est une question de construction technique — images optimisées, code léger, pas de surcharge inutile. (J'en ai parlé en détail dans l'article sur les <a href="/blog/5-erreurs-fatales-site-entreprise/" class="text-terracotta hover:underline">5 erreurs fatales</a>.)
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Étape 6 : Citations et liens locaux</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Plus votre entreprise est mentionnée sur des sites locaux de confiance, plus Google vous fait confiance à son tour. Quelques pistes concrètes :
+			</p>
+
+			<ul class="list-disc pl-6 text-sable-600 mb-6 space-y-2">
+				<li>Annuaires d'entreprises sénégalais et régionaux.</li>
+				<li>Pages partenaires, fournisseurs, associations de votre secteur.</li>
+				<li>Articles de presse locale ou de blogs si vous organisez un événement.</li>
+				<li>Vos propres réseaux (Facebook, Instagram, LinkedIn) avec le lien vers votre site.</li>
+			</ul>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Pas besoin de centaines de liens. Quelques mentions cohérentes et locales valent mieux qu'une masse de liens sans rapport.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Par où commencer, concrètement</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Vous n'avez pas besoin de tout faire cette semaine. Mais dans l'ordre de rentabilité :
+			</p>
+
+			<ol class="list-decimal pl-6 text-sable-600 mb-6 space-y-2">
+				<li><strong>Créez ou complétez votre fiche Google Business Profile.</strong> Aujourd'hui. C'est gratuit et c'est 80 % du résultat.</li>
+				<li><strong>Demandez 10 avis</strong> à vos clients récents, par WhatsApp.</li>
+				<li><strong>Réécrivez votre page d'accueil</strong> avec métier + lieu, clairement.</li>
+				<li><strong>Vérifiez votre NAP</strong> partout, et corrigez les incohérences.</li>
+				<li><strong>Testez la vitesse de votre site</strong> sur un téléphone, et faites-la corriger si elle traîne.</li>
+			</ol>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Le SEO local n'est pas une histoire de budget. C'est une histoire de <strong>rigueur et de régularité</strong>. La plupart de vos concurrents ne le font pas. C'est exactement pour ça que c'est votre opportunité.
+			</p>
+
+			<hr class="my-12 border-sable-300" />
+
+			<div class="bg-terracotta/10 border border-terracotta/30 rounded-xl p-6">
+				<h3 class="text-lg font-semibold text-noir-cafe mb-3">
+					Envie d'apparaître quand vos clients vous cherchent ?
+				</h3>
+				<p class="text-sable-600 mb-4">
+					Je construis des sites pensés pour le SEO local dès la première ligne de code — fiche Google, structure, vitesse, mots-clés locaux. Pour les entreprises sénégalaises qui veulent être trouvées, pas juste exister.
+				</p>
+				<a href="/#contact" class="inline-flex items-center gap-2 bg-noir-cafe text-creme px-6 py-3 rounded-md font-medium hover:bg-terracotta transition-colors">
+					Me contacter
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+						<line x1="5" y1="12" x2="19" y2="12"></line>
+						<polyline points="12 5 19 12 12 19"></polyline>
+					</svg>
+				</a>
+			</div>
+		</div>
+	</article>
+</Layout>
