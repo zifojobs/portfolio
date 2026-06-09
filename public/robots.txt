@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://saibodanfakha.com/sitemap.xml
+Sitemap: https://saibodanfakha.com/sitemap-index.xml
 
 # Crawl-delay pour éviter la surcharge du serveur
 Crawl-delay: 1
