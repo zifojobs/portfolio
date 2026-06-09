@@ -37,17 +37,17 @@
 
 ### Phase 1 — Débloquer l'indexation (Semaines 1-2) · *fondations*
 > Si Google ne voit pas le blog, rien d'autre ne compte. On répare la plomberie d'abord.
-- [ ] **[P0]** Sitemap auto incluant blog + articles (`@astrojs/sitemap` ou MAJ manuelle) — *Youssouf* → ✅ quand `/blog` + 6 articles présents dans le sitemap.
-- [ ] **[P0]** Corriger le NAP dans le schema.org (Kaolack + email pro) — *Mouhamed → Youssouf* → ✅ quand NAP cohérent code/schema.
-- [ ] **[P0]** Créer/optimiser Google Business Profile (catégorie, zone, photos, lien) — *Mouhamed* → ✅ fiche publiée + vérifiée.
-- [ ] **[P1]** Corriger ou retirer le hreflang EN/x-default — *Youssouf* → ✅ build vert, plus de hreflang trompeur.
+- [x] **[P0]** Sitemap auto incluant blog + articles — *Youssouf* → ✅ **Déjà résolu** : `@astrojs/sitemap` était actif, le sitemap live (`sitemap-0.xml`) liste déjà `/blog` + les 6 articles. L'audit décrivait un `public/sitemap.xml` statique qui n'existe pas/plus. ⚠️ Vraie piste restante = soumettre/vérifier l'indexation dans Search Console (→ Fodé).
+- [x] **[P0]** Corriger le NAP dans le schema.org (Kaolack + email pro) — *Mouhamed → Youssouf* → ✅ localité déjà Kaolack ; email corrigé `zifo1819@gmail.com` → `youmou@saibodanfakha.com` (commit e3b6c52).
+- [ ] **[P0]** Créer/optimiser Google Business Profile (catégorie, zone, photos, lien) — *Mouhamed* → ✅ fiche publiée + vérifiée. **(action Saïbo — compte Google)**
+- [x] **[P1]** Corriger ou retirer le hreflang EN/x-default — *Youssouf* → ✅ hreflang trompeur retiré, build vert (commit e3b6c52).
 - [ ] **[P1]** Relever la baseline Search Console (impressions, clics, position, pages indexées) — *Fodé* → ✅ chiffres consignés dans `SEO/MESURES.md`.
 
 ### Phase 2 — Contenu & autorité (Semaines 3-8) · *attaque*
 - [ ] **[P1]** Recherche de mots-clés cibles (Sénégal/diaspora) + mapping page↔mot-clé — *Dialamba* (avec veille *Bangaly*).
 - [ ] **[P1]** Analyse concurrentielle SERP : 5 opportunités à faible concurrence — *Bangaly*.
 - [ ] **[P1]** Optimiser on-page des pages clés (home, études de cas) : title/H1/H2 + métier+lieu — *Dialamba*.
-- [ ] **[P1]** Ajouter schema `BlogPosting` + `BreadcrumbList` aux articles — *Youssouf*.
+- [~] **[P1]** Ajouter schema `BlogPosting` + `BreadcrumbList` aux articles — *Youssouf* → ✅ `BlogPosting` ajouté aux 6 articles via prop `article` du Layout (commit e3b6c52). Reste `BreadcrumbList`.
 - [ ] **[P2]** Renforcer le maillage interne entre articles liés — *Dialamba*.
 - [ ] **[P2]** Citations annuaires sénégalais + 3-5 backlinks de qualité (NAP cohérent) — *Lamine*.
 
@@ -69,3 +69,4 @@
 
 ## 📝 Journal
 - **2026-06-09** — Audit initial réalisé. Agence familiale (7 agents) créée dans `~/.claude/agents/`. Constat majeur : blog absent du sitemap (P0 #1).
+- **2026-06-09 (après-midi)** — Corrections code P0/P1 (commit `e3b6c52`, push main → Vercel). **P0 #1 sitemap : faux problème — déjà OK en prod** (le vrai levier devient l'indexation Search Console → Fodé). NAP email pro corrigé. hreflang trompeur retiré. Schema `BlogPosting` ajouté aux 6 articles. Restent ouverts : Google Business Profile (Saïbo), baseline Search Console (Fodé), BreadcrumbList, Phase 2 contenu/mots-clés.
