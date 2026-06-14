@@ -1,0 +1,230 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+// Page de conversion géo-locale — cible SEO : "développeur web freelance Kaolack"
+// CTA : WhatsApp en 1er, Calendly en alternative, tarifs vers /#offres.
+
+const WHATSAPP = "https://wa.me/221775277164";
+const CALENDLY = "https://calendly.com/zifo1819/30min";
+
+// Mini-galerie de preuve : du service local sénégalais à l'international premium.
+const realisations = [
+	{ slug: "rk-services", titre: "RK Services", lieu: "Mbour, Sénégal", image: "/etudes-de-cas/rk-services.jpg" },
+	{ slug: "nur-alhayaa", titre: "Nur Alhayaa", lieu: "Dakar · Paris · Dubaï", image: "/etudes-de-cas/nur-alhayaa.jpg" },
+	{ slug: "registon", titre: "Registon", lieu: "Canada", image: "/etudes-de-cas/registon.jpg" },
+];
+
+const faq = [
+	{
+		q: "Combien coûte un site web à Kaolack ?",
+		r: "Un site vitrine premium démarre à 300 000 FCFA, l'identité visuelle complète à 350 000 FCFA, et un site complet sur-mesure à partir de 1 000 000 FCFA. Tous les prix sont annoncés clairement, avec paiement en 2 ou 3 fois sans frais au-delà de 800 €.",
+	},
+	{
+		q: "Travaillez-vous en présentiel à Kaolack ?",
+		r: "Oui. Basé à Kaolack, je peux vous rencontrer sur place pour cadrer votre projet, puis avancer en visio et par WhatsApp. La proximité permet un suivi simple, dans votre langue et à votre rythme.",
+	},
+	{
+		q: "Combien de temps pour livrer un site ?",
+		r: "Un site vitrine est livré en 1 à 3 semaines, une identité visuelle en 1 à 2 semaines, et un site complet en 4 à 8 semaines selon le périmètre. On fixe les délais ensemble dès le cadrage.",
+	},
+	{
+		q: "Mon site sera-t-il visible sur Google à Kaolack ?",
+		r: "Oui. Chaque site inclut un SEO de base optimisé pour les recherches locales, afin que vos clients à Kaolack et au Sénégal vous trouvent quand ils cherchent vos services en ligne.",
+	},
+];
+---
+
+<Layout
+	title="Développeur web freelance à Kaolack — Saïbo Danfakha"
+	description="Création de sites web premium à Kaolack. Développeur web freelance basé à Kaolack pour entrepreneurs, PME et institutions au Sénégal. Devis clair, suivi de proximité."
+>
+	<!-- Schema FAQ (référencement local) -->
+	<script type="application/ld+json" set:html={JSON.stringify({
+		"@context": "https://schema.org",
+		"@type": "FAQPage",
+		"mainEntity": faq.map((item) => ({
+			"@type": "Question",
+			"name": item.q,
+			"acceptedAnswer": { "@type": "Answer", "text": item.r },
+		})),
+	})} />
+
+	<!-- Hero -->
+	<section class="max-w-4xl mx-auto px-6 pt-32 pb-20 md:pt-40 md:pb-28">
+		<p data-animate class="text-sm font-medium uppercase tracking-wider text-terracotta mb-4">
+			Développeur web · Kaolack, Sénégal
+		</p>
+		<h1 data-text-reveal class="text-5xl md:text-6xl font-semibold leading-tight tracking-tight text-noir-cafe mb-6">
+			Développeur web freelance à Kaolack
+		</h1>
+		<p data-animate class="text-xl text-sable-600 leading-relaxed max-w-2xl mb-10">
+			Je crée des sites web premium pour les entrepreneurs, PME et institutions de
+			Kaolack et du Sénégal. Un site sur-mesure, rapide à charger, pensé pour
+			convertir vos visiteurs en clients — avec un suivi de proximité.
+		</p>
+		<div data-animate class="flex flex-col sm:flex-row gap-4">
+			<a href={WHATSAPP} target="_blank" rel="noopener noreferrer" data-magnetic
+				class="inline-flex items-center justify-center gap-2 bg-noir-cafe text-creme px-6 py-3 rounded-md font-medium hover:bg-terracotta transition-colors">
+				Discuter sur WhatsApp
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+					<line x1="5" y1="12" x2="19" y2="12"></line>
+					<polyline points="12 5 19 12 12 19"></polyline>
+				</svg>
+			</a>
+			<a href={CALENDLY} target="_blank" rel="noopener noreferrer"
+				class="inline-flex items-center justify-center gap-2 border border-sable-300 text-noir-cafe px-6 py-3 rounded-md font-medium hover:border-noir-cafe transition-colors">
+				Réserver un appel de 30 min
+			</a>
+		</div>
+	</section>
+
+	<!-- Proximité locale -->
+	<section class="bg-sable-100 py-20 md:py-28">
+		<div class="max-w-4xl mx-auto px-6">
+			<h2 data-text-reveal class="text-3xl md:text-4xl font-semibold leading-tight tracking-tight text-noir-cafe mb-12">
+				Un développeur à Kaolack, pas une agence lointaine.
+			</h2>
+			<div data-animate-stagger class="grid grid-cols-1 md:grid-cols-3 gap-8">
+				<div data-animate>
+					<h3 class="text-lg font-semibold text-noir-cafe mb-3">Sur place, en confiance</h3>
+					<p class="text-sable-600 leading-relaxed text-sm">
+						Basé à Kaolack, je peux vous rencontrer pour comprendre votre activité
+						avant la moindre ligne de code. On parle la même langue, au sens propre.
+					</p>
+				</div>
+				<div data-animate>
+					<h3 class="text-lg font-semibold text-noir-cafe mb-3">Prix annoncés</h3>
+					<p class="text-sable-600 leading-relaxed text-sm">
+						Pas de devis surprise. Des forfaits clairs en FCFA, avec paiement
+						échelonné possible — adapté aux réalités des PME locales.
+					</p>
+				</div>
+				<div data-animate>
+					<h3 class="text-lg font-semibold text-noir-cafe mb-3">Visible sur Google</h3>
+					<p class="text-sable-600 leading-relaxed text-sm">
+						Vos futurs clients cherchent vos services en ligne. Chaque site est
+						optimisé pour les recherches locales à Kaolack et au Sénégal.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Offres condensées -->
+	<section class="max-w-4xl mx-auto px-6 py-20 md:py-28">
+		<h2 data-text-reveal class="text-3xl md:text-4xl font-semibold leading-tight tracking-tight text-noir-cafe mb-4">
+			Des offres claires, à prix annoncés.
+		</h2>
+		<p data-animate class="text-lg text-sable-600 leading-relaxed mb-12 max-w-2xl">
+			Trois manières de travailler ensemble, du site vitrine à l'application
+			sur-mesure.
+		</p>
+		<div data-animate-stagger class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+			<div data-animate class="bg-creme border border-sable-300 rounded-xl p-6">
+				<h3 class="text-lg font-semibold text-noir-cafe mb-1">Site Vitrine Premium</h3>
+				<p class="font-serif text-2xl font-semibold text-noir-cafe mb-2">300 000 FCFA</p>
+				<p class="text-sm text-sable-600">One-page à 5 pages · 1 à 3 semaines</p>
+			</div>
+			<div data-animate class="bg-creme border border-sable-300 rounded-xl p-6">
+				<h3 class="text-lg font-semibold text-noir-cafe mb-1">Identité Visuelle</h3>
+				<p class="font-serif text-2xl font-semibold text-noir-cafe mb-2">350 000 FCFA</p>
+				<p class="text-sm text-sable-600">Logo + charte complète · 1 à 2 semaines</p>
+			</div>
+			<div data-animate class="bg-creme border border-sable-300 rounded-xl p-6">
+				<h3 class="text-lg font-semibold text-noir-cafe mb-1">Site Complet</h3>
+				<p class="font-serif text-2xl font-semibold text-noir-cafe mb-2">1 000 000 FCFA</p>
+				<p class="text-sm text-sable-600">E-commerce, sur-mesure · 4 à 8 semaines</p>
+			</div>
+		</div>
+		<p data-animate class="mt-8 text-sm text-sable-600">
+			Voir le détail de chaque offre →
+			<a href="/#offres" class="text-noir-cafe underline underline-offset-4 hover:text-terracotta transition-colors">tarifs &amp; offres</a>
+		</p>
+	</section>
+
+	<!-- Preuve locale -->
+	<section class="bg-sable-100 py-20 md:py-28">
+		<div class="max-w-4xl mx-auto px-6">
+			<p data-animate class="text-sm font-medium uppercase tracking-wider text-terracotta mb-4">
+				Réalisation locale
+			</p>
+			<h2 data-text-reveal class="text-3xl md:text-4xl font-semibold leading-tight tracking-tight text-noir-cafe mb-6">
+				Déjà des entrepreneurs sénégalais accompagnés.
+			</h2>
+			<p data-animate class="text-lg text-sable-600 leading-relaxed mb-12 max-w-2xl">
+				Du service de proximité sénégalais à la marque premium internationale,
+				chaque site est pensé pour inspirer confiance et convertir.
+			</p>
+
+			<div data-animate-stagger class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+				{realisations.map((r) => (
+					<a href={`/etudes-de-cas/${r.slug}/`} data-animate
+						class="card-hover group block rounded-xl overflow-hidden border border-sable-300 hover:border-noir-cafe">
+						<div class="relative aspect-[4/3] overflow-hidden bg-noir-cafe">
+							<img src={r.image} alt={`Aperçu du site ${r.titre}`} loading="lazy"
+								class="absolute inset-0 w-full h-full object-cover scale-105 blur-[2px] transition-transform duration-700 group-hover:scale-110" />
+							<div class="absolute inset-0 bg-noir-cafe/40"></div>
+							<div class="relative z-10 h-full flex flex-col items-center justify-center text-center px-4">
+								<p class="text-xs font-medium uppercase tracking-widest text-creme/70 mb-2">{r.lieu}</p>
+								<h3 class="font-serif text-2xl font-semibold text-creme leading-tight drop-shadow-lg">{r.titre}</h3>
+							</div>
+						</div>
+					</a>
+				))}
+			</div>
+
+			<a href="/#etudes-de-cas" data-animate
+				class="mt-10 inline-flex items-center gap-2 text-noir-cafe font-medium underline underline-offset-4 hover:text-terracotta transition-colors">
+				Voir toutes les études de cas
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+					<line x1="5" y1="12" x2="19" y2="12"></line>
+					<polyline points="12 5 19 12 12 19"></polyline>
+				</svg>
+			</a>
+		</div>
+	</section>
+
+	<!-- FAQ -->
+	<section class="max-w-3xl mx-auto px-6 py-20 md:py-28">
+		<h2 data-text-reveal class="text-3xl md:text-4xl font-semibold leading-tight tracking-tight text-noir-cafe mb-12">
+			Questions fréquentes
+		</h2>
+		<div class="divide-y divide-sable-300 border-t border-b border-sable-300">
+			{faq.map((item) => (
+				<details class="group py-6">
+					<summary class="flex cursor-pointer items-center justify-between gap-4 text-lg font-semibold text-noir-cafe list-none">
+						{item.q}
+						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 text-terracotta transition-transform group-open:rotate-45">
+							<line x1="12" y1="5" x2="12" y2="19"></line>
+							<line x1="5" y1="12" x2="19" y2="12"></line>
+						</svg>
+					</summary>
+					<p class="mt-4 text-sable-600 leading-relaxed">{item.r}</p>
+				</details>
+			))}
+		</div>
+	</section>
+
+	<!-- CTA final -->
+	<section class="bg-noir-cafe text-creme py-20 md:py-28">
+		<div class="max-w-3xl mx-auto px-6 text-center">
+			<h2 data-text-reveal class="text-3xl md:text-4xl font-semibold leading-tight tracking-tight text-creme mb-6">
+				Parlons de votre site, à Kaolack.
+			</h2>
+			<p data-animate class="text-lg text-sable-300 leading-relaxed mb-10 max-w-xl mx-auto">
+				Dites-moi en quelques mots votre activité et votre objectif. Je vous
+				réponds avec une première piste concrète.
+			</p>
+			<div data-animate class="flex flex-col sm:flex-row gap-4 justify-center">
+				<a href={WHATSAPP} target="_blank" rel="noopener noreferrer" data-magnetic
+					class="inline-flex items-center justify-center gap-2 bg-terracotta text-creme px-6 py-3 rounded-md font-medium hover:bg-creme hover:text-noir-cafe transition-colors">
+					Discuter sur WhatsApp
+				</a>
+				<a href={CALENDLY} target="_blank" rel="noopener noreferrer"
+					class="inline-flex items-center justify-center gap-2 border border-sable-600 text-creme px-6 py-3 rounded-md font-medium hover:border-creme transition-colors">
+					Réserver un appel de 30 min
+				</a>
+			</div>
+		</div>
+	</section>
+</Layout>
