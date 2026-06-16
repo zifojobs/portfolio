@@ -1,0 +1,190 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+const article = {
+	slug: "diaspora-site-bilingue",
+	titre: "Site web bilingue pour la diaspora sénégalaise : parler aux deux mondes",
+	extrait: "Un entrepreneur de la diaspora a un pied au Sénégal, un pied ailleurs. Son site doit parler aux deux. Le guide concret pour un site web bilingue qui convertit ici et là-bas.",
+	date: "2026-06-16",
+	tags: ["diaspora", "bilingue", "international"],
+	tempsLecture: "6 min",
+};
+---
+
+<Layout
+	title={`${article.titre} — Blog — Saïbo Danfakha`}
+	description={article.extrait}
+	article={{ headline: article.titre, datePublished: article.date }}
+>
+	<article class="max-w-3xl mx-auto px-6 py-24 md:py-32">
+		<a href="/blog/" class="inline-flex items-center gap-2 text-sm text-sable-600 hover:text-noir-cafe transition-colors mb-12">
+			<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+				<line x1="19" y1="12" x2="5" y2="12"></line>
+				<polyline points="12 19 5 12 12 5"></polyline>
+			</svg>
+			Retour au blog
+		</a>
+
+		<header class="mb-12">
+			<div class="flex items-center gap-3 text-sm text-sable-600 mb-4">
+				<time datetime={article.date}>
+					{new Date(article.date).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}
+				</time>
+				<span>·</span>
+				<span>{article.tempsLecture} de lecture</span>
+			</div>
+
+			<h1 class="text-4xl md:text-5xl font-semibold leading-tight tracking-tight text-noir-cafe mb-6">
+				{article.titre}
+			</h1>
+
+			<div class="flex flex-wrap gap-2">
+				{article.tags.map((tag) => (
+					<span class="px-2.5 py-1 bg-terracotta/10 text-terracotta rounded-full text-xs">
+						#{tag}
+					</span>
+				))}
+			</div>
+		</header>
+
+		<figure class="mb-12 -mx-6 md:mx-0">
+			<img
+				src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=630&fit=crop&auto=format&q=80"
+				alt="Réseau de connexions lumineuses autour du globe — un site web qui relie deux mondes"
+				loading="eager"
+				class="w-full aspect-[16/9] object-cover md:rounded-xl"
+			/>
+		</figure>
+
+		<div class="prose prose-lg prose-noir-cafe max-w-none">
+			<p class="text-xl text-sable-600 mb-8 leading-relaxed">
+				Quand on entreprend depuis la diaspora, on vit dans deux mondes en même temps. Un pied au Sénégal — la famille, les clients au pays, le projet qui prend racine là-bas. Un pied ailleurs — Paris, Montréal, New York, Milan — où l'on travaille, où l'on a des contacts, où l'on lève des fonds. <strong>Un site web bilingue n'est pas un luxe pour cet entrepreneur : c'est la seule façon de parler à ses deux audiences à la fois.</strong>
+			</p>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Mais « bilingue » est un mot qui prête à confusion. Beaucoup pensent qu'il suffit de tout traduire en anglais et de coller un petit drapeau en haut à droite. Résultat : un site qui sonne faux dans les deux langues, qui ne convertit ni ici ni là-bas, et qui a coûté deux fois le temps pour rien.
+			</p>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Voici comment penser un site bilingue qui travaille vraiment pour un projet de la diaspora — sans gaspiller du budget sur de la traduction inutile.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Avant la langue : à qui parlez-vous, vraiment ?</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				La première erreur, c'est de choisir les langues avant d'avoir défini les audiences. On inverse l'ordre. Un projet diaspora a presque toujours <strong>deux publics distincts</strong>, et ils ne cherchent pas la même chose :
+			</p>
+
+			<ul class="list-disc pl-6 text-sable-600 mb-6 space-y-2">
+				<li>Le <strong>public au pays</strong> — clients, partenaires, fournisseurs au Sénégal. Il cherche de la proximité, un numéro WhatsApp local, un paiement en FCFA, la confiance d'un « il est des nôtres ».</li>
+				<li>Le <strong>public à l'international</strong> — clients de la diaspora, partenaires étrangers, bailleurs, plateformes. Il cherche du professionnalisme, des références claires, parfois une facturation en euros ou en dollars.</li>
+			</ul>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Une fois ces deux publics nommés, la question de la langue se règle presque toute seule. Vous ne traduisez pas « pour faire joli » — vous donnez à chaque public la version qui lui parle.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Bilingue ne veut pas dire « tout traduire »</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Voici le secret que peu de monde dit : <strong>un bon site bilingue n'est pas une copie carbone dans deux langues.</strong> Les deux versions partagent l'ossature, mais elles n'ont pas forcément le même ton, ni les mêmes arguments, ni les mêmes appels à l'action.
+			</p>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Un exemple concret. La version française, pensée pour le marché sénégalais, mettra en avant le paiement mobile (Wave, Orange Money), un contact WhatsApp direct, des prix en FCFA. La version anglaise, pensée pour un partenaire à l'étranger, mettra en avant un formulaire de prise de rendez-vous, des références internationales, une facturation en devise étrangère.
+			</p>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Même entreprise, même charte graphique — mais deux conversations différentes. C'est ça, un site bilingue qui rapporte. Pas un dictionnaire, une <strong>adaptation</strong>.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Français/anglais, français/wolof… ou rien du tout ?</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				La deuxième langue dépend entièrement de votre marché réel — pas de ce qui « fait sérieux ». Trois cas reviennent souvent dans les projets de la diaspora :
+			</p>
+
+			<ul class="list-disc pl-6 text-sable-600 mb-6 space-y-2">
+				<li><strong>Français + anglais.</strong> Le cas classique pour qui vise l'Amérique du Nord, le Royaume-Uni, ou des partenaires internationaux. C'est ici que le bilingue a le plus de valeur commerciale.</li>
+				<li><strong>Français + wolof (ou langue locale).</strong> Plus rare en texte, mais puissant pour la proximité et la confiance — souvent dans les slogans, les vidéos, les messages clés plutôt que tout le site.</li>
+				<li><strong>Français seul, mais pensé pour deux publics.</strong> Beaucoup de projets diaspora francophones (France, Belgique, Canada francophone) n'ont <em>pas</em> besoin d'une seconde langue. Une seule langue, bien ciblée, vaut mieux que deux langues bâclées.</li>
+			</ul>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				La vraie compétence ici, c'est de savoir <strong>quand ne pas faire de bilingue</strong>. Si votre audience est francophone des deux côtés, doubler le site ajoute du coût, de la maintenance et des risques techniques pour zéro gain. Un bon prestataire vous le dira franchement plutôt que de vous vendre une option dont vous n'avez pas besoin.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Les pièges techniques qui plombent un site bilingue</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Un site bilingue mal construit peut faire <strong>plus de mal que de bien</strong> — y compris à votre référencement Google. Les pièges les plus fréquents :
+			</p>
+
+			<ul class="list-disc pl-6 text-sable-600 mb-6 space-y-2">
+				<li><strong>Les balises hreflang manquantes ou fausses.</strong> Ce sont les indices qui disent à Google « voici la version FR, voici la version EN ». Mal posées, elles brouillent le moteur et peuvent faire chuter vos deux versions.</li>
+				<li><strong>La détection automatique de langue.</strong> Forcer la langue selon le pays du visiteur agace tout le monde — un Sénégalais en voyage à Londres ne veut pas forcément la version anglaise. On laisse toujours le choix.</li>
+				<li><strong>Une seule URL pour deux langues.</strong> Chaque langue doit avoir sa propre adresse (ex. <code>/fr/</code> et <code>/en/</code>). Sinon Google n'indexe qu'une version, et l'autre devient invisible.</li>
+				<li><strong>Les moitiés oubliées.</strong> Un menu traduit mais des boutons restés en français, un formulaire moitié-moitié : ces détails cassent la confiance immédiatement.</li>
+			</ul>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Aucun de ces pièges n'est compliqué à éviter — <em>quand on les anticipe dès la construction</em>. Les rattraper après coup, en revanche, coûte cher. C'est exactement le genre de décision qui se prend au début d'un projet, pas à la fin.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Au-delà de la langue : les codes des deux mondes</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Parler à deux mondes, ce n'est pas qu'une question de mots. C'est aussi des <strong>codes</strong> qui changent d'un public à l'autre :
+			</p>
+
+			<ul class="list-disc pl-6 text-sable-600 mb-6 space-y-2">
+				<li><strong>Le paiement.</strong> Mobile money et FCFA d'un côté ; carte bancaire, Stripe ou PayPal en euros/dollars de l'autre.</li>
+				<li><strong>Le contact.</strong> WhatsApp est roi au Sénégal. Un partenaire nord-américain attendra plutôt un e-mail ou un Calendly.</li>
+				<li><strong>Les références.</strong> Mentionner les villes, les institutions, les noms qui rassurent — et ils ne sont pas les mêmes ici et là-bas.</li>
+				<li><strong>Le format des dates, devises, numéros.</strong> Des détails, mais qui signalent immédiatement « ce site a été pensé pour moi ».</li>
+			</ul>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Un site qui maîtrise ces codes des deux côtés donne un signal fort : <strong>cette entreprise comprend mon monde.</strong> Et c'est exactement ce qu'un entrepreneur de la diaspora doit projeter — la crédibilité de quelqu'un qui navigue avec aisance entre les deux rives.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Par où commencer, concrètement</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Si vous portez un projet depuis la diaspora et que vous vous demandez si un site bilingue est pour vous, voici l'ordre des questions à vous poser :
+			</p>
+
+			<ol class="list-decimal pl-6 text-sable-600 mb-6 space-y-2">
+				<li><strong>Quelles sont mes deux audiences ?</strong> Nommez-les précisément (pays, profil, ce qu'elles cherchent).</li>
+				<li><strong>Parlent-elles vraiment deux langues différentes ?</strong> Si oui → bilingue. Si non → une langue, deux messages.</li>
+				<li><strong>Qu'est-ce qui doit changer entre les deux versions ?</strong> Paiement, contact, références, appels à l'action.</li>
+				<li><strong>Qui va construire ça proprement ?</strong> hreflang, URLs séparées, choix de langue — ça se décide dès le départ.</li>
+			</ol>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Le bilingue n'est jamais une fin en soi. C'est un outil au service d'un objectif : être pris au sérieux des deux côtés de l'océan. Bien fait, il transforme la « double appartenance » de la diaspora en avantage commercial. Mal fait, il dilue le message. La différence se joue entièrement dans la <strong>réflexion en amont</strong>, pas dans la traduction.
+			</p>
+
+			<hr class="my-12 border-sable-300" />
+
+			<div class="bg-terracotta/10 border border-terracotta/30 rounded-xl p-6">
+				<h3 class="text-lg font-semibold text-noir-cafe mb-3">
+					Un projet qui doit parler aux deux mondes ?
+				</h3>
+				<p class="text-sable-600 mb-4">
+					Je conçois des sites pour les entrepreneurs de la diaspora — bilingues quand c'est utile, mono-langue quand c'est plus malin. On définit d'abord vos deux audiences, ensuite on construit ce qui les convertit, ici comme là-bas.
+				</p>
+				<a href="/#contact" class="inline-flex items-center gap-2 bg-noir-cafe text-creme px-6 py-3 rounded-md font-medium hover:bg-terracotta transition-colors">
+					Me contacter
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+						<line x1="5" y1="12" x2="19" y2="12"></line>
+						<polyline points="12 5 19 12 12 19"></polyline>
+					</svg>
+				</a>
+				<a href="/#offres" class="mt-3 inline-flex text-sm text-sable-600 hover:text-noir-cafe transition-colors">
+					Voir les tarifs →
+				</a>
+			</div>
+		</div>
+	</article>
+</Layout>
