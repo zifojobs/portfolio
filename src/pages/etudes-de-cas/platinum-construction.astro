@@ -1,0 +1,189 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+const meta = [
+	{ label: "Client", valeur: "Platinum Construction Corporation" },
+	{ label: "Secteur", valeur: "Construction commerciale" },
+	{ label: "Type", valeur: "Site corporate + galerie de réalisations" },
+	{ label: "Localisation", valeur: "Vaughan, Ontario — Canada" },
+	{ label: "Périmètre", valeur: "Design, intégration, vidéo, SEO, mise en ligne" },
+	{ label: "Stack", valeur: "HTML / CSS / JS · Vercel" },
+];
+
+const stats = [
+	{ cible: 1997, suffixe: "", legende: "Entreprise active depuis", prefixe: "" },
+	{ cible: 25, suffixe: "+", legende: "Chantiers en galerie" },
+	{ cible: 8, suffixe: "", legende: "Pages sur-mesure" },
+	{ cible: 100, suffixe: "%", legende: "Responsive, audité écran par écran" },
+];
+---
+
+<Layout
+	title="Platinum Construction — Étude de cas — Saïbo Danfakha"
+	description="Étude de cas : refonte complète du site de Platinum Construction, entrepreneur général commercial au Canada. Hero vidéo cinématique, galerie de 25+ réalisations, image de marque North America et mise en ligne."
+	image="/etudes-de-cas/platinum.jpg"
+>
+	<article class="max-w-3xl mx-auto px-6 py-24 md:py-32">
+
+		<!-- Retour -->
+		<a href="/" class="inline-flex items-center gap-2 text-sm text-sable-600 hover:text-noir-cafe transition-colors mb-12">
+			<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+				<line x1="19" y1="12" x2="5" y2="12"></line>
+				<polyline points="12 19 5 12 12 5"></polyline>
+			</svg>
+			Retour à l'accueil
+		</a>
+
+		<!-- En-tête -->
+		<header data-animate>
+			<p class="text-sm font-medium uppercase tracking-wider text-terracotta mb-4">
+				Étude de cas · Vaughan, Canada
+			</p>
+			<h1 class="text-5xl md:text-6xl font-semibold leading-tight tracking-tight text-noir-cafe mb-6">
+				Platinum Construction
+			</h1>
+			<p class="text-xl text-sable-600 mb-10">
+				Refonte complète du site d'un entrepreneur général commercial canadien, actif depuis 1997 — du blueprint au chantier livré, en passant par une présence en ligne à la hauteur de marques comme Chipotle, Starbucks ou KFC.
+			</p>
+		</header>
+
+		<!-- Visuel -->
+		<figure data-animate class="mb-14 rounded-xl overflow-hidden border border-sable-300">
+			<img
+				src="/etudes-de-cas/platinum.jpg"
+				alt="Page d'accueil du site Platinum Construction"
+				loading="lazy"
+				class="w-full h-auto"
+			/>
+		</figure>
+
+		<!-- Fiche projet -->
+		<div data-animate class="grid grid-cols-1 sm:grid-cols-2 gap-px bg-sable-300 border border-sable-300 rounded-xl overflow-hidden mb-16">
+			{meta.map((m) => (
+				<div class="bg-creme p-5">
+					<p class="text-xs font-medium uppercase tracking-wider text-sable-600 mb-1">{m.label}</p>
+					<p class="text-noir-cafe font-medium">{m.valeur}</p>
+				</div>
+			))}
+		</div>
+
+		<!-- Stats -->
+		<div data-animate class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20">
+			{stats.map((s) => (
+				<div class="text-center">
+					<p class="font-serif text-4xl md:text-5xl font-semibold text-terracotta mb-2">
+						<span data-counter data-counter-target={s.cible} data-counter-suffix={s.suffixe}>{s.cible}{s.suffixe}</span>
+					</p>
+					<p class="text-sm text-sable-600 leading-snug">{s.legende}</p>
+				</div>
+			))}
+		</div>
+
+		<!-- Corps de l'étude -->
+		<div class="prose-case space-y-16">
+
+			<!-- Contexte -->
+			<section data-animate>
+				<h2 class="font-serif text-3xl font-semibold text-noir-cafe mb-5">Le contexte</h2>
+				<p class="text-sable-900 leading-relaxed mb-4">
+					Platinum Construction construit et rénove des espaces commerciaux à travers l'Amérique du Nord depuis 1997 — restaurants de chaînes, retail, hôtellerie. Son ancien site, hérité d'un thème WordPress vieillissant, ne reflétait plus ni l'ampleur de ses chantiers, ni le sérieux attendu par des donneurs d'ordre comme Chipotle, Starbucks, KFC ou Planet Fitness.
+				</p>
+				<p class="text-sable-900 leading-relaxed">
+					L'entreprise se positionnait par ailleurs sur deux entités, Canada et États-Unis. Le nouveau site devait porter cette image de marque <em>North America</em> de façon claire, sans rien perdre en crédibilité locale.
+				</p>
+			</section>
+
+			<!-- Défi -->
+			<section data-animate>
+				<h2 class="font-serif text-3xl font-semibold text-noir-cafe mb-5">Le défi</h2>
+				<p class="text-sable-900 leading-relaxed mb-4">
+					Dans la construction, la confiance se gagne avec des preuves. Le défi n'était pas de « faire un beau site », mais de transformer un portefeuille de réalisations brutes — des centaines de photos de chantiers — en un argument commercial structuré et immédiatement lisible.
+				</p>
+				<ul class="space-y-3">
+					{[
+						"Donner une identité visuelle premium à partir du seul logo de la marque (navy, argent, gris).",
+						"Mettre en scène 25+ chantiers de façon cohérente malgré des photos d'origines et de qualités très variées.",
+						"Tenir un rythme de retours client soutenu (rebranding, vidéos, ajustements) sans jamais casser le site en production.",
+						"Préparer une mise en ligne propre sur le domaine de l'entreprise, géré par son équipe IT.",
+					].map((item) => (
+						<li class="flex gap-3 text-sable-900 leading-relaxed">
+							<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-terracotta shrink-0 mt-1">
+								<polyline points="20 6 9 17 4 12"></polyline>
+							</svg>
+							<span>{item}</span>
+						</li>
+					))}
+				</ul>
+			</section>
+
+			<!-- Solution -->
+			<section data-animate>
+				<h2 class="font-serif text-3xl font-semibold text-noir-cafe mb-5">La solution</h2>
+				<p class="text-sable-900 leading-relaxed mb-8">
+					Un site sur-mesure, pensé comme une vitrine de showroom : une navigation latérale fixe et discrète, une palette dérivée du logo, et chaque page conçue pour amener le visiteur vers une seule action — demander un devis.
+				</p>
+
+				<div class="space-y-8">
+					<div>
+						<h3 class="text-lg font-semibold text-noir-cafe mb-2">Un hero vidéo cinématique</h3>
+						<p class="text-sable-900 leading-relaxed">
+							La page d'accueil s'ouvre sur une vidéo qui passe du plan d'architecte au bâtiment terminé — la promesse même de l'entreprise, racontée en quelques secondes. Les titres apparaissent en fondu une fois l'animation jouée, puis la boucle s'enchaîne sans accroc.
+						</p>
+					</div>
+					<div>
+						<h3 class="text-lg font-semibold text-noir-cafe mb-2">Une galerie qui fait le travail de vente</h3>
+						<p class="text-sable-900 leading-relaxed">
+							Plus de 25 chantiers présentés dans une grille filtrable, chacun avec sa propre série de photos navigables en lightbox. Les couvertures ont été sélectionnées et recadrées une à une pour ne montrer que les façades les plus parlantes.
+						</p>
+					</div>
+					<div>
+						<h3 class="text-lg font-semibold text-noir-cafe mb-2">Performance & solidité</h3>
+						<p class="text-sable-900 leading-relaxed">
+							Vidéos ré-encodées pour le web (de plusieurs dizaines de Mo à un format fluide), en-têtes de sécurité, formulaire de contact opérationnel et audit responsive complet — desktop, tablette et mobile vérifiés écran par écran.
+						</p>
+					</div>
+					<div>
+						<h3 class="text-lg font-semibold text-noir-cafe mb-2">SEO & mise en ligne</h3>
+						<p class="text-sable-900 leading-relaxed">
+							Titres et descriptions optimisés sur tout le site autour du positionnement « entreprise de construction commerciale au Canada », et préparation de la bascule DNS vers le domaine officiel, en lien avec l'équipe IT du client.
+						</p>
+					</div>
+				</div>
+			</section>
+
+			<!-- Résultat -->
+			<section data-animate>
+				<h2 class="font-serif text-3xl font-semibold text-noir-cafe mb-5">Le résultat</h2>
+				<p class="text-sable-900 leading-relaxed">
+					Un site rapide, sobre et crédible, qui met enfin les réalisations de Platinum Construction au premier plan. Validé par le client après plusieurs cycles de retours, il est en ligne et prêt pour la bascule sur le domaine officiel de l'entreprise. C'était mon premier projet de cette ampleur — et la preuve qu'une exigence de qualité tient sur la durée, même face à un cahier des charges mouvant.
+				</p>
+			</section>
+
+		</div>
+
+		<!-- CTA -->
+		<div data-animate class="mt-20 bg-sable-100 border border-sable-300 rounded-xl p-8 md:p-12 text-center">
+			<h2 class="font-serif text-2xl font-semibold text-noir-cafe mb-4">
+				Découvrez le site en ligne
+			</h2>
+			<p class="text-sable-600 leading-relaxed mb-8 max-w-md mx-auto">
+				Le meilleur moyen de juger un projet, c'est de le parcourir. Le site est accessible publiquement.
+			</p>
+			<div class="flex flex-col sm:flex-row gap-3 justify-center">
+				<a href="https://platinum-site.vercel.app" target="_blank" rel="noopener noreferrer"
+					class="inline-flex items-center justify-center gap-2 bg-noir-cafe text-creme px-6 py-3 rounded-md font-medium hover:bg-terracotta transition-colors">
+					Voir le site Platinum Construction
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+						<path d="M7 17L17 7"></path>
+						<path d="M7 7h10v10"></path>
+					</svg>
+				</a>
+				<a href="/#contact"
+					class="inline-flex items-center justify-center gap-2 border border-sable-300 text-noir-cafe px-6 py-3 rounded-md font-medium hover:border-noir-cafe transition-colors">
+					Discuter de votre projet
+				</a>
+			</div>
+		</div>
+
+	</article>
+</Layout>
