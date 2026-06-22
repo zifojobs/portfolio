@@ -1,0 +1,190 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+const article = {
+	slug: "performance-web-conversion",
+	titre: "Performance web : pourquoi un site rapide convertit 3x mieux",
+	extrait: "La vitesse de chargement n'est pas un détail technique : c'est ce qui décide si un visiteur reste ou part. Pourquoi un site rapide vend plus, comment Google la mesure, et ce qui rend un site lent.",
+	date: "2026-06-23",
+	tags: ["performance", "SEO", "conversion"],
+	tempsLecture: "7 min",
+};
+---
+
+<Layout
+	title={`${article.titre} — Blog — Saïbo Danfakha`}
+	description={article.extrait}
+	article={{ headline: article.titre, datePublished: article.date }}
+>
+	<article class="max-w-3xl mx-auto px-6 py-24 md:py-32">
+		<a href="/blog/" class="inline-flex items-center gap-2 text-sm text-sable-600 hover:text-noir-cafe transition-colors mb-12">
+			<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+				<line x1="19" y1="12" x2="5" y2="12"></line>
+				<polyline points="12 19 5 12 12 5"></polyline>
+			</svg>
+			Retour au blog
+		</a>
+
+		<header class="mb-12">
+			<div class="flex items-center gap-3 text-sm text-sable-600 mb-4">
+				<time datetime={article.date}>
+					{new Date(article.date).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}
+				</time>
+				<span>·</span>
+				<span>{article.tempsLecture} de lecture</span>
+			</div>
+
+			<h1 class="text-4xl md:text-5xl font-semibold leading-tight tracking-tight text-noir-cafe mb-6">
+				{article.titre}
+			</h1>
+
+			<div class="flex flex-wrap gap-2">
+				{article.tags.map((tag) => (
+					<span class="px-2.5 py-1 bg-terracotta/10 text-terracotta rounded-full text-xs">
+						#{tag}
+					</span>
+				))}
+			</div>
+		</header>
+
+		<figure class="mb-12 -mx-6 md:mx-0">
+			<img
+				src="https://images.unsplash.com/photo-1635776062127-d379bfcba9f8?w=1200&h=630&fit=crop&auto=format&q=80"
+				alt="Traînées de lumière en mouvement rapide — la vitesse d'un site web qui convertit"
+				loading="eager"
+				class="w-full aspect-[16/9] object-cover md:rounded-xl"
+			/>
+		</figure>
+
+		<div class="prose prose-lg prose-noir-cafe max-w-none">
+			<p class="text-xl text-sable-600 mb-8 leading-relaxed">
+				Vous avez un beau site. Le design est soigné, les textes sont justes, l'offre est claire. Et pourtant, il ne convertit pas. Avant de remettre en cause votre message ou vos prix, posez-vous une question qu'on oublie presque toujours : <strong>combien de temps votre site met-il à s'afficher ?</strong> Parce que si la réponse dépasse trois secondes, une bonne partie de vos visiteurs sont déjà partis — et ils ne reviendront pas.
+			</p>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				La performance web — la vitesse à laquelle vos pages se chargent et deviennent utilisables — est sans doute le facteur le plus sous-estimé de tout le web. On parle de design, de SEO, de contenu… rarement de vitesse. Pourtant, c'est elle qui décide, dans les toutes premières secondes, si un visiteur vous donne une chance ou s'il retourne sur Google cliquer chez votre concurrent.
+			</p>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Voici pourquoi un site rapide vend plus, comment Google récompense (ou punit) votre vitesse, et ce qui plombe la plupart des sites sans qu'on s'en rende compte.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Les trois premières secondes décident de tout</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Un visiteur qui arrive sur votre site n'a pris aucun engagement. Il n'a pas payé, pas patienté dans une file, pas pris rendez-vous. La barrière pour repartir est nulle : un onglet qu'on ferme. Et c'est exactement ce qu'il fait quand ça rame.
+			</p>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Les chiffres sont brutaux. Quand le temps de chargement passe de 1 à 3 secondes, la probabilité qu'un visiteur quitte la page <strong>augmente de plus de 30 %</strong>. À 5 secondes, elle dépasse 90 %. Autrement dit : un site lent passe son temps à payer de la publicité, du SEO et du bouche-à-oreille pour amener des gens… qui repartent avant même d'avoir vu votre offre.
+			</p>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Et au Sénégal comme dans la diaspora, ce problème est amplifié : une partie importante de vos visiteurs sont sur mobile, parfois sur une connexion 3G ou un forfait data compté. Un site lourd qui passe crème sur la fibre d'un développeur peut être totalement inutilisable pour le client réel, sur son téléphone, dans un taxi.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Vitesse = chiffre d'affaires, ce n'est pas une image</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				« Convertir 3x mieux » n'est pas un slogan. C'est la traduction directe d'un enchaînement très concret :
+			</p>
+
+			<ul class="list-disc pl-6 text-sable-600 mb-6 space-y-2">
+				<li><strong>Plus de visiteurs restent.</strong> Moins d'abandons dans les premières secondes = plus de gens qui voient réellement votre message.</li>
+				<li><strong>Ils vont plus loin.</strong> Sur un site fluide, on clique, on scrolle, on explore. Sur un site lent, chaque clic est une punition, alors on ne clique plus.</li>
+				<li><strong>Ils passent à l'action.</strong> Un formulaire qui s'envoie instantanément, un bouton qui répond du tac au tac : la fluidité inspire confiance. La lenteur, elle, donne l'impression d'une entreprise négligée.</li>
+			</ul>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Les grands acteurs l'ont mesuré depuis longtemps. Amazon a calculé que <strong>100 millisecondes de lenteur</strong> en plus lui coûtaient 1 % de ventes. Vous n'êtes pas Amazon — mais la mécanique est identique à votre échelle. Chaque seconde gagnée est un client supplémentaire qui va jusqu'au bout. La vitesse n'améliore pas « le ressenti » : elle améliore le résultat.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Google aussi vous note sur la vitesse</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				La performance n'agit pas que sur vos visiteurs : elle agit sur votre position dans Google. Depuis plusieurs années, le moteur intègre officiellement la vitesse et la stabilité des pages dans son classement, via un ensemble d'indicateurs appelés les <strong>Core Web Vitals</strong>. Trois comptent particulièrement :
+			</p>
+
+			<ul class="list-disc pl-6 text-sable-600 mb-6 space-y-2">
+				<li><strong>LCP (Largest Contentful Paint)</strong> — le temps que met le contenu principal à s'afficher. L'objectif : moins de 2,5 secondes.</li>
+				<li><strong>INP (Interaction to Next Paint)</strong> — la réactivité du site quand on clique ou qu'on tape. Un site qui « gèle » une demi-seconde après chaque clic échoue ici.</li>
+				<li><strong>CLS (Cumulative Layout Shift)</strong> — la stabilité visuelle. Vous connaissez ces pages où le texte saute au moment où vous alliez cliquer ? C'est ce que Google pénalise.</li>
+			</ul>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Le cercle est vicieux ou vertueux, c'est selon. Un site lent est moins bien classé, donc reçoit moins de visiteurs, qui en plus convertissent moins. Un site rapide remonte dans les résultats, capte plus de trafic, <em>et</em> en transforme une plus grande part. La vitesse est le rare levier qui joue sur l'acquisition <strong>et</strong> sur la conversion en même temps.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Qu'est-ce qui rend un site lent, vraiment ?</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				La lenteur n'est presque jamais une fatalité. C'est une accumulation de choix — souvent invisibles — faits pendant la construction. Les coupables les plus fréquents :
+			</p>
+
+			<ul class="list-disc pl-6 text-sable-600 mb-6 space-y-2">
+				<li><strong>Des images trop lourdes.</strong> La cause numéro un. Une photo de 4 Mo sortie d'un téléphone, affichée telle quelle, peut à elle seule doubler le temps de chargement. Bien optimisée, la même image pèse vingt fois moins sans perte visible.</li>
+				<li><strong>Trop de scripts et de plugins.</strong> Chaque extension « pratique » (chat, popups, pixels de pub, sliders animés) ajoute du poids. Empilés, ils étouffent le site. C'est le mal typique des sites WordPress bourrés de plugins.</li>
+				<li><strong>Un thème ou template surchargé.</strong> Les templates « tout-en-un » embarquent des centaines de fonctionnalités dont vous n'utilisez que 5 %. Le reste se charge quand même, à chaque visite.</li>
+				<li><strong>Un hébergement bas de gamme.</strong> Un serveur mutualisé saturé, situé à l'autre bout du monde, rallonge chaque requête. Pour une audience sénégalaise et diaspora, l'hébergement et le réseau de diffusion comptent énormément.</li>
+				<li><strong>Aucune mise en cache.</strong> Sans cache, le site reconstruit tout, à chaque visiteur, à partir de zéro. Avec, il sert une version déjà prête, en un éclair.</li>
+			</ul>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Le point commun de tous ces problèmes : ils sont bien plus faciles à éviter dès le départ qu'à corriger après. Refaire la performance d'un site déjà en ligne, c'est souvent le démonter en partie.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Comment on construit un site rapide dès le départ</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Un site rapide n'est pas un site « moins riche ». C'est un site mieux construit. Les principes qui font la différence :
+			</p>
+
+			<ul class="list-disc pl-6 text-sable-600 mb-6 space-y-2">
+				<li><strong>Des images au bon format, au bon poids.</strong> Compression intelligente, formats modernes (WebP/AVIF), chargement différé des images hors écran. Invisible à l'œil, énorme sur la vitesse.</li>
+				<li><strong>Le moins de code possible envoyé au visiteur.</strong> On ne charge que ce qui sert à la page affichée — pas la bibliothèque entière. C'est tout l'intérêt des approches modernes comme Astro, qui livrent des pages quasi statiques, ultra-légères.</li>
+				<li><strong>Un hébergement et un CDN adaptés.</strong> Servir le site depuis des serveurs proches du visiteur, avec mise en cache. La page arrive presque instantanément, où qu'il soit.</li>
+				<li><strong>De la sobriété assumée.</strong> Chaque animation, chaque script tiers, chaque police personnalisée a un coût. Un bon prestataire arbitre : on garde ce qui sert l'objectif, on jette le reste.</li>
+			</ul>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				C'est précisément la philosophie derrière les sites que je construis : un design premium <em>et</em> un site qui charge vite, parce que les deux ne s'opposent pas — ils se renforcent. Un site peut être beau, riche et rapide à la fois. Il faut juste le décider dès la première ligne.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Tester la vitesse de votre site en 5 minutes</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Avant de dépenser un euro, vous pouvez diagnostiquer votre site vous-même, gratuitement. Ouvrez <strong>PageSpeed Insights</strong> (l'outil officiel de Google), collez l'adresse de votre site, et regardez deux choses :
+			</p>
+
+			<ol class="list-decimal pl-6 text-sable-600 mb-6 space-y-2">
+				<li><strong>Le score mobile</strong>, pas le score ordinateur. C'est sur mobile que se joue la majorité de votre trafic, et c'est là que les écarts sont les plus violents.</li>
+				<li><strong>Les Core Web Vitals</strong> (LCP, INP, CLS) : sont-ils dans le vert ? L'outil vous dit aussi, concrètement, ce qui ralentit la page — souvent les images en haut de liste.</li>
+			</ol>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Si votre score mobile est en dessous de 50, vous perdez des clients tous les jours sans le voir. Ce n'est pas une question d'esthétique : c'est de l'argent qui sort par une fuite invisible. La bonne nouvelle, c'est que la performance est l'un des rares chantiers web au retour sur investissement immédiat et mesurable.
+			</p>
+
+			<hr class="my-12 border-sable-300" />
+
+			<div class="bg-terracotta/10 border border-terracotta/30 rounded-xl p-6">
+				<h3 class="text-lg font-semibold text-noir-cafe mb-3">
+					Votre site est lent ? On peut le mesurer ensemble.
+				</h3>
+				<p class="text-sable-600 mb-4">
+					Je conçois des sites premium pensés pour la vitesse dès le départ — images optimisées, code léger, hébergement rapide. Et si vous avez déjà un site, je peux faire un audit de performance concret : ce qui le ralentit, et ce que ça vous coûte en clients.
+				</p>
+				<a href="/#contact" class="inline-flex items-center gap-2 bg-noir-cafe text-creme px-6 py-3 rounded-md font-medium hover:bg-terracotta transition-colors">
+					Me contacter
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+						<line x1="5" y1="12" x2="19" y2="12"></line>
+						<polyline points="12 5 19 12 12 19"></polyline>
+					</svg>
+				</a>
+				<a href="/#offres" class="mt-3 inline-flex text-sm text-sable-600 hover:text-noir-cafe transition-colors">
+					Voir les tarifs →
+				</a>
+			</div>
+		</div>
+	</article>
+</Layout>
