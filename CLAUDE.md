@@ -2,8 +2,7 @@
 
 **Dernière mise à jour : 2026-06-17 (réécrit en spoke léger lors de la centralisation)**
 
-> 🧭 **Contexte global, stratégie, prochaine session → voir le HUB :**
-> `E:\DOSSIER FREELANCE\Projets Web\Projet Claude\CLAUDE.md`.
+> 🧭 **Contexte global, stratégie, prochaine session → voir le HUB privé** (hors repo).
 > Ce fichier ne contient QUE la **référence technique** du site. Le **suivi vivant**
 > (état du blog, SEO/GSC, tarifs, prospection, prochaine session) est tenu dans le hub —
 > ne pas le recopier ici pour éviter la désynchro.
@@ -62,4 +61,4 @@ clients », **jamais** « regardez mon site bilingue ». Pas de fausse promesse 
 ---
 
 > 🗄️ Historique détaillé pré-centralisation (journal mai, distribution Buffer, etc.) :
-> `…\Projet Claude\_backup_claudemd_2026-06-17\saibodanfakha_CLAUDE.md.bak`.
+> sauvegarde locale `_backup_claudemd_2026-06-17/` (hors repo, côté hub privé).
