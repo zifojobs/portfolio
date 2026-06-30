@@ -14,6 +14,16 @@ const etudes = [
 		accent: "noir-cafe",
 	},
 	{
+		slug: "jang",
+		titre: "Jàng",
+		secteur: "SaaS · Éducation",
+		type: "Application web de gestion scolaire",
+		localisation: "Sénégal",
+		description: "Bien plus qu'un site : une véritable application web multi-écoles (type Pronote sénégalais) — gestion des notes, présences et communication école-parents. Développée de A à Z avec Next.js + Supabase.",
+		enCours: true,
+		accent: "vert-savane",
+	},
+	{
 		slug: "s5l",
 		titre: "S5L Productions",
 		secteur: "Production vidéo & marketing",
@@ -96,7 +106,7 @@ const etudes = [
 				</h2>
 			</div>
 			<p class="text-sable-600 md:text-right md:max-w-xs">
-				7 missions livrées, 7 contextes très différents — preuve que la méthode tient quel que soit le secteur.
+				7 missions livrées et un SaaS en cours — du site vitrine à l'application web sur-mesure, la méthode tient quel que soit le secteur.
 			</p>
 		</div>
 
@@ -112,18 +122,27 @@ const etudes = [
 						"bg-noir-cafe"
 					}`}>
 						<!-- Image en arrière-plan (légèrement floue + zoomée pour cacher les bords) -->
-						<img
-							src={e.image}
-							alt={`Aperçu du site ${e.titre}`}
-							loading="lazy"
-							class="absolute inset-0 w-full h-full object-cover scale-105 blur-[3px] transition-transform duration-700 group-hover:scale-110"
-						/>
+						{e.image && (
+							<img
+								src={e.image}
+								alt={`Aperçu du site ${e.titre}`}
+								loading="lazy"
+								class="absolute inset-0 w-full h-full object-cover scale-105 blur-[3px] transition-transform duration-700 group-hover:scale-110"
+							/>
+						)}
 
 						<!-- Overlay sombre pour assurer le contraste du titre (plus léger qu'avant) -->
 						<div class="absolute inset-0 bg-noir-cafe/40"></div>
 
 						<!-- Décorations géométriques très subtiles -->
 						<div class="absolute -top-10 -right-10 w-40 h-40 bg-creme/10 rounded-full blur-2xl"></div>
+
+						<!-- Badge "projet en cours" -->
+						{e.enCours && (
+							<div class="absolute top-4 right-4 z-10 px-3 py-1 bg-creme text-noir-cafe text-xs font-medium rounded-full shadow-sm">
+								Projet en cours
+							</div>
+						)}
 
 						<!-- Nom du projet par-dessus -->
 						<div class="relative text-center px-6 z-10">
@@ -155,22 +174,34 @@ const etudes = [
 
 						<!-- Liens -->
 						<div class="flex flex-col gap-2 pt-6 border-t border-sable-300 text-sm">
-							<a href={e.urlLive} target="_blank" rel="noopener noreferrer"
-								class="inline-flex items-center justify-between gap-2 text-noir-cafe hover:text-terracotta font-medium transition-colors">
-								<span>Voir le projet en ligne</span>
-								<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-									<path d="M7 17L17 7"></path>
-									<path d="M7 7h10v10"></path>
-								</svg>
-							</a>
-							<a href={`/etudes-de-cas/${e.slug}/`}
-								class="inline-flex items-center justify-between gap-2 text-sable-600 hover:text-noir-cafe transition-colors">
-								<span>Lire l'étude détaillée</span>
-								<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-									<line x1="5" y1="12" x2="19" y2="12"></line>
-									<polyline points="12 5 19 12 12 19"></polyline>
-								</svg>
-							</a>
+							{e.enCours ? (
+								<span class="inline-flex items-center gap-2 text-sable-600 font-medium">
+									<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+										<circle cx="12" cy="12" r="10"></circle>
+										<polyline points="12 6 12 12 16 14"></polyline>
+									</svg>
+									<span>Application web en développement</span>
+								</span>
+							) : (
+								<>
+									<a href={e.urlLive} target="_blank" rel="noopener noreferrer"
+										class="inline-flex items-center justify-between gap-2 text-noir-cafe hover:text-terracotta font-medium transition-colors">
+										<span>Voir le projet en ligne</span>
+										<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+											<path d="M7 17L17 7"></path>
+											<path d="M7 7h10v10"></path>
+										</svg>
+									</a>
+									<a href={`/etudes-de-cas/${e.slug}/`}
+										class="inline-flex items-center justify-between gap-2 text-sable-600 hover:text-noir-cafe transition-colors">
+										<span>Lire l'étude détaillée</span>
+										<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+											<line x1="5" y1="12" x2="19" y2="12"></line>
+											<polyline points="12 5 19 12 12 19"></polyline>
+										</svg>
+									</a>
+								</>
+							)}
 						</div>
 					</div>
 
