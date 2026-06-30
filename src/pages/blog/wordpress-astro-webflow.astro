@@ -1,0 +1,191 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+const article = {
+	slug: "wordpress-astro-webflow",
+	titre: "WordPress, Astro ou Webflow : quel outil pour quel projet ?",
+	extrait: "Le choix de la technologie est la première vraie décision d'un projet web — et la plus mal faite. Comparatif honnête de WordPress, Webflow et Astro : forces, limites, et lequel choisir selon votre situation.",
+	date: "2026-06-30",
+	tags: ["CMS", "tech", "choix"],
+	tempsLecture: "7 min",
+};
+---
+
+<Layout
+	title={`${article.titre} — Blog — Saïbo Danfakha`}
+	description={article.extrait}
+	article={{ headline: article.titre, datePublished: article.date }}
+>
+	<article class="max-w-3xl mx-auto px-6 py-24 md:py-32">
+		<a href="/blog/" class="inline-flex items-center gap-2 text-sm text-sable-600 hover:text-noir-cafe transition-colors mb-12">
+			<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+				<line x1="19" y1="12" x2="5" y2="12"></line>
+				<polyline points="12 19 5 12 12 5"></polyline>
+			</svg>
+			Retour au blog
+		</a>
+
+		<header class="mb-12">
+			<div class="flex items-center gap-3 text-sm text-sable-600 mb-4">
+				<time datetime={article.date}>
+					{new Date(article.date).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}
+				</time>
+				<span>·</span>
+				<span>{article.tempsLecture} de lecture</span>
+			</div>
+
+			<h1 class="text-4xl md:text-5xl font-semibold leading-tight tracking-tight text-noir-cafe mb-6">
+				{article.titre}
+			</h1>
+
+			<div class="flex flex-wrap gap-2">
+				{article.tags.map((tag) => (
+					<span class="px-2.5 py-1 bg-terracotta/10 text-terracotta rounded-full text-xs">
+						#{tag}
+					</span>
+				))}
+			</div>
+		</header>
+
+		<figure class="mb-12 -mx-6 md:mx-0">
+			<img
+				src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&h=630&fit=crop&auto=format&q=80"
+				alt="Carte électronique en gros plan — choisir la bonne technologie pour son site web"
+				loading="eager"
+				class="w-full aspect-[16/9] object-cover md:rounded-xl"
+			/>
+		</figure>
+
+		<div class="prose prose-lg prose-noir-cafe max-w-none">
+			<p class="text-xl text-sable-600 mb-8 leading-relaxed">
+				Avant la première ligne de code, avant le premier pixel de design, il y a une décision qu'on prend presque toujours par défaut : <strong>avec quel outil va-t-on construire le site ?</strong> Et le plus souvent, la réponse n'est pas « celui qui correspond au projet », mais « celui qu'on connaît » ou « celui dont on a entendu parler ». C'est une erreur qui coûte cher, parce que le mauvais outil rend tout le reste plus lent, plus lourd et plus difficile à faire évoluer.
+			</p>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				WordPress, Webflow, Astro : trois noms qui reviennent sans arrêt, trois philosophies très différentes. Aucun n'est « le meilleur » dans l'absolu. Chacun excelle dans un contexte précis et devient un boulet dans un autre. L'objectif de cet article n'est pas de vous vendre une religion, mais de vous donner une grille de lecture claire pour choisir en connaissance de cause.
+			</p>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				On va voir ce que fait vraiment chaque outil, ses forces, ses limites — et surtout, comment décider lequel correspond à <em>votre</em> situation.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Trois outils, trois philosophies</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Pour comprendre le choix, il faut d'abord saisir que ces trois outils ne jouent pas le même jeu :
+			</p>
+
+			<ul class="list-disc pl-6 text-sable-600 mb-8 space-y-2">
+				<li><strong>WordPress</strong> est un <em>système de gestion de contenu</em> historique : on assemble un site à partir d'un thème et d'extensions (plugins). Souplesse maximale, à condition d'accepter sa complexité et son entretien.</li>
+				<li><strong>Webflow</strong> est un <em>studio de design visuel</em> dans le navigateur : on dessine le site à la souris, l'outil génère le code et l'héberge. Rapide et propre pour des sites vitrines, dans un environnement fermé qu'on loue.</li>
+				<li><strong>Astro</strong> est un <em>framework de développement moderne</em> : on construit un site sur-mesure, ultra-léger, qui ne charge que le strict nécessaire. Performance et liberté totales, mais ça demande un développeur.</li>
+			</ul>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">WordPress — le couteau suisse omniprésent</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				WordPress fait tourner une part énorme du web mondial, et ce n'est pas un hasard : il sait à peu près tout faire. Blog, boutique, site d'entreprise, forum — il existe un plugin pour chaque besoin. C'est sa grande force, et c'est aussi son piège.
+			</p>
+
+			<p class="text-sable-600 mb-4 leading-relaxed"><strong>Ses atouts :</strong></p>
+			<ul class="list-disc pl-6 text-sable-600 mb-6 space-y-2">
+				<li>Un écosystème immense : thèmes, plugins, prestataires, tutoriels en pagaille.</li>
+				<li>Idéal pour les sites riches en contenu mis à jour souvent (blogs, médias, gros catalogues).</li>
+				<li>Pas d'enfermement : vous possédez votre site, vous pouvez changer d'hébergeur ou de développeur.</li>
+			</ul>
+
+			<p class="text-sable-600 mb-4 leading-relaxed"><strong>Ses limites :</strong></p>
+			<ul class="list-disc pl-6 text-sable-600 mb-8 space-y-2">
+				<li><strong>La lourdeur.</strong> Un site bourré de plugins devient lent — c'est l'une des premières causes de mauvaise <a href="/blog/performance-web-conversion/" class="text-terracotta hover:underline">performance web</a>, et donc de visiteurs qui partent.</li>
+				<li><strong>L'entretien.</strong> Mises à jour, sauvegardes, sécurité : un WordPress laissé à l'abandon se fait pirater. C'est un site qu'on doit suivre, pas un site qu'on oublie.</li>
+				<li><strong>La dérive.</strong> À force d'empiler des extensions « pratiques », on obtient un site fragile que personne ne maîtrise plus vraiment.</li>
+			</ul>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Webflow — le studio visuel</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Webflow a séduit beaucoup de designers parce qu'il permet de construire un site soigné sans écrire de code, directement à l'écran. Le résultat est généralement plus propre et plus rapide qu'un WordPress moyen, et la mise en ligne est immédiate puisque l'hébergement est inclus.
+			</p>
+
+			<p class="text-sable-600 mb-4 leading-relaxed"><strong>Ses atouts :</strong></p>
+			<ul class="list-disc pl-6 text-sable-600 mb-6 space-y-2">
+				<li>Un rendu visuel maîtrisé, idéal pour les sites vitrines et les landing pages élégantes.</li>
+				<li>Pas de plugins à entretenir, pas de mises à jour de sécurité à gérer soi-même.</li>
+				<li>Animations et interactions soignées sans développement lourd.</li>
+			</ul>
+
+			<p class="text-sable-600 mb-4 leading-relaxed"><strong>Ses limites :</strong></p>
+			<ul class="list-disc pl-6 text-sable-600 mb-8 space-y-2">
+				<li><strong>L'abonnement à vie.</strong> Vous ne possédez pas vraiment le site : vous louez la plateforme. Le jour où vous arrêtez de payer, le site s'arrête.</li>
+				<li><strong>L'enfermement.</strong> Exporter un projet Webflow vers un autre outil est pénible, voire impossible selon les fonctionnalités utilisées.</li>
+				<li><strong>Le coût en devises.</strong> Une tarification mensuelle en dollars qui, sur la durée et au taux FCFA, finit par dépasser un site sur-mesure qu'on paie une fois.</li>
+			</ul>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Astro — le sur-mesure performant</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Astro représente une approche plus récente : construire un site sur-mesure qui ne livre au visiteur que le strict nécessaire. Le résultat, ce sont des pages quasi statiques, extrêmement légères, qui chargent en un éclair — y compris sur mobile et sur connexion lente, ce qui compte énormément pour une audience sénégalaise et de la diaspora.
+			</p>
+
+			<p class="text-sable-600 mb-4 leading-relaxed"><strong>Ses atouts :</strong></p>
+			<ul class="list-disc pl-6 text-sable-600 mb-6 space-y-2">
+				<li><strong>La performance par défaut.</strong> Peu de code envoyé, donc un site rapide — un avantage direct sur le référencement Google et sur le taux de conversion.</li>
+				<li><strong>La liberté totale.</strong> Aucune limite imposée par un thème ou une plateforme : le design et les fonctionnalités sont exactement ceux dont vous avez besoin, ni plus ni moins.</li>
+				<li><strong>La sobriété et la sécurité.</strong> Pas de plugins qui s'empilent, très peu de surface d'attaque, un hébergement souvent gratuit ou quasi gratuit.</li>
+			</ul>
+
+			<p class="text-sable-600 mb-4 leading-relaxed"><strong>Ses limites :</strong></p>
+			<ul class="list-disc pl-6 text-sable-600 mb-8 space-y-2">
+				<li><strong>Ça demande un développeur.</strong> Ce n'est pas un outil dans lequel un non-technicien clique pour assembler son site seul.</li>
+				<li><strong>Moins adapté</strong> à un client qui veut tout modifier lui-même au quotidien sans aucune base technique (là, une interface de gestion bien pensée devient nécessaire).</li>
+			</ul>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Alors, lequel choisir ?</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Plutôt que de désigner un gagnant, partez de votre situation. Voici une grille simple :
+			</p>
+
+			<ul class="list-disc pl-6 text-sable-600 mb-6 space-y-2">
+				<li><strong>Vous publiez beaucoup de contenu vous-même</strong> (blog actif, médias, gros catalogue mis à jour chaque semaine) et vous avez quelqu'un pour l'entretenir → <strong>WordPress</strong> reste pertinent.</li>
+				<li><strong>Vous voulez une vitrine élégante, vite en ligne</strong>, sans développeur, et l'abonnement mensuel ne vous gêne pas → <strong>Webflow</strong> peut convenir.</li>
+				<li><strong>Vous voulez un site premium, rapide, durable</strong>, taillé exactement à votre image, que vous possédez vraiment et qui coûte peu à héberger → <strong>Astro</strong> (ou une approche sur-mesure équivalente) est le meilleur choix.</li>
+			</ul>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Et si vous hésitez encore, gardez en tête une règle simple : un outil grand public vous fait gagner du temps au début et vous en coûte sur la durée (lenteur, entretien, abonnements, limites). Un site sur-mesure demande un vrai prestataire au départ, mais vous laisse un actif rapide, propre et vous appartenant pour des années. C'est tout l'écart entre <a href="/blog/pourquoi-un-site-sur-mesure-vaut-mieux-quun-template/" class="text-terracotta hover:underline">un template et un site sur-mesure</a>.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">La vraie question n'est pas l'outil, c'est l'objectif</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Le piège, c'est de commencer par l'outil. « Je veux un site WordPress », « il me faut du Webflow » — alors que l'outil devrait être la <em>dernière</em> décision, pas la première. La bonne démarche part de l'objectif : qui doit visiter ce site, que doit-il faire en arrivant, à quelle fréquence le contenu changera-t-il, qui le fera évoluer ? C'est de ces réponses que découle le bon outil, jamais l'inverse.
+			</p>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				C'est exactement la conversation que j'ai avec chaque client avant d'écrire la moindre ligne : je choisis la technologie en fonction de son projet et de son budget, pas par habitude. Pour la plupart des sites vitrines et institutionnels premium que je construis, le sur-mesure performant l'emporte largement — parce qu'il offre le meilleur rapport entre beauté, vitesse et coût sur la durée. Mais si votre besoin appelle autre chose, je vous le dirai franchement.
+			</p>
+
+			<hr class="my-12 border-sable-300" />
+
+			<div class="bg-terracotta/10 border border-terracotta/30 rounded-xl p-6">
+				<h3 class="text-lg font-semibold text-noir-cafe mb-3">
+					Vous ne savez pas quel outil choisir ?
+				</h3>
+				<p class="text-sable-600 mb-4">
+					C'est normal — et c'est précisément mon rôle. Parlons de votre projet : je vous recommande la bonne technologie selon votre objectif et votre budget, sans jargon et sans vous enfermer. Vous pouvez aussi consulter <a href="/blog/combien-coute-un-site-professionnel/" class="text-terracotta hover:underline">combien coûte vraiment un site professionnel</a> pour situer votre projet.
+				</p>
+				<a href="/#contact" class="inline-flex items-center gap-2 bg-noir-cafe text-creme px-6 py-3 rounded-md font-medium hover:bg-terracotta transition-colors">
+					Me contacter
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+						<line x1="5" y1="12" x2="19" y2="12"></line>
+						<polyline points="12 5 19 12 12 19"></polyline>
+					</svg>
+				</a>
+				<a href="/#offres" class="mt-3 inline-flex text-sm text-sable-600 hover:text-noir-cafe transition-colors">
+					Voir les tarifs →
+				</a>
+			</div>
+		</div>
+	</article>
+</Layout>
