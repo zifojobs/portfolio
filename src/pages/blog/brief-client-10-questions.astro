@@ -1,0 +1,154 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+const article = {
+	slug: "brief-client-10-questions",
+	titre: "Brief client : les 10 questions essentielles avant de démarrer",
+	extrait: "Un projet web échoue rarement à cause du code — presque toujours à cause d'un mauvais cadrage. Voici les 10 questions à se poser, et à poser à son prestataire, avant de lancer un site.",
+	date: "2026-07-07",
+	tags: ["gestion de projet", "freelance", "conseils"],
+	tempsLecture: "7 min",
+};
+---
+
+<Layout
+	title={`${article.titre} — Blog — Saïbo Danfakha`}
+	description={article.extrait}
+	article={{ headline: article.titre, datePublished: article.date }}
+>
+	<article class="max-w-3xl mx-auto px-6 py-24 md:py-32">
+		<a href="/blog/" class="inline-flex items-center gap-2 text-sm text-sable-600 hover:text-noir-cafe transition-colors mb-12">
+			<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+				<line x1="19" y1="12" x2="5" y2="12"></line>
+				<polyline points="12 19 5 12 12 5"></polyline>
+			</svg>
+			Retour au blog
+		</a>
+
+		<header class="mb-12">
+			<div class="flex items-center gap-3 text-sm text-sable-600 mb-4">
+				<time datetime={article.date}>
+					{new Date(article.date).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}
+				</time>
+				<span>·</span>
+				<span>{article.tempsLecture} de lecture</span>
+			</div>
+
+			<h1 class="text-4xl md:text-5xl font-semibold leading-tight tracking-tight text-noir-cafe mb-6">
+				{article.titre}
+			</h1>
+
+			<div class="flex flex-wrap gap-2">
+				{article.tags.map((tag) => (
+					<span class="px-2.5 py-1 bg-terracotta/10 text-terracotta rounded-full text-xs">
+						#{tag}
+					</span>
+				))}
+			</div>
+		</header>
+
+		<figure class="mb-12 -mx-6 md:mx-0">
+			<img
+				src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=1200&h=630&fit=crop&auto=format&q=80"
+				alt="Carnet ouvert et ordinateur portable sur un bureau — cadrer un projet web avant de démarrer"
+				loading="eager"
+				class="w-full aspect-[16/9] object-cover md:rounded-xl"
+			/>
+		</figure>
+
+		<div class="prose prose-lg prose-noir-cafe max-w-none">
+			<p class="text-xl text-sable-600 mb-8 leading-relaxed">
+				La plupart des projets web qui tournent mal n'échouent pas à cause d'un problème technique. Ils échouent parce que, dès le départ, personne n'a pris le temps de répondre aux bonnes questions. <strong>Le brief — cette conversation de cadrage avant la première ligne de code — est le moment où un projet se gagne ou se perd.</strong> Bâclé, il produit un site joli mais inutile. Bien mené, il transforme une idée floue en un site qui travaille pour vous.
+			</p>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Bonne nouvelle : cadrer un projet ne demande pas d'être technicien. Il suffit de se poser — et de poser à son prestataire — une série de questions simples mais décisives. En voici dix. Répondez-y avant de démarrer, et vous éviterez l'immense majorité des mauvaises surprises : budget qui dérape, délais qui s'étirent, site livré qui « n'est pas ce que j'avais en tête ».
+			</p>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Un bon prestataire vous posera d'ailleurs la plupart de ces questions de lui-même. S'il ne le fait pas et se contente de demander « alors, vous le voulez pour quand ? », c'est déjà un signal.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">1 à 3 — L'objectif : à quoi sert ce site ?</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Avant l'esthétique, avant les couleurs, il faut savoir <em>pourquoi</em> ce site existe. C'est la fondation de tout le reste.
+			</p>
+
+			<ul class="list-disc pl-6 text-sable-600 mb-6 space-y-3">
+				<li><strong>1. Quel est l'objectif numéro un du site ?</strong> Vendre en ligne, générer des demandes de devis, rassurer un client avant un rendez-vous, recruter, informer ? Un site ne peut pas tout faire à la perfection. Nommez la priorité, une seule — le reste s'organisera autour.</li>
+				<li><strong>2. Comment saurez-vous qu'il a réussi ?</strong> « Avoir un beau site » n'est pas un résultat. Des appels reçus, des formulaires remplis, des ventes, des rendez-vous pris : voilà des résultats mesurables. Si vous ne savez pas quoi mesurer, vous ne saurez jamais si l'investissement a payé.</li>
+				<li><strong>3. Que doit faire le visiteur en arrivant ?</strong> Vous appeler ? Vous écrire sur WhatsApp ? Remplir un formulaire ? Acheter ? Cette action attendue — l'appel à l'action — doit être évidente sur chaque page. Un site sans action claire est un site qui ne convertit pas.</li>
+			</ul>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				C'est exactement là que se jouent la plupart des échecs : un site pensé pour « faire joli » plutôt que pour atteindre un objectif précis. C'est l'une des <a href="/blog/5-erreurs-fatales-site-entreprise/" class="text-terracotta hover:underline">erreurs fatales que font les entreprises</a> avec leur site.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">4 et 5 — L'audience : à qui parle-t-il ?</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Un site qui parle à « tout le monde » ne parle à personne. Deux questions pour resserrer la cible.
+			</p>
+
+			<ul class="list-disc pl-6 text-sable-600 mb-6 space-y-3">
+				<li><strong>4. Qui est votre client idéal, précisément ?</strong> Son profil, ce qu'il cherche, ce qui le rassure, ce qui le fait hésiter. Un site pour une clientèle locale au Sénégal et un site pour des partenaires de la diaspora ne se construisent pas pareil — parfois il faut même <a href="/blog/diaspora-site-bilingue/" class="text-terracotta hover:underline">penser deux audiences à la fois</a>.</li>
+				<li><strong>5. Quels sites admirez-vous, et pourquoi ?</strong> Deux ou trois exemples — concurrents ou non — valent mille adjectifs. « Sobre et pro comme celui-ci », « vivant comme celui-là » : ces références donnent au prestataire une direction claire et vous évitent des allers-retours interminables sur le style.</li>
+			</ul>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">6 et 7 — La matière : avec quoi on construit</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Un site se nourrit de contenu. Sous-estimer ce point est la cause n°1 des projets qui traînent pendant des mois.
+			</p>
+
+			<ul class="list-disc pl-6 text-sable-600 mb-6 space-y-3">
+				<li><strong>6. Qu'avez-vous déjà, et que faut-il créer ?</strong> Textes, photos, logo, témoignages clients : faites l'inventaire. Ce qui manque devra être rédigé ou produit — et ça prend du temps et parfois du budget. Un projet bloqué attend presque toujours des contenus que le client pensait « avoir déjà ».</li>
+				<li><strong>7. Qui va gérer le contenu après la mise en ligne ?</strong> Vous, vous-même ? Votre prestataire, en maintenance ? Personne ? La réponse change le choix de la technologie : un site que vous mettrez à jour chaque semaine n'a pas la même architecture qu'une vitrine stable. C'est même un critère décisif dans le <a href="/blog/wordpress-astro-webflow/" class="text-terracotta hover:underline">choix de l'outil</a>.</li>
+			</ul>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">8 à 10 — Le cadre : budget, contact, et la suite</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Les trois questions qu'on évite par gêne — et qui pourtant évitent 90 % des malentendus.
+			</p>
+
+			<ul class="list-disc pl-6 text-sable-600 mb-6 space-y-3">
+				<li><strong>8. Quel est votre budget réel, et pour quand ?</strong> Annoncer un budget n'est pas se faire avoir : c'est permettre au prestataire de proposer la bonne solution plutôt que de deviner. Sans fourchette, on perd des semaines en devis à côté de la plaque. Pour situer le vôtre, ce guide décode <a href="/blog/combien-coute-un-site-professionnel/" class="text-terracotta hover:underline">combien coûte vraiment un site professionnel</a>.</li>
+				<li><strong>9. Comment vos clients vous contactent et vous paient ?</strong> WhatsApp, appel, formulaire, e-mail ? Wave et Orange Money, ou carte bancaire ? Ces réponses déterminent des éléments concrets du site — et un site qui colle aux habitudes réelles de vos clients convertit bien mieux qu'un site « standard ».</li>
+				<li><strong>10. Que se passe-t-il après la mise en ligne ?</strong> Un site n'est pas un tableau qu'on accroche et qu'on oublie. Mises à jour, hébergement, référencement, petites évolutions : qui s'en occupe, et à quel coût ? Clarifier l'après dès le début évite le site abandonné six mois après son lancement.</li>
+			</ul>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Le brief, c'est déjà la moitié du travail</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Ces dix questions n'ont rien de technique. Elles tiennent sur une page. Mais y répondre honnêtement, avant de démarrer, change tout : le projet part sur des bases solides, le prestataire sait exactement où il va, et vous ne découvrez pas à la livraison que « ce n'était pas ça ».
+			</p>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				C'est précisément la conversation que j'ai avec chaque client avant d'écrire la moindre ligne de code. Pas pour cocher des cases, mais parce qu'un site construit sur un bon brief est un site qui rapporte — et un site bâclé sur un brief flou est de l'argent jeté. La différence ne se joue pas dans le code. Elle se joue ici, au tout début.
+			</p>
+
+			<hr class="my-12 border-sable-300" />
+
+			<div class="bg-terracotta/10 border border-terracotta/30 rounded-xl p-6">
+				<h3 class="text-lg font-semibold text-noir-cafe mb-3">
+					Un projet en tête, mais encore flou ?
+				</h3>
+				<p class="text-sable-600 mb-4">
+					C'est normal — et c'est là que je commence. On répond ensemble à ces questions, on cadre votre projet clairement, et je vous propose la solution qui sert vraiment votre objectif, sans jargon et sans vous survendre.
+				</p>
+				<a href="/#contact" class="inline-flex items-center gap-2 bg-noir-cafe text-creme px-6 py-3 rounded-md font-medium hover:bg-terracotta transition-colors">
+					Me contacter
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+						<line x1="5" y1="12" x2="19" y2="12"></line>
+						<polyline points="12 5 19 12 12 19"></polyline>
+					</svg>
+				</a>
+				<a href="/#offres" class="mt-3 inline-flex text-sm text-sable-600 hover:text-noir-cafe transition-colors">
+					Voir les tarifs →
+				</a>
+			</div>
+		</div>
+	</article>
+</Layout>
