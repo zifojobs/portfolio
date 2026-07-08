@@ -24,6 +24,18 @@ const etudes = [
 		accent: "vert-savane",
 	},
 	{
+		slug: "meridien",
+		titre: "MÉRIDIEN",
+		secteur: "Construction · Immobilier",
+		type: "Démonstrateur 3D immersif",
+		localisation: "Dakar · Canada (fictif)",
+		description: "Un site vitrine « extreme capabilities » : tour 3D temps réel explorée au scroll (Three.js/WebGL), ville nocturne générée par code, visuels de programmes créés par IA. Ce que peut être un site de promoteur immobilier en 2026.",
+		urlLive: "https://meridien-demo.vercel.app",
+		image: "/etudes-de-cas/meridien.png",
+		demo: true,
+		accent: "noir-cafe",
+	},
+	{
 		slug: "s5l",
 		titre: "S5L Productions",
 		secteur: "Production vidéo & marketing",
@@ -106,7 +118,7 @@ const etudes = [
 				</h2>
 			</div>
 			<p class="text-sable-600 md:text-right md:max-w-xs">
-				7 missions livrées et un SaaS en cours — du site vitrine à l'application web sur-mesure, la méthode tient quel que soit le secteur.
+				7 missions livrées, un SaaS en cours et un démonstrateur 3D — du site vitrine à l'application web sur-mesure, la méthode tient quel que soit le secteur.
 			</p>
 		</div>
 
@@ -141,6 +153,13 @@ const etudes = [
 						{e.enCours && (
 							<div class="absolute top-4 right-4 z-10 px-3 py-1 bg-creme text-noir-cafe text-xs font-medium rounded-full shadow-sm">
 								Projet en cours
+							</div>
+						)}
+
+						<!-- Badge "démonstrateur" -->
+						{e.demo && (
+							<div class="absolute top-4 right-4 z-10 px-3 py-1 bg-creme text-noir-cafe text-xs font-medium rounded-full shadow-sm">
+								Démonstrateur
 							</div>
 						)}
 
@@ -192,14 +211,26 @@ const etudes = [
 											<path d="M7 7h10v10"></path>
 										</svg>
 									</a>
-									<a href={`/etudes-de-cas/${e.slug}/`}
-										class="inline-flex items-center justify-between gap-2 text-sable-600 hover:text-noir-cafe transition-colors">
-										<span>Lire l'étude détaillée</span>
-										<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-											<line x1="5" y1="12" x2="19" y2="12"></line>
-											<polyline points="12 5 19 12 12 19"></polyline>
-										</svg>
-									</a>
+									{!e.demo && (
+										<a href={`/etudes-de-cas/${e.slug}/`}
+											class="inline-flex items-center justify-between gap-2 text-sable-600 hover:text-noir-cafe transition-colors">
+											<span>Lire l'étude détaillée</span>
+											<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+												<line x1="5" y1="12" x2="19" y2="12"></line>
+												<polyline points="12 5 19 12 12 19"></polyline>
+											</svg>
+										</a>
+									)}
+									{e.demo && (
+										<a href={`${e.urlLive}/guide`} target="_blank" rel="noopener noreferrer"
+											class="inline-flex items-center justify-between gap-2 text-sable-600 hover:text-noir-cafe transition-colors">
+											<span>Comment il a été fait</span>
+											<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+												<line x1="5" y1="12" x2="19" y2="12"></line>
+												<polyline points="12 5 19 12 12 19"></polyline>
+											</svg>
+										</a>
+									)}
 								</>
 							)}
 						</div>
