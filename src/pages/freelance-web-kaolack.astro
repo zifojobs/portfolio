@@ -11,7 +11,7 @@ const CALENDLY = "https://calendly.com/zifo1819/30min";
 const realisations = [
 	{ slug: "rk-services", titre: "RK Services", lieu: "Mbour, Sénégal", image: "/etudes-de-cas/rk-services.jpg" },
 	{ slug: "nur-alhayaa", titre: "Nur Alhayaa", lieu: "Dakar · Paris · Dubaï", image: "/etudes-de-cas/nur-alhayaa.jpg" },
-	{ slug: "registon", titre: "Registon", lieu: "Canada", image: "/etudes-de-cas/registon.jpg" },
+	{ slug: "platinum-construction", titre: "Platinum Construction", lieu: "Vaughan, Canada", image: "/etudes-de-cas/platinum.jpg" },
 ];
 
 const faq = [
@@ -31,12 +31,16 @@ const faq = [
 		q: "Mon site sera-t-il visible sur Google à Kaolack ?",
 		r: "Oui. Chaque site inclut un SEO de base optimisé pour les recherches locales, afin que vos clients à Kaolack et au Sénégal vous trouvent quand ils cherchent vos services en ligne.",
 	},
+	{
+		q: "Faites-vous aussi des applications web ?",
+		r: "Oui. Au-delà du site vitrine, je développe des applications web complètes : gestion scolaire, espace client, tableau de bord métier. Je développe par exemple Jàng, une application de gestion pour les écoles sénégalaises (notes, présences, communication école-parents). Si votre projet dépasse le simple site, parlons-en.",
+	},
 ];
 ---
 
 <Layout
 	title="Développeur web freelance à Kaolack — Saïbo Danfakha"
-	description="Création de sites web premium à Kaolack. Développeur web freelance basé à Kaolack pour entrepreneurs, PME et institutions au Sénégal. Devis clair, suivi de proximité."
+	description="Création de sites web premium et d'applications web à Kaolack. Développeur web freelance basé à Kaolack pour entrepreneurs, PME, écoles et institutions au Sénégal. Devis clair, suivi de proximité."
 >
 	<!-- Schema FAQ (référencement local) -->
 	<script type="application/ld+json" set:html={JSON.stringify({
@@ -58,8 +62,9 @@ const faq = [
 			Développeur web freelance à Kaolack
 		</h1>
 		<p data-animate class="text-xl text-sable-600 leading-relaxed max-w-2xl mb-10">
-			Je crée des sites web premium pour les entrepreneurs, PME et institutions de
-			Kaolack et du Sénégal. Un site sur-mesure, rapide à charger, pensé pour
+			Je crée des sites web premium et des applications web sur-mesure pour les
+			entrepreneurs, PME, écoles et institutions de Kaolack et du Sénégal. Un site
+			rapide à charger, pensé pour
 			convertir vos visiteurs en clients — avec un suivi de proximité.
 		</p>
 		<div data-animate class="flex flex-col sm:flex-row gap-4">
@@ -133,7 +138,7 @@ const faq = [
 			<div data-animate class="bg-creme border border-sable-300 rounded-xl p-6">
 				<h3 class="text-lg font-semibold text-noir-cafe mb-1">Site Complet</h3>
 				<p class="font-serif text-2xl font-semibold text-noir-cafe mb-2">1 000 000 FCFA</p>
-				<p class="text-sm text-sable-600">E-commerce, sur-mesure · 4 à 8 semaines</p>
+				<p class="text-sm text-sable-600">E-commerce, application web · 4 à 8 semaines</p>
 			</div>
 		</div>
 		<p data-animate class="mt-8 text-sm text-sable-600">
@@ -171,6 +176,40 @@ const faq = [
 						</div>
 					</a>
 				))}
+			</div>
+
+			<!-- Au-delà du site vitrine : applications web + démonstrateur -->
+			<div class="mt-16">
+				<h3 data-animate class="text-2xl font-semibold text-noir-cafe mb-3">
+					Et au-delà du site vitrine : les applications web.
+				</h3>
+				<p data-animate class="text-sable-600 leading-relaxed mb-8 max-w-2xl">
+					Quand votre projet dépasse le site classique, je développe des applications
+					web complètes — et des démonstrateurs qui montrent jusqu'où on peut aller.
+				</p>
+				<div data-animate-stagger class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+					<div data-animate class="bg-creme border border-sable-300 rounded-xl p-6">
+						<div class="flex items-center justify-between gap-3 mb-3">
+							<h4 class="font-serif text-xl font-semibold text-noir-cafe">Jàng</h4>
+							<span class="px-3 py-1 bg-sable-100 text-sable-600 text-xs font-medium rounded-full whitespace-nowrap">Projet en cours</span>
+						</div>
+						<p class="text-sm text-sable-600 leading-relaxed">
+							Application web de gestion scolaire pour les écoles sénégalaises :
+							notes, présences et communication école-parents, développée de A à Z.
+						</p>
+					</div>
+					<a href="https://meridien-demo.vercel.app" target="_blank" rel="noopener noreferrer" data-animate
+						class="card-hover group block bg-creme border border-sable-300 rounded-xl p-6 hover:border-noir-cafe">
+						<div class="flex items-center justify-between gap-3 mb-3">
+							<h4 class="font-serif text-xl font-semibold text-noir-cafe group-hover:text-terracotta transition-colors">MÉRIDIEN</h4>
+							<span class="px-3 py-1 bg-sable-100 text-sable-600 text-xs font-medium rounded-full whitespace-nowrap">Démonstrateur</span>
+						</div>
+						<p class="text-sm text-sable-600 leading-relaxed">
+							Site vitrine immersif avec tour 3D explorée au scroll : ce qu'un site
+							de promoteur immobilier peut être en 2026. À visiter en ligne →
+						</p>
+					</a>
+				</div>
 			</div>
 
 			<a href="/#etudes-de-cas" data-animate
