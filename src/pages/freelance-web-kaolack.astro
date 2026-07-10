@@ -53,8 +53,14 @@ const faq = [
 		})),
 	})} />
 
-	<!-- Hero -->
-	<section class="max-w-4xl mx-auto px-6 pt-32 pb-20 md:pt-40 md:pb-28">
+	<!-- Hero — « Le sel de Kaolack, grain par grain » (particules 3D sur desktop) -->
+	<section class="relative overflow-hidden">
+		<canvas id="hero-3d" class="absolute inset-0 w-full h-full hidden lg:block pointer-events-none" aria-hidden="true"></canvas>
+		<p class="hidden lg:block absolute bottom-6 right-8 z-10 text-xs uppercase tracking-widest text-sable-600 select-none">
+			Le sel de Kaolack, grain par grain ✦
+		</p>
+		<div class="relative z-10 max-w-6xl mx-auto px-6 pt-32 pb-20 md:pt-40 md:pb-28 lg:min-h-[78vh] lg:flex lg:items-center">
+			<div class="max-w-2xl">
 		<p data-animate class="text-sm font-medium uppercase tracking-wider text-terracotta mb-4">
 			Développeur web · Kaolack, Sénégal
 		</p>
@@ -81,7 +87,31 @@ const faq = [
 				Réserver un appel de 30 min
 			</a>
 		</div>
+			</div>
+		</div>
 	</section>
+
+	<!-- Hero 3D : chargé en différé, desktop seulement, jamais si reduced-motion / save-data -->
+	<script>
+		const heroCanvas = document.getElementById("hero-3d") as HTMLCanvasElement | null;
+		const wants3d =
+			heroCanvas &&
+			window.matchMedia("(min-width: 1024px)").matches &&
+			!window.matchMedia("(prefers-reduced-motion: reduce)").matches &&
+			!(navigator as any).connection?.saveData;
+
+		if (wants3d) {
+			const start = () =>
+				import("../scripts/heroKaolack3d")
+					.then((m) => m.initHeroKaolack3D(heroCanvas))
+					.catch((err) => console.error("[hero3d] init failed:", err));
+			if ("requestIdleCallback" in window) {
+				requestIdleCallback(start, { timeout: 2000 });
+			} else {
+				setTimeout(start, 600);
+			}
+		}
+	</script>
 
 	<!-- Proximité locale -->
 	<section class="bg-sable-100 py-20 md:py-28">
