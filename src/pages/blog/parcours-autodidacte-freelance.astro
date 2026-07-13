@@ -1,0 +1,140 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+const article = {
+	slug: "parcours-autodidacte-freelance",
+	titre: "Mon parcours : autodidacte vers développeur freelance international",
+	extrait: "Pas d'école d'ingénieur, pas de diplôme en informatique : j'ai appris le développement web en construisant, depuis Kaolack, tout en travaillant à côté. Voici ce que ce parcours d'autodidacte change concrètement pour mes clients.",
+	date: "2026-07-14",
+	tags: ["parcours", "freelance", "autodidacte"],
+	tempsLecture: "6 min",
+};
+---
+
+<Layout
+	title={`${article.titre} — Blog — Saïbo Danfakha`}
+	description={article.extrait}
+	article={{ headline: article.titre, datePublished: article.date }}
+>
+	<article class="max-w-3xl mx-auto px-6 py-24 md:py-32">
+		<a href="/blog/" class="inline-flex items-center gap-2 text-sm text-sable-600 hover:text-noir-cafe transition-colors mb-12">
+			<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+				<line x1="19" y1="12" x2="5" y2="12"></line>
+				<polyline points="12 19 5 12 12 5"></polyline>
+			</svg>
+			Retour au blog
+		</a>
+
+		<header class="mb-12">
+			<div class="flex items-center gap-3 text-sm text-sable-600 mb-4">
+				<time datetime={article.date}>
+					{new Date(article.date).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}
+				</time>
+				<span>·</span>
+				<span>{article.tempsLecture} de lecture</span>
+			</div>
+
+			<h1 class="text-4xl md:text-5xl font-semibold leading-tight tracking-tight text-noir-cafe mb-6">
+				{article.titre}
+			</h1>
+
+			<div class="flex flex-wrap gap-2">
+				{article.tags.map((tag) => (
+					<span class="px-2.5 py-1 bg-terracotta/10 text-terracotta rounded-full text-xs">
+						#{tag}
+					</span>
+				))}
+			</div>
+		</header>
+
+		<figure class="mb-12 -mx-6 md:mx-0">
+			<img
+				src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=1200&h=630&fit=crop&auto=format&q=80"
+				alt="Chemin qui serpente dans un paysage de montagne — un parcours d'apprentissage construit pas à pas"
+				loading="eager"
+				class="w-full aspect-[16/9] object-cover md:rounded-xl"
+			/>
+		</figure>
+
+		<div class="prose prose-lg prose-noir-cafe max-w-none">
+			<p class="text-xl text-sable-600 mb-8 leading-relaxed">
+				Je n'ai pas de diplôme d'informatique. Pas d'école d'ingénieur, pas de bootcamp payé à prix d'or. J'ai appris le développement web seul, depuis Kaolack, en construisant des projets réels — souvent tard le soir, entre deux quarts de travail. <strong>Si je raconte ce parcours, ce n'est pas pour l'histoire : c'est parce qu'être autodidacte a façonné ma façon de travailler pour mes clients.</strong> Et cette façon de travailler, c'est finalement ce que vous achetez.
+			</p>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				On imagine souvent qu'un « vrai » développeur sort d'une grande école. La réalité du web est plus simple, et plus exigeante : ce qui compte, c'est ce que vous êtes capable de construire, pas le papier accroché au mur. J'ai fait le pari d'apprendre par la pratique. Voici ce que ce chemin m'a appris — et pourquoi c'est une bonne nouvelle pour vos projets.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Apprendre en construisant, pas en théorisant</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Un autodidacte n'a pas le luxe d'apprendre « au cas où ». J'ai appris chaque brique parce qu'un projet en avait besoin, tout de suite. Mon premier site, je l'ai fait en le faisant : en butant sur des problèmes, en cherchant, en recommençant jusqu'à ce que ça marche vraiment.
+			</p>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Cette habitude ne m'a jamais quitté. Je ne construis pas pour la beauté du code que personne ne verra : je construis pour un objectif concret — des appels reçus, des devis remplis, des ventes. La technique est au service du résultat, jamais l'inverse. C'est aussi pour ça qu'un <a href="/blog/pourquoi-un-site-sur-mesure-vaut-mieux-quun-template/" class="text-terracotta hover:underline">site sur-mesure</a> me semble presque toujours plus honnête qu'un template rempli de fonctions dont vous ne vous servirez jamais.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">La contrainte comme moteur</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				J'ai appris à coder tout en travaillant à temps plein, avec un budget serré et peu d'heures disponibles. Frustrant sur le moment — mais formateur comme rien d'autre. Quand le temps manque, on apprend vite à distinguer l'essentiel de l'accessoire, à ne pas se perdre dans des détails qui n'apportent rien au client.
+			</p>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Concrètement, cela veut dire que je ne vous vendrai jamais de la complexité pour la complexité. Pas de fonctionnalité « au cas où », pas de sur-ingénierie qui gonfle la facture et le délai. Je vais à ce qui sert votre objectif, et je m'arrête là. Cette discipline, ce sont mes contraintes de débutant qui me l'ont enseignée — et elle protège aujourd'hui votre budget.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Se former en continu, par obligation autant que par goût</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Le web ne s'arrête jamais. Les outils d'il y a cinq ans sont déjà datés ; ceux d'aujourd'hui le seront demain. Un autodidacte a un avantage discret : apprendre seul n'est pas une étape qu'il a franchie une fois, c'est son mode de fonctionnement permanent.
+			</p>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				C'est pour cette raison que je travaille avec des technologies modernes plutôt que par habitude. Choisir le bon outil pour chaque projet — et non recycler le même à chaque fois — fait une vraie différence sur la vitesse, la sécurité et la durée de vie d'un site. J'en ai fait tout un <a href="/blog/wordpress-astro-webflow/" class="text-terracotta hover:underline">comparatif honnête entre WordPress, Webflow et Astro</a>, justement parce que ce choix se fait trop souvent à l'aveugle.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">International, sans quitter Kaolack</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				La plus belle leçon de ce parcours, c'est qu'un travail de qualité voyage. Depuis Kaolack, je livre aussi bien des projets pour des entrepreneurs sénégalais et de la diaspora que pour des entreprises à l'étranger — comme le site d'une <a href="/etudes-de-cas/platinum-construction/" class="text-terracotta hover:underline">société de construction au Canada</a>. La distance n'est plus une barrière ; c'est le sérieux du travail qui l'est.
+			</p>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Ce n'est pas une prouesse individuelle, c'est la promesse que je fais à chaque client : peu importe où vous êtes, vous avez droit à un site pensé, solide et à la hauteur des standards internationaux. Vous pouvez juger sur pièces — mes <a href="/#etudes-de-cas" class="text-terracotta hover:underline">réalisations sont ici</a>.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Ce qu'un parcours d'autodidacte vous apporte</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Au fond, choisir un prestataire, c'est choisir une façon de travailler. La mienne s'est forgée dans la contrainte et l'apprentissage permanent : aller à l'essentiel, apprendre ce qu'il faut pour bien faire, et livrer ce qui est promis. Je travaille avec une règle simple, héritée de mes valeurs autant que de mon métier — dire les choses honnêtement, annoncer des prix clairs, et considérer la qualité comme une forme de respect.
+			</p>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Un diplôme rassure sur le papier. Un parcours, lui, se vérifie dans les projets livrés. Si vous cherchez comment reconnaître un développeur fiable, j'ai réuni les critères qui comptent dans <a href="/blog/comment-choisir-son-developpeur-web-freelance/" class="text-terracotta hover:underline">ce guide pour choisir son développeur web freelance</a>.
+			</p>
+
+			<hr class="my-12 border-sable-300" />
+
+			<div class="bg-terracotta/10 border border-terracotta/30 rounded-xl p-6">
+				<h3 class="text-lg font-semibold text-noir-cafe mb-3">
+					Un projet à confier à quelqu'un de sérieux ?
+				</h3>
+				<p class="text-sable-600 mb-4">
+					Parlons-en. Je vous dirai franchement ce qui est faisable, ce qui sert vraiment votre objectif, et ce que ça coûte — sans jargon et sans vous survendre. Où que vous soyez.
+				</p>
+				<a href="/#contact" class="inline-flex items-center gap-2 bg-noir-cafe text-creme px-6 py-3 rounded-md font-medium hover:bg-terracotta transition-colors">
+					Me contacter
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+						<line x1="5" y1="12" x2="19" y2="12"></line>
+						<polyline points="12 5 19 12 12 19"></polyline>
+					</svg>
+				</a>
+				<a href="/#offres" class="mt-3 inline-flex text-sm text-sable-600 hover:text-noir-cafe transition-colors">
+					Voir les tarifs →
+				</a>
+			</div>
+		</div>
+	</article>
+</Layout>
