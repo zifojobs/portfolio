@@ -1,0 +1,186 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+const meta = [
+	{ label: "Client", valeur: "Projet personnel" },
+	{ label: "Secteur", valeur: "SaaS · Éducation" },
+	{ label: "Type", valeur: "Application web de gestion scolaire multi-écoles" },
+	{ label: "Localisation", valeur: "Sénégal" },
+	{ label: "Périmètre", valeur: "Conception produit, développement full-stack, architecture, stratégie commerciale" },
+	{ label: "Stack", valeur: "Next.js (TypeScript) · Supabase · Vercel" },
+];
+
+const stats = [
+	{ cible: 4, suffixe: "", legende: "Rôles connectés (admin, prof, élève, parent)" },
+	{ cible: 22, suffixe: "+", legende: "Migrations SQL" },
+	{ cible: 100, suffixe: "%", legende: "Mobile-first, léger réseau" },
+	{ cible: 1, suffixe: "", legende: "École contactée pour le pilote" },
+];
+---
+
+<Layout
+	title="Jàng — Étude de cas — Saïbo Danfakha"
+	description="Étude de cas : Jàng, une plateforme web SaaS de gestion scolaire multi-écoles pour le Sénégal. Notes, bulletins PDF, emploi du temps, absences, messagerie — conçue et développée en solo avec Next.js et Supabase."
+	image="/etudes-de-cas/jang.png"
+>
+	<article class="max-w-3xl mx-auto px-6 py-24 md:py-32">
+
+		<!-- Retour -->
+		<a href="/" class="inline-flex items-center gap-2 text-sm text-sable-600 hover:text-noir-cafe transition-colors mb-12">
+			<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+				<line x1="19" y1="12" x2="5" y2="12"></line>
+				<polyline points="12 19 5 12 12 5"></polyline>
+			</svg>
+			Retour à l'accueil
+		</a>
+
+		<!-- En-tête -->
+		<header data-animate>
+			<p class="text-sm font-medium uppercase tracking-wider text-terracotta mb-4">
+				Étude de cas · Sénégal · Projet en cours
+			</p>
+			<h1 class="text-5xl md:text-6xl font-semibold leading-tight tracking-tight text-noir-cafe mb-6">
+				Jàng
+			</h1>
+			<p class="text-xl text-sable-600 mb-10">
+				Une vraie application web SaaS multi-écoles, façon Pronote sénégalais — notes, bulletins PDF, emploi du temps, absences et messagerie, pensée pour le réseau et les usages d'ici. Conçue et développée en solo, de l'architecture à la stratégie commerciale.
+			</p>
+		</header>
+
+		<!-- Visuel -->
+		<figure data-animate class="mb-14 rounded-xl overflow-hidden border border-sable-300">
+			<img
+				src="/etudes-de-cas/jang.png"
+				alt="Page d'accueil de la plateforme Jàng"
+				loading="lazy"
+				class="w-full h-auto"
+			/>
+		</figure>
+
+		<!-- Fiche projet -->
+		<div data-animate class="grid grid-cols-1 sm:grid-cols-2 gap-px bg-sable-300 border border-sable-300 rounded-xl overflow-hidden mb-16">
+			{meta.map((m) => (
+				<div class="bg-creme p-5">
+					<p class="text-xs font-medium uppercase tracking-wider text-sable-600 mb-1">{m.label}</p>
+					<p class="text-noir-cafe font-medium">{m.valeur}</p>
+				</div>
+			))}
+		</div>
+
+		<!-- Stats -->
+		<div data-animate class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20">
+			{stats.map((s) => (
+				<div class="text-center">
+					<p class="font-serif text-4xl md:text-5xl font-semibold text-terracotta mb-2">
+						<span data-counter data-counter-target={s.cible} data-counter-suffix={s.suffixe}>{s.cible}{s.suffixe}</span>
+					</p>
+					<p class="text-sm text-sable-600 leading-snug">{s.legende}</p>
+				</div>
+			))}
+		</div>
+
+		<!-- Corps de l'étude -->
+		<div class="prose-case space-y-16">
+
+			<!-- Contexte -->
+			<section data-animate>
+				<h2 class="font-serif text-3xl font-semibold text-noir-cafe mb-5">Le contexte</h2>
+				<p class="text-sable-900 leading-relaxed mb-4">
+					Au Sénégal, la vie scolaire d'un collège ou d'un lycée privé se gère encore au cahier et à l'Excel : notes recopiées à la main, bulletins tapés trimestre après trimestre, parents qui appellent l'école pour savoir où en est leur enfant. Il n'existe pas d'équivalent local à des outils comme Pronote.
+				</p>
+				<p class="text-sable-900 leading-relaxed">
+					Jàng est né de ce constat simple : construire, pour les écoles privées sénégalaises, une plateforme unique qui réunit tout ce qu'un établissement gère au quotidien — à un prix pensé pour le marché local, pas importé tel quel d'un modèle occidental.
+				</p>
+			</section>
+
+			<!-- Défi -->
+			<section data-animate>
+				<h2 class="font-serif text-3xl font-semibold text-noir-cafe mb-5">Le défi</h2>
+				<ul class="space-y-3">
+					{[
+						"Construire seul une vraie architecture SaaS multi-tenant : chaque école doit être totalement isolée des autres, au niveau de la base de données elle-même — pas seulement dans le code.",
+						"Couvrir 4 rôles aux besoins très différents (admin école, professeur, élève, parent) sans complexifier l'expérience d'aucun d'entre eux.",
+						"Rester utilisable avec un réseau faible et sur des téléphones d'entrée de gamme — la réalité du terrain scolaire sénégalais.",
+						"Penser dès la conception à la protection des données de mineurs, pour des familles qui n'ont pas l'habitude de confier ces informations à une plateforme numérique.",
+					].map((item) => (
+						<li class="flex gap-3 text-sable-900 leading-relaxed">
+							<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-terracotta shrink-0 mt-1">
+								<polyline points="20 6 9 17 4 12"></polyline>
+							</svg>
+							<span>{item}</span>
+						</li>
+					))}
+				</ul>
+			</section>
+
+			<!-- Solution -->
+			<section data-animate>
+				<h2 class="font-serif text-3xl font-semibold text-noir-cafe mb-5">La solution</h2>
+				<p class="text-sable-900 leading-relaxed mb-8">
+					Une application Next.js + Supabase construite module par module, chaque brique validée avant de passer à la suivante — jamais deux grosses fonctionnalités en parallèle.
+				</p>
+
+				<div class="space-y-8">
+					<div>
+						<h3 class="text-lg font-semibold text-noir-cafe mb-2">Notes & bulletins</h3>
+						<p class="text-sable-900 leading-relaxed">
+							Les professeurs saisissent les notes ; Jàng calcule moyennes, coefficients, rang et mention, puis génère le bulletin au format officiel — imprimable ou partageable directement aux familles.
+						</p>
+					</div>
+					<div>
+						<h3 class="text-lg font-semibold text-noir-cafe mb-2">Emploi du temps, absences, messagerie</h3>
+						<p class="text-sable-900 leading-relaxed">
+							Emploi du temps et devoirs synchronisés pour toute l'école, appel en classe avec alertes parents en temps réel, et un espace de messagerie dédié entre l'école, les profs et les familles.
+						</p>
+					</div>
+					<div>
+						<h3 class="text-lg font-semibold text-noir-cafe mb-2">Isolation stricte par école</h3>
+						<p class="text-sable-900 leading-relaxed">
+							Chaque établissement est rattaché à un identifiant unique, et la Row Level Security de Supabase garantit qu'aucune école ne peut voir ou modifier les données d'une autre — la sécurité est vérifiée au niveau de la base, pas seulement de l'interface.
+						</p>
+					</div>
+					<div>
+						<h3 class="text-lg font-semibold text-noir-cafe mb-2">Mobile-first et léger</h3>
+						<p class="text-sable-900 leading-relaxed">
+							Interface pensée d'abord pour le téléphone et les connexions instables, entièrement en français, avec un support WhatsApp direct pour l'onboarding des écoles — un argument qu'aucun concurrent local n'offre.
+						</p>
+					</div>
+				</div>
+			</section>
+
+			<!-- Où en est le projet -->
+			<section data-animate>
+				<h2 class="font-serif text-3xl font-semibold text-noir-cafe mb-5">Où en est le projet</h2>
+				<p class="text-sable-900 leading-relaxed">
+					Jàng est fonctionnel de bout en bout. Le contact a été pris avec un premier directeur d'école à Kaolack pour une phase pilote gratuite, en échange de son retour — sa réponse est attendue. Le lancement commercial officiel est visé pour la rentrée d'octobre 2026, avec l'objectif d'équiper plusieurs écoles privées sénégalaises dans la foulée. Une démarche de conformité auprès de la Commission de protection des données personnelles (CDP) est également engagée avant ce lancement.
+				</p>
+			</section>
+
+		</div>
+
+		<!-- CTA -->
+		<div data-animate class="mt-20 bg-sable-100 border border-sable-300 rounded-xl p-8 md:p-12 text-center">
+			<h2 class="font-serif text-2xl font-semibold text-noir-cafe mb-4">
+				Découvrez Jàng
+			</h2>
+			<p class="text-sable-600 leading-relaxed mb-8 max-w-md mx-auto">
+				La plateforme est en ligne. Le meilleur moyen de comprendre le projet, c'est de la parcourir.
+			</p>
+			<div class="flex flex-col sm:flex-row gap-3 justify-center">
+				<a href="https://www.jang.sn" target="_blank" rel="noopener noreferrer"
+					class="inline-flex items-center justify-center gap-2 bg-noir-cafe text-creme px-6 py-3 rounded-md font-medium hover:bg-terracotta transition-colors">
+					Voir le site Jàng
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+						<path d="M7 17L17 7"></path>
+						<path d="M7 7h10v10"></path>
+					</svg>
+				</a>
+				<a href="/#contact"
+					class="inline-flex items-center justify-center gap-2 border border-sable-300 text-noir-cafe px-6 py-3 rounded-md font-medium hover:border-noir-cafe transition-colors">
+					Discuter de votre projet
+				</a>
+			</div>
+		</div>
+
+	</article>
+</Layout>
