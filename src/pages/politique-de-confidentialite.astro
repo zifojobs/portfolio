@@ -1,0 +1,96 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+// Politique de confidentialité — page sobre, sans collecte cachée à documenter.
+// Sert aussi de politique de référence pour les échanges WhatsApp (numéro professionnel).
+
+const EMAIL = "youmou@saibodanfakha.com";
+const derniereMaj = "18 juillet 2026";
+---
+
+<Layout
+	title="Politique de confidentialité — Saïbo Danfakha"
+	description="Politique de confidentialité du site saibodanfakha.com et des échanges professionnels (WhatsApp, e-mail) avec Saïbo Danfakha, développeur web freelance au Sénégal."
+>
+	<section class="max-w-3xl mx-auto px-6 pt-32 pb-24 md:pt-40">
+		<p class="text-sm font-medium uppercase tracking-wider text-terracotta mb-4">
+			Dernière mise à jour : {derniereMaj}
+		</p>
+		<h1 class="text-4xl md:text-5xl font-semibold leading-tight tracking-tight text-noir-cafe mb-10">
+			Politique de confidentialité
+		</h1>
+
+		<div class="space-y-10 text-sable-600 leading-relaxed">
+			<div>
+				<h2 class="text-2xl font-semibold text-noir-cafe mb-3">Qui suis-je ?</h2>
+				<p>
+					Ce site est édité par <strong class="text-noir-cafe">Saïbo Danfakha</strong>,
+					développeur web freelance basé à Kaolack, Sénégal. Pour toute question relative
+					à vos données, écrivez-moi à
+					<a href={`mailto:${EMAIL}`} class="text-terracotta underline underline-offset-2">{EMAIL}</a>.
+				</p>
+			</div>
+
+			<div>
+				<h2 class="text-2xl font-semibold text-noir-cafe mb-3">Données collectées sur ce site</h2>
+				<p>
+					Ce site est un site vitrine : il ne comporte ni compte utilisateur, ni formulaire
+					de collecte, ni cookie publicitaire. Vous pouvez le consulter sans fournir aucune
+					donnée personnelle. L'hébergeur (Vercel) génère des journaux techniques anonymes
+					(adresse IP, pages consultées) nécessaires au fonctionnement et à la sécurité du service.
+				</p>
+			</div>
+
+			<div>
+				<h2 class="text-2xl font-semibold text-noir-cafe mb-3">Échanges par WhatsApp, e-mail ou Calendly</h2>
+				<p class="mb-3">
+					Lorsque vous me contactez par WhatsApp (y compris via mon numéro professionnel),
+					par e-mail ou en réservant un créneau Calendly, je reçois les informations que
+					vous choisissez de me transmettre : votre nom, votre numéro ou adresse, et le
+					contenu de votre message.
+				</p>
+				<p class="mb-3">Ces informations sont utilisées uniquement pour :</p>
+				<ul class="list-disc pl-6 space-y-1">
+					<li>répondre à votre demande et assurer le suivi de nos échanges ;</li>
+					<li>préparer un devis ou un projet si vous en faites la demande.</li>
+				</ul>
+				<p class="mt-3">
+					Certaines réponses sur mon numéro WhatsApp professionnel peuvent être préparées
+					avec une assistance automatisée, sous ma supervision : aucun message n'est envoyé
+					sans ma validation, et vos messages ne sont ni revendus, ni partagés avec des tiers,
+					ni utilisés à des fins publicitaires.
+				</p>
+			</div>
+
+			<div>
+				<h2 class="text-2xl font-semibold text-noir-cafe mb-3">Conservation et suppression</h2>
+				<p>
+					Les échanges sont conservés le temps nécessaire au suivi de la relation
+					professionnelle. Vous pouvez demander à tout moment la consultation, la
+					rectification ou la suppression des données vous concernant en m'écrivant à
+					<a href={`mailto:${EMAIL}`} class="text-terracotta underline underline-offset-2">{EMAIL}</a> —
+					je traite chaque demande sous 30 jours.
+				</p>
+			</div>
+
+			<div>
+				<h2 class="text-2xl font-semibold text-noir-cafe mb-3">Services tiers</h2>
+				<p>
+					Le site et les échanges s'appuient sur des services tiers qui appliquent leurs
+					propres politiques de confidentialité : Vercel (hébergement), WhatsApp / Meta
+					(messagerie), Calendly (prise de rendez-vous) et Google (e-mail, statistiques de
+					recherche). Je ne leur transmets aucune donnée au-delà de ce qui est nécessaire
+					au fonctionnement de ces services.
+				</p>
+			</div>
+
+			<div>
+				<h2 class="text-2xl font-semibold text-noir-cafe mb-3">Évolution de cette politique</h2>
+				<p>
+					Cette politique peut évoluer avec le site et les services proposés. La date de
+					dernière mise à jour figure en haut de cette page.
+				</p>
+			</div>
+		</div>
+	</section>
+</Layout>
