@@ -1,0 +1,148 @@
+---
+import Layout from "../layouts/Layout.astro";
+import AssistantChat from "../components/AssistantChat.astro";
+
+const WA_LINK =
+	"https://wa.me/221761857373?text=" +
+	encodeURIComponent("Bonjour, je découvre votre assistant IA via votre site.");
+
+const demoProspect = [
+	{ from: "contact", text: "Bonjour, combien coûte un site vitrine ?" },
+	{ from: "agent", text: "Bonjour et bienvenue 🙏 Un site vitrine démarre à 500 € (300 000 FCFA). Voulez-vous que Saïbo vous rappelle pour en discuter ?" },
+	{ from: "contact", text: "Oui avec plaisir" },
+	{ from: "agent", text: "Parfait, je transmets à Saïbo. Vous pouvez aussi réserver un créneau ici : calendly.com/zifo1819/30min" },
+];
+
+const demoRDV = [
+	{ from: "contact", text: "Est-ce que Saïbo est dispo cette semaine pour un appel ?" },
+	{ from: "agent", text: "Il est souvent en déplacement, mais le plus simple est de réserver directement un créneau : calendly.com/zifo1819/30min 🗓️ Je le préviens dès maintenant." },
+];
+
+const demoArabe = [
+	{ from: "contact", text: "Salam, je cherche des cours d'arabe pour débutant" },
+	{ from: "agent", text: "Wa aleykoum salam 🌙 Saïbo donne des cours d'arabe orientés lecture du Coran. Le tarif solidaire est de 20 000 FCFA / 40 € par mois. Souhaitez-vous qu'il vous rappelle pour en parler ?" },
+];
+---
+
+<Layout
+	title="Assistant IA WhatsApp — Saïbo Danfakha"
+	description="Découvrez l'assistant IA sur WhatsApp construit par Saïbo Danfakha : il répond aux messages en son absence, avec validation humaine. Un exemple concret de ce que l'IA peut faire pour votre activité."
+>
+	<!-- Hero -->
+	<section class="relative py-24 md:py-32 bg-creme">
+		<div class="max-w-4xl mx-auto px-6 text-center">
+			<p data-animate class="text-sm font-medium uppercase tracking-wider text-terracotta mb-4">
+				Construit avec l'IA
+			</p>
+			<h1 data-text-reveal class="text-4xl md:text-6xl font-serif font-semibold leading-tight tracking-tight text-noir-cafe mb-6">
+				Un assistant qui répond sur WhatsApp quand je ne suis pas là.
+			</h1>
+			<p data-animate class="text-lg text-sable-600 leading-relaxed max-w-2xl mx-auto mb-10">
+				J'ai construit un assistant IA branché sur WhatsApp : il lit les messages, rédige une réponse, et n'envoie rien sans ma validation. Voici comment il fonctionne — et ce que je pourrais construire pour votre activité.
+			</p>
+			<a
+				href={WA_LINK}
+				target="_blank"
+				rel="noopener noreferrer"
+				data-magnetic
+				class="inline-flex items-center justify-center gap-2 bg-terracotta text-creme px-8 py-4 rounded-md font-medium hover:bg-noir-cafe transition-colors duration-200"
+			>
+				Écrire à l'assistant
+				<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+					<line x1="5" y1="12" x2="19" y2="12"></line>
+					<polyline points="12 5 19 12 12 19"></polyline>
+				</svg>
+			</a>
+		</div>
+	</section>
+
+	<!-- Comment ça marche -->
+	<section class="relative py-20 md:py-24 bg-creme">
+		<div class="max-w-5xl mx-auto px-6">
+			<h2 data-text-reveal class="text-3xl md:text-4xl font-serif font-semibold text-noir-cafe text-center mb-16">
+				Comment ça marche
+			</h2>
+			<div data-animate-stagger class="grid grid-cols-1 md:grid-cols-3 gap-6">
+				{[
+					{ n: "1", t: "Un message arrive", d: "Un client écrit sur WhatsApp, à toute heure, même quand je suis indisponible." },
+					{ n: "2", t: "L'IA rédige", d: "L'assistant comprend la demande et prépare une réponse claire, dans mon ton." },
+					{ n: "3", t: "Je valide", d: "Rien ne part sans mon accord. Je confirme, je corrige, ou j'ignore — puis la réponse est envoyée." },
+				].map((s) => (
+					<div data-animate class="bg-sable-100 border border-sable-300 rounded-xl p-6 md:p-8">
+						<div class="w-10 h-10 flex items-center justify-center rounded-full bg-terracotta text-creme font-serif font-semibold mb-4">
+							{s.n}
+						</div>
+						<h3 class="font-serif text-xl font-semibold text-noir-cafe mb-2">{s.t}</h3>
+						<p class="text-sable-600 leading-relaxed">{s.d}</p>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- Démo illustrée -->
+	<section class="relative py-20 md:py-24 bg-sable-100/40">
+		<div class="max-w-2xl mx-auto px-6">
+			<div class="text-center mb-12">
+				<p data-animate class="text-sm font-medium uppercase tracking-wider text-terracotta mb-4">
+					Exemples de conversations
+				</p>
+				<h2 data-text-reveal class="text-3xl md:text-4xl font-serif font-semibold text-noir-cafe">
+					Ce que ça donne, concrètement.
+				</h2>
+				<p data-animate class="text-sable-600 mt-4">
+					Exemples représentatifs — l'assistant ne donne que des informations publiques et n'invente jamais un prix ou un délai.
+				</p>
+			</div>
+			<div class="flex flex-col gap-8">
+				<AssistantChat title="Exemple — Demande de prix" messages={demoProspect} />
+				<AssistantChat title="Exemple — Prise de rendez-vous" messages={demoRDV} />
+				<AssistantChat title="Exemple — Cours d'arabe" messages={demoArabe} />
+			</div>
+		</div>
+	</section>
+
+	<!-- Garde-fous -->
+	<section class="relative py-20 md:py-24 bg-creme">
+		<div class="max-w-5xl mx-auto px-6">
+			<h2 data-text-reveal class="text-3xl md:text-4xl font-serif font-semibold text-noir-cafe text-center mb-16">
+				Pensé pour la confiance
+			</h2>
+			<div data-animate-stagger class="grid grid-cols-1 md:grid-cols-3 gap-6">
+				{[
+					{ t: "Validation humaine", d: "Aucun message n'est envoyé sans mon accord explicite." },
+					{ t: "Zéro invention", d: "Jamais de prix, de délai ou d'engagement inventé — uniquement des informations publiques." },
+					{ t: "Escalade des sujets sensibles", d: "Famille, argent, litige : l'assistant me transfère la main, il ne répond pas seul." },
+				].map((g) => (
+					<div data-animate class="border-l-2 border-terracotta pl-5">
+						<h3 class="font-serif text-xl font-semibold text-noir-cafe mb-2">{g.t}</h3>
+						<p class="text-sable-600 leading-relaxed">{g.d}</p>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- CTA final (funnel freelance) -->
+	<section class="relative py-20 md:py-28 bg-noir-cafe text-creme">
+		<div class="max-w-3xl mx-auto px-6 text-center">
+			<h2 data-text-reveal class="text-3xl md:text-5xl font-serif font-semibold leading-tight mb-6">
+				Envie d'un outil IA sur-mesure pour votre activité ?
+			</h2>
+			<p data-animate class="text-lg text-sable-300 leading-relaxed mb-10">
+				Cet assistant, je l'ai construit pour moi. Je peux concevoir le vôtre — adapté à votre métier, vos messages, vos clients.
+			</p>
+			<a
+				href="/#contact"
+				data-magnetic
+				class="inline-flex items-center justify-center gap-2 bg-terracotta text-creme px-8 py-4 rounded-md font-medium hover:bg-creme hover:text-noir-cafe transition-colors duration-200"
+			>
+				Parlons de votre projet
+				<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+					<line x1="5" y1="12" x2="19" y2="12"></line>
+					<polyline points="12 5 19 12 12 19"></polyline>
+				</svg>
+			</a>
+		</div>
+	</section>
+</Layout>

@@ -1,0 +1,45 @@
+---
+import AssistantChat from "./AssistantChat.astro";
+
+const apercu = [
+	{ from: "contact", text: "Bonjour, combien coûte un site vitrine ?" },
+	{ from: "agent", text: "Bonjour 🙏 Un site vitrine démarre à 500 € (300 000 FCFA). Voulez-vous que Saïbo vous rappelle ?" },
+];
+---
+
+<section id="assistant" class="relative py-24 md:py-32 bg-noir-cafe text-creme">
+	<div class="max-w-6xl mx-auto px-6">
+		<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+
+			<!-- Texte -->
+			<div data-animate>
+				<p class="text-sm font-medium uppercase tracking-wider text-terracotta mb-4">
+					Construit avec l'IA
+				</p>
+				<h2 data-text-reveal class="text-3xl md:text-5xl font-serif font-semibold leading-tight tracking-tight mb-6">
+					J'ai construit un assistant qui répond sur WhatsApp à ma place.
+				</h2>
+				<p class="text-lg text-sable-300 leading-relaxed mb-8">
+					Il lit les messages, rédige une réponse dans mon ton, et n'envoie rien sans ma validation. Un exemple concret de ce que l'IA peut faire pour votre activité.
+				</p>
+				<a
+					href="/assistant/"
+					data-magnetic
+					class="inline-flex items-center justify-center gap-2 bg-terracotta text-creme px-8 py-4 rounded-md font-medium hover:bg-creme hover:text-noir-cafe transition-colors duration-200"
+				>
+					Découvrir l'assistant
+					<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+						<line x1="5" y1="12" x2="19" y2="12"></line>
+						<polyline points="12 5 19 12 12 19"></polyline>
+					</svg>
+				</a>
+			</div>
+
+			<!-- Aperçu de conversation -->
+			<div data-animate style="transition-delay: 150ms;">
+				<AssistantChat messages={apercu} />
+			</div>
+
+		</div>
+	</div>
+</section>

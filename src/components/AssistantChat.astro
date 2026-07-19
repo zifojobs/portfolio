@@ -1,0 +1,40 @@
+---
+// Bulles de conversation stylées (démo illustrée de l'agent WhatsApp).
+// Les messages sont des EXEMPLES représentatifs, pas de vraies captures.
+interface Message {
+	from: "contact" | "agent";
+	text: string;
+}
+interface Props {
+	messages: Message[];
+	title?: string;
+}
+const { messages, title } = Astro.props;
+---
+
+<div class="bg-sable-100 border border-sable-300 rounded-xl p-5 md:p-6 shadow-sm">
+	{title && (
+		<p class="text-xs font-medium uppercase tracking-wider text-sable-600 mb-4">
+			{title}
+		</p>
+	)}
+	<div class="flex flex-col gap-3">
+		{messages.map((m, i) => (
+			<div
+				data-animate
+				style={`transition-delay: ${i * 120}ms;`}
+				class={`flex ${m.from === "agent" ? "justify-end" : "justify-start"}`}
+			>
+				<div
+					class={`max-w-[80%] px-4 py-2.5 rounded-2xl text-sm leading-relaxed ${
+						m.from === "agent"
+							? "bg-terracotta text-creme rounded-br-sm"
+							: "bg-creme text-noir-cafe border border-sable-300 rounded-bl-sm"
+					}`}
+				>
+					{m.text}
+				</div>
+			</div>
+		))}
+	</div>
+</div>
