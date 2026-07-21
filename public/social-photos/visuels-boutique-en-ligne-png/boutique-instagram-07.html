@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr"><head><meta charset="UTF-8"><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { width: 1080px; height: 1080px; overflow: hidden; font-family: 'Inter', sans-serif; }
+.canvas { width: 1080px; height: 1080px; position: relative; background: radial-gradient(820px 620px at 90% -8%, rgba(194,65,12,0.30), transparent 60%), radial-gradient(700px 560px at -8% 112%, rgba(101,115,58,0.20), transparent 60%), #1A1410; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 60px; }
+.badge { position: absolute; top: 60px; left: 60px; background: #C2410C; color: #FEF3E2; padding: 12px 24px; border-radius: 30px; font-size: 14px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; }
+.content { text-align: center; max-width: 900px; }
+.number { font-family: 'Fraunces', serif; font-size: 120px; font-weight: 600; color: #C2410C; line-height: 1; margin-bottom: 20px; }
+.title { font-family: 'Fraunces', serif; font-size: 44px; font-weight: 600; color: #FEF3E2; line-height: 1.2; margin-bottom: 16px; letter-spacing: -0.02em; }
+.subtitle-main { font-size: 20px; color: #C9BBA5; margin-bottom: 12px; font-weight: 500; }
+.subtitle-note { font-size: 14px; color: #C9BBA5; font-style: italic; }
+.error-name { font-family: 'Fraunces', serif; font-size: 36px; font-weight: 600; color: #E8915F; margin-bottom: 20px; letter-spacing: -0.02em; }
+.content-error { display: flex; flex-direction: column; align-items: center; gap: 16px; }
+.points { display: flex; flex-direction: column; gap: 16px; align-items: center; }
+.point { display: flex; align-items: flex-start; gap: 12px; text-align: left; max-width: 800px; }
+.point span { font-size: 18px; color: #FEF3E2; line-height: 1.3; font-weight: 500; }
+.point svg { flex-shrink: 0; margin-top: 2px; }
+.swipe { position: absolute; bottom: 60px; left: 60px; font-size: 16px; color: #C9BBA5; font-weight: 600; letter-spacing: 0.05em; }
+.pagination { position: absolute; bottom: 60px; left: 60px; font-size: 16px; color: #C9BBA5; font-weight: 600; letter-spacing: 0.05em; }
+.brand { position: absolute; bottom: 60px; right: 60px; font-family: 'Fraunces', serif; font-size: 18px; font-weight: 600; color: #FEF3E2; letter-spacing: -0.02em; }
+</style></head>
+<body><div class="canvas">
+        <div class="badge" style="background: #C2410C;">CLÉ 6</div>
+        <div class="content content-error">
+            <div class="error-name">PAR OÙ COMMENCER</div>
+            <div class="points">
+            <div class="point">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>Vos 20 meilleurs produits, pas les 400</span>
+            </div>
+            <div class="point">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>Paiement à la livraison + mobile money manuel</span>
+            </div>
+            <div class="point">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>Automatisez avec l'argent que ça rapporte</span>
+            </div></div>
+        </div>
+        <div class="pagination">7/7</div>
+        <div class="brand">Saïbo Danfakha</div>
+        </div></body></html>

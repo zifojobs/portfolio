@@ -1,0 +1,223 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+const article = {
+	slug: "creer-boutique-en-ligne-senegal",
+	titre: "Créer une boutique en ligne au Sénégal : ce qu'il faut savoir avant de se lancer",
+	extrait: "Au Sénégal, ce qui fait échouer une boutique en ligne n'est presque jamais la technique. C'est le paiement, la livraison et la confiance. Voici comment aborder le sujet dans le bon ordre, et ce que ça coûte vraiment.",
+	date: "2026-07-21",
+	tags: ["e-commerce", "Sénégal", "vente en ligne"],
+	tempsLecture: "8 min",
+};
+---
+
+<Layout
+	title={`${article.titre} — Blog — Saïbo Danfakha`}
+	description={article.extrait}
+	article={{ headline: article.titre, datePublished: article.date }}
+>
+	<article class="max-w-3xl mx-auto px-6 py-24 md:py-32">
+		<a href="/blog/" class="inline-flex items-center gap-2 text-sm text-sable-600 hover:text-noir-cafe transition-colors mb-12">
+			<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+				<line x1="19" y1="12" x2="5" y2="12"></line>
+				<polyline points="12 19 5 12 12 5"></polyline>
+			</svg>
+			Retour au blog
+		</a>
+
+		<header class="mb-12">
+			<div class="flex items-center gap-3 text-sm text-sable-600 mb-4">
+				<time datetime={article.date}>
+					{new Date(article.date).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}
+				</time>
+				<span>·</span>
+				<span>{article.tempsLecture} de lecture</span>
+			</div>
+
+			<h1 class="text-4xl md:text-5xl font-semibold leading-tight tracking-tight text-noir-cafe mb-6">
+				{article.titre}
+			</h1>
+
+			<div class="flex flex-wrap gap-2">
+				{article.tags.map((tag) => (
+					<span class="px-2.5 py-1 bg-terracotta/10 text-terracotta rounded-full text-xs">
+						#{tag}
+					</span>
+				))}
+			</div>
+		</header>
+
+		<figure class="mb-12 -mx-6 md:mx-0">
+			<img
+				src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1200&h=630&fit=crop&auto=format&q=80"
+				alt="Colis et cartons rangés dans un entrepôt logistique — la logistique, cœur d'une boutique en ligne"
+				loading="eager"
+				class="w-full aspect-[16/9] object-cover md:rounded-xl"
+			/>
+		</figure>
+
+		<div class="prose prose-lg prose-noir-cafe max-w-none">
+			<p class="text-xl text-sable-600 mb-8 leading-relaxed">
+				« Je veux vendre mes produits en ligne. » C'est une phrase que j'entends souvent, et elle cache presque toujours la même image : un site avec un catalogue, un panier, un bouton « Payer ». Pourtant, quand une boutique en ligne échoue au Sénégal, ce n'est pratiquement jamais à cause du site. <strong>C'est à cause de ce qu'il y a autour : encaisser l'argent, livrer le colis, et convaincre un inconnu de payer avant d'avoir vu le produit.</strong>
+			</p>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				La technique, aujourd'hui, est la partie la plus simple du problème. On sait construire un catalogue rapide et propre. Ce qui décide du succès, ce sont trois questions bien plus terre-à-terre — et elles se règlent avant d'écrire la première ligne de code.
+			</p>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Cet article vous donne l'ordre dans lequel aborder le sujet, les pièges spécifiques au marché sénégalais, et une idée honnête de ce que ça représente en budget et en travail.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">D'abord : avez-vous vraiment besoin d'une boutique en ligne ?</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				La question paraît étrange venant d'un développeur, mais elle est honnête. Beaucoup de commerçants sénégalais vendent déjà très bien — sur WhatsApp, sur Instagram, par téléphone. Le client voit une photo, il écrit, on discute, on convient d'un prix, on livre. Ça fonctionne, et ça ne coûte rien.
+			</p>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Alors avant d'investir, il faut savoir ce que la boutique en ligne ajoute concrètement à ce qui existe déjà. En pratique, elle apporte quatre choses :
+			</p>
+
+			<ul class="list-disc pl-6 text-sable-600 mb-8 space-y-2">
+				<li><strong>Elle travaille pendant que vous dormez.</strong> Un catalogue en ligne répond aux questions de prix, de disponibilité et de caractéristiques sans que vous ayez à taper le même message trente fois par jour.</li>
+				<li><strong>Elle vous rend trouvable.</strong> Sur WhatsApp, seuls vos contacts vous voient. Sur Google, quelqu'un qui cherche votre produit dans votre ville peut vous découvrir — c'est tout l'enjeu du <a href="/blog/seo-local-senegal/" class="text-terracotta hover:underline">référencement local</a>.</li>
+				<li><strong>Elle vous rend crédible.</strong> Un site propre avec des prix affichés inspire une confiance qu'un compte Instagram n'apporte pas, en particulier auprès d'entreprises et d'institutions.</li>
+				<li><strong>Elle vous laisse des traces.</strong> Vous savez enfin quels produits sont consultés, ce que les gens cherchent, et d'où viennent vos visiteurs.</li>
+			</ul>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Si aucun de ces quatre points ne correspond à votre situation actuelle, la boutique en ligne n'est peut-être pas votre priorité. Si deux ou trois vous parlent, alors elle vaut l'investissement — et la suite de cet article vous concerne.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Le vrai obstacle n°1 : encaisser l'argent</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				C'est là que la plupart des projets calent. On construit un beau site, et on découvre au dernier moment que la question du paiement n'a pas été tranchée. Or au Sénégal, la carte bancaire n'est pas le réflexe majoritaire : l'argent circule surtout par <strong>mobile money</strong> — Wave, Orange Money — et par espèces.
+			</p>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Vous avez trois options réalistes, et elles ne demandent pas le même niveau d'investissement :
+			</p>
+
+			<ul class="list-disc pl-6 text-sable-600 mb-8 space-y-2">
+				<li><strong>Le paiement à la livraison.</strong> Le client commande en ligne, il paie au livreur. C'est de loin le plus rassurant pour l'acheteur, et le plus simple à mettre en place : aucune intégration technique. En contrepartie, vous supportez le risque des commandes annulées à la porte.</li>
+				<li><strong>Le paiement mobile manuel.</strong> La commande arrive, vous envoyez un numéro Wave ou Orange Money, le client transfère, vous confirmez. Rustique, mais parfaitement viable pour un volume raisonnable — et beaucoup de commerces sérieux fonctionnent exactement comme ça.</li>
+				<li><strong>La passerelle de paiement intégrée.</strong> Des services locaux (PayDunya, CinetPay et d'autres) permettent d'encaisser Wave, Orange Money et carte directement sur le site. C'est la solution la plus fluide, mais elle implique un dossier d'inscription, une commission prélevée sur chaque transaction, et un peu de travail d'intégration. Vérifiez les conditions et les frais au moment du choix : ils évoluent.</li>
+			</ul>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Mon conseil pour un premier lancement : <strong>ne commencez pas par la passerelle.</strong> Démarrez avec le paiement à la livraison et le mobile money manuel, mesurez le volume réel de commandes, et intégrez une passerelle quand ce volume justifie la commission et la complexité. Payer pour automatiser trois commandes par semaine n'a aucun sens.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Le vrai obstacle n°2 : livrer</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				C'est le poste que tout le monde sous-estime, et c'est pourtant celui qui décide si vos clients reviennent. Un site peut être magnifique : si le colis met huit jours à arriver à Ziguinchor, ou si personne ne sait où en est la commande, la vente suivante n'aura pas lieu.
+			</p>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Trois décisions à prendre <em>avant</em> d'ouvrir la boutique :
+			</p>
+
+			<ul class="list-disc pl-6 text-sable-600 mb-8 space-y-2">
+				<li><strong>Jusqu'où vous livrez.</strong> Dakar uniquement ? Votre région ? Tout le pays ? Il vaut infiniment mieux annoncer « livraison à Dakar et Thiès » et tenir sa promesse, que promettre le Sénégal entier et décevoir.</li>
+				<li><strong>Qui livre, et à quel prix.</strong> Livreur personnel, service de coursiers, transport interurbain — chaque option a un coût qu'il faut connaître avant d'afficher un tarif de livraison sur le site.</li>
+				<li><strong>Comment le client suit sa commande.</strong> Un simple message WhatsApp de confirmation puis d'expédition suffit largement au début. Ce qui compte, c'est que le client ne se demande jamais si sa commande existe encore.</li>
+			</ul>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Le vrai obstacle n°3 : la confiance</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Demander à quelqu'un de payer d'avance pour un produit qu'il n'a pas vu, à une entreprise qu'il ne connaît pas, c'est demander beaucoup. C'est la raison profonde pour laquelle le paiement à la livraison domine : ce n'est pas un problème technique, c'est un problème de confiance.
+			</p>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				La bonne nouvelle, c'est que la confiance se construit avec des éléments très simples, et gratuits :
+			</p>
+
+			<ul class="list-disc pl-6 text-sable-600 mb-8 space-y-2">
+				<li><strong>Un vrai numéro de téléphone, visible partout.</strong> Idéalement cliquable vers WhatsApp. Un site sans moyen de joindre un humain inquiète.</li>
+				<li><strong>Une adresse physique.</strong> Même une simple boutique ou un bureau : savoir où vous êtes change tout.</li>
+				<li><strong>Des prix affichés clairement</strong>, frais de livraison compris. Un prix qu'il faut demander est un prix qu'on soupçonne.</li>
+				<li><strong>Des photos réelles de vos produits</strong>, pas des visuels de catalogue trouvés en ligne. On repère immédiatement la différence.</li>
+				<li><strong>Une politique de retour écrite</strong>, même courte. « Produit défectueux échangé sous 7 jours » vaut mieux que le silence.</li>
+			</ul>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">La vitesse n'est pas un détail ici</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Une boutique en ligne au Sénégal est consultée en très grande majorité depuis un téléphone, souvent sur une connexion irrégulière, parfois avec un forfait data compté. Un catalogue lourd, bourré de grandes images non optimisées, ne se contente pas d'être désagréable : il ne se charge pas du tout, et la vente est perdue avant même d'avoir commencé.
+			</p>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				C'est un point sur lequel je suis intransigeant, parce qu'il se mesure directement en chiffre d'affaires. J'en ai fait <a href="/blog/performance-web-conversion/" class="text-terracotta hover:underline">un article entier</a> : chaque seconde de chargement supplémentaire coûte des visiteurs. Sur une boutique, elle coûte des commandes.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Combien ça coûte vraiment</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Une boutique en ligne coûte plus cher qu'un site vitrine, et c'est logique : il y a un catalogue à structurer, des variantes de produits, un panier, un tunnel de commande, et souvent une interface pour que vous gériez vos stocks vous-même. Mais le prix de création n'est qu'une partie du budget. Il faut raisonner sur trois postes :
+			</p>
+
+			<ul class="list-disc pl-6 text-sable-600 mb-8 space-y-2">
+				<li><strong>La création</strong> — le développement du site lui-même, payé une fois. C'est le poste visible, et le seul dont on parle en général.</li>
+				<li><strong>Les frais récurrents</strong> — nom de domaine, hébergement, éventuelle commission de la passerelle de paiement. Modestes, mais permanents.</li>
+				<li><strong>Votre temps</strong> — et c'est le poste le plus sous-estimé de tous. Photographier les produits, écrire les descriptions, tenir le stock à jour, répondre, emballer, suivre les livraisons. Une boutique en ligne n'est pas un investissement qu'on installe et qu'on oublie : c'est une activité.</li>
+			</ul>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Pour situer votre projet en francs CFA et en euros, j'ai détaillé ma grille dans <a href="/blog/combien-coute-un-site-professionnel/" class="text-terracotta hover:underline">combien coûte vraiment un site professionnel</a>, et mes offres sont publiques sur <a href="/#offres" class="text-terracotta hover:underline">la page tarifs</a>. Méfiez-vous en revanche de tout prestataire qui vous annonce un prix ferme pour une boutique <em>avant</em> d'avoir posé les questions de cet article : il devine.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Par où commencer concrètement</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				La plus grosse erreur que je vois, c'est de vouloir tout dès le premier jour : le catalogue complet de 400 références, les comptes clients, les codes promo, le suivi de commande automatisé, la livraison nationale. Le projet gonfle, le budget explose, et il ne sort jamais.
+			</p>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				L'approche qui fonctionne est inverse. Commencez par la boutique minimum qui vous permet d'encaisser une vraie commande :
+			</p>
+
+			<ul class="list-disc pl-6 text-sable-600 mb-8 space-y-2">
+				<li>Vos <strong>20 meilleurs produits</strong>, pas les 400. Ceux qui font déjà l'essentiel de vos ventes.</li>
+				<li>Des <strong>prix affichés</strong> et de vraies photos.</li>
+				<li>Un <strong>bouton de commande</strong> qui mène à WhatsApp ou à un formulaire simple.</li>
+				<li>Le <strong>paiement à la livraison</strong> et le mobile money manuel.</li>
+				<li>Une <strong>zone de livraison claire</strong> et assumée.</li>
+			</ul>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Mettez ça en ligne, vendez pendant deux ou trois mois, et observez. Vous saurez alors ce qui mérite d'être automatisé — et vous le paierez avec l'argent que la boutique aura rapporté, pas avec vos économies. C'est aussi ce qui vous évitera de financer des fonctionnalités que personne n'utilise.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Ce qu'il faut retenir</h2>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Créer une boutique en ligne au Sénégal, ce n'est pas d'abord un projet technique : c'est un projet commercial et logistique auquel on ajoute un site. Réglez le paiement, la livraison et la confiance en premier — le reste suivra naturellement. Un développeur sérieux vous posera ces questions-là avant de vous parler de design ou de technologie. Si l'on vous parle immédiatement d'outils et de prix, méfiez-vous : le cadrage est <a href="/blog/brief-client-10-questions/" class="text-terracotta hover:underline">la partie qui décide de la réussite du projet</a>.
+			</p>
+
+			<hr class="my-12 border-sable-300" />
+
+			<div class="bg-terracotta/10 border border-terracotta/30 rounded-xl p-6">
+				<h3 class="text-lg font-semibold text-noir-cafe mb-3">
+					Vous vendez déjà, et vous voulez passer en ligne ?
+				</h3>
+				<p class="text-sable-600 mb-4">
+					Parlons de vos produits, de votre zone de livraison et de la façon dont vous encaissez aujourd'hui. Je vous dirai franchement si une boutique en ligne est la bonne étape pour vous maintenant — ou si un site plus simple ferait mieux le travail, pour moins cher.
+				</p>
+				<a href="/#contact" class="inline-flex items-center gap-2 bg-noir-cafe text-creme px-6 py-3 rounded-md font-medium hover:bg-terracotta transition-colors">
+					Me contacter
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+						<line x1="5" y1="12" x2="19" y2="12"></line>
+						<polyline points="12 5 19 12 12 19"></polyline>
+					</svg>
+				</a>
+				<a href="/#offres" class="mt-3 inline-flex text-sm text-sable-600 hover:text-noir-cafe transition-colors">
+					Voir les tarifs →
+				</a>
+			</div>
+		</div>
+	</article>
+</Layout>
