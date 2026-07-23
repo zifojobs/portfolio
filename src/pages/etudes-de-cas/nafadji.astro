@@ -1,0 +1,175 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+const meta = [
+	{ label: "Client", valeur: "Association de la diaspora (Kédougou)" },
+	{ label: "Secteur", valeur: "Association · Diaspora" },
+	{ label: "Type", valeur: "Application web de gestion associative" },
+	{ label: "Localisation", valeur: "Diaspora sénégalaise" },
+	{ label: "Périmètre", valeur: "Conception produit, développement full-stack, mise en production" },
+	{ label: "Stack", valeur: "Next.js (TypeScript) · Supabase · Vercel · PWA" },
+];
+
+const stats = [
+	{ cible: 2, suffixe: "", legende: "Espaces : bureau (écriture) et membres (lecture)" },
+	{ cible: 11, suffixe: "", legende: "Tests automatisés sur le calcul des cotisations" },
+	{ cible: 100, suffixe: "%", legende: "Application installable (PWA), pensée mobile" },
+	{ cible: 0, suffixe: "", legende: "Email ou SMS requis — connexion par code personnel" },
+];
+---
+
+<Layout
+	title="Association Nafadji — Étude de cas — Saïbo Danfakha"
+	description="Étude de cas : application web de gestion associative pour une association de la diaspora sénégalaise — membres, cotisations, caisse (dons & dépenses), réunions et PV. Conçue et développée avec Next.js et Supabase."
+>
+	<article class="max-w-3xl mx-auto px-6 py-24 md:py-32">
+
+		<!-- Retour -->
+		<a href="/" class="inline-flex items-center gap-2 text-sm text-sable-600 hover:text-noir-cafe transition-colors mb-12">
+			<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+				<line x1="19" y1="12" x2="5" y2="12"></line>
+				<polyline points="12 19 5 12 12 5"></polyline>
+			</svg>
+			Retour à l'accueil
+		</a>
+
+		<!-- En-tête -->
+		<header data-animate>
+			<p class="text-sm font-medium uppercase tracking-wider text-terracotta mb-4">
+				Étude de cas · Diaspora sénégalaise · En production
+			</p>
+			<h1 class="text-5xl md:text-6xl font-semibold leading-tight tracking-tight text-noir-cafe mb-6">
+				Association Nafadji
+			</h1>
+			<p class="text-xl text-sable-600 mb-14">
+				Une application web sur-mesure pour gérer toute la vie d'une association de la diaspora : membres, cotisations, caisse, réunions et procès-verbaux — accessible depuis un simple téléphone, sans email ni service tiers. Conçue, développée et mise en production de bout en bout.
+			</p>
+		</header>
+
+		<!-- Fiche projet -->
+		<div data-animate class="grid grid-cols-1 sm:grid-cols-2 gap-px bg-sable-300 border border-sable-300 rounded-xl overflow-hidden mb-16">
+			{meta.map((m) => (
+				<div class="bg-creme p-5">
+					<p class="text-xs font-medium uppercase tracking-wider text-sable-600 mb-1">{m.label}</p>
+					<p class="text-noir-cafe font-medium">{m.valeur}</p>
+				</div>
+			))}
+		</div>
+
+		<!-- Stats -->
+		<div data-animate class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20">
+			{stats.map((s) => (
+				<div class="text-center">
+					<p class="font-serif text-4xl md:text-5xl font-semibold text-terracotta mb-2">
+						<span data-counter data-counter-target={s.cible} data-counter-suffix={s.suffixe}>{s.cible}{s.suffixe}</span>
+					</p>
+					<p class="text-sm text-sable-600 leading-snug">{s.legende}</p>
+				</div>
+			))}
+		</div>
+
+		<!-- Corps de l'étude -->
+		<div class="prose-case space-y-16">
+
+			<!-- Contexte -->
+			<section data-animate>
+				<h2 class="font-serif text-3xl font-semibold text-noir-cafe mb-5">Le contexte</h2>
+				<p class="text-sable-900 leading-relaxed mb-4">
+					Une association de ressortissants, éparpillés entre le Sénégal et la diaspora, gère son quotidien au téléphone et au cahier : qui a payé sa cotisation, combien reste-t-il dans la caisse, ce qui s'est dit à la dernière réunion. Plus l'association grandit, plus ce suivi manuel devient source de doutes et de discussions.
+				</p>
+				<p class="text-sable-900 leading-relaxed">
+					Le besoin était clair : un outil unique, honnête et consultable par tous, pour que chaque membre puisse voir sa situation et celle de la caisse — sans dépendre d'un email, d'un compte à créer ou d'un service payant compliqué à utiliser depuis un téléphone d'entrée de gamme.
+				</p>
+			</section>
+
+			<!-- Défi -->
+			<section data-animate>
+				<h2 class="font-serif text-3xl font-semibold text-noir-cafe mb-5">Le défi</h2>
+				<ul class="space-y-3">
+					{[
+						"Rendre l'application accessible à des membres non-techniques, sans email ni installation compliquée — la connexion devait tenir en un nom et un code personnel.",
+						"Automatiser un calcul de cotisations juste et incontestable : à jour, en retard, dette gelée — pour couper court aux désaccords.",
+						"Séparer strictement ce que voit un membre (sa situation, l'état de la caisse) de ce que gère le bureau (les montants, les modifications).",
+						"Fonctionner de façon fiable sur mobile et en réseau instable, des deux côtés de la diaspora.",
+					].map((item) => (
+						<li class="flex gap-3 text-sable-900 leading-relaxed">
+							<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-terracotta shrink-0 mt-1">
+								<polyline points="20 6 9 17 4 12"></polyline>
+							</svg>
+							<span>{item}</span>
+						</li>
+					))}
+				</ul>
+			</section>
+
+			<!-- Solution -->
+			<section data-animate>
+				<h2 class="font-serif text-3xl font-semibold text-noir-cafe mb-5">La solution</h2>
+				<p class="text-sable-900 leading-relaxed mb-8">
+					Une application Next.js + Supabase, installable comme une app (PWA), entièrement en français et pensée pour le téléphone. Deux espaces distincts : le bureau écrit, les membres consultent.
+				</p>
+
+				<div class="space-y-8">
+					<div>
+						<h3 class="text-lg font-semibold text-noir-cafe mb-2">Connexion sans friction</h3>
+						<p class="text-sable-900 leading-relaxed">
+							Pas d'email, pas de SMS, aucun service tiers : chaque membre se connecte avec son nom et un code personnel remis par le bureau. Les codes sont hachés (bcrypt) et la session gérée par un cookie sécurisé — simple pour l'utilisateur, robuste côté sécurité.
+						</p>
+					</div>
+					<div>
+						<h3 class="text-lg font-semibold text-noir-cafe mb-2">Cotisations calculées, jamais discutées</h3>
+						<p class="text-sable-900 leading-relaxed">
+							Chaque versement est enregistré ; l'application calcule automatiquement le solde en euros, le statut « à jour » ou « en retard » depuis la date d'adhésion, et gèle la dette au-delà d'un seuil. Un membre exempté (membre d'honneur) est géré nativement. Le calcul est couvert par une batterie de tests automatisés pour garantir qu'il est toujours juste.
+						</p>
+					</div>
+					<div>
+						<h3 class="text-lg font-semibold text-noir-cafe mb-2">Caisse, réunions et procès-verbaux</h3>
+						<p class="text-sable-900 leading-relaxed">
+							Le bureau saisit les dons et dépenses, les réunions et leurs PV — un procès-verbal pouvant être joint en PDF, Word ou photo. Côté membre, une page « caisse » transparente montre les derniers mouvements et l'encaissement du mois, pour que chacun sache où en est l'association.
+						</p>
+					</div>
+					<div>
+						<h3 class="text-lg font-semibold text-noir-cafe mb-2">Montants protégés, données côté serveur</h3>
+						<p class="text-sable-900 leading-relaxed">
+							Toutes les données sensibles transitent par des actions serveur — la clé d'accès à la base n'est jamais exposée au navigateur. Les montants et les écrans de gestion restent invisibles aux membres : la séparation bureau / membre est appliquée au niveau des accès, pas seulement de l'affichage.
+						</p>
+					</div>
+				</div>
+			</section>
+
+			<!-- Résultat -->
+			<section data-animate>
+				<h2 class="font-serif text-3xl font-semibold text-noir-cafe mb-5">Le résultat</h2>
+				<p class="text-sable-900 leading-relaxed">
+					L'application est livrée et en production, utilisée par le bureau de l'association pour suivre ses membres et sa caisse au quotidien. Installable sur le téléphone comme une vraie app, elle remplace le cahier et les échanges éparpillés par une source d'information unique — consultable par tous, à jour en temps réel, sans dépendre d'aucun service extérieur.
+				</p>
+			</section>
+
+		</div>
+
+		<!-- CTA -->
+		<div data-animate class="mt-20 bg-sable-100 border border-sable-300 rounded-xl p-8 md:p-12 text-center">
+			<h2 class="font-serif text-2xl font-semibold text-noir-cafe mb-4">
+				Voir l'application
+			</h2>
+			<p class="text-sable-600 leading-relaxed mb-8 max-w-md mx-auto">
+				L'application est en ligne. Vous avez une association, une caisse ou un groupe à gérer ? Parlons-en.
+			</p>
+			<div class="flex flex-col sm:flex-row gap-3 justify-center">
+				<a href="https://nafadji.vercel.app" target="_blank" rel="noopener noreferrer"
+					class="inline-flex items-center justify-center gap-2 bg-noir-cafe text-creme px-6 py-3 rounded-md font-medium hover:bg-terracotta transition-colors">
+					Voir nafadji.vercel.app
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+						<path d="M7 17L17 7"></path>
+						<path d="M7 7h10v10"></path>
+					</svg>
+				</a>
+				<a href="/#contact"
+					class="inline-flex items-center justify-center gap-2 border border-sable-300 text-noir-cafe px-6 py-3 rounded-md font-medium hover:border-noir-cafe transition-colors">
+					Discuter de votre projet
+				</a>
+			</div>
+		</div>
+
+	</article>
+</Layout>

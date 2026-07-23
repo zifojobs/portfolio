@@ -1,5 +1,7 @@
 ---
-// Section Études de cas — index visuel des 3 projets phares
+// Section Études de cas — graphe interactif « constellation » + grille détaillée.
+// Le champ `hubs` relie chaque projet aux nœuds thématiques du graphe.
+import ConstellationCas from "./ConstellationCas.astro";
 
 const etudes = [
 	{
@@ -12,6 +14,7 @@ const etudes = [
 		urlLive: "https://platinumconstruction.com",
 		image: "/etudes-de-cas/platinum.jpg",
 		accent: "noir-cafe",
+		hubs: ["Canada", "Construction"],
 	},
 	{
 		slug: "jang",
@@ -24,6 +27,7 @@ const etudes = [
 		image: "/etudes-de-cas/jang.png",
 		enCours: true,
 		accent: "vert-savane",
+		hubs: ["Sénégal", "SaaS"],
 	},
 	{
 		slug: "meridien",
@@ -36,6 +40,7 @@ const etudes = [
 		image: "/etudes-de-cas/meridien.png",
 		demo: true,
 		accent: "noir-cafe",
+		hubs: ["Construction", "Démonstrateur"],
 	},
 	{
 		slug: "sunu-tech",
@@ -48,6 +53,18 @@ const etudes = [
 		image: "/etudes-de-cas/sunu-tech.png",
 		demo: true,
 		accent: "terracotta",
+		hubs: ["Sénégal", "Démonstrateur"],
+	},
+	{
+		slug: "nafadji",
+		titre: "Association Nafadji",
+		secteur: "Association · Diaspora",
+		type: "Application web de gestion associative",
+		localisation: "Diaspora sénégalaise",
+		description: "Application web sur-mesure pour une association de la diaspora : gestion des membres et cotisations, suivi des dons et dépenses, membres d'honneur et communication interne. Livrée et déployée en production.",
+		urlLive: "https://nafadji.vercel.app",
+		accent: "vert-savane",
+		hubs: ["Sénégal"],
 	},
 	{
 		slug: "s5l",
@@ -59,6 +76,7 @@ const etudes = [
 		urlLive: "https://s5lproductions.com",
 		image: "/etudes-de-cas/s5l.jpg",
 		accent: "terracotta",
+		hubs: ["Canada"],
 	},
 	{
 		slug: "rtzw",
@@ -70,6 +88,7 @@ const etudes = [
 		urlLive: "https://roadtozerowaste.org",
 		image: "/etudes-de-cas/rtzw.jpg",
 		accent: "vert-savane",
+		hubs: ["Canada"],
 	},
 	{
 		slug: "registon",
@@ -81,17 +100,7 @@ const etudes = [
 		urlLive: "https://registon.ca",
 		image: "/etudes-de-cas/registon.jpg",
 		accent: "noir-cafe",
-	},
-	{
-		slug: "rk-services",
-		titre: "RK Services",
-		secteur: "Services comptables & administratifs",
-		type: "Site vitrine one-page premium",
-		localisation: "Mbour, Sénégal",
-		description: "Site vitrine premium pour une assistante précomptable locale, avec CTA WhatsApp omniprésent et design inspiré de la confiance.",
-		urlLive: "https://rk-services-indol.vercel.app",
-		image: "/etudes-de-cas/rk-services.jpg",
-		accent: "vert-savane",
+		hubs: ["Canada", "Construction"],
 	},
 	{
 		slug: "nur-alhayaa",
@@ -103,6 +112,7 @@ const etudes = [
 		urlLive: "https://rokhaya-site.vercel.app",
 		image: "/etudes-de-cas/nur-alhayaa.jpg",
 		accent: "terracotta",
+		hubs: ["Sénégal"],
 	},
 	{
 		slug: "national-auto",
@@ -114,8 +124,17 @@ const etudes = [
 		urlLive: "https://nationalautosc.com",
 		image: "/etudes-de-cas/national-auto.jpg",
 		accent: "noir-cafe",
+		hubs: ["Canada"],
 	},
 ];
+
+// Données minimales passées au graphe (source de vérité = ce tableau).
+const projetsGraphe = etudes.map((e) => ({
+	slug: e.slug,
+	titre: e.titre,
+	accent: e.accent,
+	hubs: e.hubs,
+}));
 ---
 
 <section id="etudes-de-cas" class="relative py-24 md:py-32 bg-creme">
@@ -136,10 +155,13 @@ const etudes = [
 			</p>
 		</div>
 
+		<!-- Constellation : graphe interactif (desktop-only) -->
+		<ConstellationCas projets={projetsGraphe} />
+
 		<!-- Grille des études -->
 		<div data-animate-stagger class="grid grid-cols-1 lg:grid-cols-3 gap-6">
 			{etudes.map((e) => (
-				<article data-animate class="card-hover group flex flex-col bg-sable-100 border border-sable-300 rounded-xl overflow-hidden hover:border-noir-cafe">
+				<article id={`cas-${e.slug}`} data-animate class="card-hover group flex flex-col bg-sable-100 border border-sable-300 rounded-xl overflow-hidden hover:border-noir-cafe scroll-mt-24">
 
 					<!-- Vignette : image floue en arrière-plan + overlay sombre + titre par-dessus -->
 					<div class={`relative aspect-[4/3] flex items-center justify-center overflow-hidden ${

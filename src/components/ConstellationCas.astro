@@ -1,0 +1,264 @@
+---
+// Constellation — graphe interactif façon Obsidian des études de cas.
+// Desktop-only (masqué en < lg côté EtudesDeCas). Aucune dépendance : simulation
+// de forces écrite à la main sur un <canvas>. Lit les couleurs du design system
+// via les variables CSS à l'exécution (donc compatible dark mode).
+
+interface Projet {
+	slug: string;
+	titre: string;
+	accent: string; // "terracotta" | "vert-savane" | "noir-cafe"
+	hubs: string[];
+}
+
+const { projets } = Astro.props as { projets: Projet[] };
+
+// Construction des nœuds + liens à partir des projets et de leurs hubs.
+const hubSet = new Set<string>();
+projets.forEach((p) => p.hubs.forEach((h) => hubSet.add(h)));
+
+const nodes = [
+	...projets.map((p) => ({ id: p.slug, label: p.titre, type: "project", accent: p.accent })),
+	...[...hubSet].map((h) => ({ id: `hub:${h}`, label: h, type: "hub", accent: "hub" })),
+];
+const links = projets.flatMap((p) => p.hubs.map((h) => ({ source: p.slug, target: `hub:${h}` })));
+
+const graph = { nodes, links };
+---
+
+<div
+	class="constellation hidden lg:block relative w-full rounded-2xl overflow-hidden border border-sable-300 bg-sable-100 mb-16"
+	data-graph={JSON.stringify(graph)}
+	style="height: 520px;"
+>
+	<canvas class="constellation-canvas block w-full h-full"></canvas>
+	<p class="absolute bottom-4 left-5 text-xs text-sable-600 pointer-events-none select-none">
+		Survolez un projet · cliquez pour lire l'étude · glissez les nœuds
+	</p>
+</div>
+
+<script>
+	type GNode = {
+		id: string; label: string; type: string; accent: string;
+		x: number; y: number; vx: number; vy: number; r: number; fixed?: boolean;
+	};
+	type GLink = { source: string; target: string };
+
+	function initConstellation(root: HTMLElement) {
+		const canvas = root.querySelector<HTMLCanvasElement>(".constellation-canvas");
+		if (!canvas) return;
+		const ctx = canvas.getContext("2d");
+		if (!ctx) return;
+
+		const raw = JSON.parse(root.dataset.graph || "{}");
+		const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+		// Palette lue depuis les variables CSS du design system (dark mode compatible).
+		const css = getComputedStyle(document.documentElement);
+		const v = (name: string) => css.getPropertyValue(name).trim();
+		const colors = {
+			terracotta: v("--color-terracotta") || "#C2410C",
+			"vert-savane": v("--color-vert-savane") || "#65733A",
+			"noir-cafe": v("--color-noir-cafe") || "#2A1810",
+			hub: v("--color-sable-600") || "#7A6F5A",
+			link: v("--color-sable-300") || "#E8DFCB",
+			bg: v("--color-sable-100") || "#FAF6EE",
+			label: v("--color-sable-900") || "#3D352A",
+		};
+		const nodeColor = (n: GNode) =>
+			n.type === "hub" ? colors.hub : (colors as any)[n.accent] || colors["noir-cafe"];
+
+		let W = 0, H = 0, dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+		const nodes: GNode[] = raw.nodes.map((n: any) => ({
+			...n,
+			// Départ recalculé après le resize (positions autour du centre).
+			x: 0, y: 0, vx: 0, vy: 0,
+			r: n.type === "hub" ? 7 : 13,
+		}));
+		const byId = new Map(nodes.map((n) => [n.id, n]));
+		const links: GLink[] = raw.links.filter((l: GLink) => byId.has(l.source) && byId.has(l.target));
+
+		// Adjacence pour la mise en surbrillance au survol.
+		const neighbors = new Map<string, Set<string>>();
+		nodes.forEach((n) => neighbors.set(n.id, new Set()));
+		links.forEach((l) => {
+			neighbors.get(l.source)!.add(l.target);
+			neighbors.get(l.target)!.add(l.source);
+		});
+
+		function resize() {
+			const rect = root.getBoundingClientRect();
+			W = rect.width; H = rect.height;
+			canvas!.width = Math.round(W * dpr);
+			canvas!.height = Math.round(H * dpr);
+			ctx!.setTransform(dpr, 0, 0, dpr, 0, 0);
+		}
+		resize();
+
+		// Positions initiales autour du centre.
+		nodes.forEach((n, i) => {
+			const a = (i / nodes.length) * Math.PI * 2;
+			const rad = n.type === "hub" ? 90 : 190;
+			n.x = W / 2 + Math.cos(a) * rad;
+			n.y = H / 2 + Math.sin(a) * rad;
+		});
+
+		// --- Simulation de forces ---
+		const REPULSION = 5200;
+		const SPRING = 0.012;
+		const SPRING_LEN = 96;
+		const CENTER = 0.006;
+		const DAMPING = 0.86;
+
+		function tick() {
+			// Répulsion entre toutes les paires.
+			for (let i = 0; i < nodes.length; i++) {
+				const a = nodes[i];
+				for (let j = i + 1; j < nodes.length; j++) {
+					const b = nodes[j];
+					let dx = a.x - b.x, dy = a.y - b.y;
+					let d2 = dx * dx + dy * dy || 0.01;
+					const f = REPULSION / d2;
+					const d = Math.sqrt(d2);
+					const fx = (dx / d) * f, fy = (dy / d) * f;
+					a.vx += fx; a.vy += fy;
+					b.vx -= fx; b.vy -= fy;
+				}
+			}
+			// Ressorts sur les liens.
+			for (const l of links) {
+				const a = byId.get(l.source)!, b = byId.get(l.target)!;
+				const dx = b.x - a.x, dy = b.y - a.y;
+				const d = Math.sqrt(dx * dx + dy * dy) || 0.01;
+				const f = (d - SPRING_LEN) * SPRING;
+				const fx = (dx / d) * f, fy = (dy / d) * f;
+				a.vx += fx; a.vy += fy;
+				b.vx -= fx; b.vy -= fy;
+			}
+			// Centrage + intégration.
+			for (const n of nodes) {
+				if (n.fixed) { n.vx = 0; n.vy = 0; continue; }
+				n.vx += (W / 2 - n.x) * CENTER;
+				n.vy += (H / 2 - n.y) * CENTER;
+				n.vx *= DAMPING; n.vy *= DAMPING;
+				n.x += n.vx; n.y += n.vy;
+				// Garde les nœuds dans le cadre.
+				n.x = Math.max(n.r + 6, Math.min(W - n.r - 6, n.x));
+				n.y = Math.max(n.r + 6, Math.min(H - n.r - 6, n.y));
+			}
+		}
+
+		function draw() {
+			ctx!.clearRect(0, 0, W, H);
+			const hovered = hoverId;
+			const active = (id: string) =>
+				!hovered || id === hovered || neighbors.get(hovered)?.has(id);
+
+			// Liens.
+			ctx!.lineWidth = 1;
+			for (const l of links) {
+				const a = byId.get(l.source)!, b = byId.get(l.target)!;
+				const on = !hovered || l.source === hovered || l.target === hovered;
+				ctx!.strokeStyle = colors.link;
+				ctx!.globalAlpha = on ? 0.9 : 0.15;
+				ctx!.beginPath();
+				ctx!.moveTo(a.x, a.y); ctx!.lineTo(b.x, b.y);
+				ctx!.stroke();
+			}
+			ctx!.globalAlpha = 1;
+
+			// Nœuds.
+			for (const n of nodes) {
+				const on = active(n.id);
+				ctx!.globalAlpha = on ? 1 : 0.25;
+				ctx!.beginPath();
+				ctx!.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+				ctx!.fillStyle = nodeColor(n);
+				ctx!.fill();
+				if (n.type === "project" && (n.id === hovered || (hovered && neighbors.get(hovered)?.has(n.id)))) {
+					ctx!.lineWidth = 2;
+					ctx!.strokeStyle = colors.terracotta;
+					ctx!.stroke();
+				}
+				// Label.
+				ctx!.globalAlpha = on ? 1 : 0.2;
+				ctx!.font = n.type === "project"
+					? "600 13px ui-sans-serif, system-ui, sans-serif"
+					: "500 11px ui-sans-serif, system-ui, sans-serif";
+				ctx!.fillStyle = n.type === "hub" ? colors.hub : colors.label;
+				ctx!.textAlign = "center";
+				ctx!.textBaseline = "top";
+				ctx!.fillText(n.label, n.x, n.y + n.r + 4);
+			}
+			ctx!.globalAlpha = 1;
+		}
+
+		// --- Interactions ---
+		let hoverId: string | null = null;
+		let downNode: GNode | null = null;
+		let downX = 0, downY = 0, didDrag = false;
+
+		function nodeAt(px: number, py: number): GNode | null {
+			let best: GNode | null = null, bestD = Infinity;
+			for (const n of nodes) {
+				const d = Math.hypot(n.x - px, n.y - py);
+				if (d < Math.max(n.r + 8, 16) && d < bestD) { best = n; bestD = d; }
+			}
+			return best;
+		}
+		function pos(e: PointerEvent) {
+			const rect = canvas!.getBoundingClientRect();
+			return { x: e.clientX - rect.left, y: e.clientY - rect.top };
+		}
+
+		canvas.addEventListener("pointermove", (e) => {
+			const { x, y } = pos(e);
+			if (downNode) {
+				if (!didDrag && Math.hypot(x - downX, y - downY) > 4) didDrag = true;
+				if (didDrag) { downNode.x = x; downNode.y = y; downNode.vx = 0; downNode.vy = 0; }
+				return;
+			}
+			const n = nodeAt(x, y);
+			hoverId = n ? n.id : null;
+			canvas!.style.cursor = n ? "pointer" : "default";
+		});
+		canvas.addEventListener("pointerdown", (e) => {
+			const { x, y } = pos(e);
+			const n = nodeAt(x, y);
+			downX = x; downY = y; didDrag = false;
+			if (n) { downNode = n; n.fixed = true; canvas!.setPointerCapture(e.pointerId); }
+		});
+		canvas.addEventListener("pointerup", () => {
+			const n = downNode;
+			if (n) n.fixed = false;
+			downNode = null;
+			// Tap (pas de drag) sur un projet → scroll vers sa carte.
+			if (n && !didDrag && n.type === "project") {
+				const el = document.getElementById(`cas-${n.id}`);
+				if (el) el.scrollIntoView({ behavior: "smooth", block: "center" });
+			}
+		});
+		canvas.addEventListener("pointerleave", () => { if (!downNode) hoverId = null; });
+		window.addEventListener("resize", resize);
+
+		// --- Boucle ---
+		if (reduced) {
+			for (let i = 0; i < 320; i++) tick();
+			draw();
+			// Redessin léger au survol seulement (pas d'animation continue).
+			const onHover = () => draw();
+			canvas.addEventListener("pointermove", onHover);
+			canvas.addEventListener("pointerleave", onHover);
+		} else {
+			const loop = () => {
+				tick();
+				draw();
+				requestAnimationFrame(loop);
+			};
+			requestAnimationFrame(loop);
+		}
+	}
+
+	document.querySelectorAll<HTMLElement>(".constellation").forEach(initConstellation);
+</script>
