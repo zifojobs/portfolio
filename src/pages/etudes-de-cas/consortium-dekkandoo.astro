@@ -1,0 +1,202 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+const meta = [
+	{ label: "Client", valeur: "Consortium Dëkkandoo" },
+	{ label: "Secteur", valeur: "ONG · Suivi-évaluation de programme" },
+	{ label: "Type", valeur: "Site institutionnel + outil de suivi-évaluation" },
+	{ label: "Localisation", valeur: "Saint-Louis, Sénégal" },
+	{ label: "Périmètre", valeur: "Conception, développement full-stack, reprise et fiabilisation des données, formation des équipes" },
+	{ label: "Stack", valeur: "Next.js (TypeScript) · PostgreSQL · Vercel" },
+];
+
+const stats = [
+	{ cible: 229, suffixe: "", legende: "Groupes d'épargne réunis dans un registre unique" },
+	{ cible: 6, suffixe: "", legende: "Communes couvertes, cloisonnées les unes des autres" },
+	{ cible: 13, suffixe: "", legende: "Tableaux du rapport bailleur, remplis automatiquement" },
+	{ cible: 0, suffixe: "", legende: "Ligne à recopier d'un fichier à l'autre" },
+];
+---
+
+<Layout
+	title="Consortium Dëkkandoo — Étude de cas — Saïbo Danfakha"
+	description="Étude de cas : site institutionnel et outil de suivi-évaluation pour une ONG de Saint-Louis financée par des bailleurs internationaux. Registre unifié de 229 groupes d'épargne, indicateurs calculés, rapport semestriel généré au format du bailleur."
+	image="/etudes-de-cas/dekkandoo.jpg"
+>
+	<article class="max-w-3xl mx-auto px-6 py-24 md:py-32">
+
+		<!-- Retour -->
+		<a href="/" class="inline-flex items-center gap-2 text-sm text-sable-600 hover:text-noir-cafe transition-colors mb-12">
+			<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+				<line x1="19" y1="12" x2="5" y2="12"></line>
+				<polyline points="12 19 5 12 12 5"></polyline>
+			</svg>
+			Retour à l'accueil
+		</a>
+
+		<!-- En-tête -->
+		<header data-animate>
+			<p class="text-sm font-medium uppercase tracking-wider text-terracotta mb-4">
+				Étude de cas · Saint-Louis, Sénégal · Livré
+			</p>
+			<h1 class="text-5xl md:text-6xl font-semibold leading-tight tracking-tight text-noir-cafe mb-6">
+				Consortium Dëkkandoo
+			</h1>
+			<p class="text-xl text-sable-600 mb-10">
+				Un site institutionnel et, derrière, l'outil qui remplace la tenue manuelle du registre et des rapports d'une ONG financée par des bailleurs internationaux. Les données existaient déjà : ce qui manquait, c'était le temps de les recopier.
+			</p>
+		</header>
+
+		<!-- Visuel -->
+		<figure data-animate class="mb-14 rounded-xl overflow-hidden border border-sable-300">
+			<img
+				src="/etudes-de-cas/dekkandoo.jpg"
+				alt="Page d'accueil du site du Consortium Dëkkandoo"
+				loading="lazy"
+				class="w-full h-auto"
+			/>
+		</figure>
+
+		<!-- Fiche projet -->
+		<div data-animate class="grid grid-cols-1 sm:grid-cols-2 gap-px bg-sable-300 border border-sable-300 rounded-xl overflow-hidden mb-16">
+			{meta.map((m) => (
+				<div class="bg-creme p-5">
+					<p class="text-xs font-medium uppercase tracking-wider text-sable-600 mb-1">{m.label}</p>
+					<p class="text-noir-cafe font-medium">{m.valeur}</p>
+				</div>
+			))}
+		</div>
+
+		<!-- Stats -->
+		<div data-animate class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20">
+			{stats.map((s) => (
+				<div class="text-center">
+					<p class="font-serif text-4xl md:text-5xl font-semibold text-terracotta mb-2">
+						<span data-counter data-counter-target={s.cible} data-counter-suffix={s.suffixe}>{s.cible}{s.suffixe}</span>
+					</p>
+					<p class="text-sm text-sable-600 leading-snug">{s.legende}</p>
+				</div>
+			))}
+		</div>
+
+		<!-- Corps de l'étude -->
+		<div class="prose-case space-y-16">
+
+			<!-- Contexte -->
+			<section data-animate>
+				<h2 class="font-serif text-3xl font-semibold text-noir-cafe mb-5">Le contexte</h2>
+				<p class="text-sable-900 leading-relaxed mb-4">
+					Le Consortium Dëkkandoo intervient dans les six communes du département de Saint-Louis, sur la nutrition et la santé des jeunes enfants et sur l'autonomisation financière des femmes. Son programme est financé par des bailleurs internationaux, dont Plan International Sénégal, devant lesquels il rend compte deux fois par an.
+				</p>
+				<p class="text-sable-900 leading-relaxed">
+					Un consortium comme celui-ci ne manque pas de données : elles sont collectées sur le terrain, avec soin, depuis des années. Elles vivent simplement dans des classeurs séparés, tenus par des personnes différentes, dans des communes différentes. Chaque consolidation est donc une recopie, et chaque recopie est une occasion d'écart.
+				</p>
+			</section>
+
+			<!-- Défi -->
+			<section data-animate>
+				<h2 class="font-serif text-3xl font-semibold text-noir-cafe mb-5">Le défi</h2>
+				<ul class="space-y-3">
+					{[
+						"Réunir en un seul registre des groupes d'épargne répartis sur six communes, décrits par plusieurs fichiers avec deux systèmes de codification différents — sans perdre une ligne au passage.",
+						"Faire en sorte qu'une correction se fasse une fois et vale pour tout le monde : c'est la promesse qui justifie l'outil.",
+						"Protéger des données personnelles de bénéficiaires — pièces d'identité, téléphones — dans un outil consulté depuis plusieurs communes et parfois sur des postes partagés.",
+						"Produire le rapport semestriel au format exact attendu par le bailleur, sans qu'aucun tableau ne soit recopié à la main.",
+						"Rester utilisable sur des connexions faibles, par des personnes dont ce n'est pas le métier : l'outil devait être plus rapide que le classeur, pas plus impressionnant.",
+					].map((item) => (
+						<li class="flex gap-3 text-sable-900 leading-relaxed">
+							<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-terracotta shrink-0 mt-1">
+								<polyline points="20 6 9 17 4 12"></polyline>
+							</svg>
+							<span>{item}</span>
+						</li>
+					))}
+				</ul>
+			</section>
+
+			<!-- Solution -->
+			<section data-animate>
+				<h2 class="font-serif text-3xl font-semibold text-noir-cafe mb-5">La solution</h2>
+				<p class="text-sable-900 leading-relaxed mb-8">
+					Deux livrables qui répondent à deux besoins distincts : un site qui donne au Consortium une adresse à son nom, et un outil de saisie qui remplace la tenue manuelle. L'identité visuelle du site est descendue du logo existant, sans le retoucher.
+				</p>
+
+				<div class="space-y-8">
+					<div>
+						<h3 class="text-lg font-semibold text-noir-cafe mb-2">Un registre unique, une saisie unique</h3>
+						<p class="text-sable-900 leading-relaxed">
+							Les 229 groupes d'épargne des six communes sont réunis dans un seul registre : deux codifications réconciliées, numéros hors format signalés, identifiants attribués deux fois repérés. Chaque groupe n'existe plus qu'à un seul endroit.
+						</p>
+					</div>
+					<div>
+						<h3 class="text-lg font-semibold text-noir-cafe mb-2">Le cloisonnement vit dans la base, pas dans les écrans</h3>
+						<p class="text-sable-900 leading-relaxed">
+							Un point focal de commune ne voit que sa commune — et cette règle est appliquée par la base de données elle-même, pas par l'interface. Une adresse bricolée ne la contourne pas. C'est la seule façon de tenir une promesse de confidentialité sur des données de bénéficiaires.
+						</p>
+					</div>
+					<div>
+						<h3 class="text-lg font-semibold text-noir-cafe mb-2">Les indicateurs se calculent, ils ne se saisissent pas</h3>
+						<p class="text-sable-900 leading-relaxed">
+							Taux, totaux et cumuls sont recalculés à la lecture, à partir de ce qui a été saisi. Une donnée calculée qu'on saisit est une donnée qui finit par diverger de sa source : ici, la question ne se pose plus.
+						</p>
+					</div>
+					<div>
+						<h3 class="text-lg font-semibold text-noir-cafe mb-2">Le rapport du bailleur sort fini</h3>
+						<p class="text-sable-900 leading-relaxed">
+							Le document Word attendu deux fois par an se génère avec sa trame complète et ses treize tableaux déjà remplis. Les parties d'analyse — difficultés rencontrées, leçons apprises, perspectives — restent écrites par les équipes : ce sont des analyses de terrain, et l'outil leur rend précisément le temps de la recopie pour qu'elles puissent s'y consacrer.
+						</p>
+					</div>
+					<div>
+						<h3 class="text-lg font-semibold text-noir-cafe mb-2">Rien ne s'efface, tout se trace</h3>
+						<p class="text-sable-900 leading-relaxed">
+							Chaque écriture est journalisée avec son auteur et son horodatage, et rien ne se supprime : un groupe se désactive avec un motif, un montant saisi par erreur s'annule sans disparaître du journal. C'est la première pièce que demande un auditeur de bailleur.
+						</p>
+					</div>
+					<div>
+						<h3 class="text-lg font-semibold text-noir-cafe mb-2">Autonomie, formation et sauvegardes</h3>
+						<p class="text-sable-900 leading-relaxed">
+							La coordination crée et gère ses comptes elle-même, sans prestataire. Un guide de formation vit à l'intérieur de l'outil, à la page où l'on en a besoin. Une sauvegarde chiffrée part chaque nuit, et elle est relue à chaque exécution — une sauvegarde qu'on n'a jamais restaurée n'est pas une sauvegarde.
+						</p>
+					</div>
+				</div>
+			</section>
+
+			<!-- Résultat -->
+			<section data-animate>
+				<h2 class="font-serif text-3xl font-semibold text-noir-cafe mb-5">Le résultat</h2>
+				<p class="text-sable-900 leading-relaxed mb-4">
+					Le site institutionnel est en ligne sur le nom de domaine du Consortium, enregistré à son nom. L'outil est en production, alimenté par les données réelles du programme, et les équipes le tiennent elles-mêmes.
+				</p>
+				<p class="text-sable-900 leading-relaxed">
+					La consolidation qui demandait de reprendre plusieurs classeurs se fait maintenant à la lecture, et le rapport semestriel part au bailleur sans qu'un seul tableau ait été recopié.
+				</p>
+			</section>
+
+		</div>
+
+		<!-- CTA -->
+		<div data-animate class="mt-20 bg-sable-100 border border-sable-300 rounded-xl p-8 md:p-12 text-center">
+			<h2 class="font-serif text-2xl font-semibold text-noir-cafe mb-4">
+				Voir le site du Consortium
+			</h2>
+			<p class="text-sable-600 leading-relaxed mb-8 max-w-md mx-auto">
+				Le site institutionnel est public. L'outil de suivi, lui, contient des données de bénéficiaires : il reste privé, et c'est volontaire.
+			</p>
+			<div class="flex flex-col sm:flex-row gap-3 justify-center">
+				<a href="https://dekkandoo.com" target="_blank" rel="noopener noreferrer"
+					class="inline-flex items-center justify-center gap-2 bg-noir-cafe text-creme px-6 py-3 rounded-md font-medium hover:bg-terracotta transition-colors">
+					Voir le site Dëkkandoo
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+						<path d="M7 17L17 7"></path>
+						<path d="M7 7h10v10"></path>
+					</svg>
+				</a>
+				<a href="/#contact"
+					class="inline-flex items-center justify-center gap-2 border border-sable-300 text-noir-cafe px-6 py-3 rounded-md font-medium hover:border-noir-cafe transition-colors">
+					Discuter de votre projet
+				</a>
+			</div>
+		</div>
+
+	</article>
+</Layout>

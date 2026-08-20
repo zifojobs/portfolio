@@ -82,8 +82,14 @@ const annee = new Date().getFullYear();
 		</div>
 
 		<!-- Bas du footer -->
+		<!-- Les identifiants légaux sont ici et pas ailleurs : une entreprise déclarée est
+		     un signal de sérieux pour un client institutionnel ou étranger, mais ça ne se
+		     met pas en avant sur la page d'accueil. On le donne à qui va le chercher. -->
 		<div class="mt-16 pt-8 border-t border-sable-600/30 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 text-xs text-sable-300">
-			<p>© {annee} Saïbo Danfakha. Tous droits réservés.</p>
+			<div class="space-y-1">
+				<p>© {annee} Saïbo Danfakha. Tous droits réservés.</p>
+				<p>Entreprise individuelle enregistrée au Sénégal · RCCM SN MBR 2026 A 3053 · NINEA 013313581</p>
+			</div>
 			<p>Conçu et développé avec soin au Sénégal 🇸🇳</p>
 		</div>
 
