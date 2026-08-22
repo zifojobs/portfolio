@@ -53,18 +53,24 @@ const graph = { nodes, links };
 		const raw = JSON.parse(root.dataset.graph || "{}");
 		const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-		// Palette lue depuis les variables CSS du design system (dark mode compatible).
-		const css = getComputedStyle(document.documentElement);
-		const v = (name: string) => css.getPropertyValue(name).trim();
-		const colors = {
-			terracotta: v("--color-terracotta") || "#C2410C",
-			"vert-savane": v("--color-vert-savane") || "#65733A",
-			"noir-cafe": v("--color-noir-cafe") || "#2A1810",
-			hub: v("--color-sable-600") || "#7A6F5A",
-			link: v("--color-sable-300") || "#E8DFCB",
-			bg: v("--color-sable-100") || "#FAF6EE",
-			label: v("--color-sable-900") || "#3D352A",
+		// Palette lue depuis les variables CSS du design system.
+		// Relue à chaque bascule de thème : getComputedStyle fige les valeurs du thème actif,
+		// et sable-900 / noir-cafe passent au crème en dark. Une lecture unique laissait donc
+		// des labels crème sur fond crème après un passage en mode clair.
+		const readColors = () => {
+			const css = getComputedStyle(document.documentElement);
+			const v = (name: string) => css.getPropertyValue(name).trim();
+			return {
+				terracotta: v("--color-terracotta") || "#C2410C",
+				"vert-savane": v("--color-vert-savane") || "#65733A",
+				"noir-cafe": v("--color-noir-cafe") || "#2A1810",
+				hub: v("--color-sable-600") || "#7A6F5A",
+				link: v("--color-sable-300") || "#E8DFCB",
+				bg: v("--color-sable-100") || "#FAF6EE",
+				label: v("--color-sable-900") || "#3D352A",
+			};
 		};
+		let colors = readColors();
 		const nodeColor = (n: GNode) =>
 			n.type === "hub" ? colors.hub : (colors as any)[n.accent] || colors["noir-cafe"];
 
@@ -241,6 +247,13 @@ const graph = { nodes, links };
 		});
 		canvas.addEventListener("pointerleave", () => { if (!downNode) hoverId = null; });
 		window.addEventListener("resize", resize);
+
+		// Bascule de thème : relire la palette et repeindre. Le draw() est indispensable —
+		// en reduced-motion il n'y a pas de boucle, le canvas garderait l'ancien thème.
+		new MutationObserver(() => {
+			colors = readColors();
+			draw();
+		}).observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
 
 		// --- Boucle ---
 		if (reduced) {
