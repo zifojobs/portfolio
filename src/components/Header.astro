@@ -52,44 +52,12 @@
 			</svg>
 		</button>
 
-		<!-- Toggle bilingue Diaspora / Sénégal -->
-		<div class="hidden md:flex items-center gap-1 bg-sable-100 border border-sable-300 rounded-full p-1 text-xs font-medium" id="region-toggle">
-			<button class="region-btn px-3 py-1 rounded-full transition-colors" data-region="diaspora">
-				€ Diaspora
-			</button>
-			<button class="region-btn px-3 py-1 rounded-full transition-colors" data-region="senegal">
-				FCFA Sénégal
-			</button>
-		</div>
-
-		<!-- Script qui gère les toggles (région + thème) -->
+		<!-- Script qui gère le toggle thème -->
 		<script is:inline>
 			(function () {
 				const html = document.documentElement;
 
-				// === 1. Toggle Région (Diaspora / Sénégal) ===
-				const regionButtons = document.querySelectorAll("#region-toggle .region-btn");
-
-				function applyRegion(region) {
-					html.classList.remove("region-diaspora", "region-senegal");
-					html.classList.add("region-" + region);
-					html.dataset.region = region;
-					localStorage.setItem("region", region);
-					regionButtons.forEach((btn) => {
-						const active = btn.dataset.region === region;
-						btn.classList.toggle("bg-noir-cafe", active);
-						btn.classList.toggle("text-creme", active);
-						btn.classList.toggle("text-sable-600", !active);
-						btn.classList.toggle("hover:text-noir-cafe", !active);
-					});
-				}
-
-				applyRegion(html.dataset.region || "diaspora");
-				regionButtons.forEach((btn) => {
-					btn.addEventListener("click", () => applyRegion(btn.dataset.region));
-				});
-
-				// === 2. Toggle Thème (clair / sombre) ===
+				// === Toggle Thème (clair / sombre) ===
 				const themeBtn = document.getElementById("theme-toggle");
 				const moonIcon = themeBtn?.querySelector(".theme-icon-moon");
 				const sunIcon = themeBtn?.querySelector(".theme-icon-sun");
@@ -163,12 +131,6 @@
 						<path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path>
 					</svg>
 				</button>
-
-				<!-- Toggle région mobile -->
-				<div class="flex items-center gap-1 bg-sable-100 border border-sable-300 rounded-full p-1 text-xs font-medium" id="region-toggle-mobile">
-					<button class="region-btn-mobile px-3 py-1 rounded-full transition-colors" data-region="diaspora">€ Diaspora</button>
-					<button class="region-btn-mobile px-3 py-1 rounded-full transition-colors" data-region="senegal">FCFA Sénégal</button>
-				</div>
 			</div>
 		</nav>
 	</div>
@@ -207,29 +169,6 @@
 				const s = document.querySelector("#theme-toggle-mobile .theme-icon-sun");
 				m?.classList.toggle("hidden", isDark);
 				s?.classList.toggle("hidden", !isDark);
-			});
-
-			// Boutons région mobile : déclenchent le toggle desktop
-			document.querySelectorAll("#region-toggle-mobile .region-btn-mobile").forEach((btn) => {
-				btn.addEventListener("click", () => {
-					const region = btn.dataset.region;
-					document.querySelector(`#region-toggle .region-btn[data-region="${region}"]`)?.click();
-					document.querySelectorAll("#region-toggle-mobile .region-btn-mobile").forEach((b) => {
-						const active = b.dataset.region === region;
-						b.classList.toggle("bg-noir-cafe", active);
-						b.classList.toggle("text-creme", active);
-						b.classList.toggle("text-sable-600", !active);
-					});
-				});
-			});
-
-			// Init état région mobile au chargement
-			const initialRegion = document.documentElement.dataset.region || "diaspora";
-			document.querySelectorAll("#region-toggle-mobile .region-btn-mobile").forEach((b) => {
-				const active = b.dataset.region === initialRegion;
-				b.classList.toggle("bg-noir-cafe", active);
-				b.classList.toggle("text-creme", active);
-				b.classList.toggle("text-sable-600", !active);
 			});
 
 			// Init état thème mobile au chargement

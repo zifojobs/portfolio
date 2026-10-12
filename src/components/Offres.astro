@@ -1,5 +1,5 @@
 ---
-// Section Offres — 3 cards avec switch tarifaire €/FCFA
+// Section Offres — 3 cards, sans prix affichés (chiffrage sur devis)
 // Source : offres-freelance.md (Projet Claude)
 
 const offres = [
@@ -7,8 +7,6 @@ const offres = [
 		numero: "01",
 		titre: "Sites Vitrine Premium",
 		pourQui: "Indépendants, entrepreneurs, petites marques. Du one-page percutant au site 5 pages complet.",
-		prixEur: "à partir de 500€",
-		prixFcfa: "à partir de 300 000 FCFA",
 		delai: "1 à 3 semaines",
 		inclus: [
 			"Design sur-mesure (1 à 5 pages selon ton projet)",
@@ -23,8 +21,6 @@ const offres = [
 		numero: "02",
 		titre: "Identité Visuelle Complète",
 		pourQui: "Entrepreneurs en lancement ou repositionnement de marque.",
-		prixEur: "à partir de 600€",
-		prixFcfa: "à partir de 350 000 FCFA",
 		delai: "1 à 2 semaines",
 		inclus: [
 			"Logo principal + déclinaisons (mono, sombre, clair)",
@@ -38,8 +34,6 @@ const offres = [
 		numero: "03",
 		titre: "Site Complet & Applications sur-mesure",
 		pourQui: "Applications web métier, SaaS, e-commerce, espaces clients, sites multi-pages avec SEO avancé — pour toute structure qui a besoin de plus qu'un vitrine.",
-		prixEur: "à partir de 1 500€",
-		prixFcfa: "à partir de 1 000 000 FCFA",
 		delai: "4 à 8 semaines",
 		inclus: [
 			"Audit gratuit 30 min en visio",
@@ -61,13 +55,13 @@ const offres = [
 		<!-- En-tête de section -->
 		<div data-animate class="max-w-2xl mb-16">
 			<p class="text-sm font-medium uppercase tracking-wider text-terracotta mb-4">
-				Tarifs & offres
+				Offres
 			</p>
 			<h2 data-text-reveal class="text-4xl md:text-5xl font-semibold leading-tight tracking-tight text-noir-cafe">
 				Trois manières de travailler ensemble.
 			</h2>
 			<p class="mt-6 text-lg text-sable-600 leading-relaxed">
-				Du site vitrine à l'<strong class="text-noir-cafe font-semibold">application web sur-mesure</strong> (SaaS, espaces clients, outils métier) : je ne construis pas que des sites. Des offres claires, à prix annoncés. Paiement en 2 ou 3 fois sans frais sur tous les forfaits supérieurs à 800€.
+				Du site vitrine à l'<strong class="text-noir-cafe font-semibold">application web sur-mesure</strong> (SaaS, espaces clients, outils métier) : je ne construis pas que des sites. Chaque projet est chiffré sur devis : gratuit, détaillé et sans engagement. Paiement en 2 ou 3 fois sans frais possible.
 			</p>
 		</div>
 
@@ -98,15 +92,6 @@ const offres = [
 						{offre.pourQui}
 					</p>
 
-					<!-- Prix avec switch région -->
-					<div class="mb-2">
-						<span class={`price-eur block text-3xl font-serif font-semibold tracking-tight ${offre.featured ? "text-creme" : "text-noir-cafe"}`}>
-							{offre.prixEur}
-						</span>
-						<span class={`price-fcfa block text-3xl font-serif font-semibold tracking-tight ${offre.featured ? "text-creme" : "text-noir-cafe"}`}>
-							{offre.prixFcfa}
-						</span>
-					</div>
 					<p class={`text-xs mb-8 ${offre.featured ? "text-sable-300" : "text-sable-600"}`}>
 						Délai : {offre.delai}
 					</p>

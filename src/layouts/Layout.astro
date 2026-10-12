@@ -34,15 +34,9 @@ const ogImageUrl = new URL(image, SITE_URL).toString();
 		<meta name="author" content="Saïbo Danfakha" />
 		<link rel="canonical" href={canonicalUrl} />
 
-		<!-- Script région + thème : appliqué AVANT le rendu pour éviter le flash de contenu -->
+		<!-- Script thème : appliqué AVANT le rendu pour éviter le flash de contenu -->
 		<script is:inline>
 			(function () {
-				// Région
-				const savedRegion = localStorage.getItem("region");
-				const region = savedRegion === "senegal" ? "senegal" : "diaspora";
-				document.documentElement.classList.add("region-" + region);
-				document.documentElement.dataset.region = region;
-
 				// Thème (dark warm par défaut, theme-light si l'utilisateur a basculé)
 				const savedTheme = localStorage.getItem("theme");
 				if (savedTheme === "light") {
@@ -96,7 +90,6 @@ const ogImageUrl = new URL(image, SITE_URL).toString();
 				"opens": "09:00",
 				"closes": "19:00"
 			},
-			"priceRange": "€€€",
 			"areaServed": ["SN", "FR", "CA", "US", "GB"],
 			"availableLanguage": ["French", "English"],
 			"serviceType": [

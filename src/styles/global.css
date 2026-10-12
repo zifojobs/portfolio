@@ -70,10 +70,6 @@ html.theme-light {
   }
 }
 
-/* --- Visibilité des prix selon la région active --- */
-.region-diaspora .price-fcfa { display: none; }
-.region-senegal .price-eur { display: none; }
-
 /* --- Animations d'entrée au scroll (Intersection Observer) --- */
 [data-animate] {
   opacity: 0;
