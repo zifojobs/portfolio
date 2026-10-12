@@ -47,12 +47,12 @@
 - [x] **[P1]** Recherche de mots-clés cibles (Sénégal/diaspora) + mapping page↔mot-clé — *Dialamba* → ✅ Mapping v1 livré 11/06 (7 pages mappées, zéro cannibalisation). Voir section ci-dessous.
 - [x] **[P1]** Analyse concurrentielle SERP : 5 opportunités à faible concurrence — *Bangaly* → ✅ Livré 11/06. Voir section ci-dessous.
 - [x] **[P1]** Optimiser on-page des pages clés (home) : title/meta — *Youssouf* → ✅ commit `1a386b6` (11/06). Title homepage, meta description, kicker "Tarifs & offres".
-- [~] **[P1]** Ajouter schema `BlogPosting` + `BreadcrumbList` aux articles — *Youssouf* → ✅ `BlogPosting` fait (commit e3b6c52). Reste `BreadcrumbList` (reporté post-11/07, impact marginal à ce stade).
+- [x] **[P1]** Ajouter schema `BlogPosting` + `BreadcrumbList` aux articles — *Youssouf* → ✅ `BlogPosting` (commit e3b6c52) + `BreadcrumbList` Accueil > Blog > article (12/10).
 - [x] **[P2]** Renforcer le maillage interne entre articles liés — *Dialamba/Youssouf* → ✅ commit `1a386b6` : lien "Voir les tarifs → /#offres" ajouté sur 6 articles. CTA box ajoutée sur site-one-page (manquait).
 - [x] **[P1]** Créer page `/freelance-web-kaolack` — *Youssouf + Dialamba* → ✅ **EN LIGNE 14/06** (commit `6707aab`), lien footer ajouté, **URL indexée dans GSC le 14/06**. Surveiller positionnement au relevé du 11/07.
-- [ ] **[P1]** Créer page `/site-web-diaspora` — *Youssouf (structure) + Dialamba (brief copy)* · segment vierge, zéro concurrent direct (Bangaly). **Dépend de l'article 16/06.**
-- [ ] **[P1]** Enrichir article `comment-choisir-son-developpeur-web-freelance` avec contexte local sénégalais — *Dialamba*. Opportunité SERP #3 Bangaly.
-- [ ] **[P1]** Optimiser article `combien-coute-un-site-professionnel` : prix en FCFA, tableau comparatif, titre 2026 — *Dialamba*. Opportunité SERP #4 Bangaly.
+- [x] **[P1]** Créer page `/site-web-diaspora` — *Youssouf (structure) + Dialamba (brief copy)* → ✅ **EN LIGNE 12/10** (commit `9d7609f`), maillée depuis l'article diaspora + footer.
+- [x] **[P1]** Enrichir article `comment-choisir-son-developpeur-web-freelance` avec contexte local sénégalais — *Dialamba* → ✅ 12/10 : titre « … au Sénégal », H2 local + 5 points (commit `8ee4cab`).
+- [x] **[P1]** Optimiser article `combien-coute-un-site-professionnel` : prix en FCFA, tableau comparatif, titre 2026 — *Dialamba* → ✅ 12/10 : tableau comparatif des 4 tranches du marché FCFA/€ (commit `8ee4cab`).
 - [ ] **[P2]** Créer page `/site-web-association-diaspora` (après page `/site-web-diaspora` validée) — *Youssouf + Dialamba*. Opportunité SERP #5.
 - [ ] **[P2]** Citations annuaires sénégalais + 3-5 backlinks de qualité (NAP cohérent) — *Lamine*. **Reporté à août — levier lent, charge trop élevée avec pipelines Canada+C2S actifs.**
 
@@ -169,9 +169,9 @@ Fodé compare et reporte (il ne recommande pas de changements) :
 ## Phase 3 — Mesure & itération (Semaines 9-12) · *amplification*
 - [ ] **[P1]** Comparer aux chiffres de départ (trafic, positions, conversions) — *Fodé*.
 - [ ] **[P1]** Doubler sur ce qui marche, corriger ce qui stagne — *Raby* (arbitrage).
-- [ ] **[P2]** Optimisations perf (polices non bloquantes, images) — *Youssouf*.
-- [ ] **[P2]** OG images par article — *Youssouf*.
-- [ ] **[P2]** BreadcrumbList sur articles — *Youssouf*.
+- [~] **[P2]** Optimisations perf (polices non bloquantes, images) — *Youssouf* → ✅ polices auto-hébergées + préchargées (12/10). Reste : images.
+- [x] **[P2]** OG images par article — *Youssouf* → ✅ 12/10 (image de couverture de chaque article).
+- [x] **[P2]** BreadcrumbList sur articles — *Youssouf* → ✅ 12/10.
 - [ ] **[P2]** Citations annuaires sénégalais + 3-5 backlinks de qualité — *Lamine*. Démarrer à partir d'août.
 
 ---
@@ -190,3 +190,4 @@ Fodé compare et reporte (il ne recommande pas de changements) :
 - **2026-06-11** — Phase 2 lancée. Dialamba : mapping mots-clés v1 (7 pages). Bangaly : 5 opportunités SERP identifiées (Kaolack géo-local + diaspora = priorité HAUTE). Youssouf : title homepage, meta description, kicker "Tarifs & offres", lien "Voir les tarifs →" sur 6 articles, CTA box site-one-page (commit `1a386b6`). Fodé : baseline GSC créée dans `SEO/MESURES.md` (2 clics, 69 impressions, 3 mois — zéro requête non-marque). **Actions Saïbo restantes** : demander indexation articles dans GSC + créer Google Business Profile.
 - **2026-06-14** — Page `/freelance-web-kaolack` créée + déployée (commit `6707aab`) + lien footer + **indexée GSC**. Fiche GBP **publiée par Saïbo** (brief `GBP-fiche-saibo.md`). Opportunité SERP #1 (Bangaly) désormais couverte côté production. **Raby : plan d'action 14/06→11/07 cadré** (voir section PLAN D'ACTION ci-dessus). Objectif période : premières impressions non-marque dans GSC au relevé 11/07.
 - **2026-06-16** — **Tâche A bouclée : article `diaspora-site-bilingue` publié** (7e article du blog). Mot-clé `site web bilingue diaspora sénégalaise` dans H1/title/intro. Posture « service expert pour clients » (site Saïbo FR uniquement → aucune fausse promesse). 14 visuels carrousel générés via `public/social-photos/generate_article7.py` (style design system + fond coloré dark warm validé par Saïbo). Opportunité SERP #2 (Bangaly) désormais couverte côté contenu. **Reste côté Saïbo : indexation GSC de l'article + des 5 articles absents (tâche B).** Prochaine étape agence : page `/site-web-diaspora` (tâche C, Youssouf+Dialamba) maillée depuis l'article.
+- **2026-10-12** — Reprise après pause (journal arrêté au 16/06). Page `/site-web-diaspora` en ligne (`9d7609f`). Articles « choisir son développeur » et « combien coûte » enrichis (`8ee4cab`). **Décision Saïbo : plus aucun prix de Saïbo affiché sur le site** (chiffrage sur devis ; fourchettes du marché conservées dans les articles) (`071673b`). Chantier technique : BreadcrumbList, OG image par article, polices auto-hébergées. ⚠️ Mapping v1 : `/#offres` ne peut plus viser « prix site web Sénégal » → cette requête repose désormais sur l'article « combien coûte ». Relevés GSC d'août et septembre non faits. **Reste côté Saïbo** : indexation GSC des pages modifiées, retirer les prix de la fiche GBP.
