@@ -29,7 +29,7 @@
 
 ## Visuels sociaux (pipeline)
 
-- `public/social-photos/generate_articleN.py` (Python + Playwright) → 7 slides Instagram
+- `social-photos/generate_articleN.py` (hors de `public/` → non publié) (Python + Playwright) → 7 slides Instagram
   1080×1080 + 7 WhatsApp 1080×1920 par article.
 - **Style de référence validé** : « dark warm + halos colorés » **dans le design system**
   du site. `generate_article7.py` = gabarit à réutiliser/dupliquer pour les prochains.
