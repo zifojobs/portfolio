@@ -1,0 +1,278 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+// Page de conversion associations — cible SEO : "site web association diaspora"
+// Audience distincte de /site-web-diaspora (entrepreneurs) : bureaux d'associations de ressortissants,
+// dahiras, mutuelles, ONG de la diaspora. Pas de prix affichés (chiffrage sur devis).
+// Maillage : /site-web-diaspora ↔ cette page, article diaspora-site-bilingue → cette page.
+
+const WHATSAPP = "https://wa.me/221775277164";
+const CALENDLY = "https://calendly.com/zifo1819/30min";
+
+const faq = [
+	{
+		q: "Notre association a peu de moyens : est-ce pour nous ?",
+		r: "Oui. On part de vos besoins réels et de votre budget : un site d'une page pour présenter l'association et ses projets peut suffire pour commencer, puis évoluer. Le devis est gratuit, détaillé et sans engagement, avec paiement possible en 2 ou 3 fois sans frais.",
+	},
+	{
+		q: "Nos membres ne sont pas à l'aise avec l'informatique. Vont-ils s'en servir ?",
+		r: "C'est la contrainte de départ. Pour l'association Nafadji, chaque membre se connecte avec son nom et un code personnel, sans email ni SMS, depuis son téléphone. L'application s'installe comme une app et reste entièrement en français.",
+	},
+	{
+		q: "Qui voit les montants des cotisations et de la caisse ?",
+		r: "Vous décidez. Dans une application de gestion, le bureau saisit et modifie, les membres consultent leur situation et l'état de la caisse. Chacun voit ce qui le concerne, et personne ne modifie ce qui ne relève pas de son rôle.",
+	},
+	{
+		q: "Peut-on collecter des dons en ligne ?",
+		r: "Oui. On choisit ensemble la solution adaptée à vos donateurs : paiement mobile pour ceux qui sont au Sénégal, carte bancaire pour ceux qui sont à l'étranger. J'ai notamment reconstruit en urgence le site d'une ONG de Toronto pour rétablir sa collecte de dons.",
+	},
+	{
+		q: "Combien de temps pour mettre en place l'outil ?",
+		r: "Un site vitrine pour l'association est livré en 1 à 3 semaines. Une application de gestion sur-mesure demande 4 à 8 semaines selon le périmètre. Les délais sont fixés avec le bureau dès le cadrage.",
+	},
+	{
+		q: "Notre bureau est réparti entre le Sénégal et l'étranger. Comment travaille-t-on ?",
+		r: "Entièrement à distance : cadrage en visio avec les membres du bureau, suivi par WhatsApp, validation sur une version en ligne. À la livraison, le bureau est accompagné pour prendre l'outil en main.",
+	},
+];
+---
+
+<Layout
+	title="Site web pour association de la diaspora — Saïbo Danfakha"
+	description="Site web et application de gestion pour les associations de la diaspora sénégalaise : présenter vos projets, collecter des dons, suivre membres, cotisations et caisse en toute transparence. Travail à distance, devis gratuit."
+>
+	<!-- Schema FAQ -->
+	<script type="application/ld+json" set:html={JSON.stringify({
+		"@context": "https://schema.org",
+		"@type": "FAQPage",
+		"mainEntity": faq.map((item) => ({
+			"@type": "Question",
+			"name": item.q,
+			"acceptedAnswer": { "@type": "Answer", "text": item.r },
+		})),
+	})} />
+
+	<!-- Hero -->
+	<section class="relative overflow-hidden">
+		<div class="relative z-10 max-w-6xl mx-auto px-6 pt-32 pb-20 md:pt-40 md:pb-28">
+			<div class="max-w-2xl">
+				<p data-animate class="text-sm font-medium uppercase tracking-wider text-terracotta mb-4">
+					Associations · Diaspora sénégalaise
+				</p>
+				<h1 data-text-reveal class="text-5xl md:text-6xl font-semibold leading-tight tracking-tight text-noir-cafe mb-6">
+					Un site web pour votre association de la diaspora
+				</h1>
+				<p data-animate class="text-xl text-sable-600 leading-relaxed max-w-2xl mb-10">
+					Association de ressortissants, dahira, mutuelle ou ONG : je conçois le site qui
+					présente vos projets et l'outil qui gère membres, cotisations et caisse, pour
+					un bureau réparti entre le Sénégal et l'étranger.
+				</p>
+				<div data-animate class="flex flex-col sm:flex-row gap-4">
+					<a href={WHATSAPP} target="_blank" rel="noopener noreferrer" data-magnetic
+						class="inline-flex items-center justify-center gap-2 bg-noir-cafe text-creme px-6 py-3 rounded-md font-medium hover:bg-terracotta transition-colors">
+						Discuter sur WhatsApp
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+							<line x1="5" y1="12" x2="19" y2="12"></line>
+							<polyline points="12 5 19 12 12 19"></polyline>
+						</svg>
+					</a>
+					<a href={CALENDLY} target="_blank" rel="noopener noreferrer"
+						class="inline-flex items-center justify-center gap-2 border border-sable-300 text-noir-cafe px-6 py-3 rounded-md font-medium hover:border-noir-cafe transition-colors">
+						Réserver un appel de 30 min
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Constat -->
+	<section class="bg-sable-100 py-20 md:py-28">
+		<div class="max-w-4xl mx-auto px-6">
+			<h2 data-text-reveal class="text-3xl md:text-4xl font-semibold leading-tight tracking-tight text-noir-cafe mb-12">
+				Le cahier et le groupe WhatsApp ne suffisent plus.
+			</h2>
+			<div data-animate-stagger class="grid grid-cols-1 md:grid-cols-3 gap-8">
+				<div data-animate>
+					<h3 class="text-lg font-semibold text-noir-cafe mb-3">Qui a payé ?</h3>
+					<p class="text-sable-600 leading-relaxed text-sm">
+						Les cotisations sont notées à la main ou éparpillées dans les messages. Au
+						moindre doute, c'est la parole de l'un contre celle de l'autre.
+					</p>
+				</div>
+				<div data-animate>
+					<h3 class="text-lg font-semibold text-noir-cafe mb-3">Où en est la caisse ?</h3>
+					<p class="text-sable-600 leading-relaxed text-sm">
+						Dons, dépenses, projets au pays : sans suivi clair et partagé, la confiance
+						s'use, même quand tout est fait honnêtement.
+					</p>
+				</div>
+				<div data-animate>
+					<h3 class="text-lg font-semibold text-noir-cafe mb-3">Qui nous connaît ?</h3>
+					<p class="text-sable-600 leading-relaxed text-sm">
+						Sans site, difficile de montrer vos réalisations aux donateurs, aux
+						partenaires ou à la mairie, et d'attirer de nouveaux membres.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Deux outils -->
+	<section class="max-w-4xl mx-auto px-6 py-20 md:py-28">
+		<h2 data-text-reveal class="text-3xl md:text-4xl font-semibold leading-tight tracking-tight text-noir-cafe mb-6">
+			Deux outils, selon ce dont votre association a besoin.
+		</h2>
+		<p data-animate class="text-lg text-sable-600 leading-relaxed mb-12 max-w-2xl">
+			L'un se montre au public, l'autre sert au bureau et aux membres. On peut commencer
+			par l'un et ajouter l'autre plus tard.
+		</p>
+		<div data-animate-stagger class="grid grid-cols-1 md:grid-cols-2 gap-6">
+			<div data-animate class="bg-creme border border-sable-300 rounded-xl p-6">
+				<h3 class="text-xl font-semibold text-noir-cafe mb-2">Le site de l'association</h3>
+				<p class="text-sm text-sable-600 mb-5">Pour se faire connaître et inspirer confiance.</p>
+				<ul class="space-y-3">
+					{[
+						"Présentation de l'association, de son bureau et de sa mission",
+						"Projets réalisés au pays, avec photos et résultats",
+						"Actualités et appels à mobilisation",
+						"Collecte de dons adaptée aux donateurs d'ici et de là-bas",
+						"Contact direct par WhatsApp",
+					].map((item) => (
+						<li class="flex gap-3 text-sm text-sable-900 leading-relaxed">
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mt-0.5 text-terracotta">
+								<polyline points="20 6 9 17 4 12"></polyline>
+							</svg>
+							<span>{item}</span>
+						</li>
+					))}
+				</ul>
+			</div>
+			<div data-animate class="bg-creme border border-sable-300 rounded-xl p-6">
+				<h3 class="text-xl font-semibold text-noir-cafe mb-2">L'application de gestion</h3>
+				<p class="text-sm text-sable-600 mb-5">Pour une gestion transparente, consultable par tous.</p>
+				<ul class="space-y-3">
+					{[
+						"Liste des membres et calcul automatique des cotisations",
+						"Caisse : dons et dépenses, consultables par les membres",
+						"Réunions et procès-verbaux archivés",
+						"Espace bureau (saisie) séparé de l'espace membres (consultation)",
+						"Connexion par nom et code, sans email, depuis le téléphone",
+					].map((item) => (
+						<li class="flex gap-3 text-sm text-sable-900 leading-relaxed">
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mt-0.5 text-terracotta">
+								<polyline points="20 6 9 17 4 12"></polyline>
+							</svg>
+							<span>{item}</span>
+						</li>
+					))}
+				</ul>
+			</div>
+		</div>
+		<p data-animate class="mt-8 text-sm text-sable-600">
+			Chaque projet est chiffré sur devis, gratuit et sans engagement →
+			<a href="/#offres" class="text-noir-cafe underline underline-offset-4 hover:text-terracotta transition-colors">voir les offres</a>
+		</p>
+	</section>
+
+	<!-- Preuves -->
+	<section class="bg-sable-100 py-20 md:py-28">
+		<div class="max-w-4xl mx-auto px-6">
+			<p data-animate class="text-sm font-medium uppercase tracking-wider text-terracotta mb-4">
+				Réalisations
+			</p>
+			<h2 data-text-reveal class="text-3xl md:text-4xl font-semibold leading-tight tracking-tight text-noir-cafe mb-12">
+				Des associations déjà accompagnées.
+			</h2>
+
+			<div data-animate-stagger class="grid grid-cols-1 md:grid-cols-2 gap-6">
+				<a href="/etudes-de-cas/nafadji/" data-animate
+					class="card-hover group block bg-creme border border-sable-300 rounded-xl p-6 hover:border-noir-cafe">
+					<div class="flex items-center justify-between gap-3 mb-3">
+						<h3 class="font-serif text-xl font-semibold text-noir-cafe group-hover:text-terracotta transition-colors">Association Nafadji</h3>
+						<span class="px-3 py-1 bg-sable-100 text-sable-600 text-xs font-medium rounded-full whitespace-nowrap">En production</span>
+					</div>
+					<p class="text-xs font-medium uppercase tracking-widest text-sable-600 mb-3">Ressortissants de Kédougou · Diaspora</p>
+					<p class="text-sm text-sable-600 leading-relaxed">
+						Application de gestion associative : membres, cotisations calculées
+						automatiquement, caisse, réunions et procès-verbaux. Connexion par code,
+						pensée pour le téléphone. Lire l'étude de cas →
+					</p>
+				</a>
+				<a href="/etudes-de-cas/rtzw/" data-animate
+					class="card-hover group block bg-creme border border-sable-300 rounded-xl p-6 hover:border-noir-cafe">
+					<div class="flex items-center justify-between gap-3 mb-3">
+						<h3 class="font-serif text-xl font-semibold text-noir-cafe group-hover:text-terracotta transition-colors">Road to Zero Waste</h3>
+						<span class="px-3 py-1 bg-sable-100 text-sable-600 text-xs font-medium rounded-full whitespace-nowrap">ONG</span>
+					</div>
+					<p class="text-xs font-medium uppercase tracking-widest text-sable-600 mb-3">Toronto, Canada</p>
+					<p class="text-sm text-sable-600 leading-relaxed">
+						Reconstruction d'urgence du site d'une ONG pour rétablir la collecte de dons
+						qui nourrit des centaines de familles chaque semaine. Lire l'étude de cas →
+					</p>
+				</a>
+			</div>
+
+			<!-- Témoignage -->
+			<figure data-animate class="mt-12 border-l-2 border-terracotta pl-6">
+				<blockquote class="text-lg text-noir-cafe leading-relaxed italic">
+					« Quand notre site web est tombé en panne, il l'a reconstruit en un temps record —
+					et ce délai a fait toute la différence. Sans cela, nous n'aurions pas pu collecter
+					les dons nécessaires pour nourrir des centaines de familles chaque semaine. »
+				</blockquote>
+				<figcaption class="mt-4 text-sm text-sable-600">
+					<span class="font-semibold text-noir-cafe">Laylo</span>, fondatrice de
+					Road to Zero Waste · Toronto, Canada
+				</figcaption>
+			</figure>
+
+			<p data-animate class="mt-12 text-sm text-sable-600">
+				Vous êtes entrepreneur plutôt qu'association ? Voir
+				<a href="/site-web-diaspora/" class="text-noir-cafe underline underline-offset-4 hover:text-terracotta transition-colors">le site web pour la diaspora sénégalaise</a>.
+			</p>
+		</div>
+	</section>
+
+	<!-- FAQ -->
+	<section class="max-w-3xl mx-auto px-6 py-20 md:py-28">
+		<h2 data-text-reveal class="text-3xl md:text-4xl font-semibold leading-tight tracking-tight text-noir-cafe mb-12">
+			Questions fréquentes
+		</h2>
+		<div class="divide-y divide-sable-300 border-t border-b border-sable-300">
+			{faq.map((item) => (
+				<details class="group py-6">
+					<summary class="flex cursor-pointer items-center justify-between gap-4 text-lg font-semibold text-noir-cafe list-none">
+						{item.q}
+						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 text-terracotta transition-transform group-open:rotate-45">
+							<line x1="12" y1="5" x2="12" y2="19"></line>
+							<line x1="5" y1="12" x2="19" y2="12"></line>
+						</svg>
+					</summary>
+					<p class="mt-4 text-sable-600 leading-relaxed">{item.r}</p>
+				</details>
+			))}
+		</div>
+	</section>
+
+	<!-- CTA final -->
+	<section class="bg-noir-cafe text-creme py-20 md:py-28">
+		<div class="max-w-3xl mx-auto px-6 text-center">
+			<h2 data-text-reveal class="text-3xl md:text-4xl font-semibold leading-tight tracking-tight text-creme mb-6">
+				Parlons de votre association.
+			</h2>
+			<p data-animate class="text-lg text-sable-300 leading-relaxed mb-10 max-w-xl mx-auto">
+				Dites-moi en quelques mots qui vous êtes, combien de membres vous comptez et ce
+				qui vous pose problème aujourd'hui. Je vous réponds avec une première piste concrète.
+			</p>
+			<div data-animate class="flex flex-col sm:flex-row gap-4 justify-center">
+				<a href={WHATSAPP} target="_blank" rel="noopener noreferrer" data-magnetic
+					class="inline-flex items-center justify-center gap-2 bg-terracotta text-creme px-6 py-3 rounded-md font-medium hover:bg-creme hover:text-noir-cafe transition-colors">
+					Discuter sur WhatsApp
+				</a>
+				<a href={CALENDLY} target="_blank" rel="noopener noreferrer"
+					class="inline-flex items-center justify-center gap-2 border border-sable-600 text-creme px-6 py-3 rounded-md font-medium hover:border-creme transition-colors">
+					Réserver un appel de 30 min
+				</a>
+			</div>
+		</div>
+	</section>
+</Layout>

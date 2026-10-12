@@ -53,7 +53,7 @@
 - [x] **[P1]** Créer page `/site-web-diaspora` — *Youssouf (structure) + Dialamba (brief copy)* → ✅ **EN LIGNE 12/10** (commit `9d7609f`), maillée depuis l'article diaspora + footer.
 - [x] **[P1]** Enrichir article `comment-choisir-son-developpeur-web-freelance` avec contexte local sénégalais — *Dialamba* → ✅ 12/10 : titre « … au Sénégal », H2 local + 5 points (commit `8ee4cab`).
 - [x] **[P1]** Optimiser article `combien-coute-un-site-professionnel` : prix en FCFA, tableau comparatif, titre 2026 — *Dialamba* → ✅ 12/10 : tableau comparatif des 4 tranches du marché FCFA/€ (commit `8ee4cab`).
-- [ ] **[P2]** Créer page `/site-web-association-diaspora` (après page `/site-web-diaspora` validée) — *Youssouf + Dialamba*. Opportunité SERP #5.
+- [x] **[P2]** Créer page `/site-web-association-diaspora` (après page `/site-web-diaspora` validée) — *Youssouf + Dialamba* → ✅ 12/10, maillée depuis `/site-web-diaspora` + article diaspora. Opportunité SERP #5.
 - [ ] **[P2]** Citations annuaires sénégalais + 3-5 backlinks de qualité (NAP cohérent) — *Lamine*. **Reporté à août — levier lent, charge trop élevée avec pipelines Canada+C2S actifs.**
 
 ---
