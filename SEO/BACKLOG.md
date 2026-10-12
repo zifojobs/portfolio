@@ -54,7 +54,7 @@
 - [x] **[P1]** Enrichir article `comment-choisir-son-developpeur-web-freelance` avec contexte local sénégalais — *Dialamba* → ✅ 12/10 : titre « … au Sénégal », H2 local + 5 points (commit `8ee4cab`).
 - [x] **[P1]** Optimiser article `combien-coute-un-site-professionnel` : prix en FCFA, tableau comparatif, titre 2026 — *Dialamba* → ✅ 12/10 : tableau comparatif des 4 tranches du marché FCFA/€ (commit `8ee4cab`).
 - [x] **[P2]** Créer page `/site-web-association-diaspora` (après page `/site-web-diaspora` validée) — *Youssouf + Dialamba* → ✅ 12/10, maillée depuis `/site-web-diaspora` + article diaspora. Opportunité SERP #5.
-- [ ] **[P2]** Citations annuaires sénégalais + 3-5 backlinks de qualité (NAP cohérent) — *Lamine*. **Reporté à août — levier lent, charge trop élevée avec pipelines Canada+C2S actifs.**
+- [~] **[P2]** Citations annuaires sénégalais + 3-5 backlinks de qualité (NAP cohérent) — *Lamine* → 12/10 : plan + liste + NAP prêts dans `SEO/CITATIONS-BACKLINKS.md`. Inscriptions à faire par Saïbo.
 
 ---
 
@@ -172,7 +172,7 @@ Fodé compare et reporte (il ne recommande pas de changements) :
 - [~] **[P2]** Optimisations perf (polices non bloquantes, images) — *Youssouf* → ✅ polices auto-hébergées + préchargées (12/10). Reste : images.
 - [x] **[P2]** OG images par article — *Youssouf* → ✅ 12/10 (image de couverture de chaque article).
 - [x] **[P2]** BreadcrumbList sur articles — *Youssouf* → ✅ 12/10.
-- [ ] **[P2]** Citations annuaires sénégalais + 3-5 backlinks de qualité — *Lamine*. Démarrer à partir d'août.
+- [~] **[P2]** Citations annuaires sénégalais + 3-5 backlinks de qualité — *Lamine* → voir `SEO/CITATIONS-BACKLINKS.md` (12/10).
 
 ---
 

@@ -57,7 +57,7 @@ applications web : chaque projet est pensé pour inspirer confiance et
 transformer vos visiteurs en clients. Design soigné, chargement rapide,
 référencement local optimisé pour être visible sur Google.
 
-Prix annoncés clairement en FCFA, paiement échelonné possible, suivi de
+Devis gratuit et détaillé, paiement échelonné possible, suivi de
 proximité. Discutons de votre projet sur WhatsApp : +221 77 527 71 64.
 ```
 
@@ -73,7 +73,7 @@ Lundi à Samedi : **09:00 – 19:00** · Dimanche : fermé.
 
 1. **Logo** (carré) — identité visuelle Saïbo Danfakha.
 2. **Photo de couverture** (paysage) — un visuel premium du portfolio.
-3. **Captures de réalisations** (3-5) : RK Services, Nur Alhayaa, Registon,
+3. **Captures de réalisations** (3-5) : Consortium Dëkkandoo, Nur Alhayaa, Registon,
    National Auto, Road to Zero Waste. (Captures propres des sites en ligne.)
 4. **Photo de profil / portrait pro** (renforce la confiance locale).
 
@@ -84,11 +84,14 @@ Lundi à Samedi : **09:00 – 19:00** · Dimanche : fermé.
 
 ## 7. Produits / Services à lister (reprend les offres)
 
+> **Décision du 2026-10-12 : aucun prix affiché** (chiffrage sur devis). Sur la fiche,
+> laisser le champ prix vide ou choisir « Sur devis ».
+
 | Service | Prix affiché |
 |---|---|
-| Site Vitrine Premium | à partir de 300 000 FCFA |
-| Identité Visuelle Complète | à partir de 350 000 FCFA |
-| Site Complet & Application sur-mesure | à partir de 1 000 000 FCFA |
+| Site Vitrine Premium | Sur devis |
+| Identité Visuelle Complète | Sur devis |
+| Site Complet & Application sur-mesure | Sur devis |
 
 ---
 
