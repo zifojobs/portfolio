@@ -1,0 +1,298 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+// Page de conversion diaspora — cible SEO : "site web diaspora sénégalaise"
+// Posture : service expert pour les clients de la diaspora (le site de Saïbo reste FR uniquement,
+// aucune promesse de bilinguisme pour lui-même). Maillage : article diaspora-site-bilingue ↔ cette page.
+
+const WHATSAPP = "https://wa.me/221775277164";
+const CALENDLY = "https://calendly.com/zifo1819/30min";
+
+// Preuve : clients installés hors du Sénégal ou opérant entre plusieurs pays.
+const realisations = [
+	{ slug: "nur-alhayaa", titre: "Nur Alhayaa", lieu: "Paris · Dakar · Dubaï", image: "/etudes-de-cas/nur-alhayaa.jpg" },
+	{ slug: "rtzw", titre: "Road to Zero Waste", lieu: "Toronto, Canada", image: "/etudes-de-cas/rtzw.jpg" },
+	{ slug: "platinum-construction", titre: "Platinum Construction", lieu: "Vaughan, Canada", image: "/etudes-de-cas/platinum.jpg" },
+];
+
+const faq = [
+	{
+		q: "Je vis en France ou au Canada : peut-on travailler entièrement à distance ?",
+		r: "Oui, c'est ainsi que je travaille déjà avec mes clients au Canada et en Europe. Le cadrage se fait en visio, le suivi par WhatsApp et e-mail, et vous validez chaque étape en ligne sur une version de prévisualisation du site.",
+	},
+	{
+		q: "Combien coûte un site web pour un projet de la diaspora ?",
+		r: "Un site vitrine premium démarre à 300 000 FCFA (à partir de 500 €), l'identité visuelle complète à 350 000 FCFA (à partir de 600 €), et un site complet sur-mesure à partir de 1 000 000 FCFA (à partir de 1 500 €). Paiement en 2 ou 3 fois sans frais au-delà de 800 €.",
+	},
+	{
+		q: "Mon site doit-il être bilingue ?",
+		r: "Pas forcément. Si vos clients au Sénégal et à l'étranger sont tous francophones, un site en français bien ciblé vaut mieux que deux versions bâclées. Le bilingue se justifie quand une partie réelle de votre audience parle une autre langue. On le décide ensemble au cadrage, à partir de vos audiences.",
+	},
+	{
+		q: "Mes clients sont au Sénégal, moi à l'étranger : comment le site les rassure-t-il ?",
+		r: "En reprenant leurs codes : contact WhatsApp, prix en FCFA, moyens de paiement locaux, références qui leur parlent. Et pour votre public à l'étranger, un site professionnel, des références claires et une prise de contact simple.",
+	},
+	{
+		q: "Combien de temps pour livrer un site ?",
+		r: "Un site vitrine est livré en 1 à 3 semaines, une identité visuelle en 1 à 2 semaines, et un site complet en 4 à 8 semaines selon le périmètre. Les délais sont fixés dès le cadrage.",
+	},
+	{
+		q: "Faites-vous aussi des applications pour les associations de la diaspora ?",
+		r: "Oui. J'ai développé pour l'association Nafadji une application de gestion sur-mesure : membres et cotisations, suivi des dons et dépenses, communication interne. Elle est livrée et utilisée en production.",
+	},
+];
+---
+
+<Layout
+	title="Site web pour la diaspora sénégalaise — Saïbo Danfakha"
+	description="Création de sites web pour les entrepreneurs et associations de la diaspora sénégalaise : un site qui inspire confiance au Sénégal comme en France ou au Canada. Travail 100 % à distance, prix annoncés en FCFA et en euros."
+>
+	<!-- Schema FAQ -->
+	<script type="application/ld+json" set:html={JSON.stringify({
+		"@context": "https://schema.org",
+		"@type": "FAQPage",
+		"mainEntity": faq.map((item) => ({
+			"@type": "Question",
+			"name": item.q,
+			"acceptedAnswer": { "@type": "Answer", "text": item.r },
+		})),
+	})} />
+
+	<!-- Hero -->
+	<section class="relative overflow-hidden">
+		<div class="relative z-10 max-w-6xl mx-auto px-6 pt-32 pb-20 md:pt-40 md:pb-28">
+			<div class="max-w-2xl">
+				<p data-animate class="text-sm font-medium uppercase tracking-wider text-terracotta mb-4">
+					Développeur web · Sénégal &amp; diaspora
+				</p>
+				<h1 data-text-reveal class="text-5xl md:text-6xl font-semibold leading-tight tracking-tight text-noir-cafe mb-6">
+					Un site web pour la diaspora sénégalaise
+				</h1>
+				<p data-animate class="text-xl text-sable-600 leading-relaxed max-w-2xl mb-10">
+					Vous entreprenez depuis Paris, Montréal, Toronto ou Milan, avec un projet
+					au Sénégal ou des clients des deux côtés. Je conçois des sites qui inspirent
+					confiance ici comme là-bas, à distance et à prix annoncés.
+				</p>
+				<div data-animate class="flex flex-col sm:flex-row gap-4">
+					<a href={WHATSAPP} target="_blank" rel="noopener noreferrer" data-magnetic
+						class="inline-flex items-center justify-center gap-2 bg-noir-cafe text-creme px-6 py-3 rounded-md font-medium hover:bg-terracotta transition-colors">
+						Discuter sur WhatsApp
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+							<line x1="5" y1="12" x2="19" y2="12"></line>
+							<polyline points="12 5 19 12 12 19"></polyline>
+						</svg>
+					</a>
+					<a href={CALENDLY} target="_blank" rel="noopener noreferrer"
+						class="inline-flex items-center justify-center gap-2 border border-sable-300 text-noir-cafe px-6 py-3 rounded-md font-medium hover:border-noir-cafe transition-colors">
+						Réserver un appel de 30 min
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Les deux publics -->
+	<section class="bg-sable-100 py-20 md:py-28">
+		<div class="max-w-4xl mx-auto px-6">
+			<h2 data-text-reveal class="text-3xl md:text-4xl font-semibold leading-tight tracking-tight text-noir-cafe mb-6">
+				Un pied au Sénégal, un pied ailleurs. Votre site aussi.
+			</h2>
+			<p data-animate class="text-lg text-sable-600 leading-relaxed mb-12 max-w-2xl">
+				Un projet de la diaspora parle presque toujours à deux publics, qui ne
+				cherchent pas la même chose. Le site doit convaincre les deux.
+			</p>
+			<div data-animate-stagger class="grid grid-cols-1 md:grid-cols-2 gap-6">
+				<div data-animate class="bg-creme border border-sable-300 rounded-xl p-6">
+					<h3 class="text-lg font-semibold text-noir-cafe mb-3">Votre public au Sénégal</h3>
+					<p class="text-sable-600 leading-relaxed text-sm">
+						Clients, partenaires, fournisseurs au pays. Ils cherchent de la proximité :
+						un contact WhatsApp, des prix en FCFA, le paiement mobile, des références
+						qu'ils reconnaissent.
+					</p>
+				</div>
+				<div data-animate class="bg-creme border border-sable-300 rounded-xl p-6">
+					<h3 class="text-lg font-semibold text-noir-cafe mb-3">Votre public à l'étranger</h3>
+					<p class="text-sable-600 leading-relaxed text-sm">
+						Clients de la diaspora, partenaires, bailleurs. Ils attendent un site
+						professionnel, des références claires, une prise de rendez-vous simple et
+						parfois une facturation en euros ou en dollars.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Pourquoi moi -->
+	<section class="max-w-4xl mx-auto px-6 py-20 md:py-28">
+		<h2 data-text-reveal class="text-3xl md:text-4xl font-semibold leading-tight tracking-tight text-noir-cafe mb-12">
+			Un développeur basé au Sénégal, qui travaille déjà avec l'étranger.
+		</h2>
+		<div data-animate-stagger class="grid grid-cols-1 md:grid-cols-3 gap-8">
+			<div data-animate>
+				<h3 class="text-lg font-semibold text-noir-cafe mb-3">100 % à distance</h3>
+				<p class="text-sable-600 leading-relaxed text-sm">
+					Cadrage en visio, suivi par WhatsApp et e-mail, validation sur une version en
+					ligne du site. Vous avancez où que vous soyez.
+				</p>
+			</div>
+			<div data-animate>
+				<h3 class="text-lg font-semibold text-noir-cafe mb-3">Les codes des deux rives</h3>
+				<p class="text-sable-600 leading-relaxed text-sm">
+					Je connais le marché sénégalais de l'intérieur et je livre déjà des sites
+					pour des clients au Canada et en Europe. Votre site parle juste, des deux côtés.
+				</p>
+			</div>
+			<div data-animate>
+				<h3 class="text-lg font-semibold text-noir-cafe mb-3">Bilingue si c'est utile</h3>
+				<p class="text-sable-600 leading-relaxed text-sm">
+					Une deuxième langue seulement quand votre audience la parle vraiment. Sinon,
+					une seule langue bien ciblée : moins de coût, moins de maintenance.
+				</p>
+			</div>
+		</div>
+		<p data-animate class="mt-10 text-sm text-sable-600">
+			Pour aller plus loin, lisez mon guide →
+			<a href="/blog/diaspora-site-bilingue/" class="text-noir-cafe underline underline-offset-4 hover:text-terracotta transition-colors">site web bilingue pour la diaspora sénégalaise</a>
+		</p>
+	</section>
+
+	<!-- Offres condensées -->
+	<section class="bg-sable-100 py-20 md:py-28">
+		<div class="max-w-4xl mx-auto px-6">
+			<h2 data-text-reveal class="text-3xl md:text-4xl font-semibold leading-tight tracking-tight text-noir-cafe mb-4">
+				Des prix annoncés, en FCFA et en euros.
+			</h2>
+			<p data-animate class="text-lg text-sable-600 leading-relaxed mb-12 max-w-2xl">
+				Trois manières de travailler ensemble, du site vitrine à l'application
+				sur-mesure. Paiement en 2 ou 3 fois sans frais au-delà de 800 €.
+			</p>
+			<div data-animate-stagger class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+				<div data-animate class="bg-creme border border-sable-300 rounded-xl p-6">
+					<h3 class="text-lg font-semibold text-noir-cafe mb-1">Site Vitrine Premium</h3>
+					<p class="font-serif text-2xl font-semibold text-noir-cafe">300 000 FCFA</p>
+					<p class="text-sm text-sable-600 mb-2">à partir de 500 €</p>
+					<p class="text-sm text-sable-600">One-page à 5 pages · 1 à 3 semaines</p>
+				</div>
+				<div data-animate class="bg-creme border border-sable-300 rounded-xl p-6">
+					<h3 class="text-lg font-semibold text-noir-cafe mb-1">Identité Visuelle</h3>
+					<p class="font-serif text-2xl font-semibold text-noir-cafe">350 000 FCFA</p>
+					<p class="text-sm text-sable-600 mb-2">à partir de 600 €</p>
+					<p class="text-sm text-sable-600">Logo + charte complète · 1 à 2 semaines</p>
+				</div>
+				<div data-animate class="bg-creme border border-sable-300 rounded-xl p-6">
+					<h3 class="text-lg font-semibold text-noir-cafe mb-1">Site Complet</h3>
+					<p class="font-serif text-2xl font-semibold text-noir-cafe">1 000 000 FCFA</p>
+					<p class="text-sm text-sable-600 mb-2">à partir de 1 500 €</p>
+					<p class="text-sm text-sable-600">E-commerce, application web · 4 à 8 semaines</p>
+				</div>
+			</div>
+			<p data-animate class="mt-8 text-sm text-sable-600">
+				Voir le détail de chaque offre →
+				<a href="/#offres" class="text-noir-cafe underline underline-offset-4 hover:text-terracotta transition-colors">tarifs &amp; offres</a>
+			</p>
+		</div>
+	</section>
+
+	<!-- Preuve internationale -->
+	<section class="max-w-4xl mx-auto px-6 py-20 md:py-28">
+		<p data-animate class="text-sm font-medium uppercase tracking-wider text-terracotta mb-4">
+			Réalisations à l'international
+		</p>
+		<h2 data-text-reveal class="text-3xl md:text-4xl font-semibold leading-tight tracking-tight text-noir-cafe mb-6">
+			Des clients entre plusieurs pays, déjà accompagnés.
+		</h2>
+		<p data-animate class="text-lg text-sable-600 leading-relaxed mb-12 max-w-2xl">
+			De Paris à Toronto, des projets menés entièrement à distance, pour des clients
+			qui devaient inspirer confiance à plusieurs publics à la fois.
+		</p>
+
+		<div data-animate-stagger class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+			{realisations.map((r) => (
+				<a href={`/etudes-de-cas/${r.slug}/`} data-animate
+					class="card-hover group block rounded-xl overflow-hidden border border-sable-300 hover:border-noir-cafe">
+					<div class="relative aspect-[4/3] overflow-hidden bg-noir-cafe">
+						<img src={r.image} alt={`Aperçu du site ${r.titre}`} loading="lazy"
+							class="absolute inset-0 w-full h-full object-cover scale-105 blur-[2px] transition-transform duration-700 group-hover:scale-110" />
+						<div class="absolute inset-0 bg-noir-cafe/40"></div>
+						<div class="relative z-10 h-full flex flex-col items-center justify-center text-center px-4">
+							<p class="text-xs font-medium uppercase tracking-widest text-creme/70 mb-2">{r.lieu}</p>
+							<h3 class="font-serif text-2xl font-semibold text-creme leading-tight drop-shadow-lg">{r.titre}</h3>
+						</div>
+					</div>
+				</a>
+			))}
+		</div>
+
+		<!-- Associations de la diaspora -->
+		<a href="/etudes-de-cas/nafadji/" data-animate
+			class="card-hover group mt-6 block bg-creme border border-sable-300 rounded-xl p-6 hover:border-noir-cafe">
+			<div class="flex items-center justify-between gap-3 mb-3">
+				<h3 class="font-serif text-xl font-semibold text-noir-cafe group-hover:text-terracotta transition-colors">Association Nafadji</h3>
+				<span class="px-3 py-1 bg-sable-100 text-sable-600 text-xs font-medium rounded-full whitespace-nowrap">Diaspora sénégalaise</span>
+			</div>
+			<p class="text-sm text-sable-600 leading-relaxed">
+				Application web de gestion pour une association de la diaspora : membres et
+				cotisations, dons et dépenses, communication interne. Livrée et en production →
+			</p>
+		</a>
+
+		<!-- Témoignage -->
+		<figure data-animate class="mt-12 border-l-2 border-terracotta pl-6">
+			<blockquote class="text-lg text-noir-cafe leading-relaxed italic">
+				« Saïbo est très professionnel et réactif. J'ai été très satisfaite de son
+				travail pour mon site. Il a été à l'écoute et attentif à mes besoins. Je le
+				recommande. »
+			</blockquote>
+			<figcaption class="mt-4 text-sm text-sable-600">
+				<span class="font-semibold text-noir-cafe">Rokhaya Cissé</span>, fondatrice de
+				Nur Alhayaa Interior Design · Paris · Dakar · Dubaï
+			</figcaption>
+		</figure>
+	</section>
+
+	<!-- FAQ -->
+	<section class="bg-sable-100 py-20 md:py-28">
+		<div class="max-w-3xl mx-auto px-6">
+			<h2 data-text-reveal class="text-3xl md:text-4xl font-semibold leading-tight tracking-tight text-noir-cafe mb-12">
+				Questions fréquentes
+			</h2>
+			<div class="divide-y divide-sable-300 border-t border-b border-sable-300">
+				{faq.map((item) => (
+					<details class="group py-6">
+						<summary class="flex cursor-pointer items-center justify-between gap-4 text-lg font-semibold text-noir-cafe list-none">
+							{item.q}
+							<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 text-terracotta transition-transform group-open:rotate-45">
+								<line x1="12" y1="5" x2="12" y2="19"></line>
+								<line x1="5" y1="12" x2="19" y2="12"></line>
+							</svg>
+						</summary>
+						<p class="mt-4 text-sable-600 leading-relaxed">{item.r}</p>
+					</details>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- CTA final -->
+	<section class="bg-noir-cafe text-creme py-20 md:py-28">
+		<div class="max-w-3xl mx-auto px-6 text-center">
+			<h2 data-text-reveal class="text-3xl md:text-4xl font-semibold leading-tight tracking-tight text-creme mb-6">
+				Parlons de votre projet, d'où que vous soyez.
+			</h2>
+			<p data-animate class="text-lg text-sable-300 leading-relaxed mb-10 max-w-xl mx-auto">
+				Dites-moi où vous êtes, où sont vos clients et ce que vous voulez construire.
+				Je vous réponds avec une première piste concrète.
+			</p>
+			<div data-animate class="flex flex-col sm:flex-row gap-4 justify-center">
+				<a href={WHATSAPP} target="_blank" rel="noopener noreferrer" data-magnetic
+					class="inline-flex items-center justify-center gap-2 bg-terracotta text-creme px-6 py-3 rounded-md font-medium hover:bg-creme hover:text-noir-cafe transition-colors">
+					Discuter sur WhatsApp
+				</a>
+				<a href={CALENDLY} target="_blank" rel="noopener noreferrer"
+					class="inline-flex items-center justify-center gap-2 border border-sable-600 text-creme px-6 py-3 rounded-md font-medium hover:border-creme transition-colors">
+					Réserver un appel de 30 min
+				</a>
+			</div>
+		</div>
+	</section>
+</Layout>
