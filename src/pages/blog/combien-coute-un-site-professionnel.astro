@@ -6,15 +6,16 @@ const article = {
 	titre: "Combien coûte vraiment un site web professionnel au Sénégal en 2026 ?",
 	extrait: "Décodage des prix : de 100 000 FCFA à 20 millions FCFA. Les 4 tranches du marché sénégalais expliquées, avec équivalents en €.",
 	date: "2026-05-19",
+	maj: "2026-10-12",
 	tags: ["budget", "webdesign", "senegal", "sur-mesure"],
-	tempsLecture: "7 min",
+	tempsLecture: "9 min",
 };
 ---
 
 <Layout
 	title={`${article.titre} — Blog — Saïbo Danfakha`}
 	description={article.extrait}
-	article={{ headline: article.titre, datePublished: article.date }}
+	article={{ headline: article.titre, datePublished: article.date, dateModified: article.maj }}
 >
 	<article class="max-w-3xl mx-auto px-6 py-24 md:py-32">
 		<a href="/blog/" class="inline-flex items-center gap-2 text-sm text-sable-600 hover:text-noir-cafe transition-colors mb-12">
@@ -33,6 +34,9 @@ const article = {
 				<span>·</span>
 				<span>{article.tempsLecture} de lecture</span>
 			</div>
+			<p class="text-sm text-sable-600 -mt-2 mb-4">
+				Mis à jour le <time datetime={article.maj}>{new Date(article.maj).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}</time>
+			</p>
 
 			<h1 class="text-4xl md:text-5xl font-semibold leading-tight tracking-tight text-noir-cafe mb-6">
 				{article.titre}
@@ -67,6 +71,51 @@ const article = {
 
 			<p class="text-sable-600 mb-8 leading-relaxed">
 				Voici un décodage clair des 4 tranches de prix du marché sénégalais, ce qu'elles incluent vraiment, et comment savoir si le devis qu'on vous présente est juste.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Prix d'un site web au Sénégal en 2026 : le tableau comparatif</h2>
+
+			<div class="not-prose overflow-x-auto my-8 -mx-6 md:mx-0">
+				<table class="w-full min-w-[560px] text-sm text-left border-collapse">
+					<thead>
+						<tr class="border-b-2 border-noir-cafe text-noir-cafe">
+							<th scope="col" class="py-3 px-3 font-semibold">Prestataire</th>
+							<th scope="col" class="py-3 px-3 font-semibold">Prix en FCFA</th>
+							<th scope="col" class="py-3 px-3 font-semibold">Prix en euros</th>
+							<th scope="col" class="py-3 px-3 font-semibold">Pour qui</th>
+						</tr>
+					</thead>
+					<tbody class="text-sable-600">
+						<tr class="border-b border-sable-300">
+							<th scope="row" class="py-3 px-3 font-medium text-noir-cafe">Template / DIY</th>
+							<td class="py-3 px-3 whitespace-nowrap">100 000 – 300 000</td>
+							<td class="py-3 px-3 whitespace-nowrap">150 – 450 €</td>
+							<td class="py-3 px-3">Tester une idée</td>
+						</tr>
+						<tr class="border-b border-sable-300">
+							<th scope="row" class="py-3 px-3 font-medium text-noir-cafe">Freelance débutant</th>
+							<td class="py-3 px-3 whitespace-nowrap">300 000 – 1 000 000</td>
+							<td class="py-3 px-3 whitespace-nowrap">450 – 1 500 €</td>
+							<td class="py-3 px-3">Petit budget, délais souples</td>
+						</tr>
+						<tr class="border-b border-sable-300 bg-terracotta/5">
+							<th scope="row" class="py-3 px-3 font-medium text-noir-cafe">Freelance expérimenté ⭐</th>
+							<td class="py-3 px-3 whitespace-nowrap">1 000 000 – 5 000 000</td>
+							<td class="py-3 px-3 whitespace-nowrap">1 500 – 7 500 €</td>
+							<td class="py-3 px-3">PME, entrepreneur diaspora, projet sérieux</td>
+						</tr>
+						<tr class="border-b border-sable-300">
+							<th scope="row" class="py-3 px-3 font-medium text-noir-cafe">Agence</th>
+							<td class="py-3 px-3 whitespace-nowrap">5 000 000 – 20 000 000+</td>
+							<td class="py-3 px-3 whitespace-nowrap">7 500 – 30 000 €+</td>
+							<td class="py-3 px-3">Grande entreprise, plateforme complexe</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Ce sont des fourchettes indicatives pour un site complet. Un site vitrine simple chez un freelance expérimenté peut démarrer plus bas : tout dépend du périmètre, détaillé tranche par tranche ci-dessous.
 			</p>
 
 			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Pourquoi les prix varient autant</h2>
@@ -226,6 +275,49 @@ const article = {
 				<p class="text-sm text-noir-cafe font-medium mb-1">Drapeau rouge :</p>
 				<p class="text-sm text-sable-600">Un devis vague ("site web professionnel — 1 500 000 FCFA") sans détail = <strong>fuyez</strong>. Vous découvrirez les "extras" facturés en cours de route.</p>
 			</div>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Exemple concret : mes tarifs en FCFA et en euros</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Pour que ces fourchettes ne restent pas abstraites, voici mes propres forfaits, annoncés publiquement :
+			</p>
+
+			<div class="not-prose overflow-x-auto my-8 -mx-6 md:mx-0">
+				<table class="w-full min-w-[520px] text-sm text-left border-collapse">
+					<thead>
+						<tr class="border-b-2 border-noir-cafe text-noir-cafe">
+							<th scope="col" class="py-3 px-3 font-semibold">Offre</th>
+							<th scope="col" class="py-3 px-3 font-semibold">À partir de</th>
+							<th scope="col" class="py-3 px-3 font-semibold">En euros</th>
+							<th scope="col" class="py-3 px-3 font-semibold">Délai</th>
+						</tr>
+					</thead>
+					<tbody class="text-sable-600">
+						<tr class="border-b border-sable-300">
+							<th scope="row" class="py-3 px-3 font-medium text-noir-cafe">Site Vitrine Premium</th>
+							<td class="py-3 px-3 whitespace-nowrap">300 000 FCFA</td>
+							<td class="py-3 px-3 whitespace-nowrap">500 €</td>
+							<td class="py-3 px-3 whitespace-nowrap">1 à 3 semaines</td>
+						</tr>
+						<tr class="border-b border-sable-300">
+							<th scope="row" class="py-3 px-3 font-medium text-noir-cafe">Identité Visuelle</th>
+							<td class="py-3 px-3 whitespace-nowrap">350 000 FCFA</td>
+							<td class="py-3 px-3 whitespace-nowrap">600 €</td>
+							<td class="py-3 px-3 whitespace-nowrap">1 à 2 semaines</td>
+						</tr>
+						<tr class="border-b border-sable-300">
+							<th scope="row" class="py-3 px-3 font-medium text-noir-cafe">Site Complet</th>
+							<td class="py-3 px-3 whitespace-nowrap">1 000 000 FCFA</td>
+							<td class="py-3 px-3 whitespace-nowrap">1 500 €</td>
+							<td class="py-3 px-3 whitespace-nowrap">4 à 8 semaines</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Paiement en 2 ou 3 fois sans frais au-delà de 800 €. Le détail de chaque offre est sur la <a href="/#offres" class="text-noir-cafe underline underline-offset-4 hover:text-terracotta transition-colors">page tarifs</a>. Avant de signer avec qui que ce soit, gardez sous la main <a href="/blog/comment-choisir-son-developpeur-web-freelance/" class="text-noir-cafe underline underline-offset-4 hover:text-terracotta transition-colors">les critères pour choisir son développeur web freelance au Sénégal</a>.
+			</p>
 
 			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">En résumé</h2>
 

@@ -3,18 +3,19 @@ import Layout from "../../layouts/Layout.astro";
 
 const article = {
 	slug: "comment-choisir-son-developpeur-web-freelance",
-	titre: "Comment choisir son développeur web freelance",
-	extrait: "Les 5 critères essentiels pour trouver un développeur web freelance fiable et éviter les mauvaises surprises.",
+	titre: "Comment choisir son développeur web freelance au Sénégal",
+	extrait: "Les 5 critères essentiels pour trouver un développeur web freelance fiable, plus les points à vérifier au Sénégal : paiement, nom de domaine, mobile, statut légal.",
 	date: "2026-05-08",
-	tags: ["freelance", "webdesign", "conseils"],
-	tempsLecture: "5 min",
+	maj: "2026-10-12",
+	tags: ["freelance", "senegal", "conseils"],
+	tempsLecture: "8 min",
 };
 ---
 
 <Layout
 	title={`${article.titre} — Blog — Saïbo Danfakha`}
 	description={article.extrait}
-	article={{ headline: article.titre, datePublished: article.date }}
+	article={{ headline: article.titre, datePublished: article.date, dateModified: article.maj }}
 >
 	<article class="max-w-3xl mx-auto px-6 py-24 md:py-32">
 		<a href="/blog/" class="inline-flex items-center gap-2 text-sm text-sable-600 hover:text-noir-cafe transition-colors mb-12">
@@ -33,6 +34,9 @@ const article = {
 				<span>·</span>
 				<span>{article.tempsLecture} de lecture</span>
 			</div>
+			<p class="text-sm text-sable-600 -mt-2 mb-4">
+				Mis à jour le <time datetime={article.maj}>{new Date(article.maj).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}</time>
+			</p>
 
 			<h1 class="text-4xl md:text-5xl font-semibold leading-tight tracking-tight text-noir-cafe mb-6">
 				{article.titre}
@@ -66,7 +70,7 @@ const article = {
 			</p>
 
 			<p class="text-sable-600 mb-8 leading-relaxed">
-				Voici 5 critères concrets pour choisir un développeur freelance qui vous fera gagner du temps, pas des cheveux blancs.
+				Voici 5 critères concrets pour choisir un développeur freelance qui vous fera gagner du temps, pas des cheveux blancs. Puis, parce que le marché a ses propres règles, les points à vérifier en plus si vous cherchez un freelance web au Sénégal.
 			</p>
 
 			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">1. Regardez ses réalisations, pas ses promesses</h2>
@@ -198,6 +202,47 @@ const article = {
 				/>
 			</figure>
 
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Comment choisir un freelance web au Sénégal : 5 points en plus</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Les 5 critères ci-dessus valent partout. Mais au Sénégal, certains pièges reviennent si souvent qu'ils méritent une vérification à part, avant de verser le moindre acompte.
+			</p>
+
+			<h3 class="text-xl font-semibold text-noir-cafe mt-8 mb-3">Le nom de domaine doit être à votre nom</h3>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				C'est le piège le plus coûteux. Le prestataire achète le domaine (<code>votreentreprise.sn</code> ou <code>.com</code>) et l'hébergement sur son propre compte. Le jour où vous vous séparez, ou s'il devient injoignable, votre site et vos adresses e-mail sont pris en otage. Exigez que le domaine soit enregistré <strong>à votre nom</strong>, avec des accès que vous gardez.
+			</p>
+
+			<h3 class="text-xl font-semibold text-noir-cafe mt-8 mb-3">Des modalités de paiement écrites</h3>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Wave, Orange Money, virement : le moyen importe peu, tant que l'échéancier est écrit. Un acompte au démarrage, des paiements liés à des étapes validées, le solde à la livraison. Méfiez-vous de quiconque réclame 100 % d'avance sur un simple échange WhatsApp.
+			</p>
+
+			<h3 class="text-xl font-semibold text-noir-cafe mt-8 mb-3">Un site pensé d'abord pour le mobile</h3>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Vos clients au Sénégal vous découvriront presque toujours sur leur téléphone, souvent avec une connexion mobile et un forfait data limité. Demandez à voir les réalisations du freelance <strong>sur votre propre téléphone</strong> : si elles sont lentes ou mal affichées, le vôtre le sera aussi.
+			</p>
+
+			<h3 class="text-xl font-semibold text-noir-cafe mt-8 mb-3">Un prestataire déclaré</h3>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Un freelance enregistré (RCCM, NINEA) peut vous remettre une vraie facture, utile pour votre comptabilité, et il engage sa responsabilité. C'est aussi un bon indicateur de sérieux : il compte encore être là dans un an.
+			</p>
+
+			<h3 class="text-xl font-semibold text-noir-cafe mt-8 mb-3">La proximité, quand elle compte</h3>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Un développeur qui connaît le marché local sait ce qui rassure vos clients : un bouton WhatsApp visible, des prix en FCFA, le paiement mobile. Si vous êtes en région, un freelance qui peut vous rencontrer, <a href="/freelance-web-kaolack/" class="text-noir-cafe underline underline-offset-4 hover:text-terracotta transition-colors">à Kaolack par exemple</a>, simplifie le cadrage. Si vous êtes à l'étranger, cherchez au contraire quelqu'un qui a l'habitude de <a href="/site-web-diaspora/" class="text-noir-cafe underline underline-offset-4 hover:text-terracotta transition-colors">travailler à distance avec la diaspora</a>.
+			</p>
+
+			<div class="bg-sable-100 border border-sable-300 rounded-lg p-4 my-6">
+				<p class="text-sm text-noir-cafe font-medium mb-1">Question à poser :</p>
+				<p class="text-sm text-sable-600">"Le nom de domaine sera-t-il à mon nom, et quel est l'échéancier de paiement par écrit ?"</p>
+			</div>
+
 			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">En résumé</h2>
 
 			<p class="text-sable-600 mb-6 leading-relaxed">
@@ -211,6 +256,10 @@ const article = {
 				<li>✅ La clarté de son prix</li>
 				<li>✅ Son engagement après-vente</li>
 			</ul>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Et au Sénégal, vérifiez en plus que le nom de domaine est à votre nom, que le paiement est écrit, que le site est pensé pour le mobile et que le prestataire est déclaré. Pour situer un devis, lisez aussi <a href="/blog/combien-coute-un-site-professionnel/" class="text-noir-cafe underline underline-offset-4 hover:text-terracotta transition-colors">combien coûte un site web professionnel au Sénégal</a>.
+			</p>
 
 			<p class="text-sable-600 mb-8 leading-relaxed">
 				Un développeur qui coche ces 5 cases ? Vous avez trouvé quelqu'un de fiable.
