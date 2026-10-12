@@ -169,7 +169,7 @@ Fodé compare et reporte (il ne recommande pas de changements) :
 ## Phase 3 — Mesure & itération (Semaines 9-12) · *amplification*
 - [ ] **[P1]** Comparer aux chiffres de départ (trafic, positions, conversions) — *Fodé*.
 - [ ] **[P1]** Doubler sur ce qui marche, corriger ce qui stagne — *Raby* (arbitrage).
-- [~] **[P2]** Optimisations perf (polices non bloquantes, images) — *Youssouf* → ✅ polices auto-hébergées + préchargées (12/10). Reste : images.
+- [x] **[P2]** Optimisations perf (polices non bloquantes, images) — *Youssouf* → ✅ 12/10 : polices auto-hébergées + préchargées ; images des études de cas en WebP (~5 Mo → ~0,8 Mo), OG légères (< 120 Ko), visuels d'en-tête dimensionnés et prioritaires.
 - [x] **[P2]** OG images par article — *Youssouf* → ✅ 12/10 (image de couverture de chaque article).
 - [x] **[P2]** BreadcrumbList sur articles — *Youssouf* → ✅ 12/10.
 - [~] **[P2]** Citations annuaires sénégalais + 3-5 backlinks de qualité — *Lamine* → voir `SEO/CITATIONS-BACKLINKS.md` (12/10).

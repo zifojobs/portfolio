@@ -9,9 +9,9 @@ const CALENDLY = "https://calendly.com/zifo1819/30min";
 
 // Mini-galerie de preuve : du service local sénégalais à l'international premium.
 const realisations = [
-	{ slug: "jang", titre: "Jàng", lieu: "Sénégal", image: "/etudes-de-cas/jang.png" },
-	{ slug: "nur-alhayaa", titre: "Nur Alhayaa", lieu: "Dakar · Paris · Dubaï", image: "/etudes-de-cas/nur-alhayaa.jpg" },
-	{ slug: "platinum-construction", titre: "Platinum Construction", lieu: "Vaughan, Canada", image: "/etudes-de-cas/platinum.jpg" },
+	{ slug: "jang", titre: "Jàng", lieu: "Sénégal", image: "/etudes-de-cas/jang.webp" },
+	{ slug: "nur-alhayaa", titre: "Nur Alhayaa", lieu: "Dakar · Paris · Dubaï", image: "/etudes-de-cas/nur-alhayaa.webp" },
+	{ slug: "platinum-construction", titre: "Platinum Construction", lieu: "Vaughan, Canada", image: "/etudes-de-cas/platinum.webp" },
 ];
 
 const faq = [
@@ -193,7 +193,8 @@ const faq = [
 					<a href={`/etudes-de-cas/${r.slug}/`} data-animate
 						class="card-hover group block rounded-xl overflow-hidden border border-sable-300 hover:border-noir-cafe">
 						<div class="relative aspect-[4/3] overflow-hidden bg-noir-cafe">
-							<img src={r.image} alt={`Aperçu du site ${r.titre}`} loading="lazy"
+							<img src={r.image} alt={`Aperçu du site ${r.titre}`} loading="lazy" decoding="async"
+								decoding="async"
 								class="absolute inset-0 w-full h-full object-cover scale-105 blur-[2px] transition-transform duration-700 group-hover:scale-110" />
 							<div class="absolute inset-0 bg-noir-cafe/40"></div>
 							<div class="relative z-10 h-full flex flex-col items-center justify-center text-center px-4">

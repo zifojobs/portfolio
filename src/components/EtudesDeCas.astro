@@ -12,7 +12,7 @@ const etudes = [
 		localisation: "Saint-Louis, Sénégal",
 		description: "Site institutionnel et outil de suivi pour une ONG financée par des bailleurs internationaux : 229 groupes d'épargne réunis dans un registre unique, six communes cloisonnées jusque dans la base, et le rapport semestriel du bailleur qui sort avec ses treize tableaux déjà remplis.",
 		urlLive: "https://dekkandoo.com",
-		image: "/etudes-de-cas/dekkandoo.jpg",
+		image: "/etudes-de-cas/dekkandoo.webp",
 		accent: "vert-savane",
 		hubs: ["Sénégal"],
 	},
@@ -24,7 +24,7 @@ const etudes = [
 		localisation: "Vaughan, Canada",
 		description: "Refonte complète du site d'un entrepreneur général canadien actif depuis 1997 : hero vidéo cinématique, galerie de 25+ chantiers (Chipotle, Starbucks, KFC…) et image de marque North America.",
 		urlLive: "https://platinumconstruction.com",
-		image: "/etudes-de-cas/platinum.jpg",
+		image: "/etudes-de-cas/platinum.webp",
 		accent: "noir-cafe",
 		hubs: ["Canada", "Construction"],
 	},
@@ -36,7 +36,7 @@ const etudes = [
 		localisation: "Sénégal",
 		description: "Bien plus qu'un site : une véritable application web multi-écoles (type Pronote sénégalais) — gestion des notes, présences et communication école-parents. Développée de A à Z avec Next.js + Supabase.",
 		urlLive: "https://www.jang.sn",
-		image: "/etudes-de-cas/jang.png",
+		image: "/etudes-de-cas/jang.webp",
 		enCours: true,
 		accent: "vert-savane",
 		hubs: ["Sénégal", "SaaS"],
@@ -49,7 +49,7 @@ const etudes = [
 		localisation: "Dakar (fictif)",
 		description: "Un site vitrine où la vidéo EST l'interface : un plan macro continu de 8s, généré et lissé par IA, mappé image par image au scroll. Ce que peut être une boutique premium au Sénégal en 2026.",
 		urlLive: "https://sunu-tech-demo.vercel.app",
-		image: "/etudes-de-cas/sunu-tech.png",
+		image: "/etudes-de-cas/sunu-tech.webp",
 		demo: true,
 		accent: "terracotta",
 		hubs: ["Sénégal", "Démonstrateur"],
@@ -73,7 +73,7 @@ const etudes = [
 		localisation: "Canada",
 		description: "Partenariat long-terme : 3 livrables successifs pour une agence de production vidéo positionnée comme partenaire stratégique des marques.",
 		urlLive: "https://s5lproductions.com",
-		image: "/etudes-de-cas/s5l.jpg",
+		image: "/etudes-de-cas/s5l.webp",
 		accent: "terracotta",
 		hubs: ["Canada"],
 	},
@@ -85,7 +85,7 @@ const etudes = [
 		localisation: "Toronto, Canada",
 		description: "Reconstruction d'urgence du site d'une ONG canadienne pour rétablir la collecte de dons alimentant des centaines de familles chaque semaine.",
 		urlLive: "https://roadtozerowaste.org",
-		image: "/etudes-de-cas/rtzw.jpg",
+		image: "/etudes-de-cas/rtzw.webp",
 		accent: "vert-savane",
 		hubs: ["Canada"],
 	},
@@ -97,7 +97,7 @@ const etudes = [
 		localisation: "Mississauga, Canada",
 		description: "Site B2B technique pour une entreprise de restauration structurelle qui devait inspirer la confiance immédiate auprès de gestionnaires immobiliers.",
 		urlLive: "https://registon.ca",
-		image: "/etudes-de-cas/registon.jpg",
+		image: "/etudes-de-cas/registon.webp",
 		accent: "noir-cafe",
 		hubs: ["Canada", "Construction"],
 	},
@@ -109,7 +109,7 @@ const etudes = [
 		localisation: "Paris · Dakar · Dubaï",
 		description: "Site multi-pages pour une agence de décoration haut de gamme opérant à l'international, avec portfolio et engagement éco-responsable.",
 		urlLive: "https://rokhaya-site.vercel.app",
-		image: "/etudes-de-cas/nur-alhayaa.jpg",
+		image: "/etudes-de-cas/nur-alhayaa.webp",
 		accent: "terracotta",
 		hubs: ["Sénégal"],
 	},
@@ -121,7 +121,7 @@ const etudes = [
 		localisation: "Brampton, Canada",
 		description: "Site vitrine pour un centre de réparation automobile complet, avec présentation des services, équipe et commodités client premium.",
 		urlLive: "https://nationalautosc.com",
-		image: "/etudes-de-cas/national-auto.jpg",
+		image: "/etudes-de-cas/national-auto.webp",
 		accent: "noir-cafe",
 		hubs: ["Canada"],
 	},
@@ -174,6 +174,7 @@ const projetsGraphe = etudes.map((e) => ({
 								src={e.image}
 								alt={`Aperçu du site ${e.titre}`}
 								loading="lazy"
+								decoding="async"
 								class="absolute inset-0 w-full h-full object-cover scale-105 blur-[3px] transition-transform duration-700 group-hover:scale-110"
 							/>
 						)}
