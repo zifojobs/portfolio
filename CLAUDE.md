@@ -1,14 +1,27 @@
 # saibodanfakha.com — Portfolio & blog (spoke technique)
 
-**Dernière mise à jour : 2026-06-17 (réécrit en spoke léger lors de la centralisation)**
+**Dernière mise à jour : 2026-10-15 (plan de visibilité 6 mois + routines cloud)**
 
 > 🧭 **Contexte global, stratégie, prochaine session → voir le HUB privé** (hors repo).
 > Ce fichier ne contient QUE la **référence technique** du site. Le **suivi vivant**
 > (état du blog, SEO/GSC, tarifs, prospection, prochaine session) est tenu dans le hub —
 > ne pas le recopier ici pour éviter la désynchro.
 
-**État en 1 ligne :** ✅ en ligne depuis 2026-05-03 · 7 articles blog · SEO en cours
-(baseline GSC 11/06). Détail courant = hub.
+**État en 1 ligne :** ✅ en ligne depuis 2026-05-03 · 13 articles (14ᵉ le 20/10) · **aucun prix de
+Saïbo affiché** (décision du 12/10, chiffrage sur devis) · 3 piliers : sites · référencement · applications
+sur mesure. Détail courant = hub.
+
+## 🗓️ Plan de visibilité 16/10/2026 → 15/04/2027 (validé par Saïbo le 15/10)
+
+- **Tout est dans `SEO/`** : `PLAN-VISIBILITE-2026-2027.xlsx` (6 onglets, méthode de l'équipe SEO de Platinum,
+  généré par `SEO/plan_visibilite.py` — relancer après chaque changement de page pour la feuille meta),
+  `CALENDRIER.md` (miroir texte), `PROCEDURE-ARTICLE.md` (**fait foi**), `posts/AAAA-MM-JJ.md`, `PROFILS-RESEAUX.md`.
+- **Automatique** : routine cloud **jeudi 08:00 UTC** (`trig_01T18ULqFvXXuJ1rkEN9Yf8A`, Opus 5.5) rédige l'article du
+  mardi suivant sur `article/AAAA-MM-JJ` · routine **mardi 09:00 UTC** (`trig_01FMRDT6Vr6JSLDEozgdjGWk`, Sonnet 5.5)
+  le fusionne dans `main` sauf si `NE-PAS-PUBLIER` existe sur la branche. Gérer : claude.ai/code/routines.
+- **Saïbo** : relire jeudi → lundi, publier les 3 posts (mardi · jeudi matin · samedi), cocher l'onglet 4.
+- ⚠️ **Sur le PC, `npm run build` échoue** (module natif Tailwind bloqué par Windows, erreur 4551) :
+  la vérification passe par le statut Vercel du commit (API GitHub) puis la prod. L'aperçu Vercel est protégé.
 
 ---
 
@@ -46,7 +59,8 @@
 - Backlog + mesures + fiches : `SEO/BACKLOG.md`, `SEO/MESURES.md`, `SEO/GBP-fiche-saibo.md`.
 - Agence SEO familiale (7 agents) = définie globalement, appelée par prénom
   (Raby, Youssouf, Dialamba, Mouhamed, Lamine, Fodé, Bangaly). État/relevés GSC = **hub**.
-- Page d'atterrissage géo : `/freelance-web-kaolack`.
+- Page d'atterrissage géo : `/freelance-web-kaolack` — **hero 3D particules** « Le sel de Kaolack »
+  (`src/scripts/heroKaolack3d.ts`, chunk lazy desktop only ; mobile = hero statique, SEO intact).
 
 ## Cohérence diaspora ⚠️
 
