@@ -205,7 +205,10 @@ mois = ["oct. 2026 (départ)", "nov. 2026", "déc. 2026", "janv. 2027", "févr. 
 sheet(wb, "6. Rapport mensuel",
       "1re semaine du mois. Source : Google Search Console, fenêtre 3 mois. Dernier relevé connu : 27/07/2026 = 2 clics · 96 impressions · position 20,7.",
       ["Mois", "Clics", "Impressions", "Position moy.", "Requêtes en top 10", "Articles prévus / faits", "Posts prévus / faits", "Messages entrants", "Sites référents", "Lecture"],
-      [20, 8, 12, 12, 14, 16, 16, 14, 12, 50], [(m, "", "", "", "", "", "", "", "", "") for m in mois])
+      [20, 8, 12, 12, 14, 16, 16, 14, 12, 50],
+      [("oct. 2026 (départ)", 1, 285, 19.8, "à compter", "—", "—", "", "",
+        "Relevé du 15/10 : impressions ×3 depuis juillet, page 2. 1re requête : « rédacteur web senegal » (27). 4 pages en 404 redirigées.")]
+      + [(m, "", "", "", "", "", "", "", "", "") for m in mois[1:]])
 
 OUT.parent.mkdir(exist_ok=True)
 wb.save(OUT)

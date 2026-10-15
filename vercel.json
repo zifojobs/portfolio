@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    { "source": "/politique", "destination": "/politique-de-confidentialite/", "permanent": true },
+    { "source": "/politique/", "destination": "/politique-de-confidentialite/", "permanent": true },
+    { "source": "/arabe", "destination": "/", "permanent": true },
+    { "source": "/arabe/", "destination": "/", "permanent": true },
+    { "source": "/projets", "destination": "/#etudes-de-cas", "permanent": true },
+    { "source": "/projets/", "destination": "/#etudes-de-cas", "permanent": true },
+    { "source": "/etudes-de-cas/rk-services/", "destination": "/#etudes-de-cas", "permanent": true },
+    { "source": "/etudes-de-cas/rk-services", "destination": "/#etudes-de-cas", "permanent": true },
+    { "source": "/etudes-de-cas/meridien/", "destination": "/#etudes-de-cas", "permanent": true },
+    { "source": "/etudes-de-cas/meridien", "destination": "/#etudes-de-cas", "permanent": true },
+    { "source": "/sitemap.xml", "destination": "/sitemap-index.xml", "permanent": true }
+  ]
+}

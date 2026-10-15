@@ -5,6 +5,41 @@ Le plus récent en premier ; la baseline du 2026-06-11 en bas de fichier.
 
 ---
 
+# Relevé n°4 — 2026-10-15 · DÉPART du plan de visibilité
+**Source** : GSC, captures de Saïbo · **Période** : 3 mois (~13/07 → 13/10/2026)
+
+| Métrique | 15/10 | 27/07 | Δ |
+|---|---|---|---|
+| Clics | **1** | 2 | −1 |
+| Impressions | **285** | 96 | **×3** |
+| CTR | 0,4 % | 2,1 % | — (dilution) |
+| Position moyenne | 19,8 | 20,7 | ≈ |
+| Requêtes | 24 | 16 | +8 |
+| Pages indexées | **24** (9 non indexées) | — | — |
+
+**Requêtes (top 10)** : rédacteur web senegal 27 · référencement local senegal 20 · référencement google sénégal 19 ·
+optimisation seo site web sénégal 15 · software development services 6 · assistant ia whatsapp 4 · création de site
+e-commerce sénégal 3 · référencement site senegal 3 · comment choisir un développeur web freelance 3 · référencement naturel dakar 3.
+
+**Lecture**
+1. **Les impressions triplent sans un article publié depuis le 21/07** : le site prend de l'âge, Google le montre plus.
+   Mais il reste en **page 2** (position ~20) ⇒ presque aucun clic. Le plan vise à faire passer des requêtes en top 10.
+2. **Le référencement pèse 60 impressions sur 285** (4 requêtes) ⇒ la page `/referencement-site-web-senegal/`
+   (en ligne depuis le 15/10) et l'article du 20/10 tombent juste.
+3. 🆕 **« rédacteur web senegal » = 1ʳᵉ requête (27)**, sans aucune page qui y réponde. ⇒ **décision de Saïbo** :
+   vend-il la rédaction web (il rédige déjà les articles de Platinum) ? Si oui : une page service ; sinon : rien.
+4. « assistant ia whatsapp » (4) : la page `/assistant/` commence à exister pour Google.
+5. **Indexation (rapport du 09/10)** : 4 en 404 · 2 « noindex » · 1 canonique alternative · 1 explorée non indexée ·
+   1 détectée non indexée. 404 relevés en direct le 15/10 : `/politique/`, `/arabe/`, `/projets/`,
+   `/etudes-de-cas/rk-services/`, `/etudes-de-cas/meridien/`, `/sitemap.xml` ⇒ **redirections 301 ajoutées
+   (`vercel.json`)**. Saïbo : cliquer « Valider la correction » sur la ligne 404 dans GSC.
+6. **Sitemap lu le 03/10, 26 pages** ⇒ les nouvelles pages (30 URL) seront relues ; Saïbo peut le renvoyer (« Envoyer » sur `sitemap-index.xml`).
+7. Core Web Vitals : « aucune donnée » = trafic trop faible pour Google, pas un défaut. HTTPS : 0 problème.
+
+**Prochain relevé : début novembre (rapport mensuel, onglet 6).**
+
+---
+
 # Relevé n°2 — 2026-07-10
 **Source** : GSC · **Période** : 3 mois (09/04/2026 → 08/07/2026, données à jour −4h)
 
@@ -153,7 +188,8 @@ Le plus récent en premier ; la baseline du 2026-06-11 en bas de fichier.
 | 2026-06-11 | 2 | 69 | 2,9 % | 6,2 | Baseline initiale — 3 mois |
 | 2026-07-10 | 2 | 76 | 2,6 % | 9,3 | 1res requêtes non-marque (5, 9 imp.) · 10 pages visibles · diaspora indexée · kaolack non indexée |
 | 2026-07-27 | 2 | 96 | 2,1 % | 20,7 | **16 requêtes** · la marque ne pèse plus que 2 imp. · **8/10 des requêtes = SEO/référencement** · aucun mot-clé du mapping v1 ne ressort |
-| 2026-08-11 | — | — | — | — | À relever (kaolack + top 10 génériques) |
+| 2026-08-11 | — | — | — | — | Non relevé |
+| 2026-10-15 | 1 | 285 | 0,4 % | 19,8 | **Départ du plan** · 24 requêtes · « rédacteur web senegal » en tête (27) · 24 pages indexées, 4 en 404 → redirigées |
 
 ---
 
