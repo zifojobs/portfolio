@@ -152,4 +152,59 @@ Le plus récent en premier ; la baseline du 2026-06-11 en bas de fichier.
 |---|---|---|---|---|---|
 | 2026-06-11 | 2 | 69 | 2,9 % | 6,2 | Baseline initiale — 3 mois |
 | 2026-07-10 | 2 | 76 | 2,6 % | 9,3 | 1res requêtes non-marque (5, 9 imp.) · 10 pages visibles · diaspora indexée · kaolack non indexée |
+| 2026-07-27 | 2 | 96 | 2,1 % | 20,7 | **16 requêtes** · la marque ne pèse plus que 2 imp. · **8/10 des requêtes = SEO/référencement** · aucun mot-clé du mapping v1 ne ressort |
 | 2026-08-11 | — | — | — | — | À relever (kaolack + top 10 génériques) |
+
+---
+
+## Relevé n°3 — 2026-07-27 (relevé anticipé, fenêtre 3 mois)
+
+**2 clics · 96 impressions · CTR 2,1 % · position moyenne 20,7 · 16 requêtes**
+
+### Lecture des chiffres
+
+- **La position 6,2 → 9,3 → 20,7 n'est PAS une dégradation.** En juin, la moyenne était calculée
+  quasi uniquement sur « danfakha » (marque, position 1-3). Le site ressort maintenant sur des
+  requêtes génériques concurrentielles où il est en page 2-3 → la moyenne se dilue mécaniquement.
+  Même explication pour le CTR (2,9 % → 2,1 %).
+- **Le vrai indicateur : +39 % d'impressions depuis juin** (69 → 96), avec une accélération nette
+  à partir du 07/07 = effet des demandes d'indexation du 10/07.
+- **Sortie de la dépendance à la marque : « danfakha » ne pèse plus que 2 impressions sur 96**
+  (contre 100 % en juin). C'est le vrai progrès du trimestre.
+- **Bloqué en page 2** : 96 impressions → 2 clics. Il n'y a pas de clic à espérer au-delà du top 10.
+  Le levier n'est pas « plus d'articles », c'est **faire passer 2-3 requêtes du top 20 au top 10**.
+
+### 🔴 Découverte majeure : Google classe le site comme prestataire SEO, pas comme créateur de sites
+
+| Requête | Impr. |
+|---|---|
+| optimisation seo site web sénégal | **15** |
+| développement web | 4 |
+| referencement local senegal | 4 |
+| prix création site wordpress dakar | 3 |
+| référencement naturel dakar | 3 |
+| danfakha (marque) | 2 |
+| software development services | 2 |
+| référencement google sénégal | 2 |
+| référencement site à dakar | 2 |
+| seo et référencement dakar | 2 |
+
+1. **8 des 10 premières requêtes portent sur le référencement**, pas sur la création de sites.
+2. **Aucun mot-clé du mapping Dialamba v1 ne ressort** : zéro impression sur « développeur web
+   freelance Sénégal », « prix site web Sénégal », « portfolio développeur web Sénégal »,
+   « créer boutique en ligne Sénégal ». **Le mapping v1 n'a rien produit à ce jour.**
+3. **Une seule requête = 16 % de la visibilité totale** (« optimisation seo site web sénégal »,
+   15/96) **sans aucune page dédiée au SEO sur le site**. Meilleur point d'entrée disponible.
+4. **Le marché dit Dakar, pas Kaolack** : 5 requêtes sur 10 contiennent « dakar », zéro contient
+   « kaolack » — alors que `/freelance-web-kaolack` a été créée le 14/06.
+5. « prix création site **wordpress** dakar » : le marché formule son besoin en WordPress + prix.
+
+### Décision à trancher (business, pas technique) — prochaine session SEO
+
+**Saïbo veut-il vendre du référencement ?**
+- **Si oui** → écrire une page service « Référencement / SEO au Sénégal ». Google l'y pousse déjà,
+  et partir de la page 2 rend le top 10 atteignable rapidement.
+- **Si non** → corriger le tir : le site est aujourd'hui visible sur une offre qui n'est pas vendue.
+
+⚠️ **Ne rien lancer avant que Jàng soit relancé** (2 écoles entrantes en attente). Le SEO du
+portfolio est un investissement à 12-18 mois ; aucun client de juillet n'en est venu.

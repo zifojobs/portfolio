@@ -1,0 +1,215 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+// Page service outils sur mesure — cible : "application web sur mesure Sénégal"
+// + "logiciel de suivi-évaluation ONG". Preuves : études de cas déjà publiques
+// (Dëkkandoo, Nafadji, Jàng). Aucun prix (chiffrage sur devis).
+
+const WHATSAPP = "https://wa.me/221775277164";
+const CALENDLY = "https://calendly.com/zifo1819/30min";
+
+const cas = [
+	{
+		slug: "consortium-dekkandoo",
+		titre: "Consortium Dëkkandoo",
+		badge: "ONG · Saint-Louis",
+		texte: "Outil de suivi-évaluation pour un projet financé par des bailleurs internationaux : registre unifié de 229 groupes d'épargne, saisie par zone, indicateurs calculés et rapport au gabarit du bailleur.",
+	},
+	{
+		slug: "nafadji",
+		titre: "Association Nafadji",
+		badge: "Association · diaspora",
+		texte: "Application de gestion pour une association de ressortissants : membres et cotisations, dons et dépenses, collecte en ligne visible par chaque membre.",
+	},
+	{
+		slug: "jang",
+		titre: "Jàng",
+		badge: "Éducation",
+		texte: "Plateforme de gestion scolaire pensée pour les écoles sénégalaises : notes, bulletins PDF, emploi du temps, absences et messagerie, pour plusieurs écoles.",
+	},
+];
+
+const faq = [
+	{
+		q: "Quelle différence avec un logiciel tout fait ?",
+		r: "Un logiciel tout fait vous oblige à travailler comme lui. Un outil sur mesure reprend vos fiches, vos mots et vos rapports. Quand un logiciel existant couvre déjà votre besoin, je vous le dis, même si cela veut dire ne rien construire.",
+	},
+	{
+		q: "Nous travaillons aujourd'hui sur Excel et sur papier : est-ce un problème ?",
+		r: "Non, c'est le point de départ le plus fréquent. On part de vos classeurs, on les importe en vérifiant chaque total, et l'équipe saisit ensuite directement dans l'outil, sur ordinateur ou sur téléphone.",
+	},
+	{
+		q: "Nos données sont sensibles (bénéficiaires, membres, enfants). Comment sont-elles protégées ?",
+		r: "Chaque personne n'accède qu'à ce que son rôle autorise, les mots de passe sont personnels, la base est hébergée chez un prestataire reconnu et sauvegardée. Les déclarations à la CDP se préparent avec vous.",
+	},
+	{
+		q: "L'outil peut-il produire le rapport demandé par notre bailleur ?",
+		r: "Oui, c'est souvent la raison même du projet : les indicateurs se calculent à partir de la saisie, et le rapport sort au format du bailleur, prêt à relire.",
+	},
+	{
+		q: "Combien coûte une application sur mesure ?",
+		r: "Chaque projet est chiffré sur devis après un premier échange, et livré par étapes datées. L'hébergement et l'assistance figurent dès le départ dans le devis, pour que vous connaissiez le coût réel sur la durée.",
+	},
+	{
+		q: "Que se passe-t-il après la livraison ?",
+		r: "Un forfait mensuel couvre l'hébergement, les sauvegardes, l'aide à l'équipe et les petits correctifs. Les fonctions nouvelles se chiffrent à part.",
+	},
+];
+---
+
+<Layout
+	title="Application web sur mesure au Sénégal — Saïbo Danfakha"
+	description="Applications web sur mesure pour ONG, associations et PME du Sénégal : suivi-évaluation, cotisations, rapports bailleurs. Fini les classeurs Excel. Devis gratuit."
+>
+	<!-- Schema FAQ -->
+	<script type="application/ld+json" set:html={JSON.stringify({
+		"@context": "https://schema.org",
+		"@type": "FAQPage",
+		"mainEntity": faq.map((item) => ({
+			"@type": "Question",
+			"name": item.q,
+			"acceptedAnswer": { "@type": "Answer", "text": item.r },
+		})),
+	})} />
+
+	<!-- Hero -->
+	<section class="relative overflow-hidden">
+		<div class="relative z-10 max-w-6xl mx-auto px-6 pt-32 pb-20 md:pt-40 md:pb-28">
+			<div class="max-w-2xl">
+				<p data-animate class="text-sm font-medium uppercase tracking-wider text-terracotta mb-4">
+					ONG · Associations · PME
+				</p>
+				<h1 data-text-reveal class="text-5xl md:text-6xl font-semibold leading-tight tracking-tight text-noir-cafe mb-6">
+					Une application web sur mesure, à la place de vos classeurs
+				</h1>
+				<p data-animate class="text-xl text-sable-600 leading-relaxed max-w-2xl mb-10">
+					Suivi de projet, membres et cotisations, rapports pour vos bailleurs : je
+					construis l'outil qui reprend votre façon de travailler, et je le fais
+					évoluer avec votre équipe.
+				</p>
+				<div data-animate class="flex flex-col sm:flex-row gap-4">
+					<a href={WHATSAPP} target="_blank" rel="noopener noreferrer" data-magnetic
+						class="inline-flex items-center justify-center gap-2 bg-noir-cafe text-creme px-6 py-3 rounded-md font-medium hover:bg-terracotta transition-colors">
+						Parler de votre outil
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+							<line x1="5" y1="12" x2="19" y2="12"></line>
+							<polyline points="12 5 19 12 12 19"></polyline>
+						</svg>
+					</a>
+					<a href={CALENDLY} target="_blank" rel="noopener noreferrer"
+						class="inline-flex items-center justify-center gap-2 border border-sable-300 text-noir-cafe px-6 py-3 rounded-md font-medium hover:border-noir-cafe transition-colors">
+						Réserver un appel de 30 min
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Le problème -->
+	<section class="bg-sable-100 py-20 md:py-28">
+		<div class="max-w-4xl mx-auto px-6">
+			<h2 data-text-reveal class="text-3xl md:text-4xl font-semibold leading-tight tracking-tight text-noir-cafe mb-6">
+				Dix classeurs, trois versions, un rapport à rendre vendredi.
+			</h2>
+			<p data-animate class="text-lg text-sable-600 leading-relaxed mb-12 max-w-2xl">
+				Chaque zone tient son fichier, les totaux ne tombent jamais juste, et le
+				rapport au bailleur se reconstruit à la main à chaque échéance. Un outil sur
+				mesure règle cela à la source.
+			</p>
+			<div data-animate-stagger class="grid grid-cols-1 md:grid-cols-3 gap-6">
+				<div data-animate class="bg-creme border border-sable-300 rounded-xl p-6">
+					<h3 class="text-lg font-semibold text-noir-cafe mb-3">Une seule saisie</h3>
+					<p class="text-sable-600 leading-relaxed text-sm">
+						Chaque donnée est saisie une fois, par la bonne personne, avec des
+						contrôles qui attrapent les doublons et les erreurs de mois.
+					</p>
+				</div>
+				<div data-animate class="bg-creme border border-sable-300 rounded-xl p-6">
+					<h3 class="text-lg font-semibold text-noir-cafe mb-3">Des chiffres calculés</h3>
+					<p class="text-sable-600 leading-relaxed text-sm">
+						Les indicateurs se calculent seuls, par zone et par période, selon les
+						règles de votre équipe.
+					</p>
+				</div>
+				<div data-animate class="bg-creme border border-sable-300 rounded-xl p-6">
+					<h3 class="text-lg font-semibold text-noir-cafe mb-3">Le rapport prêt</h3>
+					<p class="text-sable-600 leading-relaxed text-sm">
+						Le rapport sort au format demandé, à relire plutôt qu'à reconstruire.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Réalisations -->
+	<section class="max-w-4xl mx-auto px-6 py-20 md:py-28">
+		<p data-animate class="text-sm font-medium uppercase tracking-wider text-terracotta mb-4">
+			En production
+		</p>
+		<h2 data-text-reveal class="text-3xl md:text-4xl font-semibold leading-tight tracking-tight text-noir-cafe mb-12">
+			Des outils utilisés chaque semaine.
+		</h2>
+		<div data-animate-stagger class="grid grid-cols-1 gap-6">
+			{cas.map((c) => (
+				<a href={`/etudes-de-cas/${c.slug}/`} data-animate
+					class="card-hover group block bg-creme border border-sable-300 rounded-xl p-6 hover:border-noir-cafe">
+					<div class="flex items-center justify-between gap-3 mb-3">
+						<h3 class="font-serif text-xl font-semibold text-noir-cafe group-hover:text-terracotta transition-colors">{c.titre}</h3>
+						<span class="px-3 py-1 bg-sable-100 text-sable-600 text-xs font-medium rounded-full whitespace-nowrap">{c.badge}</span>
+					</div>
+					<p class="text-sm text-sable-600 leading-relaxed">{c.texte} →</p>
+				</a>
+			))}
+		</div>
+		<p data-animate class="mt-8 text-sm text-sable-600">
+			Une association de la diaspora ? Voir
+			<a href="/site-web-association-diaspora/" class="text-noir-cafe underline underline-offset-4 hover:text-terracotta transition-colors">le site web pour association de la diaspora</a>.
+		</p>
+	</section>
+
+	<!-- FAQ -->
+	<section class="bg-sable-100 py-20 md:py-28">
+		<div class="max-w-3xl mx-auto px-6">
+			<h2 data-text-reveal class="text-3xl md:text-4xl font-semibold leading-tight tracking-tight text-noir-cafe mb-12">
+				Questions fréquentes
+			</h2>
+			<div class="divide-y divide-sable-300 border-t border-b border-sable-300">
+				{faq.map((item) => (
+					<details class="group py-6">
+						<summary class="flex cursor-pointer items-center justify-between gap-4 text-lg font-semibold text-noir-cafe list-none">
+							{item.q}
+							<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 text-terracotta transition-transform group-open:rotate-45">
+								<line x1="12" y1="5" x2="12" y2="19"></line>
+								<line x1="5" y1="12" x2="19" y2="12"></line>
+							</svg>
+						</summary>
+						<p class="mt-4 text-sable-600 leading-relaxed">{item.r}</p>
+					</details>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- CTA final -->
+	<section class="bg-noir-cafe text-creme py-20 md:py-28">
+		<div class="max-w-3xl mx-auto px-6 text-center">
+			<h2 data-text-reveal class="text-3xl md:text-4xl font-semibold leading-tight tracking-tight text-creme mb-6">
+				Montrez-moi vos classeurs.
+			</h2>
+			<p data-animate class="text-lg text-sable-300 leading-relaxed mb-10 max-w-xl mx-auto">
+				Dites-moi ce que votre équipe saisit, qui le lit et ce que votre bailleur
+				demande. Je vous réponds avec une première piste concrète.
+			</p>
+			<div data-animate class="flex flex-col sm:flex-row gap-4 justify-center">
+				<a href={WHATSAPP} target="_blank" rel="noopener noreferrer" data-magnetic
+					class="inline-flex items-center justify-center gap-2 bg-terracotta text-creme px-6 py-3 rounded-md font-medium hover:bg-creme hover:text-noir-cafe transition-colors">
+					Discuter sur WhatsApp
+				</a>
+				<a href={CALENDLY} target="_blank" rel="noopener noreferrer"
+					class="inline-flex items-center justify-center gap-2 border border-sable-600 text-creme px-6 py-3 rounded-md font-medium hover:border-creme transition-colors">
+					Réserver un appel de 30 min
+				</a>
+			</div>
+		</div>
+	</section>
+</Layout>

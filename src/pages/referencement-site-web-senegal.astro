@@ -1,0 +1,228 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+// Page service SEO — cible : "référencement site web Sénégal" + variantes Dakar
+// (relevé GSC du 27/07 : 8 des 10 requêtes du site portent sur le référencement, sans page dédiée).
+// Preuve : Platinum Construction (site + articles publiés par Saïbo). Aucun prix (chiffrage sur devis).
+
+const WHATSAPP = "https://wa.me/221775277164";
+const CALENDLY = "https://calendly.com/zifo1819/30min";
+
+const etapes = [
+	{
+		titre: "Audit de départ",
+		texte: "Ce que Google voit aujourd'hui de votre site : pages indexées, requêtes sur lesquelles vous apparaissez déjà, erreurs techniques, concurrents qui passent devant vous à Dakar ou ailleurs.",
+	},
+	{
+		titre: "Un mot-clé par page",
+		texte: "Chaque page reçoit une requête principale et ses variantes, écrites dans le titre, la description et les intertitres. Une feuille de suivi garde tout cela à jour.",
+	},
+	{
+		titre: "Technique propre",
+		texte: "Vitesse sur mobile, plan du site, données structurées, balises Open Graph pour le partage sur WhatsApp et les réseaux. Ce que Google lit avant même vos textes.",
+	},
+	{
+		titre: "Fiche Google et annuaires",
+		texte: "Fiche Google Business, Bing, Apple Plans et annuaires sénégalais, avec exactement le même nom, téléphone et site partout. C'est ce qui vous fait apparaître sur la carte.",
+	},
+	{
+		titre: "Des articles qui répondent aux vraies questions",
+		texte: "Des articles « besoin + ville » : ce que vos clients tapent vraiment. Des requêtes précises, moins disputées, où l'on peut sortir en première page.",
+	},
+	{
+		titre: "Un rapport chaque mois",
+		texte: "Impressions, positions, requêtes gagnées, pages publiées : une page claire, issue de Google Search Console, pas de jargon.",
+	},
+];
+
+const faq = [
+	{
+		q: "En combien de temps mon site apparaît-il sur Google ?",
+		r: "Une page bien construite est indexée en quelques jours. Sur une requête précise et peu disputée, on peut sortir en première page en quelques semaines. Sur une requête générale comme « création site web Dakar », il faut compter 3 à 6 mois de travail régulier. Je vous le dis dès l'audit, requête par requête.",
+	},
+	{
+		q: "Pouvez-vous garantir la première place sur Google ?",
+		r: "Non, et méfiez-vous de ceux qui le promettent : personne ne contrôle le classement de Google. Ce que je garantis, c'est le travail fait, mesuré et rapporté chaque mois.",
+	},
+	{
+		q: "Mon site est sur WordPress, Wix ou un autre outil : pouvez-vous le référencer ?",
+		r: "Oui. Le référencement se travaille sur WordPress, Wix, Webflow ou un site sur mesure. Si l'outil vous bloque (vitesse, balises inaccessibles), je vous le signale à l'audit avec ce que cela coûte de ne rien changer.",
+	},
+	{
+		q: "Combien coûte le référencement d'un site au Sénégal ?",
+		r: "Chaque mission est chiffrée sur devis, gratuit et sans engagement, après l'audit de départ. On distingue la mise en place (une fois) et le suivi mensuel (articles, fiche Google, rapport). Paiement possible en FCFA ou en euros.",
+	},
+	{
+		q: "Je n'ai pas encore de site : par où commencer ?",
+		r: "Par un site construit dès le départ pour être trouvé : structure, mots-clés et technique pensés avant la première ligne de code. C'est moins cher que de corriger après.",
+	},
+	{
+		q: "Faut-il être à Dakar pour travailler ensemble ?",
+		r: "Non. Je suis basé à Kaolack et je travaille à distance avec des clients à Dakar, en Europe et au Canada : visio, WhatsApp, et un rapport en ligne chaque mois.",
+	},
+];
+---
+
+<Layout
+	title="Référencement de site web au Sénégal (Dakar) — Saïbo Danfakha"
+	description="Référencement de votre site au Sénégal : audit, mots-clés, fiche Google Business, articles locaux et rapport mensuel. Dakar, Sénégal, diaspora. Devis gratuit."
+>
+	<!-- Schema FAQ -->
+	<script type="application/ld+json" set:html={JSON.stringify({
+		"@context": "https://schema.org",
+		"@type": "FAQPage",
+		"mainEntity": faq.map((item) => ({
+			"@type": "Question",
+			"name": item.q,
+			"acceptedAnswer": { "@type": "Answer", "text": item.r },
+		})),
+	})} />
+
+	<!-- Hero -->
+	<section class="relative overflow-hidden">
+		<div class="relative z-10 max-w-6xl mx-auto px-6 pt-32 pb-20 md:pt-40 md:pb-28">
+			<div class="max-w-2xl">
+				<p data-animate class="text-sm font-medium uppercase tracking-wider text-terracotta mb-4">
+					Référencement · Dakar · Sénégal · diaspora
+				</p>
+				<h1 data-text-reveal class="text-5xl md:text-6xl font-semibold leading-tight tracking-tight text-noir-cafe mb-6">
+					Référencement de site web au Sénégal
+				</h1>
+				<p data-animate class="text-xl text-sable-600 leading-relaxed max-w-2xl mb-10">
+					Un beau site que personne ne trouve ne rapporte rien. Je travaille votre
+					présence sur Google page par page, requête par requête, et je vous montre
+					chaque mois ce qui a bougé.
+				</p>
+				<div data-animate class="flex flex-col sm:flex-row gap-4">
+					<a href={WHATSAPP} target="_blank" rel="noopener noreferrer" data-magnetic
+						class="inline-flex items-center justify-center gap-2 bg-noir-cafe text-creme px-6 py-3 rounded-md font-medium hover:bg-terracotta transition-colors">
+						Demander un audit
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+							<line x1="5" y1="12" x2="19" y2="12"></line>
+							<polyline points="12 5 19 12 12 19"></polyline>
+						</svg>
+					</a>
+					<a href={CALENDLY} target="_blank" rel="noopener noreferrer"
+						class="inline-flex items-center justify-center gap-2 border border-sable-300 text-noir-cafe px-6 py-3 rounded-md font-medium hover:border-noir-cafe transition-colors">
+						Réserver un appel de 30 min
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Le problème -->
+	<section class="bg-sable-100 py-20 md:py-28">
+		<div class="max-w-4xl mx-auto px-6">
+			<h2 data-text-reveal class="text-3xl md:text-4xl font-semibold leading-tight tracking-tight text-noir-cafe mb-6">
+				Vos clients cherchent sur Google. Ils tombent sur qui ?
+			</h2>
+			<p data-animate class="text-lg text-sable-600 leading-relaxed max-w-2xl">
+				À Dakar comme dans la diaspora, on cherche un prestataire en tapant son besoin
+				et sa ville : « restaurant Almadies », « plombier Dakar », « avocat Sénégal ».
+				Si votre site ne répond pas à ces mots-là, c'est votre concurrent qui reçoit
+				l'appel. Le référencement, c'est faire correspondre vos pages à ce que vos
+				clients tapent vraiment.
+			</p>
+		</div>
+	</section>
+
+	<!-- Méthode -->
+	<section class="max-w-4xl mx-auto px-6 py-20 md:py-28">
+		<h2 data-text-reveal class="text-3xl md:text-4xl font-semibold leading-tight tracking-tight text-noir-cafe mb-12">
+			Une méthode en six étapes, mesurée chaque mois.
+		</h2>
+		<div data-animate-stagger class="grid grid-cols-1 md:grid-cols-2 gap-8">
+			{etapes.map((e, i) => (
+				<div data-animate>
+					<p class="text-sm font-medium text-terracotta mb-2">{String(i + 1).padStart(2, "0")}</p>
+					<h3 class="text-lg font-semibold text-noir-cafe mb-3">{e.titre}</h3>
+					<p class="text-sable-600 leading-relaxed text-sm">{e.texte}</p>
+				</div>
+			))}
+		</div>
+		<p data-animate class="mt-10 text-sm text-sable-600">
+			Pour comprendre les bases, lisez mon guide →
+			<a href="/blog/seo-local-senegal/" class="text-noir-cafe underline underline-offset-4 hover:text-terracotta transition-colors">le référencement local au Sénégal</a>
+		</p>
+	</section>
+
+	<!-- Preuve -->
+	<section class="bg-sable-100 py-20 md:py-28">
+		<div class="max-w-4xl mx-auto px-6">
+			<p data-animate class="text-sm font-medium uppercase tracking-wider text-terracotta mb-4">
+				Sur le terrain
+			</p>
+			<h2 data-text-reveal class="text-3xl md:text-4xl font-semibold leading-tight tracking-tight text-noir-cafe mb-6">
+				Platinum Construction, au Canada.
+			</h2>
+			<p data-animate class="text-lg text-sable-600 leading-relaxed mb-8 max-w-2xl">
+				J'ai construit le site de cet entrepreneur général et j'en assure la
+				publication : balises de 22 pages alignées sur la stratégie de mots-clés,
+				et 17 articles « besoin + ville » mis en ligne depuis juillet 2026. Le
+				dernier est sorti en tête de Google sur sa requête cible le lendemain de sa
+				publication.
+			</p>
+			<a href="/etudes-de-cas/platinum-construction/" data-animate
+				class="card-hover group block bg-creme border border-sable-300 rounded-xl p-6 hover:border-noir-cafe">
+				<div class="flex items-center justify-between gap-3 mb-3">
+					<h3 class="font-serif text-xl font-semibold text-noir-cafe group-hover:text-terracotta transition-colors">Lire l'étude de cas</h3>
+					<span class="px-3 py-1 bg-sable-100 text-sable-600 text-xs font-medium rounded-full whitespace-nowrap">Vaughan, Canada</span>
+				</div>
+				<p class="text-sm text-sable-600 leading-relaxed">
+					Refonte complète, vidéo, galerie de réalisations, référencement et mise en ligne →
+				</p>
+			</a>
+		</div>
+	</section>
+
+	<!-- FAQ -->
+	<section class="max-w-3xl mx-auto px-6 py-20 md:py-28">
+		<h2 data-text-reveal class="text-3xl md:text-4xl font-semibold leading-tight tracking-tight text-noir-cafe mb-12">
+			Questions fréquentes
+		</h2>
+		<div class="divide-y divide-sable-300 border-t border-b border-sable-300">
+			{faq.map((item) => (
+				<details class="group py-6">
+					<summary class="flex cursor-pointer items-center justify-between gap-4 text-lg font-semibold text-noir-cafe list-none">
+						{item.q}
+						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 text-terracotta transition-transform group-open:rotate-45">
+							<line x1="12" y1="5" x2="12" y2="19"></line>
+							<line x1="5" y1="12" x2="19" y2="12"></line>
+						</svg>
+					</summary>
+					<p class="mt-4 text-sable-600 leading-relaxed">{item.r}</p>
+				</details>
+			))}
+		</div>
+		<p data-animate class="mt-8 text-sm text-sable-600">
+			Besoin d'un site d'abord ?
+			<a href="/#offres" class="text-noir-cafe underline underline-offset-4 hover:text-terracotta transition-colors">Voir les offres</a>
+			· Un outil métier ?
+			<a href="/application-web-sur-mesure/" class="text-noir-cafe underline underline-offset-4 hover:text-terracotta transition-colors">Applications sur mesure</a>
+		</p>
+	</section>
+
+	<!-- CTA final -->
+	<section class="bg-noir-cafe text-creme py-20 md:py-28">
+		<div class="max-w-3xl mx-auto px-6 text-center">
+			<h2 data-text-reveal class="text-3xl md:text-4xl font-semibold leading-tight tracking-tight text-creme mb-6">
+				Où en est votre site sur Google ?
+			</h2>
+			<p data-animate class="text-lg text-sable-300 leading-relaxed mb-10 max-w-xl mx-auto">
+				Envoyez-moi l'adresse de votre site et les mots que vos clients devraient
+				taper pour vous trouver. Je vous réponds avec un premier constat.
+			</p>
+			<div data-animate class="flex flex-col sm:flex-row gap-4 justify-center">
+				<a href={WHATSAPP} target="_blank" rel="noopener noreferrer" data-magnetic
+					class="inline-flex items-center justify-center gap-2 bg-terracotta text-creme px-6 py-3 rounded-md font-medium hover:bg-creme hover:text-noir-cafe transition-colors">
+					Discuter sur WhatsApp
+				</a>
+				<a href={CALENDLY} target="_blank" rel="noopener noreferrer"
+					class="inline-flex items-center justify-center gap-2 border border-sable-600 text-creme px-6 py-3 rounded-md font-medium hover:border-creme transition-colors">
+					Réserver un appel de 30 min
+				</a>
+			</div>
+		</div>
+	</section>
+</Layout>
