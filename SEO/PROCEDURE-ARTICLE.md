@@ -12,6 +12,9 @@ onglet « 3. Calendrier » de `SEO/PLAN-VISIBILITE-2026-2027.xlsx` (miroir texte
 | **Mardi 09:00 (UTC = heure de Dakar)** | routine « publication » | Si la branche du jour existe et ne contient pas `NE-PAS-PUBLIER` : fusion dans `main` (fast-forward ou merge sans conflit), push, vérification en live. Sinon : ne fait rien. |
 | Mardi, jeudi matin, samedi | Saïbo | Publie les 3 posts de `SEO/posts/AAAA-MM-JJ.md` sur ses comptes, coche l'onglet 4. |
 
+**Nom de branche** : `article/AAAA-MM-JJ` (date du mardi). Si l'environnement cloud refuse de pousser ce nom,
+utiliser `claude/article-AAAA-MM-JJ`. La routine de publication cherche les deux.
+
 ⛔ Rien ne se publie entre **jeudi au maghrib et vendredi au maghrib** (fenêtre Yahdi Qalbah). Les routines tournent hors de cette fenêtre.
 
 ## Rédiger l'article
@@ -37,8 +40,8 @@ onglet « 3. Calendrier » de `SEO/PLAN-VISIBILITE-2026-2027.xlsx` (miroir texte
 
 ## Publier (mardi)
 
-1. `git fetch`, vérifier que `origin/article/AAAA-MM-JJ` existe et ne contient pas `NE-PAS-PUBLIER`.
-2. `git checkout main && git pull && git merge --no-edit origin/article/AAAA-MM-JJ` ; en cas de conflit : **abandonner** (`git merge --abort`) et ne rien publier.
+1. `git fetch --all`, chercher `origin/article/AAAA-MM-JJ` puis `origin/claude/article-AAAA-MM-JJ` ; vérifier que la branche trouvée ne contient pas `NE-PAS-PUBLIER`.
+2. `git checkout main && git pull && git merge --no-edit <branche>` ; en cas de conflit : **abandonner** (`git merge --abort`) et ne rien publier.
 3. Push sur `main` (Vercel déploie seul). Attendre ~2 min puis vérifier : `https://saibodanfakha.com/blog/<slug>/` répond 200 et contient le titre ; `https://saibodanfakha.com/sitemap-0.xml` contient le slug.
 4. Ajouter une ligne au journal de ce fichier : date, slug, commit, résultat de la vérification.
 
