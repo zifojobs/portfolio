@@ -1,0 +1,179 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+const article = {
+	slug: "referencement-google-dakar-par-ou-commencer",
+	titre: "Référencement Google à Dakar : par où commencer en 2026",
+	extrait: "Votre site existe, mais personne ne le trouve sur Google. Les 7 étapes, dans l'ordre, pour référencer votre site web à Dakar sans budget publicitaire.",
+	date: "2026-10-20",
+	tags: ["SEO", "Dakar", "référencement"],
+	tempsLecture: "8 min",
+};
+---
+
+<Layout
+	title={`${article.titre} — Blog — Saïbo Danfakha`}
+	description={article.extrait}
+	image="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=630&fit=crop&fm=jpg&q=80"
+	article={{ headline: article.titre, datePublished: article.date }}
+>
+	<article class="max-w-3xl mx-auto px-6 py-24 md:py-32">
+		<a href="/blog/" class="inline-flex items-center gap-2 text-sm text-sable-600 hover:text-noir-cafe transition-colors mb-12">
+			<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+				<line x1="19" y1="12" x2="5" y2="12"></line>
+				<polyline points="12 19 5 12 12 5"></polyline>
+			</svg>
+			Retour au blog
+		</a>
+
+		<header class="mb-12">
+			<div class="flex items-center gap-3 text-sm text-sable-600 mb-4">
+				<time datetime={article.date}>
+					{new Date(article.date).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}
+				</time>
+				<span>·</span>
+				<span>{article.tempsLecture} de lecture</span>
+			</div>
+
+			<h1 class="text-4xl md:text-5xl font-semibold leading-tight tracking-tight text-noir-cafe mb-6">
+				{article.titre}
+			</h1>
+
+			<div class="flex flex-wrap gap-2">
+				{article.tags.map((tag) => (
+					<span class="px-2.5 py-1 bg-terracotta/10 text-terracotta rounded-full text-xs">
+						#{tag}
+					</span>
+				))}
+			</div>
+		</header>
+
+		<figure class="mb-12 -mx-6 md:mx-0">
+			<img
+				src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=630&fit=crop&auto=format&q=80"
+				alt="Graphiques de suivi sur un écran — mesurer sa visibilité sur Google"
+				loading="eager"
+				class="w-full aspect-[16/9] object-cover md:rounded-xl"
+			/>
+		</figure>
+
+		<div class="prose prose-lg prose-noir-cafe max-w-none">
+			<p class="text-xl text-sable-600 mb-8 leading-relaxed">
+				Votre site est en ligne, il est beau, et pourtant le téléphone ne sonne pas. Le problème n'est presque jamais le design : <strong>c'est que Google ne vous montre à personne.</strong> Le référencement de votre site web à Dakar ne commence pas par des astuces techniques, mais par sept étapes simples, dans le bon ordre.
+			</p>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Cet article s'adresse aux entrepreneurs, commerçants, cabinets et associations de Dakar qui veulent être trouvés sans payer de publicité. Aucune étape ne demande d'être développeur. Certaines prennent dix minutes.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">1. Vérifier que Google connaît votre site</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Tapez dans Google <code>site:votresite.com</code> (avec votre propre adresse). Si rien ne s'affiche, Google ne connaît pas encore votre site, et tout le reste est inutile tant que ce n'est pas réglé.
+			</p>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				L'outil à installer ensuite est <strong>Google Search Console</strong>. Il est gratuit et c'est Google lui-même qui vous dit quelles pages il a retenues, sur quelles recherches vous apparaissez et à quelle position. Sans lui, on travaille à l'aveugle. Ajoutez-y votre plan du site (le fichier <code>sitemap.xml</code>) et demandez l'indexation de vos pages importantes.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">2. Créer votre fiche Google Business</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Quand quelqu'un cherche « pâtisserie Mermoz » ou « cabinet comptable Plateau », Google affiche d'abord une carte avec trois entreprises. Ces trois places viennent des fiches Google Business, pas des sites web.
+			</p>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				La fiche est gratuite. Choisissez la bonne catégorie, indiquez votre zone (même sans boutique, vous pouvez déclarer une zone de service), ajoutez de vraies photos, vos horaires, votre numéro WhatsApp et le lien de votre site. Puis demandez à vos clients satisfaits de laisser un avis : c'est l'un des signaux que Google regarde pour classer les fiches. J'ai détaillé ce volet dans le guide du <a href="/blog/seo-local-senegal/" class="text-terracotta hover:underline">référencement local au Sénégal</a>.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">3. Une page pour chaque recherche de vos clients</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				C'est l'erreur la plus fréquente : un site de cinq pages qui parle de tout à la fois. Or vos clients ne tapent pas « bienvenue sur notre site ». Ils tapent un besoin et un lieu : « traiteur mariage Dakar », « location voiture Almadies », « plombier Parcelles Assainies ».
+			</p>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				La règle qui fonctionne : <strong>une page, une recherche principale.</strong> Si vous proposez trois services, chacun mérite sa page, avec un titre qui contient le service et la ville. Pour trouver les bonnes expressions :
+			</p>
+
+			<ul class="list-disc pl-6 text-sable-600 mb-8 space-y-2">
+				<li>Regardez les suggestions qui s'affichent quand vous commencez à taper dans Google.</li>
+				<li>Lisez la rubrique « Autres questions posées » en bas des résultats.</li>
+				<li>Notez les mots exacts que vos clients emploient au téléphone ou sur WhatsApp. Ce sont souvent les meilleurs.</li>
+			</ul>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">4. Soigner le titre et la description de chaque page</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Le titre de la page (la ligne bleue dans les résultats) et sa description (les deux lignes grises en dessous) sont la vitrine de votre site sur Google. Ils décident si l'on clique sur vous ou sur le voisin.
+			</p>
+
+			<ul class="list-disc pl-6 text-sable-600 mb-8 space-y-2">
+				<li><strong>À éviter :</strong> « Accueil », ou le seul nom de l'entreprise.</li>
+				<li><strong>À viser :</strong> « Traiteur pour mariages et baptêmes à Dakar — Nom de l'entreprise ».</li>
+				<li>Une description de 120 à 160 caractères qui dit ce que vous faites, pour qui, où, et ce qu'il faut faire ensuite (« devis sur WhatsApp »).</li>
+			</ul>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">5. Un site rapide sur téléphone</h2>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				À Dakar, la plupart de vos visiteurs arrivent depuis un téléphone, souvent avec une connexion irrégulière. Google le sait et tient compte de l'expérience sur mobile. Des images trop lourdes, une page qui met longtemps à s'afficher : le visiteur repart avant d'avoir lu une ligne. Testez votre site avec l'outil gratuit PageSpeed Insights de Google, et lisez <a href="/blog/performance-web-conversion/" class="text-terracotta hover:underline">pourquoi chaque seconde compte</a>.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">6. Les mêmes coordonnées partout</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Nom, téléphone, adresse ou zone, site web : ces informations doivent être <strong>identiques au caractère près</strong> sur votre site, votre fiche Google, votre page Facebook et les annuaires où vous êtes inscrit. Un numéro différent ici, un ancien nom là, et Google hésite sur votre identité.
+			</p>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Une fois vos coordonnées fixées, inscrivez-vous gratuitement dans quelques annuaires sénégalais sérieux. Chaque fiche cohérente est une confirmation de plus que votre entreprise existe bien à Dakar. Ne payez jamais une « option visibilité » : la fiche gratuite suffit.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">7. Publier régulièrement, et mesurer chaque mois</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Un site qui ne bouge jamais finit par être moins visité par Google. Un article utile par semaine ou par quinzaine, qui répond à une vraie question de vos clients, donne à Google de nouvelles raisons de vous montrer. Pas besoin d'écrire un roman : une question, une réponse claire, des exemples d'ici.
+			</p>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Une fois par mois, ouvrez Search Console et notez trois chiffres : le nombre d'impressions (combien de fois vous êtes apparu), les recherches qui vous amènent, et votre position moyenne. C'est ce qui vous dira ce qui marche, et ce qu'il faut arrêter.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Trois erreurs qui coûtent cher</h2>
+
+			<ul class="list-disc pl-6 text-sable-600 mb-8 space-y-2">
+				<li><strong>Acheter des liens.</strong> Les offres du type « 1 000 liens pour 10 000 F » exposent votre site à une pénalité de Google. Un bon lien se gagne, il ne s'achète pas.</li>
+				<li><strong>Croire à la première place garantie.</strong> Personne ne contrôle le classement de Google. Un prestataire sérieux promet un travail et des mesures, jamais une position.</li>
+				<li><strong>Répéter le mot-clé partout.</strong> Un texte écrit pour Google et non pour vos clients fait fuir les lecteurs, et Google le voit.</li>
+			</ul>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Ce qu'il faut retenir</h2>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Le référencement à Dakar se construit dans cet ordre : être connu de Google, apparaître sur la carte, une page par recherche, des titres qui donnent envie de cliquer, un site rapide, des coordonnées cohérentes, puis de la régularité. Les quatre premières étapes peuvent être faites en une semaine. Les résultats, eux, se mesurent en mois : c'est un travail de fond, pas un interrupteur.
+			</p>
+
+			<hr class="my-12 border-sable-300" />
+
+			<div class="bg-terracotta/10 border border-terracotta/30 rounded-xl p-6">
+				<h3 class="text-lg font-semibold text-noir-cafe mb-3">
+					Vous voulez savoir où en est votre site ?
+				</h3>
+				<p class="text-sable-600 mb-4">
+					Envoyez-moi l'adresse de votre site et les mots que vos clients devraient taper pour vous trouver. Je vous réponds avec un premier constat, et ce que je ferais en premier à votre place.
+				</p>
+				<a href="/referencement-site-web-senegal/" class="inline-flex items-center gap-2 bg-noir-cafe text-creme px-6 py-3 rounded-md font-medium hover:bg-terracotta transition-colors">
+					Le référencement, en détail
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+						<line x1="5" y1="12" x2="19" y2="12"></line>
+						<polyline points="12 5 19 12 12 19"></polyline>
+					</svg>
+				</a>
+				<a href="/#contact" class="mt-3 inline-flex text-sm text-sable-600 hover:text-noir-cafe transition-colors">
+					Me contacter →
+				</a>
+			</div>
+		</div>
+	</article>
+</Layout>
