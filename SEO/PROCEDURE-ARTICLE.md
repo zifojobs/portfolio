@@ -48,3 +48,4 @@ utiliser `claude/article-AAAA-MM-JJ`. La routine de publication cherche les deux
 ## Journal
 
 - **2026-10-15** — Procédure créée (plan de visibilité validé par Saïbo le 15/10).
+- **2026-10-20** — publié referencement-google-dakar-par-ou-commencer (8694eda) : build OK, push OK ; vérification prod NON effectuée (proxy du routeur : 403 sur saibodanfakha.com) — à contrôler à la main
