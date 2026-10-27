@@ -1,0 +1,198 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+const article = {
+	slug: "combien-coute-referencement-site-senegal",
+	titre: "Combien coûte le référencement d'un site au Sénégal",
+	extrait: "Prix du référencement au Sénégal : ce que vous payez une fois, ce que vous payez chaque mois, et les pièges à repérer dans un devis avant de signer.",
+	date: "2026-10-27",
+	tags: ["SEO", "Sénégal", "budget"],
+	tempsLecture: "7 min",
+};
+---
+
+<Layout
+	title={`${article.titre} — Blog — Saïbo Danfakha`}
+	description={article.extrait}
+	image="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=630&fit=crop&fm=jpg&q=80"
+	article={{ headline: article.titre, datePublished: article.date }}
+>
+	<article class="max-w-3xl mx-auto px-6 py-24 md:py-32">
+		<a href="/blog/" class="inline-flex items-center gap-2 text-sm text-sable-600 hover:text-noir-cafe transition-colors mb-12">
+			<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+				<line x1="19" y1="12" x2="5" y2="12"></line>
+				<polyline points="12 19 5 12 12 5"></polyline>
+			</svg>
+			Retour au blog
+		</a>
+
+		<header class="mb-12">
+			<div class="flex items-center gap-3 text-sm text-sable-600 mb-4">
+				<time datetime={article.date}>
+					{new Date(article.date).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}
+				</time>
+				<span>·</span>
+				<span>{article.tempsLecture} de lecture</span>
+			</div>
+
+			<h1 class="text-4xl md:text-5xl font-semibold leading-tight tracking-tight text-noir-cafe mb-6">
+				{article.titre}
+			</h1>
+
+			<div class="flex flex-wrap gap-2">
+				{article.tags.map((tag) => (
+					<span class="px-2.5 py-1 bg-terracotta/10 text-terracotta rounded-full text-xs">
+						#{tag}
+					</span>
+				))}
+			</div>
+		</header>
+
+		<figure class="mb-12 -mx-6 md:mx-0">
+			<img
+				src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=630&fit=crop&auto=format&q=80"
+				alt="Tableau de bord et graphiques sur un ordinateur — le budget d'un référencement"
+				loading="eager"
+				class="w-full aspect-[16/9] object-cover md:rounded-xl"
+			/>
+		</figure>
+
+		<div class="prose prose-lg prose-noir-cafe max-w-none">
+			<p class="text-xl text-sable-600 mb-8 leading-relaxed">
+				« C'est combien, le référencement ? » C'est la question qu'on me pose le plus souvent, et la réponse honnête commence par une autre : <strong>qu'est-ce qu'on achète, exactement ?</strong> Le prix du référencement au Sénégal change énormément d'un prestataire à l'autre, parce que le même mot recouvre des travaux qui n'ont rien à voir.
+			</p>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Cet article ne vous donne pas un tarif magique. Il vous apprend à lire un devis : ce que vous payez une fois, ce que vous payez chaque mois, les lignes qui cachent un piège, et comment comparer ce budget à celui de la publicité. Que vous soyez à Dakar, à Thiès ou dans la diaspora, ce sont les mêmes règles.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Le prix du référencement au Sénégal, c'est le prix d'un temps de travail</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Le référencement n'est pas un produit qu'on installe. C'est du temps : du temps pour analyser votre site, choisir les bonnes recherches, réécrire des pages, rédiger des articles, suivre les résultats et corriger ce qui ne marche pas. Quand deux devis sont très éloignés, c'est presque toujours qu'ils ne prévoient pas le même nombre d'heures, ni le même travail derrière.
+			</p>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Un devis très bas ne veut pas dire que le prestataire est généreux. Il veut souvent dire qu'une partie du travail n'est pas prévue. Avant de comparer deux montants, comparez donc ce qu'il y a dedans, ligne par ligne.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Ce que vous payez une fois, ce que vous payez chaque mois</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Un devis sérieux sépare deux blocs. S'ils sont mélangés dans un seul forfait, demandez le détail : c'est votre droit, et c'est le meilleur moyen de savoir ce que vous achetez.
+			</p>
+
+			<h3 class="text-xl font-semibold text-noir-cafe mt-8 mb-3">La mise en place (une fois)</h3>
+
+			<ul class="list-disc pl-6 text-sable-600 mb-8 space-y-2">
+				<li><strong>L'audit de départ</strong> : ce que Google voit de votre site aujourd'hui, les pages qu'il a retenues, les erreurs techniques, les concurrents qui passent devant vous.</li>
+				<li><strong>Le plan de mots-clés</strong> : une recherche principale par page, avec ses variantes.</li>
+				<li><strong>La remise à niveau technique</strong> : vitesse sur téléphone, plan du site, balises de partage pour WhatsApp et les réseaux.</li>
+				<li><strong>La réécriture des pages existantes</strong> : titres, descriptions, intertitres.</li>
+			</ul>
+
+			<h3 class="text-xl font-semibold text-noir-cafe mt-8 mb-3">Le suivi (chaque mois ou par période)</h3>
+
+			<ul class="list-disc pl-6 text-sable-600 mb-8 space-y-2">
+				<li><strong>Les articles</strong> qui répondent aux vraies questions de vos clients, du type « besoin + ville ».</li>
+				<li><strong>L'entretien de la fiche Google Business</strong> : photos, horaires, réponses aux avis.</li>
+				<li><strong>Le rapport mensuel</strong> : impressions, positions, recherches gagnées, pages publiées.</li>
+				<li><strong>Les corrections</strong> que le rapport fait apparaître : une page qui recule, une recherche à reprendre.</li>
+			</ul>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				La mise en place pose les fondations, le suivi fait monter le site. Payer la première sans la seconde, c'est construire une maison sans jamais y habiter. Payer la seconde sans la première, c'est repeindre des murs qui penchent.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Quatre paramètres qui font le devis</h2>
+
+			<ul class="list-disc pl-6 text-sable-600 mb-8 space-y-2">
+				<li><strong>L'état de votre site.</strong> Un site lent, sans titres propres ou bâti sur un outil qui bloque les réglages oblige à réparer avant de construire. Ces heures-là sont payées avant le moindre gain de visibilité.</li>
+				<li><strong>La concurrence sur vos recherches.</strong> Sortir sur « traiteur baptême Sacré-Cœur » demande beaucoup moins de travail que sur « traiteur Dakar ».</li>
+				<li><strong>La zone visée.</strong> Un quartier, une ville, tout le Sénégal ou les Sénégalais de France et d'Italie : plus la zone est large, plus il faut de pages et d'articles.</li>
+				<li><strong>Le rythme.</strong> Un article par mois ou un par semaine, ce n'est pas le même budget, ni la même vitesse de progression.</li>
+			</ul>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Les pièges qui se cachent dans un devis</h2>
+
+			<ul class="list-disc pl-6 text-sable-600 mb-8 space-y-2">
+				<li><strong>Le « pack SEO » à petit prix.</strong> Regardez ce qu'il contient vraiment. Souvent, c'est l'installation d'une extension et le remplissage de quelques champs. Utile, mais ce n'est que le début du travail.</li>
+				<li><strong>La mise en place facturée tous les ans.</strong> L'audit et la remise à niveau se paient une fois. S'ils reviennent chaque année sous un autre nom, demandez ce qui est refait.</li>
+				<li><strong>Le paiement « à la position ».</strong> Payer seulement quand vous êtes premier semble rassurant. En pratique, le prestataire choisit des recherches que personne ne tape, où il est facile d'être premier, et vous payez pour une place qui n'amène aucun client.</li>
+				<li><strong>Les accès gardés par le prestataire.</strong> Si Search Console, votre fiche Google ou votre nom de domaine sont à son nom, vous ne pouvez plus partir sans tout perdre.</li>
+				<li><strong>Des articles en série, jamais relus.</strong> Des textes produits à la chaîne, sans exemples d'ici ni réponse claire, ne retiennent ni les lecteurs ni Google. Demandez à lire deux articles déjà publiés par le prestataire.</li>
+				<li><strong>Les « options visibilité » payantes.</strong> Une inscription gratuite dans un annuaire sérieux suffit. L'option payante n'ajoute rien à votre référencement.</li>
+			</ul>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Référencement ou publicité : comment comparer les deux budgets</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Le référencement n'est pas une dépense qu'on compare à zéro. On le compare aux autres moyens de trouver des clients : publicité Google ou Facebook, flyers, commissions d'intermédiaires. Le bon calcul part de ce que vous rapporte un client, pas du montant du devis.
+			</p>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				La publicité payante a un avantage : elle amène des visites dès le premier jour. Mais elle s'arrête le jour où vous arrêtez de payer. Le référencement, lui, met plus de temps à démarrer, mais ce qu'il construit reste : une page bien placée continue d'amener des visites le mois suivant, et celui d'après.
+			</p>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Les deux ne s'opposent pas. Beaucoup d'entreprises lancent une petite campagne pour avoir des appels tout de suite, pendant que le référencement monte. Puis elles réduisent la publicité à mesure que les visites gratuites prennent le relais.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Combien de temps payer avant de voir des résultats</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				C'est la question qui fixe vraiment le budget. Une page bien construite est en général indexée en quelques jours. Sur une recherche précise et peu disputée, on peut sortir en première page en quelques semaines. Sur une recherche générale, il faut compter plusieurs mois de travail régulier.
+			</p>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Méfiez-vous donc d'un engagement très court qui promet tout, autant que d'un engagement très long sans aucun point d'étape. Le bon format : un objectif par recherche, un rapport chaque mois, et la liberté de s'arrêter si rien ne bouge.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Réduire la facture sans sacrifier le résultat</h2>
+
+			<ul class="list-disc pl-6 text-sable-600 mb-8 space-y-2">
+				<li><strong>Faites vous-même la partie gratuite.</strong> Search Console, fiche Google, coordonnées identiques partout : tout est expliqué dans <a href="/blog/referencement-google-dakar-par-ou-commencer/" class="text-terracotta hover:underline">Référencement Google à Dakar : par où commencer</a>.</li>
+				<li><strong>Commencez par un seul service.</strong> Une recherche bien travaillée vaut mieux que dix effleurées.</li>
+				<li><strong>Fournissez la matière.</strong> Vos photos, vos réponses aux questions des clients, vos relectures : autant d'heures en moins sur le devis.</li>
+				<li><strong>Construisez juste dès le départ.</strong> Un site pensé pour être trouvé coûte moins cher à référencer qu'un site à réparer. Je l'explique dans <a href="/blog/combien-coute-un-site-professionnel/" class="text-terracotta hover:underline">le coût réel d'un site professionnel au Sénégal</a>.</li>
+			</ul>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Avant de signer : cinq questions</h2>
+
+			<ol class="list-decimal pl-6 text-sable-600 mb-8 space-y-2">
+				<li>Qu'est-ce qui est compris dans la mise en place, et dans le suivi ?</li>
+				<li>Sur quelles recherches allez-vous travailler, et pourquoi celles-là ?</li>
+				<li>Combien d'articles par mois, et qui les écrit ?</li>
+				<li>Puis-je voir un exemple de rapport mensuel ?</li>
+				<li>Si on arrête, est-ce que je garde tous mes accès ?</li>
+			</ol>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Ce qu'il faut retenir</h2>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Le prix du référencement au Sénégal, c'est le prix d'un temps de travail : il dépend de votre site, de vos recherches, de votre zone et du rythme choisi. Un bon devis sépare la mise en place et le suivi, part d'un audit, se mesure chaque mois et vous laisse propriétaire de tout. Comparez-le à ce que vous rapporte un client, pas au devis le moins cher.
+			</p>
+
+			<hr class="my-12 border-sable-300" />
+
+			<div class="bg-terracotta/10 border border-terracotta/30 rounded-xl p-6">
+				<h3 class="text-lg font-semibold text-noir-cafe mb-3">
+					Combien coûterait le référencement de votre site ?
+				</h3>
+				<p class="text-sable-600 mb-4">
+					Chaque mission est chiffrée sur devis, gratuit et sans engagement, après un premier regard sur votre site. Envoyez-moi son adresse et les mots que vos clients devraient taper pour vous trouver.
+				</p>
+				<a href="/referencement-site-web-senegal/" class="inline-flex items-center gap-2 bg-noir-cafe text-creme px-6 py-3 rounded-md font-medium hover:bg-terracotta transition-colors">
+					Le référencement, en détail
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+						<line x1="5" y1="12" x2="19" y2="12"></line>
+						<polyline points="12 5 19 12 12 19"></polyline>
+					</svg>
+				</a>
+				<a href="/#contact" class="mt-3 inline-flex text-sm text-sable-600 hover:text-noir-cafe transition-colors">
+					Me contacter →
+				</a>
+			</div>
+		</div>
+	</article>
+</Layout>
