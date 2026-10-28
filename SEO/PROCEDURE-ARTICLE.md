@@ -24,7 +24,7 @@ utiliser `claude/article-AAAA-MM-JJ`. La routine de publication cherche les deux
 3. **Ajouter l'entrée** dans le tableau `allArticles` de `src/pages/blog/index.astro` (même champs + `image` 600×450, `alt`, `draft: false`). Il n'y a **pas** de content collection : un `.md` dans `src/content/` n'est pas publié.
 4. **Contenu** :
    - Français, ton pro, phrases courtes, exemples sénégalais concrets (Dakar, Thiès, diaspora). 1 200 à 1 800 mots.
-   - Le mot-clé dans le `titre` (≤ 60 caractères avant « — Blog — Saïbo Danfakha » si possible), dans le premier paragraphe et dans un `h2`.
+   - Le mot-clé dans le `titre` (≤ 54 caractères avant « — Saïbo Danfakha », pour une balise title ≤ 70), dans le premier paragraphe et dans un `h2`.
    - `extrait` = meta description : **120 à 160 caractères**.
    - **2 à 4 liens internes** : au moins une page service (`/referencement-site-web-senegal/`, `/application-web-sur-mesure/`, `/site-web-diaspora/`, `/site-web-association-diaspora/`, `/freelance-web-kaolack/`) et un article existant.
    - **Aucun prix de Saïbo.** Les fourchettes du marché sont permises. « Chiffré sur devis ».
