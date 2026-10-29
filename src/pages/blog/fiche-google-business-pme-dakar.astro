@@ -1,0 +1,247 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+const article = {
+	slug: "fiche-google-business-pme-dakar",
+	titre: "Fiche Google Business : le guide pour une PME à Dakar",
+	extrait: "Créer et tenir la fiche Google Business de votre PME à Dakar : catégorie, adresse, photos, avis, mises à jour. Le guide pas à pas, gratuit et sans jargon.",
+	date: "2026-11-03",
+	tags: ["SEO local", "Dakar", "Google Business"],
+	tempsLecture: "8 min",
+};
+---
+
+<Layout
+	title={`${article.titre} — Saïbo Danfakha`}
+	description={article.extrait}
+	image="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&h=630&fit=crop&fm=jpg&q=80"
+	article={{ headline: article.titre, datePublished: article.date }}
+>
+	<article class="max-w-3xl mx-auto px-6 py-24 md:py-32">
+		<a href="/blog/" class="inline-flex items-center gap-2 text-sm text-sable-600 hover:text-noir-cafe transition-colors mb-12">
+			<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+				<line x1="19" y1="12" x2="5" y2="12"></line>
+				<polyline points="12 19 5 12 12 5"></polyline>
+			</svg>
+			Retour au blog
+		</a>
+
+		<header class="mb-12">
+			<div class="flex items-center gap-3 text-sm text-sable-600 mb-4">
+				<time datetime={article.date}>
+					{new Date(article.date).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}
+				</time>
+				<span>·</span>
+				<span>{article.tempsLecture} de lecture</span>
+			</div>
+
+			<h1 class="text-4xl md:text-5xl font-semibold leading-tight tracking-tight text-noir-cafe mb-6">
+				{article.titre}
+			</h1>
+
+			<div class="flex flex-wrap gap-2">
+				{article.tags.map((tag) => (
+					<span class="px-2.5 py-1 bg-terracotta/10 text-terracotta rounded-full text-xs">
+						#{tag}
+					</span>
+				))}
+			</div>
+		</header>
+
+		<figure class="mb-12 -mx-6 md:mx-0">
+			<img
+				src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&h=630&fit=crop&auto=format&q=80"
+				alt="Bureau moderne épuré — une PME de Dakar prête à être trouvée sur Google"
+				loading="eager"
+				class="w-full aspect-[16/9] object-cover md:rounded-xl"
+			/>
+		</figure>
+
+		<div class="prose prose-lg prose-noir-cafe max-w-none">
+			<p class="text-xl text-sable-600 mb-8 leading-relaxed">
+				Quand un client cherche « boulangerie Sacré-Cœur » ou « garage Pikine », Google lui montre d'abord une carte et quelques entreprises, avant même le premier site web. Ces entreprises ont une chose en commun : <strong>une fiche Google Business bien tenue.</strong> Pour une PME à Dakar, c'est l'outil de visibilité le plus simple, et il est gratuit.
+			</p>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Ce guide reprend tout, dans l'ordre : créer la fiche, la faire valider, la remplir correctement, récolter des avis et la faire vivre. Il s'adresse aux commerçants, artisans, cabinets, écoles et prestataires de services qui veulent apparaître quand on les cherche près de chez eux. Pas besoin d'être développeur : un téléphone et une heure suffisent pour la première étape.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Pourquoi une fiche Google Business à Dakar change tout</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				La fiche Google Business (anciennement « Google My Business », aujourd'hui « Google Business Profile ») est la carte d'identité de votre entreprise sur Google Search et Google Maps. C'est elle qui affiche votre nom, votre emplacement, vos horaires, votre numéro, vos photos et vos avis.
+			</p>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				À Dakar, beaucoup de clients découvrent un commerce de cette façon : ils tapent un besoin, regardent la carte, lisent deux ou trois avis, puis appellent directement depuis la fiche. Ils ne passent parfois jamais par le site web. Une entreprise sans fiche, ou avec une fiche vide, n'existe tout simplement pas dans ce parcours.
+			</p>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				La fiche ne remplace pas votre site, elle le complète. Le site explique en détail ce que vous faites ; la fiche vous place sur la carte et rassure en un coup d'œil. J'explique comment les deux travaillent ensemble dans le guide du <a href="/blog/seo-local-senegal/" class="text-terracotta hover:underline">référencement local au Sénégal</a>.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Étape 1 : vérifier qu'une fiche n'existe pas déjà</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Avant de créer quoi que ce soit, cherchez le nom de votre entreprise sur Google Maps. Il arrive souvent qu'une fiche existe déjà : créée par un ancien employé, par un client qui a ajouté le lieu, ou par vous-même il y a des années avec une adresse e-mail oubliée.
+			</p>
+
+			<ul class="list-disc pl-6 text-sable-600 mb-8 space-y-2">
+				<li><strong>Si la fiche existe et n'est à personne</strong>, Google propose de la « revendiquer ». Suivez ce chemin plutôt que d'en créer une deuxième.</li>
+				<li><strong>Si elle appartient à quelqu'un d'autre</strong> (ancien prestataire, ancien associé), Google prévoit une demande d'accès auprès du propriétaire actuel.</li>
+				<li><strong>Si vous trouvez deux fiches pour la même entreprise</strong>, signalez le doublon. Deux fiches qui se font concurrence affaiblissent les deux.</li>
+			</ul>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Étape 2 : créer la fiche avec le bon compte</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				La fiche se crée gratuitement depuis Google Business Profile, avec un compte Google. Un point que beaucoup de PME négligent : <strong>utilisez un compte qui appartient à l'entreprise</strong>, pas le Gmail personnel d'un stagiaire ou d'un prestataire. Si cette personne part, vous perdez l'accès.
+			</p>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Si un prestataire gère la fiche pour vous, il doit y être ajouté comme gestionnaire, et vous devez rester propriétaire. C'est la même règle que pour votre nom de domaine : ce qui porte le nom de votre entreprise doit rester à votre nom.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Étape 3 : choisir la bonne catégorie</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				La catégorie principale est le choix le plus important de toute la fiche. C'est elle qui dit à Google sur quelles recherches vous montrer. Prenez la plus précise possible : « Pâtisserie » plutôt que « Magasin d'alimentation », « Cabinet d'expertise comptable » plutôt que « Service aux entreprises ».
+			</p>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Vous pouvez ensuite ajouter des catégories secondaires pour vos autres activités. Restez honnête : une catégorie qui ne correspond pas à ce que vous faites vraiment attire des clients que vous décevrez, et Google peut la retirer.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Étape 4 : l'adresse, le vrai casse-tête dakarois</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				À Dakar, beaucoup d'adresses ne tiennent pas en une ligne propre. « Derrière la station, rue en face de la pharmacie » ne passe pas bien sur Google. Deux solutions :
+			</p>
+
+			<ul class="list-disc pl-6 text-sable-600 mb-6 space-y-2">
+				<li><strong>Placez l'épingle à la main</strong> sur la carte, exactement sur votre porte. C'est elle qui guide le client, plus que le texte de l'adresse.</li>
+				<li><strong>Utilisez le Plus Code</strong> que Google affiche quand vous touchez un point de la carte (une courte suite de lettres et de chiffres suivie du nom du quartier). Il désigne un emplacement précis même là où la rue n'a pas de nom.</li>
+			</ul>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				<strong>Vous n'avez pas de local qui reçoit du public ?</strong> Un plombier, un traiteur, un formateur à domicile se déplacent chez le client. Dans ce cas, déclarez une <strong>zone de service</strong> (Dakar, Pikine, Rufisque…) et masquez votre adresse. N'inventez pas une adresse de boutique : Google le repère, et un client qui se présente devant une porte fermée laissera un avis négatif.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Étape 5 : faire valider la fiche</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Tant que la fiche n'est pas validée, elle reste peu visible et vous ne pouvez pas tout modifier. C'est Google qui choisit la méthode de validation, selon l'entreprise et le pays. Elle peut passer par un code reçu par SMS, un appel, un e-mail, ou une courte vidéo à filmer sur place.
+			</p>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Si on vous demande une vidéo, préparez-la avant de lancer l'enregistrement : l'enseigne ou la plaque à l'extérieur, la rue autour pour situer le lieu, puis l'intérieur avec ce qui prouve votre activité (le matériel, le comptoir, les produits, un document à l'en-tête de l'entreprise). Un plan continu, sans montage. La validation peut prendre quelques jours : ne recréez pas une fiche en attendant.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Étape 6 : remplir chaque rubrique</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Une fiche à moitié remplie fait moins bien son travail qu'une fiche complète. Prenez le temps de tout renseigner :
+			</p>
+
+			<ul class="list-disc pl-6 text-sable-600 mb-8 space-y-2">
+				<li><strong>Le nom</strong> : le nom réel de l'entreprise, tel qu'il figure sur l'enseigne. Ajouter « meilleur traiteur Dakar » au nom est contraire aux règles de Google et peut faire suspendre la fiche.</li>
+				<li><strong>Le téléphone</strong> : le numéro qui répond vraiment. Si vos clients vous écrivent surtout sur WhatsApp, mettez ce numéro-là, et indiquez-le aussi sur votre site.</li>
+				<li><strong>Les horaires</strong> : exacts, avec les horaires exceptionnels les jours fériés. Un client qui trouve porte close alors que Google annonçait « ouvert » ne revient pas.</li>
+				<li><strong>La description</strong> : ce que vous faites, pour qui, dans quels quartiers. Écrite pour un client, pas pour Google. Pas de liens ni de promotions dans ce texte.</li>
+				<li><strong>Les services ou produits</strong> : listez-les un par un. Ce sont autant de mots que Google peut rapprocher des recherches de vos clients.</li>
+				<li><strong>Le site web</strong> : le lien vers votre site, idéalement vers la page qui correspond le mieux à votre activité principale.</li>
+			</ul>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Étape 7 : de vraies photos</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Les photos sont souvent ce que le client regarde en premier. Évitez les images trouvées sur internet : elles ne rassurent personne. Montrez ce que le client verra vraiment :
+			</p>
+
+			<ul class="list-disc pl-6 text-sable-600 mb-8 space-y-2">
+				<li>La façade, de jour, pour qu'on reconnaisse l'endroit en arrivant.</li>
+				<li>L'intérieur, propre et bien éclairé.</li>
+				<li>Vos produits ou des réalisations récentes.</li>
+				<li>Le logo et une photo de couverture soignée.</li>
+			</ul>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Ajoutez quelques photos nouvelles de temps en temps : une fiche qui montre des images récentes donne l'impression, juste, d'une entreprise active.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Étape 8 : les avis, et comment y répondre</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Entre deux entreprises qui se ressemblent, le client choisit souvent celle qui a des avis récents et détaillés. Google explique lui-même qu'il classe les fiches locales selon trois critères : la <strong>pertinence</strong> (votre fiche correspond-elle à la recherche ?), la <strong>distance</strong> et la <strong>notoriété</strong>, à laquelle les avis contribuent.
+			</p>
+
+			<ul class="list-disc pl-6 text-sable-600 mb-6 space-y-2">
+				<li><strong>Demandez</strong> : après chaque client satisfait, envoyez sur WhatsApp le lien direct vers votre fiche. Ce lien se trouve dans votre espace Google Business (« Demander des avis »).</li>
+				<li><strong>Répondez à tous les avis</strong>, les bons comme les mauvais. Un merci personnalisé suffit pour un avis positif.</li>
+				<li><strong>Face à un avis négatif</strong>, restez calme, reconnaissez le problème, proposez une solution en privé. Les futurs clients lisent votre réponse autant que la critique.</li>
+			</ul>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Ce qu'il ne faut jamais faire : acheter des avis, en écrire soi-même, ou offrir une réduction en échange d'une bonne note. Les règles de Google l'interdisent, et les avis supprimés en masse laissent une fiche plus fragile qu'avant.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Étape 9 : faire vivre la fiche chaque mois</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Une fiche n'est pas un panneau qu'on pose une fois pour toutes. Prévoyez un petit rendez-vous mensuel :
+			</p>
+
+			<ul class="list-disc pl-6 text-sable-600 mb-6 space-y-2">
+				<li>Publier une actualité ou une offre (nouveau produit, horaires des jours fériés, nouvelle réalisation).</li>
+				<li>Ajouter deux ou trois photos récentes.</li>
+				<li>Répondre aux avis en attente.</li>
+				<li>Vérifier qu'aucune information n'a été modifiée : n'importe quel internaute peut suggérer une modification, et Google l'applique parfois sans vous prévenir clairement.</li>
+				<li>Regarder les statistiques de la fiche : le nombre d'appels, de demandes d'itinéraire et de clics vers le site.</li>
+			</ul>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Ces statistiques sont précieuses : elles vous disent combien de clients la fiche vous apporte réellement, sans deviner.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Les erreurs qui font perdre des clients</h2>
+
+			<ul class="list-disc pl-6 text-sable-600 mb-8 space-y-2">
+				<li><strong>Des coordonnées différentes partout.</strong> Un numéro sur la fiche, un autre sur Facebook, un troisième sur le site : Google et vos clients ne savent plus lequel est le bon. Le même nom, le même numéro, la même adresse, partout.</li>
+				<li><strong>Une fiche créée puis oubliée.</strong> Des avis sans réponse depuis des mois et des horaires périmés donnent l'image d'une entreprise fermée.</li>
+				<li><strong>Payer pour une « fiche certifiée ».</strong> Des démarcheurs appellent en se présentant comme partenaires de Google. La fiche est gratuite : personne ne peut vous vendre une meilleure place sur la carte.</li>
+				<li><strong>Laisser la fiche au nom d'un tiers.</strong> Le jour où vous changez de prestataire, vous devez pouvoir garder votre fiche et vos avis.</li>
+			</ul>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Ce qu'il faut retenir</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Une fiche Google Business bien tenue est le moyen le plus direct, pour une PME à Dakar, d'apparaître au moment où un client cherche ce qu'elle vend. Les étapes sont simples : la bonne catégorie, une adresse précise ou une zone de service, une validation réussie, des rubriques complètes, de vraies photos, des avis auxquels on répond, et un rendez-vous chaque mois.
+			</p>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				La fiche est la première pièce. La suivante, c'est un site qui prend le relais quand le client veut en savoir plus. Si vous partez de zéro, lisez <a href="/blog/referencement-google-dakar-par-ou-commencer/" class="text-terracotta hover:underline">par où commencer le référencement à Dakar</a> : la fiche en est l'étape 2.
+			</p>
+
+			<hr class="my-12 border-sable-300" />
+
+			<div class="bg-terracotta/10 border border-terracotta/30 rounded-xl p-6">
+				<h3 class="text-lg font-semibold text-noir-cafe mb-3">
+					Votre fiche est créée, mais le téléphone reste calme ?
+				</h3>
+				<p class="text-sable-600 mb-4">
+					Envoyez-moi le nom de votre entreprise et votre quartier. Je regarde votre fiche et votre site, et je vous dis ce que je corrigerais en premier. La mise en place complète est chiffrée sur devis.
+				</p>
+				<a href="/referencement-site-web-senegal/" class="inline-flex items-center gap-2 bg-noir-cafe text-creme px-6 py-3 rounded-md font-medium hover:bg-terracotta transition-colors">
+					Le référencement, en détail
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+						<line x1="5" y1="12" x2="19" y2="12"></line>
+						<polyline points="12 5 19 12 12 19"></polyline>
+					</svg>
+				</a>
+				<a href="/#contact" class="mt-3 inline-flex text-sm text-sable-600 hover:text-noir-cafe transition-colors">
+					Me contacter →
+				</a>
+			</div>
+		</div>
+	</article>
+</Layout>
