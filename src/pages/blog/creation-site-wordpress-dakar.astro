@@ -1,0 +1,211 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+const article = {
+	slug: "creation-site-wordpress-dakar",
+	titre: "Site WordPress à Dakar : prix, pièges et alternatives",
+	extrait: "Création d'un site WordPress à Dakar : ce que vous payez vraiment, les pièges à éviter (extensions, mises à jour, sécurité) et les alternatives.",
+	date: "2026-11-10",
+	tags: ["WordPress", "Dakar", "création de site"],
+	tempsLecture: "7 min",
+};
+---
+
+<Layout
+	title={`${article.titre} — Saïbo Danfakha`}
+	description={article.extrait}
+	image="https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=1200&h=630&fit=crop&fm=jpg&q=80"
+	article={{ headline: article.titre, datePublished: article.date }}
+>
+	<article class="max-w-3xl mx-auto px-6 py-24 md:py-32">
+		<a href="/blog/" class="inline-flex items-center gap-2 text-sm text-sable-600 hover:text-noir-cafe transition-colors mb-12">
+			<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+				<line x1="19" y1="12" x2="5" y2="12"></line>
+				<polyline points="12 19 5 12 12 5"></polyline>
+			</svg>
+			Retour au blog
+		</a>
+
+		<header class="mb-12">
+			<div class="flex items-center gap-3 text-sm text-sable-600 mb-4">
+				<time datetime={article.date}>
+					{new Date(article.date).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}
+				</time>
+				<span>·</span>
+				<span>{article.tempsLecture} de lecture</span>
+			</div>
+
+			<h1 class="text-4xl md:text-5xl font-semibold leading-tight tracking-tight text-noir-cafe mb-6">
+				{article.titre}
+			</h1>
+
+			<div class="flex flex-wrap gap-2">
+				{article.tags.map((tag) => (
+					<span class="px-2.5 py-1 bg-terracotta/10 text-terracotta rounded-full text-xs">
+						#{tag}
+					</span>
+				))}
+			</div>
+		</header>
+
+		<figure class="mb-12 -mx-6 md:mx-0">
+			<img
+				src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=1200&h=630&fit=crop&auto=format&q=80"
+				alt="Code source à l'écran — ce qu'il y a sous le capot d'un site WordPress"
+				loading="eager"
+				class="w-full aspect-[16/9] object-cover md:rounded-xl"
+			/>
+		</figure>
+
+				<div class="prose prose-lg prose-noir-cafe max-w-none">
+			<p class="text-xl text-sable-600 mb-8 leading-relaxed">
+				« Faites-moi un site WordPress. » Beaucoup de demandes commencent ainsi à Dakar, souvent parce qu'un ami en a un, ou parce que le nom revient partout. Avant de lancer la création d'un site WordPress à Dakar, il faut pourtant savoir trois choses : <strong>ce que vous allez vraiment payer, ce qui casse le plus souvent, et dans quels cas un autre choix vous servira mieux.</strong>
+			</p>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Je ne suis pas contre WordPress. C'est un outil sérieux, libre, utilisé partout dans le monde, et il a sa place pour beaucoup de projets. Mais il est souvent vendu comme une solution « gratuite » et « simple ». Il n'est ni tout à fait l'un, ni tout à fait l'autre.
+			</p>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Cet article s'adresse aux commerçants, cabinets, écoles et associations de Dakar, de Thiès ou d'ailleurs qui hésitent. Pas de jargon : de quoi poser les bonnes questions à votre prestataire.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">WordPress en deux mots</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				WordPress est un logiciel libre qui sert à gérer un site : on y écrit des pages, des articles, on ajoute des images, sans toucher au code. Le logiciel lui-même ne coûte rien. Ce qui coûte, c'est tout ce qu'il y a autour.
+			</p>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Un site WordPress, c'est en réalité un assemblage de quatre pièces : <strong>le logiciel WordPress</strong>, <strong>un thème</strong> (l'apparence), <strong>des extensions</strong> (les fonctions : formulaire, boutique, galerie, référencement…) et <strong>un hébergement</strong> qui fait tourner le tout. Chaque pièce a son prix, ses mises à jour et ses risques. Pour une comparaison plus large avec d'autres outils, voyez mon article <a href="/blog/wordpress-astro-webflow/" class="text-terracotta hover:underline">WordPress, Astro ou Webflow : quel outil choisir ?</a>.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Création d'un site WordPress à Dakar : ce que vous payez vraiment</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Quand on compare deux devis, on compare souvent un seul chiffre : le prix de la création. C'est une erreur. Un site WordPress a un coût de départ et un coût de vie. Voici les postes à demander noir sur blanc :
+			</p>
+
+			<ul class="list-disc pl-6 text-sable-600 mb-6 space-y-2">
+				<li><strong>Le nom de domaine</strong> (votre adresse, par exemple <code>monentreprise.sn</code> ou <code>.com</code>) : il se renouvelle chaque année.</li>
+				<li><strong>L'hébergement</strong> : un abonnement mensuel ou annuel. Un hébergement trop bon marché rend souvent le site lent, et la lenteur fait fuir les visiteurs.</li>
+				<li><strong>Le thème</strong> : gratuit ou payant. Les thèmes payants sont souvent vendus avec une licence annuelle, en dollars ou en euros.</li>
+				<li><strong>Les extensions premium</strong> : même logique. Une boutique, un formulaire avancé ou une sauvegarde automatique peuvent demander chacun leur abonnement.</li>
+				<li><strong>La maintenance</strong> : quelqu'un doit faire les mises à jour, vérifier les sauvegardes et réagir en cas de problème.</li>
+				<li><strong>La création elle-même</strong> : le temps passé à concevoir les pages, écrire ou intégrer les textes, régler le référencement.</li>
+			</ul>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Les montants varient beaucoup selon le prestataire et le projet. Pour les fourchettes du marché sénégalais, j'ai détaillé les tranches dans <a href="/blog/combien-coute-un-site-professionnel/" class="text-terracotta hover:underline">combien coûte un site professionnel</a>. Retenez surtout ceci : <strong>un devis qui ne parle que de la création ne vous dit pas ce que le site vous coûtera dans deux ans.</strong> Demandez le coût annuel total, licences comprises.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Piège n° 1 : le site que personne ne met à jour</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				WordPress, ses thèmes et ses extensions publient régulièrement des mises à jour. Certaines ajoutent des fonctions, beaucoup corrigent des failles de sécurité. Un site qu'on ne met jamais à jour devient, mois après mois, une porte de plus en plus facile à ouvrir.
+			</p>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Le scénario est classique : le site est livré, le prestataire passe à autre chose, personne n'a les accès ou n'ose cliquer sur « Mettre à jour ». Un an plus tard, le site affiche des publicités qui ne sont pas les vôtres, ou redirige vers un autre site. Avant de signer, posez la question : <strong>qui fait les mises à jour, à quelle fréquence, et qui vérifie que rien n'a cassé après ?</strong>
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Piège n° 2 : trop d'extensions</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				La force de WordPress, c'est qu'il existe une extension pour presque tout. C'est aussi son piège. Chaque extension ajoute du code, parfois lourd, écrit par une équipe différente, mis à jour (ou abandonné) à son propre rythme.
+			</p>
+
+			<ul class="list-disc pl-6 text-sable-600 mb-8 space-y-2">
+				<li>Plus il y a d'extensions, plus il y a de mises à jour à suivre et de risques de conflit entre elles.</li>
+				<li>Une extension abandonnée par son auteur ne reçoit plus de correctifs de sécurité.</li>
+				<li>Certaines extensions chargent leurs fichiers sur toutes les pages, même là où elles ne servent à rien. Le site s'alourdit.</li>
+			</ul>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Piège n° 3 : le thème « tout-en-un » trop lourd</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Les thèmes vendus comme « multi-usages » promettent de tout faire : restaurant, cabinet, boutique, portfolio. Pour cela, ils embarquent des dizaines d'options et de constructeurs de pages que votre site n'utilisera jamais. Résultat : une page qui met longtemps à s'afficher.
+			</p>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Or à Dakar, la plupart de vos visiteurs arrivent depuis un téléphone, avec une connexion qui n'est pas toujours stable. Une page lente, c'est un client qui repart avant d'avoir vu votre numéro. J'explique pourquoi dans <a href="/blog/performance-web-conversion/" class="text-terracotta hover:underline">performance web et conversion</a>. Testez n'importe quel site avec l'outil gratuit PageSpeed Insights de Google : vous verrez vite la différence.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Piège n° 4 : les accès gardés par le prestataire</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				C'est le piège le plus douloureux, et il n'est pas propre à WordPress. Le nom de domaine est enregistré au nom du prestataire. L'hébergement est sur son compte. Vous n'avez qu'un accès « éditeur » au site. Le jour où vous voulez changer de prestataire, tout se bloque.
+			</p>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Exigez dès le départ : <strong>le domaine à votre nom, l'hébergement à votre nom (ou au moins les accès complets), un compte administrateur WordPress à vous, et une copie des licences achetées.</strong> Un prestataire sérieux n'y voit aucun problème.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Quand WordPress est un bon choix</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Malgré ces pièges, WordPress reste pertinent dans plusieurs situations :
+			</p>
+
+			<ul class="list-disc pl-6 text-sable-600 mb-8 space-y-2">
+				<li><strong>Vous publiez souvent</strong> (actualités, articles, annonces) et plusieurs personnes de votre équipe doivent pouvoir écrire sans passer par un développeur.</li>
+				<li><strong>Vous avez quelqu'un pour la maintenance</strong>, en interne ou chez un prestataire, avec un engagement clair.</li>
+				<li><strong>Votre besoin correspond à une extension éprouvée</strong>, bien suivie par son éditeur.</li>
+				<li><strong>Vous voulez pouvoir changer facilement de prestataire</strong> : beaucoup de développeurs connaissent WordPress.</li>
+			</ul>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Les alternatives à connaître</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				WordPress n'est pas la seule voie. Selon votre projet, trois autres options méritent d'être comparées :
+			</p>
+
+			<ul class="list-disc pl-6 text-sable-600 mb-6 space-y-2">
+				<li><strong>Le site statique sur mesure</strong> (c'est ce que je fais avec Astro) : des pages construites à l'avance, très légères, sans base de données à pirater ni extensions à suivre. Idéal pour une vitrine qui doit être rapide et bien référencée. Moins adapté si dix personnes doivent publier chaque jour.</li>
+				<li><strong>Les constructeurs en ligne</strong> (Wix, Webflow, Shopify pour la vente) : on paie un abonnement, la plateforme gère la technique. Simple au départ, mais vous dépendez d'elle, et l'abonnement se paie en devises tant que le site existe.</li>
+				<li><strong>L'application sur mesure</strong> : quand le besoin dépasse le site vitrine (gestion d'élèves, suivi de bénéficiaires, réservations complexes), un outil construit pour vous évite d'empiler les extensions.</li>
+			</ul>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Il n'y a pas de bon outil dans l'absolu. Il y a un outil adapté à votre usage, à votre budget de fonctionnement et à la personne qui s'en occupera après la livraison.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Cinq questions à poser avant de signer</h2>
+
+			<ol class="list-decimal pl-6 text-sable-600 mb-8 space-y-2">
+				<li>Quel est le coût total la première année, et chaque année ensuite, licences et hébergement compris ?</li>
+				<li>Qui fait les mises à jour et les sauvegardes, et comment serai-je prévenu en cas de problème ?</li>
+				<li>Combien d'extensions le site utilisera-t-il, et pourquoi chacune ?</li>
+				<li>Le domaine, l'hébergement et le compte administrateur seront-ils à mon nom ?</li>
+				<li>Quelle vitesse le site aura-t-il sur un téléphone, et comment le vérifier ?</li>
+			</ol>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Ce qu'il faut retenir</h2>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				WordPress est gratuit à installer, pas à faire vivre. Avant la création d'un site WordPress à Dakar, comparez le coût sur plusieurs années, limitez les extensions, choisissez un thème léger, gardez la main sur vos accès et prévoyez la maintenance. Si votre site est surtout une vitrine qui doit être rapide et trouvée sur Google, comparez avec un site sur mesure. Dans tous les cas, c'est votre usage qui décide, pas la mode.
+			</p>
+
+			<hr class="my-12 border-sable-300" />
+
+			<div class="bg-terracotta/10 border border-terracotta/30 rounded-xl p-6">
+				<h3 class="text-lg font-semibold text-noir-cafe mb-3">
+					Vous hésitez entre WordPress et une autre solution ?
+				</h3>
+				<p class="text-sable-600 mb-4">
+					Décrivez-moi votre activité et ce que votre site doit faire. Je vous dis honnêtement quel outil me paraît adapté, même si ce n'est pas moi qui le construis. Chaque projet est chiffré sur devis.
+				</p>
+				<a href="/referencement-site-web-senegal/" class="inline-flex items-center gap-2 bg-noir-cafe text-creme px-6 py-3 rounded-md font-medium hover:bg-terracotta transition-colors">
+					Un site rapide et bien référencé
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+						<line x1="5" y1="12" x2="19" y2="12"></line>
+						<polyline points="12 5 19 12 12 19"></polyline>
+					</svg>
+				</a>
+				<a href="/#contact" class="mt-3 inline-flex text-sm text-sable-600 hover:text-noir-cafe transition-colors">
+					Me contacter →
+				</a>
+			</div>
+		</div>
+	</article>
+</Layout>
