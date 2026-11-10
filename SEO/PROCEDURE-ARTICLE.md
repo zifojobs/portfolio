@@ -51,3 +51,4 @@ utiliser `claude/article-AAAA-MM-JJ`. La routine de publication cherche les deux
 - **2026-10-20** — publié referencement-google-dakar-par-ou-commencer (8694eda) : build OK, push OK ; vérification prod NON effectuée (proxy du routeur : 403 sur saibodanfakha.com) — à contrôler à la main
 - **2026-10-27** — publié combien-coute-referencement-site-senegal (314cd99) : build OK, push OK ; vérification prod NON effectuée (proxy : 403 sur saibodanfakha.com) — à contrôler à la main
 - **2026-11-03** — publié fiche-google-business-pme-dakar (42eef93) : build OK, push OK ; vérification prod NON effectuée (proxy : 403 sur saibodanfakha.com) — à contrôler à la main
+- **2026-11-10** — publié creation-site-wordpress-dakar (8122ac9) : build OK, push OK ; vérification prod NON effectuée (proxy : 403 sur saibodanfakha.com) — à contrôler à la main
