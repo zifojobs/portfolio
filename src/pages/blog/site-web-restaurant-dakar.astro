@@ -1,0 +1,249 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+const article = {
+	slug: "site-web-restaurant-dakar",
+	titre: "Site web restaurant à Dakar : ce qu'il doit contenir",
+	extrait: "Site web de restaurant à Dakar : menu lisible sur téléphone, horaires, carte, bouton WhatsApp, commande et avis. La liste de ce qu'il doit contenir.",
+	date: "2026-11-17",
+	tags: ["restaurant", "Dakar", "création de site"],
+	tempsLecture: "7 min",
+};
+---
+
+<Layout
+	title={`${article.titre} — Saïbo Danfakha`}
+	description={article.extrait}
+	image="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=1200&h=630&fit=crop&fm=jpg&q=80"
+	article={{ headline: article.titre, datePublished: article.date }}
+>
+	<article class="max-w-3xl mx-auto px-6 py-24 md:py-32">
+		<a href="/blog/" class="inline-flex items-center gap-2 text-sm text-sable-600 hover:text-noir-cafe transition-colors mb-12">
+			<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+				<line x1="19" y1="12" x2="5" y2="12"></line>
+				<polyline points="12 19 5 12 12 5"></polyline>
+			</svg>
+			Retour au blog
+		</a>
+
+		<header class="mb-12">
+			<div class="flex items-center gap-3 text-sm text-sable-600 mb-4">
+				<time datetime={article.date}>
+					{new Date(article.date).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}
+				</time>
+				<span>·</span>
+				<span>{article.tempsLecture} de lecture</span>
+			</div>
+
+			<h1 class="text-4xl md:text-5xl font-semibold leading-tight tracking-tight text-noir-cafe mb-6">
+				{article.titre}
+			</h1>
+
+			<div class="flex flex-wrap gap-2">
+				{article.tags.map((tag) => (
+					<span class="px-2.5 py-1 bg-terracotta/10 text-terracotta rounded-full text-xs">
+						#{tag}
+					</span>
+				))}
+			</div>
+		</header>
+
+		<figure class="mb-12 -mx-6 md:mx-0">
+			<img
+				src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=1200&h=630&fit=crop&auto=format&q=80"
+				alt="Ordinateur portable sur un bureau épuré — préparer le site d'un restaurant"
+				loading="eager"
+				class="w-full aspect-[16/9] object-cover md:rounded-xl"
+			/>
+		</figure>
+
+		<div class="prose prose-lg prose-noir-cafe max-w-none">
+			<p class="text-xl text-sable-600 mb-8 leading-relaxed">
+				Il est 13 h, quelqu'un a faim au Plateau. Il sort son téléphone, tape « thieb Plateau » ou « restaurant ouvert dimanche Almadies », et choisit en moins d'une minute. Un site web de restaurant à Dakar n'a qu'un travail : <strong>donner à cette personne, tout de suite, ce qu'elle cherche : le menu, l'adresse, les horaires et un moyen de vous joindre.</strong>
+			</p>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Beaucoup de restaurants ont une belle page Instagram et un compte WhatsApp actif. C'est très bien. Mais Instagram ne répond pas à une recherche Google, et un client qui ne vous connaît pas encore ne vous suit pas. Le site, lui, est la page que Google peut montrer à quelqu'un qui n'a jamais entendu parler de vous.
+			</p>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Voici ce qu'il doit contenir, dans l'ordre d'importance. Que vous teniez une dibiterie à Thiès, un restaurant de quartier aux Parcelles ou une table plus haut de gamme aux Almadies, la liste est la même. Seul le ton change.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Ce que cherche le client qui arrive sur votre site</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Avant de parler de design, mettez-vous à la place du visiteur. Il est presque toujours sur un téléphone, souvent dehors, parfois avec une connexion moyenne. Il se pose quatre questions, et il veut les réponses sans chercher :
+			</p>
+
+			<ol class="list-decimal pl-6 text-sable-600 mb-8 space-y-2">
+				<li><strong>Qu'est-ce qu'on mange ici ?</strong> Le menu.</li>
+				<li><strong>Est-ce que c'est ouvert maintenant ?</strong> Les horaires.</li>
+				<li><strong>Où est-ce, et comment j'y vais ?</strong> L'adresse et la carte.</li>
+				<li><strong>Comment je commande ou je réserve ?</strong> Un bouton d'appel ou WhatsApp.</li>
+			</ol>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Si ces quatre réponses sont visibles sans faire défiler longtemps, votre site fait déjà mieux que beaucoup d'autres. Tout le reste vient après.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">1. Un menu lisible sur téléphone, pas un PDF</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				C'est l'erreur la plus fréquente : le menu est une photo de la carte papier, ou un fichier PDF à télécharger. Sur un téléphone, il faut zoomer, déplacer, attendre le chargement. Beaucoup abandonnent avant.
+			</p>
+
+			<ul class="list-disc pl-6 text-sable-600 mb-6 space-y-2">
+				<li><strong>Écrivez le menu en texte sur la page</strong>, rangé par catégories : entrées, plats, grillades, boissons, desserts.</li>
+				<li><strong>Affichez les prix.</strong> Un client qui ne voit pas les prix imagine souvent qu'ils sont plus élevés qu'en réalité.</li>
+				<li><strong>Décrivez les plats en une ligne</strong> : ce qu'il y a dedans, la garniture, si c'est épicé.</li>
+				<li><strong>Signalez le plat du jour</strong> ou les plats disponibles seulement certains jours (un thiéboudienne ou un yassa servi seulement certains jours, par exemple).</li>
+			</ul>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Le menu en texte a un autre avantage : Google peut le lire. Quand quelqu'un cherche « mafé Dakar » ou « fataya Sacré-Cœur », une page qui contient vraiment ces mots a une chance d'apparaître. Une photo de menu, non.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">2. Horaires, adresse et carte, visibles dès l'accueil</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Les horaires doivent être exacts, jour par jour, avec les exceptions : fermeture le lundi, horaires réduits pendant certaines périodes, jours fériés. Un client qui se déplace et trouve porte close ne revient pas.
+			</p>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Pour l'adresse, à Dakar, les repères comptent autant que le nom de la rue : « en face de la pharmacie », « derrière la station ». Écrivez-les. Ajoutez une carte Google Maps intégrée et un lien « Itinéraire » qui ouvre directement l'application du téléphone. Et vérifiez que ces informations sont <strong>exactement les mêmes</strong> sur votre site, votre fiche Google, Instagram et Facebook.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">3. Un bouton pour appeler, un bouton WhatsApp</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Au Sénégal, une grande partie des commandes et des réservations passe par WhatsApp. Votre site doit en tenir compte :
+			</p>
+
+			<ul class="list-disc pl-6 text-sable-600 mb-6 space-y-2">
+				<li>Un bouton <strong>« Appeler »</strong> qui lance l'appel en un seul geste.</li>
+				<li>Un bouton <strong>« Commander sur WhatsApp »</strong> qui ouvre la conversation avec un message déjà prérempli (« Bonjour, je voudrais commander… »).</li>
+				<li>Ces boutons restent <strong>visibles en bas de l'écran</strong>, même quand on fait défiler le menu.</li>
+			</ul>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				C'est simple à mettre en place et c'est souvent ce qui transforme un visiteur en client. Le meilleur site du monde ne sert à rien si le numéro est caché en bas d'une page « Contact ».
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">4. De vraies photos de vos plats et de votre salle</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Les photos donnent faim, et elles rassurent. Mais elles doivent être les vôtres. Une photo de banque d'images d'un plat qui ne ressemble pas au vôtre crée une déception à table.
+			</p>
+
+			<ul class="list-disc pl-6 text-sable-600 mb-8 space-y-2">
+				<li>Photographiez vos plats à la lumière du jour, près d'une fenêtre, sur un fond simple.</li>
+				<li>Montrez aussi la salle, la terrasse, l'entrée : le client veut savoir où il va s'asseoir.</li>
+				<li>Faites alléger les photos avant de les mettre en ligne. Des images trop lourdes ralentissent tout le site, surtout sur une connexion mobile.</li>
+			</ul>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">5. Commande, livraison et réservation : selon votre façon de travailler</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Tous les restaurants n'ont pas besoin d'un système de commande en ligne. Choisissez ce qui correspond à votre organisation réelle :
+			</p>
+
+			<ul class="list-disc pl-6 text-sable-600 mb-6 space-y-2">
+				<li><strong>Vous prenez déjà les commandes par WhatsApp</strong> et ça marche : gardez-le. Le site sert à amener les gens vers la conversation, avec le menu sous les yeux.</li>
+				<li><strong>Vous livrez</strong> : indiquez clairement les quartiers desservis, les horaires de livraison et les moyens de paiement acceptés (espèces, Wave, Orange Money, carte).</li>
+				<li><strong>Vous recevez beaucoup de commandes</strong> et les messages se perdent : un vrai formulaire de commande, voire un petit système de panier, peut soulager l'équipe. C'est le même raisonnement qu'une boutique en ligne, que j'ai détaillé dans <a href="/blog/creer-boutique-en-ligne-senegal/" class="text-terracotta hover:underline">créer une boutique en ligne au Sénégal</a>.</li>
+				<li><strong>Vous travaillez sur réservation</strong> (soirées, groupes, week-end) : un formulaire simple avec date, heure et nombre de personnes, qui vous arrive par e-mail ou WhatsApp.</li>
+			</ul>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				La règle : ne promettez pas sur le site un service que l'équipe ne peut pas suivre. Une réservation en ligne restée sans réponse fait plus de tort que pas de réservation du tout.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">6. Traiteur, événements, groupes : une page à part</h2>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Beaucoup de restaurants dakarois font aussi du traiteur : baptêmes, mariages, séminaires, repas d'entreprise. Ce sont souvent les commandes les plus importantes. Elles méritent leur propre page, avec ce que vous proposez, le nombre de personnes que vous pouvez servir, les délais pour commander et un formulaire de demande de devis. Cette page répond aussi à une recherche à part entière, « traiteur Dakar », que la page d'accueil ne couvre pas.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">7. Les avis de vos clients</h2>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Avant d'essayer un nouveau restaurant, on lit ce qu'en disent les autres. Montrez quelques avis réels sur votre site, et surtout envoyez vers votre fiche Google, où les avis comptent pour apparaître sur la carte. Demandez un avis aux clients contents, par exemple avec un petit message WhatsApp après une commande, et répondez à chacun, y compris aux critiques. J'explique comment faire dans le <a href="/blog/fiche-google-business-pme-dakar/" class="text-terracotta hover:underline">guide de la fiche Google Business pour une PME à Dakar</a>.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Un site web de restaurant à Dakar doit être rapide</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Votre client a faim et il est pressé. Si la page met trop de temps à s'afficher, il retourne à Google et choisit le restaurant suivant. La vitesse n'est pas un détail technique, c'est une question de clients perdus ou gagnés. J'en parle plus longuement dans <a href="/blog/performance-web-conversion/" class="text-terracotta hover:underline">performance web et conversion</a>.
+			</p>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Pour vérifier, tapez l'adresse de votre site dans l'outil gratuit PageSpeed Insights de Google et regardez le résultat « mobile ». Les causes habituelles d'un site lent sont connues : photos trop lourdes, vidéo d'accueil qui se lance toute seule, thème chargé de fonctions inutiles, hébergement trop faible.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Être trouvé sur Google : la page et la fiche travaillent ensemble</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Pour un restaurant, Google affiche souvent d'abord la carte avec les fiches des établissements proches, puis les sites. Il faut donc les deux :
+			</p>
+
+			<ul class="list-disc pl-6 text-sable-600 mb-8 space-y-2">
+				<li><strong>Une fiche Google Business complète</strong> : bonne catégorie, horaires, photos, lien vers le site et vers le menu.</li>
+				<li><strong>Un titre de page clair</strong>, avec votre type de cuisine et votre quartier : « Restaurant sénégalais aux Mamelles — grillades et plats du jour ».</li>
+				<li><strong>Le nom du quartier et de la ville écrits sur le site</strong>, dans le texte, pas seulement sur la carte.</li>
+				<li><strong>Les mêmes coordonnées partout</strong> : nom, adresse, téléphone identiques au caractère près.</li>
+			</ul>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Ce qu'on peut laisser de côté</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Un site de restaurant n'a pas besoin d'être grand. Évitez :
+			</p>
+
+			<ul class="list-disc pl-6 text-sable-600 mb-8 space-y-2">
+				<li>La page d'accueil animée qui fait attendre avant d'afficher quoi que ce soit.</li>
+				<li>Le long texte sur l'histoire du restaurant en première page : il a sa place, mais plus bas ou sur une page « Notre histoire ».</li>
+				<li>Les sections qu'on ne mettra jamais à jour (« Actualités » vide depuis deux ans, agenda d'événements passés).</li>
+			</ul>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">La liste à garder</h2>
+
+			<ol class="list-decimal pl-6 text-sable-600 mb-8 space-y-2">
+				<li>Menu en texte, par catégories, avec les prix.</li>
+				<li>Horaires exacts, jour par jour.</li>
+				<li>Adresse avec repères, carte et bouton « Itinéraire ».</li>
+				<li>Boutons « Appeler » et « WhatsApp » toujours visibles.</li>
+				<li>Vraies photos des plats et de la salle, allégées.</li>
+				<li>Commande, livraison ou réservation, selon votre organisation.</li>
+				<li>Une page traiteur et événements, si vous en faites.</li>
+				<li>Des avis, et un lien vers votre fiche Google.</li>
+				<li>Un site qui s'affiche vite sur téléphone.</li>
+			</ol>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Un site web de restaurant à Dakar n'a pas besoin d'impressionner. Il doit répondre vite aux bonnes questions et faciliter la commande. Le reste, c'est votre cuisine qui s'en charge.
+			</p>
+
+			<hr class="my-12 border-sable-300" />
+
+			<div class="bg-terracotta/10 border border-terracotta/30 rounded-xl p-6">
+				<h3 class="text-lg font-semibold text-noir-cafe mb-3">
+					Votre restaurant mérite d'être trouvé
+				</h3>
+				<p class="text-sable-600 mb-4">
+					Envoyez-moi le lien de votre site, ou votre page Instagram si vous n'avez pas encore de site. Je vous dis ce qui manque pour que les clients vous trouvent et vous appellent. Chaque projet est chiffré sur devis.
+				</p>
+				<a href="/referencement-site-web-senegal/" class="inline-flex items-center gap-2 bg-noir-cafe text-creme px-6 py-3 rounded-md font-medium hover:bg-terracotta transition-colors">
+					Un site rapide et bien référencé
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+						<line x1="5" y1="12" x2="19" y2="12"></line>
+						<polyline points="12 5 19 12 12 19"></polyline>
+					</svg>
+				</a>
+				<a href="/#contact" class="mt-3 inline-flex text-sm text-sable-600 hover:text-noir-cafe transition-colors">
+					Me contacter →
+				</a>
+			</div>
+		</div>
+	</article>
+</Layout>
