@@ -7,7 +7,7 @@ Sitemap: https://saibodanfakha.com/sitemap-index.xml
 # Crawl-delay pour éviter la surcharge du serveur
 Crawl-delay: 1
 
+# /_astro/ porte le CSS et le JavaScript des pages : Google en a besoin pour les afficher (ne pas le bloquer).
 # Interdire l'accès aux fichiers de configuration
-Disallow: /_astro/
 Disallow: /.git/
 Disallow: /node_modules/
