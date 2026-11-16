@@ -1,0 +1,117 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { CONTENUS, DELAIS, FONCTIONS, PAGES, TYPES } from "../lib/estimateur";
+
+// L'estimateur (16/11/2026), adresse /estimateur/ (proposition approuvée par Saïbo). Titres choisis par Saïbo le 16/11.
+// Un ORDRE DE GRANDEUR, jamais un prix : le chiffrage reste sur devis (décision du 12/10). Les fourchettes
+// sont celles du formulaire de contact, déjà publiques. Rien n'est enregistré : tout se calcule dans le
+// navigateur, et le visiteur repart sur WhatsApp avec ses réponses.
+
+const WHATSAPP = "https://wa.me/221775277164";
+
+const groupes = [
+	{ nom: "type", titre: "1. Votre projet", choix: Object.entries(TYPES).map(([v, t]) => [v, t.libelle]), multiple: false, defaut: "vitrine" },
+	{ nom: "pages", titre: "2. Combien de pages ?", choix: Object.entries(PAGES).map(([v, p]) => [v, p.libelle]), multiple: false, defaut: "4-5" },
+	{ nom: "fonctions", titre: "3. Ce qu'il doit faire en plus", choix: Object.entries(FONCTIONS), multiple: true, defaut: "" },
+	{ nom: "contenus", titre: "4. Vos textes et vos photos", choix: Object.entries(CONTENUS), multiple: false, defaut: "prets" },
+	{ nom: "delai", titre: "5. Votre délai", choix: Object.entries(DELAIS), multiple: false, defaut: "normal" },
+];
+---
+
+<Layout
+	title="Estimateur de projet web — Saïbo Danfakha"
+	description="Répondez à 5 questions et obtenez un ordre de grandeur pour votre site vitrine, votre boutique ou votre application. Le devis précis reste gratuit."
+>
+	<section class="max-w-3xl mx-auto px-6 pt-32 pb-12 md:pt-40">
+		<p class="text-sm font-medium uppercase tracking-wider text-terracotta mb-4">Estimateur · 1 minute</p>
+		<h1 class="text-4xl md:text-5xl font-semibold leading-tight tracking-tight text-noir-cafe mb-6">
+			Estimez votre projet en une minute
+		</h1>
+		<p class="text-lg text-sable-600 leading-relaxed">
+			Répondez à cinq questions : vous obtenez un ordre de grandeur pour votre projet, et ce qu'il comprend.
+			Ce n'est pas un devis. Le devis précis se fait après un échange, gratuitement et sans engagement.
+		</p>
+	</section>
+
+	<section class="max-w-3xl mx-auto px-6 pb-24">
+		<form id="estimateur" class="space-y-10" novalidate>
+			{groupes.map((g) => (
+				<fieldset>
+					<legend class="text-lg font-semibold text-noir-cafe mb-4">{g.titre}</legend>
+					<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+						{g.choix.map(([valeur, libelle]) => (
+							<label class="cursor-pointer">
+								<input
+									type={g.multiple ? "checkbox" : "radio"}
+									name={g.nom}
+									value={valeur}
+									checked={!g.multiple && valeur === g.defaut}
+									class="peer sr-only"
+								/>
+								<span class="block px-4 py-3 border border-sable-300 rounded-md text-sm bg-sable-100 hover:border-noir-cafe peer-checked:bg-noir-cafe peer-checked:text-creme peer-checked:border-noir-cafe peer-focus-visible:ring-2 peer-focus-visible:ring-terracotta transition-colors">
+									{libelle}
+								</span>
+							</label>
+						))}
+					</div>
+					{g.multiple && <p class="text-sm text-sable-600 mt-2">Plusieurs choix possibles, ou aucun.</p>}
+				</fieldset>
+			))}
+		</form>
+
+		<div id="resultat" aria-live="polite" class="mt-12 rounded-lg border border-sable-300 bg-sable-100 p-6 md:p-8">
+			<p class="text-sm font-medium uppercase tracking-wider text-sable-600 mb-2">Ordre de grandeur</p>
+			<p id="fourchette" class="text-2xl sm:text-3xl md:text-4xl font-semibold text-noir-cafe mb-2">175 000 – 350 000 F</p>
+			<p class="text-sable-600 mb-4">Délai habituel : <span id="delai">1 à 3 semaines</span>.</p>
+			<ul id="notes" class="list-disc pl-5 space-y-1 text-sable-600 mb-6"></ul>
+			<p class="text-sm text-sable-600 mb-6">
+				Compris dans chaque site : version téléphone soignée, référencement de base sur Google, mise en ligne et
+				prise en main. Le suivi mensuel (mises à jour, sauvegardes, petites évolutions) est proposé en option.
+			</p>
+			<a
+				id="whatsapp"
+				href={WHATSAPP}
+				target="_blank"
+				rel="noopener noreferrer"
+				class="inline-flex items-center justify-center gap-2 bg-noir-cafe text-creme px-6 py-3 rounded-md font-medium hover:bg-terracotta transition-colors"
+			>
+				En parler sur WhatsApp
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+					<line x1="5" y1="12" x2="19" y2="12"></line>
+					<polyline points="12 5 19 12 12 19"></polyline>
+				</svg>
+			</a>
+			<p class="text-xs text-sable-600 mt-3">Le message reprend vos réponses. Rien n'est enregistré sur ce site.</p>
+		</div>
+	</section>
+
+	<script>
+		import { estimer, messageWhatsApp, type Reponses } from "../lib/estimateur";
+
+		const form = document.getElementById("estimateur") as HTMLFormElement;
+		const lire = (): Reponses => {
+			const d = new FormData(form);
+			return {
+				type: (d.get("type") ?? "vitrine") as Reponses["type"],
+				pages: (d.get("pages") ?? "4-5") as Reponses["pages"],
+				fonctions: d.getAll("fonctions") as Reponses["fonctions"],
+				contenus: (d.get("contenus") ?? "prets") as Reponses["contenus"],
+				delai: (d.get("delai") ?? "normal") as Reponses["delai"],
+			};
+		};
+		const afficher = () => {
+			const r = lire();
+			const e = estimer(r);
+			// Espaces insécables dans les nombres : « 1 600 000 F » ne se coupe jamais en deux lignes.
+			const f = e.fourchette.replace(/(\d) (?=\d)/g, "$1 ").replace(/ F$/, " F");
+			document.getElementById("fourchette")!.textContent = f.charAt(0).toUpperCase() + f.slice(1);
+			document.getElementById("delai")!.textContent = e.delai;
+			const notes = document.getElementById("notes")!;
+			notes.replaceChildren(...e.notes.map((n) => Object.assign(document.createElement("li"), { textContent: n })));
+			(document.getElementById("whatsapp") as HTMLAnchorElement).href =
+				"https://wa.me/221775277164?text=" + encodeURIComponent(messageWhatsApp(r));
+		};
+		form.addEventListener("change", afficher);
+		afficher();
+	</script>
+</Layout>

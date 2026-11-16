@@ -5,6 +5,36 @@ Le plus récent en premier ; la baseline du 2026-06-11 en bas de fichier.
 
 ---
 
+# Relevé n°5 — 2026-11-16 · 1ᵉʳ rapport mensuel
+**Source** : GSC + fiche Google, captures de Saïbo · **Période GSC** : 28 jours (18/10 → 14/11/2026)
+
+| Métrique | 28 j au 14/11 | 3 mois au 13/10 |
+|---|---|---|
+| Clics | **1** | 1 |
+| Impressions | **183** | 285 (≈ 95 / mois) |
+| CTR | 0,5 % | 0,4 % |
+| Position moyenne | **38** | 19,8 |
+| Pages indexées | **28** (14 non indexées) | 24 (9) |
+
+**Requêtes (top)** : référencement naturel dakar 25 · **prix site web à dakar 16** · referencement local senegal 13 ·
+référencement payant dakar 10 · seo et référencement dakar 7 · comment choisir un développeur web freelance 6 ·
+seo referencement dakar 5 · referencement web dakar 4 · référencement site senegal 4 · référencement de site internet dakar 4.
+
+**Lecture**
+1. **Les impressions doublent par mois** (≈ 95 ⇒ 183) depuis le départ du plan, **mais la position recule (19,8 ⇒ 38)** :
+   le site apparaît sur des requêtes « référencement … dakar » nouvelles et très disputées, loin dans les résultats.
+   ⇒ Toujours page 3-4 : presque aucun clic. Il faut des pages qui répondent EXACTEMENT à une requête.
+2. 🎯 **« prix site web à dakar » (16)** : aucune page n'y répond ⇒ **l'estimateur** (décidé le 16/11) la vise.
+3. **Indexation** : 404 : 4 (validation commencée) · explorées non indexées : 6 · noindex : 2 · **403 : 1 = `/wp-json/elementskit/v1/`**
+   (adresse WordPress, jamais une page du site ; refusée par le pare-feu Vercel, `X-Vercel-Mitigated: deny` ⇒ normal, ne rien valider) · canonique alternative : 1. robots.txt bloquait `/_astro/` (CSS/JS) ⇒ débloqué le 16/11.
+4. **Fiche Google** : 261 vues de la fiche (Maps mobile 87, Maps ordinateur 68, Recherche ordinateur 53, mobile 53),
+   < 50 recherches. Le « 0 vue en octobre » du 07/11 ne tient plus (période de la capture à préciser).
+5. Messages entrants : **un établissement scolaire (11/11), trouvé via ChatGPT**. Le premier prospect venu d'une IA.
+
+**Prochain relevé : début décembre.**
+
+---
+
 # Relevé n°4 — 2026-10-15 · DÉPART du plan de visibilité
 **Source** : GSC, captures de Saïbo · **Période** : 3 mois (~13/07 → 13/10/2026)
 
@@ -190,6 +220,7 @@ e-commerce sénégal 3 · référencement site senegal 3 · comment choisir un d
 | 2026-07-27 | 2 | 96 | 2,1 % | 20,7 | **16 requêtes** · la marque ne pèse plus que 2 imp. · **8/10 des requêtes = SEO/référencement** · aucun mot-clé du mapping v1 ne ressort |
 | 2026-08-11 | — | — | — | — | Non relevé |
 | 2026-10-15 | 1 | 285 | 0,4 % | 19,8 | **Départ du plan** · 24 requêtes · « rédacteur web senegal » en tête (27) · 24 pages indexées, 4 en 404 → redirigées |
+| 2026-10-28 | 2 | 329 | 0,6 % | 21,6 | Relevé intermédiaire (capture de Saïbo, 3 mois ≈ 27/07 → 26/10, graphique seul) · clics vers le 03/08 et le 13/10, **aucun depuis l'article du 20/10** · pic de **18 impr. le 21/10** (page référencement du 15/10 + 1er article) puis retour à ≈ 2/jour les 25-26/10 · Sunu Market (27/10, « en cherchant un développeur indépendant ») : pas encore visible (données en retard de 2-3 j), regarder s'il apparaît un clic le 26 ou le 27/10 · **confirmé (sa réponse du 28/10, transmise le 29/10) : « je t'ai trouvé sur Google »** = 1er contact entrant venu de Google ; requête et page inconnues. S'il n'apparaît aucun clic le 26-27/10, il est sans doute passé par la fiche Google Business (Maps), qui ne compte pas dans Search Console |
 
 ---
 
