@@ -1,6 +1,6 @@
 {
   "id": "visibilite-securite",
-  "version": 2,
+  "version": 3,
   "titreDossier": "{societe}, prête à être trouvée.",
   "chemin": [
     "Les fondations",
@@ -46,7 +46,7 @@
         {
           "id": "couleur",
           "type": "couleur",
-          "libelle": "La couleur de votre marque",
+          "libelle": "La couleur de votre marque (facultatif)",
           "sansLien": true,
           "options": [
             {
@@ -79,7 +79,9 @@
               "l": "Noir",
               "accent": "#f39221"
             }
-          ]
+          ],
+          "facultatif": true,
+          "libre": true
         },
         {
           "id": "logo",

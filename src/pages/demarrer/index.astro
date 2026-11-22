@@ -169,6 +169,27 @@ import LayoutDemarrer from "../../layouts/LayoutDemarrer.astro";
 	.dm-pastille[aria-pressed="true"] {
 		box-shadow: 0 0 0 3px var(--encre);
 	}
+	.dm-pastille-libre {
+		position: relative;
+		display: inline-block;
+		background: conic-gradient(#e63946, #f39221, #e9c46a, #2a9d8f, #1d3557, #7a1f2b, #e63946);
+		overflow: hidden;
+	}
+	.dm-couleur-libre {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		opacity: 0;
+		cursor: pointer;
+		border: 0;
+		padding: 0;
+	}
+	.dm-aide {
+		font-size: 14px;
+		color: var(--gris);
+		margin: 8px 0 0;
+	}
 	.dm-logo-apercu {
 		display: flex;
 		align-items: center;

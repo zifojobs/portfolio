@@ -107,3 +107,13 @@ export function progression(index: number, total: number): number {
 
 /** Typographie française : espace fine insécable avant ? ! : ; (un « ? » ne passe jamais seul à la ligne). */
 export const typo = (s: string): string => s.replace(/ ([?!:;])/g, '\u202f$1')
+
+const ACCENTS = ['#f39221', '#e9c46a', '#f4a261', '#ffffff', '#1b1b1b']
+
+/** L'accent le plus lisible sur une couleur choisie librement par le client. */
+export function accentPour(hex: string): string {
+  const l = luminance(hex)
+  return ACCENTS.filter((a) => a !== hex.toLowerCase()).reduce((m, a) =>
+    contraste(l, luminance(a)) > contraste(l, luminance(m)) ? a : m,
+  )
+}

@@ -13,6 +13,7 @@ import {
   texteSur,
   titreDossier,
   typo,
+  accentPour,
 } from './moteur.ts'
 
 const jeu = chargerJeu('visibilite-securite')
@@ -20,7 +21,7 @@ const q = (id: string) => jeu.questions.find((x) => x.id === id)!
 
 describe('estRepondue', () => {
   it('texte vide = non', () => assert.equal(estRepondue(q('societe'), { societe: '  ', couleur: '#045b5b' }), false))
-  it('texte rempli + couleur = oui', () =>
+  it('texte rempli + couleur = oui (couleur facultative depuis le 22/11)', () =>
     assert.equal(estRepondue(q('societe'), { societe: 'Exemple Sécurité', couleur: '#045b5b' }), true))
   it('option autre sans texte = non', () => assert.equal(estRepondue(q('services'), { services: ['autre'] }), false))
   it('option autre avec texte = oui', () =>
@@ -114,4 +115,17 @@ describe('couleurs et progression', () => {
 describe('typo', () => {
   it('espace insécable fine avant ? ! : ;', () =>
     assert.equal(typo('Votre société ? Oui : non ; si !'), 'Votre société\u202f? Oui\u202f: non\u202f; si\u202f!'))
+})
+
+describe('couleur facultative et libre (Saïbo, 22/11)', () => {
+  it('sans couleur choisie, la question 2 passe', () =>
+    assert.equal(estRepondue(q('societe'), { societe: 'Exemple Sécurité' }), true))
+  it('accentPour : un accent lisible sur la couleur du client', () => {
+    for (const fond of ['#045b5b', '#f39221', '#ffffff', '#1b1b1b', '#e9c46a', '#7a1f2b']) {
+      const a = accentPour(fond)
+      assert.match(a, /^#[0-9a-f]{6}$/)
+      assert.notEqual(a, fond)
+    }
+    assert.equal(accentPour('#f39221') === '#f39221', false)
+  })
 })

@@ -13,6 +13,7 @@ import {
   texteSur,
   titreDossier,
   typo,
+  accentPour,
 } from '../lib/demarrer/moteur.ts'
 import { dessinerDossier, partagerOuTelecharger, POLICE } from '../lib/demarrer/png.ts'
 import type { Champ, ConfigClient, Jeu, Question, Reponses, Valeur } from '../lib/demarrer/types.ts'
@@ -74,8 +75,12 @@ function setValeur(cleR: string, v: Valeur | undefined) {
 function couleurs(): { couleur: string; accent: string } {
   if (etat.config) return { couleur: etat.config.couleur, accent: etat.config.accent }
   const champ = etat.jeu.questions.flatMap((q) => q.champs).find((c) => c.type === 'couleur')
-  const opt = champ?.options?.find((o) => o.v === etat.reponses[champ.id])
-  return { couleur: opt?.v ?? '#1b1b1b', accent: opt?.accent ?? '#f39221' }
+  const v = champ ? etat.reponses[champ.id] : undefined
+  const opt = champ?.options?.find((o) => o.v === v)
+  if (opt) return { couleur: opt.v, accent: opt.accent ?? accentPour(opt.v) }
+  // Couleur libre (sélecteur du téléphone) : l'accent se choisit pour rester lisible.
+  if (typeof v === 'string' && /^#[0-9a-f]{6}$/i.test(v)) return { couleur: v, accent: accentPour(v) }
+  return { couleur: '#1b1b1b', accent: '#f39221' }
 }
 
 function appliquerCouleurs() {
@@ -194,21 +199,43 @@ function champOptions(c: Champ, maj: () => void) {
 function champCouleur(c: Champ, maj: () => void) {
   const fs = el('fieldset', { className: 'dm-champ' }, el('legend', { textContent: c.libelle ?? 'Couleur' }))
   const zone = el('div', { className: 'dm-puces' })
+  const majPressees = () => {
+    const v = etat.reponses[c.id]
+    for (const bb of boutons) bb.setAttribute('aria-pressed', String(bb.dataset.v === v))
+    if (libre) libre.setAttribute('aria-pressed', String(typeof v === 'string' && !c.options?.some((o) => o.v === v)))
+  }
   const boutons = (c.options ?? []).map((o) => {
     const b = el('button', { type: 'button', className: 'dm-pastille' })
+    b.dataset.v = o.v
     b.style.background = o.v
     b.setAttribute('aria-label', o.l)
     b.title = o.l
-    b.setAttribute('aria-pressed', String(etat.reponses[c.id] === o.v))
     b.addEventListener('click', () => {
-      setValeur(c.id, o.v)
-      for (const bb of boutons) bb.setAttribute('aria-pressed', String(bb === b))
+      // Facultatif : un second appui retire le choix.
+      setValeur(c.id, etat.reponses[c.id] === o.v && c.facultatif ? undefined : o.v)
+      majPressees()
       maj()
     })
     return b
   })
   zone.append(...boutons)
-  fs.append(zone)
+  let libre: HTMLLabelElement | null = null
+  if (c.libre) {
+    const v = etat.reponses[c.id]
+    const choix = el('input', { type: 'color', className: 'dm-couleur-libre', value: typeof v === 'string' && /^#[0-9a-f]{6}$/i.test(v) ? v : '#045b5b' })
+    choix.setAttribute('aria-label', 'Autre couleur')
+    choix.addEventListener('input', () => {
+      setValeur(c.id, choix.value.toLowerCase())
+      libre!.style.background = choix.value
+      majPressees()
+      maj()
+    })
+    libre = el('label', { className: 'dm-pastille dm-pastille-libre', title: 'Autre couleur' }, choix)
+    if (typeof v === 'string' && !c.options?.some((o) => o.v === v)) libre.style.background = v
+    zone.append(libre)
+  }
+  fs.append(zone, el('p', { className: 'dm-aide', textContent: 'La dernière pastille ouvre toutes les couleurs.' }))
+  majPressees()
   return fs
 }
 

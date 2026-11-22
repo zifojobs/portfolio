@@ -17,6 +17,8 @@ export interface Champ {
   options?: Option[]
   /** Ajoute une option « Autre » suivie d'un texte libre (clé `${id}.autre`). */
   autre?: boolean
+  /** Champ « couleur » : toute couleur #rrggbb est acceptée en plus des options. */
+  libre?: boolean
   max?: number
   facultatif?: boolean
   carte?: 'nom' | 'tags'
