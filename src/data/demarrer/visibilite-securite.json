@@ -10,7 +10,7 @@
       "pourquoi": "Pour vous écrire à votre nom, tout simplement.",
       "champs": [
         { "id": "prenom", "type": "texte", "libelle": "Prénom", "max": 60, "prerempli": "prenom" },
-        { "id": "nom", "type": "texte", "libelle": "Nom", "max": 60, "facultatif": true }
+        { "id": "nom", "type": "texte", "libelle": "Nom (facultatif)", "max": 60, "facultatif": true }
       ]
     },
     {

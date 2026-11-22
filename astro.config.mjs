@@ -7,7 +7,8 @@ import sitemap from '@astrojs/sitemap';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://saibodanfakha.com',
-  integrations: [sitemap()],
+  // /demarrer/ : questionnaire client, noindex et hors sitemap (22/11/2026).
+  integrations: [sitemap({ filter: (page) => !page.includes('/demarrer/') })],
   vite: {
     plugins: [tailwindcss()]
   }

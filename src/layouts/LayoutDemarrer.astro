@@ -1,0 +1,80 @@
+---
+// Page autonome du questionnaire de démarrage (22/11/2026) : ni en-tête ni pied du site,
+// noindex, nouvelle direction de la charte (Schibsted Grotesk seule, neutres en attendant les couleurs).
+import "@fontsource-variable/schibsted-grotesk/wght.css";
+import police from "@fontsource-variable/schibsted-grotesk/files/schibsted-grotesk-latin-wght-normal.woff2?url";
+
+interface Props {
+	title?: string;
+}
+const { title = "Démarrer votre projet — Saïbo Danfakha" } = Astro.props;
+---
+
+<html lang="fr">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+		<meta name="robots" content="noindex, nofollow" />
+		<meta name="referrer" content="no-referrer" />
+		<meta name="theme-color" content="#f6f3ee" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="preload" href={police} as="font" type="font/woff2" crossorigin />
+		<title>{title}</title>
+		<meta name="description" content="Quelques questions pour préparer votre projet avec Saïbo Danfakha." />
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
+
+<style is:global>
+	:root {
+		--fond: #f6f3ee;
+		--encre: #1b1b1b;
+		--gris: #4c524d;
+		--bord: #cfc6b8;
+		--blanc: #ffffff;
+		--client: #1b1b1b;
+		--client-texte: #ffffff;
+		--accent: #f39221;
+		--accent-texte: #1b1b1b;
+		color-scheme: light;
+	}
+	*,
+	*::before,
+	*::after {
+		box-sizing: border-box;
+	}
+	html {
+		-webkit-text-size-adjust: 100%;
+	}
+	[hidden] {
+		display: none !important;
+	}
+	body {
+		margin: 0;
+		background: var(--fond);
+		color: var(--encre);
+		font-family: "Schibsted Grotesk Variable", system-ui, sans-serif;
+		font-weight: 400;
+		line-height: 1.5;
+	}
+	button,
+	input {
+		font: inherit;
+		color: inherit;
+	}
+	:focus-visible {
+		outline: 3px solid var(--encre);
+		outline-offset: 2px;
+	}
+	@media (prefers-reduced-motion: reduce) {
+		*,
+		::view-transition-group(*),
+		::view-transition-old(*),
+		::view-transition-new(*) {
+			animation: none !important;
+			transition: none !important;
+		}
+	}
+</style>

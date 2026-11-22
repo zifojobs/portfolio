@@ -3,7 +3,8 @@ import { texteSur } from './moteur.ts'
 
 export const POLICE = '"Schibsted Grotesk Variable", "Schibsted Grotesk", system-ui, sans-serif'
 const L = 1080
-const H = 1920
+const H_MIN = 1920
+const PIED = 140
 const MARGE = 96
 
 /** Coupe un texte en lignes qui tiennent dans `largeurMax` ; un mot trop long est coupé en force. */
@@ -48,7 +49,17 @@ function boite(ctx: CanvasRenderingContext2D, x: number, y: number, l: number, h
   ctx.fill()
 }
 
+/** Dessine le dossier ; l'image s'allonge au-delà de 1920 px si le contenu le demande. */
 export function dessinerDossier(ctx: CanvasRenderingContext2D, d: DonneesDossier): void {
+  ctx.canvas.height = H_MIN
+  const fin = peindre(ctx, d, H_MIN)
+  if (fin + PIED > H_MIN) {
+    ctx.canvas.height = fin + PIED
+    peindre(ctx, d, fin + PIED)
+  }
+}
+
+function peindre(ctx: CanvasRenderingContext2D, d: DonneesDossier, H: number): number {
   const encre = texteSur(d.couleur)
   const voile = encre === '#ffffff' ? 'rgba(255,255,255,0.10)' : 'rgba(0,0,0,0.07)'
   const largeur = L - 2 * MARGE
@@ -67,7 +78,7 @@ export function dessinerDossier(ctx: CanvasRenderingContext2D, d: DonneesDossier
     ctx.drawImage(d.logo, L - MARGE - 80 - lw / 2, MARGE + 80 - lh / 2, lw, lh)
   }
 
-  let y = MARGE + 200
+  let y = MARGE + (d.logo ? 200 : 40)
   ctx.fillStyle = encre
   ctx.globalAlpha = 0.75
   police(500, 34)
@@ -141,20 +152,23 @@ export function dessinerDossier(ctx: CanvasRenderingContext2D, d: DonneesDossier
   boite(ctx, MARGE, y, largeur, hPromesse, d.accent)
   ctx.fillStyle = texteSur(d.accent)
   promesse.forEach((p, i) => ctx.fillText(p, MARGE + 48, y + 48 + i * 50))
+  const fin = y + hPromesse
 
   ctx.fillStyle = encre
   ctx.globalAlpha = 0.7
   police(500, 30)
-  ctx.fillText('Saïbo Danfakha · saibodanfakha.com', MARGE, H - MARGE - 30)
+  ctx.fillText('Saïbo Danfakha · saibodanfakha.com', MARGE, H - MARGE)
   ctx.globalAlpha = 1
+  return fin
 }
 
-/** Partage natif (WhatsApp en un geste sur téléphone) ; sinon téléchargement. */
+/** Partage natif sur téléphone (WhatsApp en un geste) ; sur ordinateur, téléchargement. */
 export async function partagerOuTelecharger(canvas: HTMLCanvasElement, nomFichier = 'dossier-de-demarrage.png'): Promise<void> {
   const blob = await new Promise<Blob | null>((ok) => canvas.toBlob(ok, 'image/png'))
   if (!blob) throw new Error("L'image n'a pas pu être créée.")
   const fichier = new File([blob], nomFichier, { type: 'image/png' })
-  if (navigator.canShare?.({ files: [fichier] })) {
+  const tactile = matchMedia('(pointer: coarse)').matches
+  if (tactile && navigator.canShare?.({ files: [fichier] })) {
     try {
       await navigator.share({ files: [fichier], title: 'Mon dossier de démarrage' })
       return
