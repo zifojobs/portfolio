@@ -1,6 +1,7 @@
 // Brouillon gardé dans le navigateur pendant le parcours. Le stockage peut manquer ou lever
 // (navigation privée, iOS) : le parcours continue alors sans brouillon, sans erreur.
-import type { Reponses } from './types.ts'
+import { estConfig } from './envoi.ts'
+import type { ConfigClient, Reponses } from './types.ts'
 
 export interface Brouillon {
   index: number
@@ -8,7 +9,9 @@ export interface Brouillon {
   idDossier: string
 }
 
-export const cleBrouillon = (jeuId: string, jeton: string | null) => `demarrer:${jeuId}:${jeton ?? 'libre'}`
+// La version du jeu est dans la clé : un brouillon d'avant une modification du jeu n'est jamais repris.
+export const cleBrouillon = (jeuId: string, version: number, jeton: string | null) =>
+  `demarrer:${jeuId}:v${version}:${jeton ?? 'libre'}`
 
 const estBrouillon = (x: unknown): x is Brouillon => {
   if (!x || typeof x !== 'object') return false
@@ -46,5 +49,25 @@ export function effacerBrouillon(stockage: Pick<Storage, 'removeItem'>, cle: str
     stockage.removeItem(cle)
   } catch {
     /* idem */
+  }
+}
+
+const cleConfig = (jeton: string) => `demarrer:config:${jeton}`
+
+/** Dernière config valide d'un lien, pour un réseau instable. */
+export function lireConfigCache(stockage: Pick<Storage, 'getItem'>, jeton: string): ConfigClient | null {
+  try {
+    const c = JSON.parse(stockage.getItem(cleConfig(jeton)) ?? 'null')
+    return estConfig(c) ? c : null
+  } catch {
+    return null
+  }
+}
+
+export function ecrireConfigCache(stockage: Pick<Storage, 'setItem'>, jeton: string, c: ConfigClient): void {
+  try {
+    stockage.setItem(cleConfig(jeton), JSON.stringify(c))
+  } catch {
+    /* stockage indisponible */
   }
 }

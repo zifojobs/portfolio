@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict'
 import { describe, it } from 'node:test'
 
-import { chargerConfig, envoyerDossier, URL_AGENT, type Dossier } from './envoi.ts'
+import { chargerConfig, delai, envoyerDossier, URL_AGENT, type Dossier } from './envoi.ts'
 
 const d: Dossier = {
   version: 1,
@@ -44,21 +44,37 @@ describe('envoyerDossier', () => {
 })
 
 describe('chargerConfig', () => {
-  it('jeton "../x" → null sans appel réseau', async () => {
+  it('jeton "../x" → absent sans appel réseau', async () => {
     let appels = 0
     const f = (async () => { appels++; return new Response('{}') }) as unknown as typeof fetch
-    assert.equal(await chargerConfig('../x', f), null)
+    assert.deepEqual(await chargerConfig('../x', f), { statut: 'absent' })
     assert.equal(appels, 0)
   })
-  it('404 → null', async () => assert.equal(await chargerConfig('a'.repeat(24), repondre(404)), null))
-  it('réseau coupé → null', async () => {
+  it('404 → absent', async () => assert.deepEqual(await chargerConfig('a'.repeat(24), repondre(404)), { statut: 'absent' }))
+  it('réseau coupé → erreur (pas absent : le lien reste valable)', async () => {
     const f = (async () => { throw new TypeError('Failed to fetch') }) as unknown as typeof fetch
-    assert.equal(await chargerConfig('a'.repeat(24), f), null)
+    assert.deepEqual(await chargerConfig('a'.repeat(24), f), { statut: 'erreur' })
   })
+  it('429 → erreur', async () => assert.deepEqual(await chargerConfig('a'.repeat(24), repondre(429)), { statut: 'erreur' }))
   it('200 → la config', async () => {
     const config = { prenom: 'Awa', societe: 'Exemple Sécurité', couleur: '#045b5b', accent: '#f39221', jeu: 'visibilite-securite' }
-    assert.deepEqual(await chargerConfig('a'.repeat(24), repondre(200, config)), config)
+    assert.deepEqual(await chargerConfig('a'.repeat(24), repondre(200, config)), { statut: 'ok', config })
   })
-  it('200 mais forme fausse → null', async () =>
-    assert.equal(await chargerConfig('a'.repeat(24), repondre(200, { prenom: 3 })), null))
+  it('200 mais forme fausse → absent', async () =>
+    assert.deepEqual(await chargerConfig('a'.repeat(24), repondre(200, { prenom: 3 })), { statut: 'absent' }))
+})
+
+describe('navigateurs anciens (iOS 15)', () => {
+  it('sans AbortSignal.timeout, l’envoi part quand même', async () => {
+    const original = AbortSignal.timeout
+    // @ts-expect-error simulation d'un Safari 15
+    delete AbortSignal.timeout
+    try {
+      assert.equal(typeof (AbortSignal as { timeout?: unknown }).timeout, 'undefined')
+      assert.deepEqual(await envoyerDossier(d, repondre(200)), { ok: true })
+      assert.ok(delai(1000) instanceof AbortSignal)
+    } finally {
+      AbortSignal.timeout = original
+    }
+  })
 })

@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict'
 import { describe, it } from 'node:test'
 
-import { couperLignes } from './png.ts'
+import { arrondi, couperLignes } from './png.ts'
 
 const mesurer = (s: string) => s.length * 10
 
@@ -17,4 +17,19 @@ describe('couperLignes', () => {
     assert.deepEqual(l, ['a'.repeat(10), 'a'.repeat(10), 'a'.repeat(10)])
   })
   it('chaîne vide → []', () => assert.deepEqual(couperLignes('', 100, mesurer), []))
+})
+
+describe('arrondi', () => {
+  it('sans ctx.roundRect (Safari 15), trace avec arcTo', () => {
+    const appels: string[] = []
+    const ctx = { beginPath: () => appels.push('begin'), moveTo: () => appels.push('move'), arcTo: () => appels.push('arc'), closePath: () => appels.push('close') }
+    arrondi(ctx as unknown as CanvasRenderingContext2D, 0, 0, 100, 50, 10)
+    assert.equal(appels.filter((a) => a === 'arc').length, 4)
+  })
+  it('avec ctx.roundRect, l’utilise', () => {
+    let utilise = false
+    const ctx = { beginPath: () => {}, roundRect: () => { utilise = true } }
+    arrondi(ctx as unknown as CanvasRenderingContext2D, 0, 0, 100, 50, 10)
+    assert.ok(utilise)
+  })
 })

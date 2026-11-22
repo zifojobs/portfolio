@@ -21,6 +21,14 @@ const MESSAGES = {
   autre: "L'envoi n'a pas abouti. Vos réponses sont gardées : réessayez, ou envoyez-les-moi sur WhatsApp.",
 }
 
+/** Délai d'abandon d'une requête ; Safari < 16 (iOS 15) n'a pas AbortSignal.timeout. */
+export function delai(ms: number): AbortSignal {
+  if (typeof AbortSignal.timeout === 'function') return AbortSignal.timeout(ms)
+  const c = new AbortController()
+  setTimeout(() => c.abort(), ms)
+  return c.signal
+}
+
 export async function envoyerDossier(d: Dossier, f: typeof fetch = fetch): Promise<ResultatEnvoi> {
   let res: Response
   try {
@@ -28,7 +36,7 @@ export async function envoyerDossier(d: Dossier, f: typeof fetch = fetch): Promi
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(d),
-      signal: AbortSignal.timeout(20000),
+      signal: delai(20000),
     })
   } catch {
     return { ok: false, message: MESSAGES.reseau }
@@ -40,7 +48,7 @@ export async function envoyerDossier(d: Dossier, f: typeof fetch = fetch): Promi
 export const JETON_VALIDE = /^[A-Za-z0-9_-]{16,64}$/
 const HEX = /^#[0-9a-fA-F]{6}$/
 
-const estConfig = (x: unknown): x is ConfigClient => {
+export const estConfig = (x: unknown): x is ConfigClient => {
   if (!x || typeof x !== 'object') return false
   const c = x as Record<string, unknown>
   return (
@@ -53,15 +61,19 @@ const estConfig = (x: unknown): x is ConfigClient => {
   )
 }
 
-/** La config d'un lien personnalisé ; null ⇒ le parcours s'ouvre en mode libre. */
-export async function chargerConfig(jeton: string, f: typeof fetch = fetch): Promise<ConfigClient | null> {
-  if (!JETON_VALIDE.test(jeton)) return null
+export type ResultatConfig = { statut: 'ok'; config: ConfigClient } | { statut: 'absent' } | { statut: 'erreur' }
+
+/** La config d'un lien personnalisé. « absent » (lien inconnu) ⇒ mode libre ;
+ *  « erreur » (réseau, 429…) ⇒ le lien reste valable, la page reprend la config gardée. */
+export async function chargerConfig(jeton: string, f: typeof fetch = fetch): Promise<ResultatConfig> {
+  if (!JETON_VALIDE.test(jeton)) return { statut: 'absent' }
   try {
-    const res = await f(`${URL_AGENT}/config/${jeton}`, { signal: AbortSignal.timeout(10000) })
-    if (res.status !== 200) return null
+    const res = await f(`${URL_AGENT}/config/${jeton}`, { signal: delai(10000) })
+    if (res.status === 404) return { statut: 'absent' }
+    if (res.status !== 200) return { statut: 'erreur' }
     const c = await res.json()
-    return estConfig(c) ? c : null
+    return estConfig(c) ? { statut: 'ok', config: c } : { statut: 'absent' }
   } catch {
-    return null
+    return { statut: 'erreur' }
   }
 }

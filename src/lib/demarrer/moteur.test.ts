@@ -78,6 +78,13 @@ describe('dossier', () => {
     assert.match(r, /Exemple Sécurité/)
     assert.match(r, /Dakar/)
   })
+  it('resumeTexte ne coupe jamais un émoji en deux (lien WhatsApp valide)', () => {
+    for (let n = 1480; n < 1500; n++) {
+      const r = resumeTexte(jeu, { societe: 'x'.repeat(n - 80) + '😀'.repeat(200) })
+      assert.doesNotThrow(() => encodeURIComponent(r), String(n))
+      assert.ok(r.length <= 1500)
+    }
+  })
   it('resumeTexte coupé à 1 500', () => {
     const r = resumeTexte(jeu, { societe: 'x'.repeat(5000) })
     assert.ok(r.length <= 1500)

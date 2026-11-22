@@ -72,7 +72,15 @@ export function resumeTexte(jeu: Jeu, r: Reponses): string {
     })
     .filter(Boolean)
   const texte = ['Bonjour Saïbo, voici mon dossier de démarrage.', '', ...lignes].join('\n')
-  return texte.length <= MAX_RESUME ? texte : texte.slice(0, MAX_RESUME - 1) + '…'
+  if (texte.length <= MAX_RESUME) return texte
+  // Par caractères entiers : un émoji coupé en deux ferait lever encodeURIComponent (lien WhatsApp).
+  const car = Array.from(texte)
+  let coupe = ''
+  for (const c of car) {
+    if (coupe.length + c.length > MAX_RESUME - 1) break
+    coupe += c
+  }
+  return coupe + '…'
 }
 
 function luminance(hex: string): number {

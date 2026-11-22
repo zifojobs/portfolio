@@ -42,10 +42,25 @@ export interface DonneesDossier {
   logo?: HTMLImageElement
 }
 
+/** Rectangle arrondi ; Safari < 16 (iOS 15) n'a pas ctx.roundRect. */
+export function arrondi(ctx: CanvasRenderingContext2D, x: number, y: number, l: number, h: number, r: number) {
+  ctx.beginPath()
+  if (typeof ctx.roundRect === 'function') {
+    ctx.roundRect(x, y, l, h, r)
+    return
+  }
+  const rr = Math.min(r, l / 2, h / 2)
+  ctx.moveTo(x + rr, y)
+  ctx.arcTo(x + l, y, x + l, y + h, rr)
+  ctx.arcTo(x + l, y + h, x, y + h, rr)
+  ctx.arcTo(x, y + h, x, y, rr)
+  ctx.arcTo(x, y, x + l, y, rr)
+  ctx.closePath()
+}
+
 function boite(ctx: CanvasRenderingContext2D, x: number, y: number, l: number, h: number, fond: string) {
   ctx.fillStyle = fond
-  ctx.beginPath()
-  ctx.roundRect(x, y, l, h, 36)
+  arrondi(ctx, x, y, l, h, 36)
   ctx.fill()
 }
 
@@ -132,8 +147,7 @@ function peindre(ctx: CanvasRenderingContext2D, d: DonneesDossier, H: number): n
   const pas = interieur / n
   d.chemin.forEach((_, i) => {
     ctx.fillStyle = i === 0 ? d.accent : encre === '#ffffff' ? 'rgba(255,255,255,0.28)' : 'rgba(0,0,0,0.18)'
-    ctx.beginPath()
-    ctx.roundRect(MARGE + 48 + i * pas, y + 48 + 56, pas - 10, 16, 8)
+    arrondi(ctx, MARGE + 48 + i * pas, y + 48 + 56, pas - 10, 16, 8)
     ctx.fill()
   })
   ctx.fillStyle = encre

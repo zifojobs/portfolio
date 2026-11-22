@@ -1,6 +1,6 @@
 // Le parcours du questionnaire de démarrage, côté navigateur.
 // Tout texte venant du client ou d'une config passe par textContent, jamais innerHTML.
-import { cleBrouillon, effacerBrouillon, ecrireBrouillon, lireBrouillon } from '../lib/demarrer/brouillon.ts'
+import { cleBrouillon, effacerBrouillon, ecrireBrouillon, ecrireConfigCache, lireBrouillon, lireConfigCache } from '../lib/demarrer/brouillon.ts'
 import { chargerConfig, envoyerDossier, JETON_VALIDE, type Dossier } from '../lib/demarrer/envoi.ts'
 import { chargerJeu, JEUX } from '../lib/demarrer/jeu.ts'
 import {
@@ -52,7 +52,7 @@ const etat = {
   envoiEnCours: false,
 }
 
-const cle = () => cleBrouillon(etat.jeu.id, etat.jeton)
+const cle = () => cleBrouillon(etat.jeu.id, etat.jeu.version, etat.jeton)
 const sauver = () => ecrireBrouillon(sto, cle(), { index: etat.index, reponses: etat.reponses, idDossier: etat.idDossier })
 
 function nouvelId(): string {
@@ -425,6 +425,11 @@ function ecranDossier() {
   d.hidden = false
 
   const enregistrer = el('button', { type: 'button', className: 'dm-btn large', textContent: 'Enregistrer mon dossier' })
+  const erreurImage = el('p', {
+    className: 'dm-erreur',
+    hidden: true,
+    textContent: "L'image n'a pas pu être créée sur ce téléphone. Votre dossier m'est bien parvenu ; vous pouvez aussi me l'envoyer sur WhatsApp.",
+  })
   enregistrer.addEventListener('click', async () => {
     enregistrer.disabled = true
     try {
@@ -448,6 +453,9 @@ function ecranDossier() {
         logo: img,
       })
       await partagerOuTelecharger(toile)
+      erreurImage.hidden = true
+    } catch {
+      erreurImage.hidden = false
     } finally {
       enregistrer.disabled = false
     }
@@ -460,7 +468,7 @@ function ecranDossier() {
     textContent: 'Envoyer aussi à Saïbo sur WhatsApp',
   })
   const merci = el('p', { className: 'dm-merci', textContent: 'Votre dossier m’est bien parvenu. Merci pour votre temps.' })
-  d.after(el('div', { className: 'dm-apres' }, enregistrer, wa, merci))
+  d.after(el('div', { className: 'dm-apres' }, enregistrer, erreurImage, wa, merci))
   focusTitre()
 }
 
@@ -477,8 +485,17 @@ function demarrerVierge() {
 async function init() {
   const jeton = new URLSearchParams(location.hash.slice(1)).get('t')
   etat.jeton = jeton && JETON_VALIDE.test(jeton) ? jeton : null
-  etat.config = etat.jeton ? await chargerConfig(etat.jeton) : null
-  // Lien inconnu ou expiré : le parcours s'ouvre en mode libre, sans message d'erreur.
+  if (etat.jeton) {
+    const r = await chargerConfig(etat.jeton)
+    if (r.statut === 'ok') {
+      etat.config = r.config
+      ecrireConfigCache(sto, etat.jeton, r.config)
+    } else if (r.statut === 'erreur') {
+      // Réseau instable : le lien reste valable, on reprend la dernière config connue.
+      etat.config = lireConfigCache(sto, etat.jeton)
+    }
+  }
+  // Lien inconnu (ou jamais chargé) : le parcours s'ouvre en mode libre, sans message d'erreur.
   if (!etat.config) etat.jeton = null
   etat.jeu = chargerJeu(etat.config && JEUX[etat.config.jeu] ? etat.config.jeu : JEU_PAR_DEFAUT)
   etat.questions = questionsVisibles(etat.jeu, !!etat.config)

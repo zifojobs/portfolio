@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict'
 import { describe, it } from 'node:test'
 
-import { cleBrouillon, effacerBrouillon, ecrireBrouillon, lireBrouillon, type Brouillon } from './brouillon.ts'
+import { cleBrouillon, effacerBrouillon, ecrireBrouillon, ecrireConfigCache, lireBrouillon, lireConfigCache, type Brouillon } from './brouillon.ts'
 
 const fauxStockage = () => {
   const m = new Map<string, string>()
@@ -19,9 +19,17 @@ const quiLeve = {
 const b: Brouillon = { index: 5, reponses: { societe: 'Exemple Sécurité', zones: ['dakar'] }, idDossier: '6f1c2b0e-8d1a-4c4e-9b8a-2f3d4e5f6a7b' }
 
 describe('brouillon', () => {
-  it('clé : jeton ou « libre »', () => {
-    assert.equal(cleBrouillon('visibilite-securite', null), 'demarrer:visibilite-securite:libre')
-    assert.equal(cleBrouillon('visibilite-securite', 'abc'), 'demarrer:visibilite-securite:abc')
+  it('clé : version du jeu, puis jeton ou « libre »', () => {
+    assert.equal(cleBrouillon('visibilite-securite', 1, null), 'demarrer:visibilite-securite:v1:libre')
+    assert.equal(cleBrouillon('visibilite-securite', 2, 'abc'), 'demarrer:visibilite-securite:v2:abc')
+  })
+  it('config du lien gardée pour un réseau instable', () => {
+    const s = fauxStockage()
+    const c = { prenom: 'Awa', societe: 'Exemple Sécurité', couleur: '#045b5b', accent: '#f39221', jeu: 'visibilite-securite' }
+    ecrireConfigCache(s, 'jeton1234567890ab', c)
+    assert.deepEqual(lireConfigCache(s, 'jeton1234567890ab'), c)
+    assert.equal(lireConfigCache(s, 'autre1234567890ab'), null)
+    assert.equal(lireConfigCache(quiLeve, 'jeton1234567890ab'), null)
   })
   it('reprise : écrit puis relit le même brouillon', () => {
     const s = fauxStockage()
