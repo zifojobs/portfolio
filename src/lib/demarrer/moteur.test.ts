@@ -12,6 +12,7 @@ import {
   resumeTexte,
   texteSur,
   titreDossier,
+  typo,
 } from './moteur.ts'
 
 const jeu = chargerJeu('visibilite-securite')
@@ -94,4 +95,9 @@ describe('couleurs et progression', () => {
     assert.equal(progression(13, 13), 100)
     assert.equal(progression(6, 13), 46)
   })
+})
+
+describe('typo', () => {
+  it('espace insécable fine avant ? ! : ;', () =>
+    assert.equal(typo('Votre société ? Oui : non ; si !'), 'Votre société\u202f? Oui\u202f: non\u202f; si\u202f!'))
 })

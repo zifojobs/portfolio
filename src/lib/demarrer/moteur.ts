@@ -96,3 +96,6 @@ export function progression(index: number, total: number): number {
   if (total <= 0) return 0
   return Math.round((Math.min(Math.max(index, 0), total) / total) * 100)
 }
+
+/** Typographie française : espace fine insécable avant ? ! : ; (un « ? » ne passe jamais seul à la ligne). */
+export const typo = (s: string): string => s.replace(/ ([?!:;])/g, '\u202f$1')

@@ -12,6 +12,7 @@ import {
   resumeTexte,
   texteSur,
   titreDossier,
+  typo,
 } from '../lib/demarrer/moteur.ts'
 import { dessinerDossier, partagerOuTelecharger, POLICE } from '../lib/demarrer/png.ts'
 import type { Champ, ConfigClient, Jeu, Question, Reponses, Valeur } from '../lib/demarrer/types.ts'
@@ -353,8 +354,8 @@ function ecranQuestion(i: number) {
     else ecranQuestion(i + 1)
   })
   $('ecran').replaceChildren(
-    el('h1', { id: 'titre-question', tabIndex: -1, textContent: q.titre }),
-    el('p', { className: 'dm-pourquoi' }, el('b', { textContent: 'Pourquoi je vous le demande : ' }), q.pourquoi),
+    el('h1', { id: 'titre-question', tabIndex: -1, textContent: typo(q.titre) }),
+    el('p', { className: 'dm-pourquoi' }, el('b', { textContent: typo('Pourquoi je vous le demande : ') }), typo(q.pourquoi)),
     ...champs,
     el('div', { className: 'dm-actions' }, suivant, retour),
     erreur,
@@ -416,7 +417,7 @@ function ecranDossier() {
   d.replaceChildren(
     ...(logo ? [el('img', { src: logo, alt: '', className: 'dm-carte-logo' })] : []),
     el('span', { className: 'k', textContent: `Dossier de démarrage · ${dateCourte()}` }),
-    el('h1', { id: 'titre-question', tabIndex: -1, textContent: titreDossier(etat.jeu, etat.reponses) }),
+    el('h1', { id: 'titre-question', tabIndex: -1, textContent: typo(titreDossier(etat.jeu, etat.reponses)) }),
     el('div', { className: 'boite' }, el('b', { textContent: "Ce que vous m'avez dit" }), dl),
     el('div', { className: 'boite' }, el('b', { textContent: 'Le chemin' }), chemin, etat.jeu.chemin.join(' → ')),
     el('p', { className: 'dm-promesse', textContent: 'Je reviens vers vous sous 48 h avec la proposition chiffrée.' }),
