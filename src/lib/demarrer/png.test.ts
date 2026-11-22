@@ -7,10 +7,10 @@ const mesurer = (s: string) => s.length * 10
 
 describe('couperLignes', () => {
   it('coupe aux espaces, chaque ligne ≤ largeur', () => {
-    const l = couperLignes('Sécurité privée, Télésurveillance, Sécurité incendie', 100, mesurer)
+    const l = couperLignes('Dakar, Thiès, Mbour, Kaolack et Touba', 100, mesurer)
     assert.ok(l.length > 1)
     for (const x of l) assert.ok(mesurer(x) <= 100, x)
-    assert.equal(l.join(' '), 'Sécurité privée, Télésurveillance, Sécurité incendie')
+    assert.equal(l.join(' '), 'Dakar, Thiès, Mbour, Kaolack et Touba')
   })
   it('un mot plus long que la ligne est coupé en force', () => {
     const l = couperLignes('a'.repeat(30), 100, mesurer)
