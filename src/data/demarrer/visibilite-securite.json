@@ -1,16 +1,34 @@
 {
   "id": "visibilite-securite",
-  "version": 1,
+  "version": 2,
   "titreDossier": "{societe}, prête à être trouvée.",
-  "chemin": ["Les fondations", "Être trouvé", "Le site", "Le lancement", "Le suivi"],
+  "chemin": [
+    "Les fondations",
+    "Être trouvé",
+    "Le site",
+    "Le lancement",
+    "Le suivi"
+  ],
   "questions": [
     {
       "id": "identite",
       "titre": "Votre prénom et votre nom ?",
       "pourquoi": "Pour vous écrire à votre nom, tout simplement.",
       "champs": [
-        { "id": "prenom", "type": "texte", "libelle": "Prénom", "max": 60, "prerempli": "prenom" },
-        { "id": "nom", "type": "texte", "libelle": "Nom (facultatif)", "max": 60, "facultatif": true }
+        {
+          "id": "prenom",
+          "type": "texte",
+          "libelle": "Prénom",
+          "max": 60,
+          "prerempli": "prenom"
+        },
+        {
+          "id": "nom",
+          "type": "texte",
+          "libelle": "Nom (facultatif)",
+          "max": 60,
+          "facultatif": true
+        }
       ]
     },
     {
@@ -18,45 +36,58 @@
       "titre": "Comment s'appelle officiellement votre société ?",
       "pourquoi": "Votre nom de domaine sera enregistré au nom de votre société, jamais au mien. Il vous appartient.",
       "champs": [
-        { "id": "societe", "type": "texte", "max": 100, "carte": "nom", "prerempli": "societe" },
         {
-          "id": "couleur", "type": "couleur", "libelle": "La couleur de votre marque", "sansLien": true,
+          "id": "societe",
+          "type": "texte",
+          "max": 100,
+          "carte": "nom",
+          "prerempli": "societe"
+        },
+        {
+          "id": "couleur",
+          "type": "couleur",
+          "libelle": "La couleur de votre marque",
+          "sansLien": true,
           "options": [
-            { "v": "#045b5b", "l": "Vert pétrole", "accent": "#f39221" },
-            { "v": "#1d3557", "l": "Bleu nuit", "accent": "#e9c46a" },
-            { "v": "#7a1f2b", "l": "Bordeaux", "accent": "#f4a261" },
-            { "v": "#8a4b2a", "l": "Terre", "accent": "#f2cc8f" },
-            { "v": "#1f5130", "l": "Vert forêt", "accent": "#e9c46a" },
-            { "v": "#1b1b1b", "l": "Noir", "accent": "#f39221" }
+            {
+              "v": "#045b5b",
+              "l": "Vert pétrole",
+              "accent": "#f39221"
+            },
+            {
+              "v": "#1d3557",
+              "l": "Bleu nuit",
+              "accent": "#e9c46a"
+            },
+            {
+              "v": "#7a1f2b",
+              "l": "Bordeaux",
+              "accent": "#f4a261"
+            },
+            {
+              "v": "#8a4b2a",
+              "l": "Terre",
+              "accent": "#f2cc8f"
+            },
+            {
+              "v": "#1f5130",
+              "l": "Vert forêt",
+              "accent": "#e9c46a"
+            },
+            {
+              "v": "#1b1b1b",
+              "l": "Noir",
+              "accent": "#f39221"
+            }
           ]
         },
-        { "id": "logo", "type": "logo", "libelle": "Votre logo (facultatif)", "sansLien": true, "facultatif": true }
-      ]
-    },
-    {
-      "id": "legal",
-      "titre": "Votre NINEA et votre RCCM ?",
-      "pourquoi": "Ils sont indispensables pour enregistrer votre domaine et écrire les mentions légales du site.",
-      "auMoinsUn": true,
-      "champs": [
-        { "id": "ninea_rccm", "type": "texte", "max": 120, "facultatif": true },
-        { "id": "legal_plus_tard", "type": "choix", "facultatif": true, "options": [{ "v": "plus-tard", "l": "Je les envoie plus tard" }] }
-      ]
-    },
-    {
-      "id": "autorisation",
-      "titre": "Où en est votre autorisation d'exercer ?",
-      "pourquoi": "Rien de public ne sortira avant qu'elle soit obtenue : c'est votre crédibilité.",
-      "champs": [
         {
-          "id": "autorisation", "type": "choix", "dossier": "Autorisation",
-          "options": [
-            { "v": "obtenue", "l": "Obtenue" },
-            { "v": "en-cours", "l": "En cours" },
-            { "v": "pas-encore", "l": "Pas encore" }
-          ]
-        },
-        { "id": "autorisation_ref", "type": "texte", "libelle": "Sa référence, si vous l'avez", "max": 80, "facultatif": true }
+          "id": "logo",
+          "type": "logo",
+          "libelle": "Votre logo (facultatif)",
+          "sansLien": true,
+          "facultatif": true
+        }
       ]
     },
     {
@@ -65,13 +96,26 @@
       "pourquoi": "Il sera partout : il doit être celui de la société, pas un numéro personnel.",
       "champs": [
         {
-          "id": "numero", "type": "choix",
+          "id": "numero",
+          "type": "choix",
           "options": [
-            { "v": "ligne-dediee", "l": "Une ligne dédiée, à créer" },
-            { "v": "existant", "l": "Un numéro existant" }
+            {
+              "v": "ligne-dediee",
+              "l": "Une ligne dédiée, à créer"
+            },
+            {
+              "v": "existant",
+              "l": "Un numéro existant"
+            }
           ]
         },
-        { "id": "numero_valeur", "type": "texte", "libelle": "Le numéro, s'il existe déjà", "max": 20, "facultatif": true }
+        {
+          "id": "numero_valeur",
+          "type": "texte",
+          "libelle": "Le numéro, s'il existe déjà",
+          "max": 20,
+          "facultatif": true
+        }
       ]
     },
     {
@@ -80,12 +124,28 @@
       "pourquoi": "Cochez tout ce qui s'applique : chaque service aura sa place sur votre page.",
       "champs": [
         {
-          "id": "services", "type": "puces", "autre": true, "carte": "tags", "dossier": "Services",
+          "id": "services",
+          "type": "puces",
+          "autre": true,
+          "carte": "tags",
+          "dossier": "Services",
           "options": [
-            { "v": "securite-privee", "l": "Sécurité privée" },
-            { "v": "telesurveillance", "l": "Télésurveillance" },
-            { "v": "incendie", "l": "Sécurité incendie" },
-            { "v": "gardiennage", "l": "Rondes et gardiennage" }
+            {
+              "v": "securite-privee",
+              "l": "Sécurité privée"
+            },
+            {
+              "v": "telesurveillance",
+              "l": "Télésurveillance"
+            },
+            {
+              "v": "incendie",
+              "l": "Sécurité incendie"
+            },
+            {
+              "v": "gardiennage",
+              "l": "Rondes et gardiennage"
+            }
           ]
         }
       ]
@@ -96,20 +156,51 @@
       "pourquoi": "Je n'écris rien que vous n'avez pas confirmé, surtout pas le sens d'un sigle.",
       "champs": [
         {
-          "id": "formations", "type": "puces", "autre": true, "carte": "tags", "dossier": "Formations",
+          "id": "formations",
+          "type": "puces",
+          "autre": true,
+          "carte": "tags",
+          "dossier": "Formations",
           "options": [
-            { "v": "sst", "l": "SST" },
-            { "v": "incendie-formation", "l": "Sécurité incendie" },
-            { "v": "agent", "l": "Agent de sécurité" },
-            { "v": "aucune", "l": "Aucune pour l'instant" }
+            {
+              "v": "sst",
+              "l": "SST"
+            },
+            {
+              "v": "incendie-formation",
+              "l": "Sécurité incendie"
+            },
+            {
+              "v": "agent",
+              "l": "Agent de sécurité"
+            },
+            {
+              "v": "aucune",
+              "l": "Aucune pour l'instant"
+            }
           ]
         },
-        { "id": "sst_sens", "type": "texte", "libelle": "Que veut dire « SST » sur vos supports ?", "max": 120, "facultatif": true },
         {
-          "id": "formations_details", "type": "choix", "libelle": "Durée, public, places, lieu", "facultatif": true,
+          "id": "sst_sens",
+          "type": "texte",
+          "libelle": "Que veut dire « SST » sur vos supports ?",
+          "max": 120,
+          "facultatif": true
+        },
+        {
+          "id": "formations_details",
+          "type": "choix",
+          "libelle": "Durée, public, places, lieu",
+          "facultatif": true,
           "options": [
-            { "v": "je-precise", "l": "Je les précise plus tard" },
-            { "v": "sur-demande", "l": "Sur demande" }
+            {
+              "v": "je-precise",
+              "l": "Je les précise plus tard"
+            },
+            {
+              "v": "sur-demande",
+              "l": "Sur demande"
+            }
           ]
         }
       ]
@@ -120,16 +211,44 @@
       "pourquoi": "Pour que Google vous montre aux bonnes personnes, au bon endroit.",
       "champs": [
         {
-          "id": "zones", "type": "puces", "autre": true, "carte": "tags", "dossier": "Zones",
+          "id": "zones",
+          "type": "puces",
+          "autre": true,
+          "carte": "tags",
+          "dossier": "Zones",
           "options": [
-            { "v": "dakar", "l": "Dakar" },
-            { "v": "thies", "l": "Thiès" },
-            { "v": "mbour", "l": "Mbour" },
-            { "v": "kaolack", "l": "Kaolack" },
-            { "v": "saint-louis", "l": "Saint-Louis" },
-            { "v": "touba", "l": "Touba" },
-            { "v": "ziguinchor", "l": "Ziguinchor" },
-            { "v": "senegal", "l": "Tout le Sénégal" }
+            {
+              "v": "dakar",
+              "l": "Dakar"
+            },
+            {
+              "v": "thies",
+              "l": "Thiès"
+            },
+            {
+              "v": "mbour",
+              "l": "Mbour"
+            },
+            {
+              "v": "kaolack",
+              "l": "Kaolack"
+            },
+            {
+              "v": "saint-louis",
+              "l": "Saint-Louis"
+            },
+            {
+              "v": "touba",
+              "l": "Touba"
+            },
+            {
+              "v": "ziguinchor",
+              "l": "Ziguinchor"
+            },
+            {
+              "v": "senegal",
+              "l": "Tout le Sénégal"
+            }
           ]
         }
       ]
@@ -140,29 +259,34 @@
       "pourquoi": "On parle d'abord à ceux qui vous font vivre.",
       "champs": [
         {
-          "id": "cibles", "type": "puces", "dossier": "Clients visés",
+          "id": "cibles",
+          "type": "puces",
+          "dossier": "Clients visés",
           "options": [
-            { "v": "entreprises", "l": "Entreprises" },
-            { "v": "commerces", "l": "Commerces" },
-            { "v": "evenements", "l": "Événements" },
-            { "v": "banques-hotels", "l": "Banques et hôtels" },
-            { "v": "ong", "l": "ONG" },
-            { "v": "particuliers", "l": "Particuliers" }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "etranger",
-      "titre": "Votre parcours à l'étranger : avez-vous des justificatifs à montrer ?",
-      "pourquoi": "C'est votre meilleure preuve. On ne la publie qu'avec eux.",
-      "champs": [
-        {
-          "id": "etranger", "type": "choix",
-          "options": [
-            { "v": "oui", "l": "Oui" },
-            { "v": "certains", "l": "Certains" },
-            { "v": "pas-encore", "l": "Pas encore" }
+            {
+              "v": "entreprises",
+              "l": "Entreprises"
+            },
+            {
+              "v": "commerces",
+              "l": "Commerces"
+            },
+            {
+              "v": "evenements",
+              "l": "Événements"
+            },
+            {
+              "v": "banques-hotels",
+              "l": "Banques et hôtels"
+            },
+            {
+              "v": "ong",
+              "l": "ONG"
+            },
+            {
+              "v": "particuliers",
+              "l": "Particuliers"
+            }
           ]
         }
       ]
@@ -173,38 +297,108 @@
       "pourquoi": "Un client qui attend part chez le concurrent.",
       "champs": [
         {
-          "id": "repondant", "type": "choix",
+          "id": "repondant",
+          "type": "choix",
           "options": [
-            { "v": "moi", "l": "Moi-même" },
-            { "v": "equipe", "l": "Une personne de l'équipe" },
-            { "v": "a-voir", "l": "À décider" }
+            {
+              "v": "moi",
+              "l": "Moi-même"
+            },
+            {
+              "v": "equipe",
+              "l": "Une personne de l'équipe"
+            },
+            {
+              "v": "a-voir",
+              "l": "À décider"
+            }
           ]
         },
         {
-          "id": "delai_reponse", "type": "choix", "libelle": "Sous quel délai",
+          "id": "delai_reponse",
+          "type": "choix",
+          "libelle": "Sous quel délai",
           "options": [
-            { "v": "heure", "l": "Dans l'heure" },
-            { "v": "jour", "l": "Dans la journée" },
-            { "v": "48h", "l": "Sous 48 h" }
+            {
+              "v": "heure",
+              "l": "Dans l'heure"
+            },
+            {
+              "v": "jour",
+              "l": "Dans la journée"
+            },
+            {
+              "v": "48h",
+              "l": "Sous 48 h"
+            }
           ]
         }
       ]
     },
     {
       "id": "photos",
-      "titre": "La séance photo : quel jour vous arrange, et qui est d'accord pour apparaître ?",
-      "pourquoi": "De vraies photos de votre équipe, avec l'accord écrit de chacun.",
+      "titre": "Avez-vous des photos de votre société à montrer ?",
+      "pourquoi": "De vraies images rendent votre page crédible. Une personne n'apparaît qu'avec son accord écrit.",
       "champs": [
         {
-          "id": "photos_jour", "type": "puces",
+          "id": "photos",
+          "type": "puces",
+          "libelle": "Ce que vous avez déjà",
+          "dossier": "Photos",
           "options": [
-            { "v": "semaine", "l": "En semaine" },
-            { "v": "samedi", "l": "Le samedi" },
-            { "v": "dimanche", "l": "Le dimanche" },
-            { "v": "a-voir", "l": "Je ne sais pas encore" }
+            {
+              "v": "equipe",
+              "l": "Mon équipe"
+            },
+            {
+              "v": "agents",
+              "l": "Des agents en service"
+            },
+            {
+              "v": "locaux",
+              "l": "Nos locaux"
+            },
+            {
+              "v": "vehicules",
+              "l": "Nos véhicules"
+            },
+            {
+              "v": "formations",
+              "l": "Des formations"
+            },
+            {
+              "v": "aucune",
+              "l": "Pas encore de photos"
+            }
           ]
         },
-        { "id": "photos_qui", "type": "texte", "libelle": "Qui est d'accord ?", "max": 200, "facultatif": true }
+        {
+          "id": "photos_moyen",
+          "type": "choix",
+          "libelle": "Sinon, comment en avoir",
+          "facultatif": true,
+          "options": [
+            {
+              "v": "telephone",
+              "l": "Je peux en prendre avec mon téléphone"
+            },
+            {
+              "v": "photographe",
+              "l": "Je connais un photographe"
+            },
+            {
+              "v": "illustration",
+              "l": "Des images d'illustration en attendant"
+            }
+          ]
+        },
+        {
+          "id": "photos_qui",
+          "type": "texte",
+          "libelle": "Qui est d'accord pour apparaître ? (facultatif)",
+          "max": 200,
+          "facultatif": true
+        }
       ]
     },
     {
@@ -213,23 +407,58 @@
       "pourquoi": "Pour vous proposer ce qui vous sert, sans rien de superflu.",
       "champs": [
         {
-          "id": "budget_depart", "type": "choix", "libelle": "Au départ", "dossier": "Budget de départ",
+          "id": "budget_depart",
+          "type": "choix",
+          "libelle": "Au départ",
+          "dossier": "Budget de départ",
           "options": [
-            { "v": "moins-175", "l": "Moins de 175 000 F" },
-            { "v": "175-350", "l": "175 000 – 350 000 F" },
-            { "v": "350-800", "l": "350 000 – 800 000 F" },
-            { "v": "plus-800", "l": "Plus de 800 000 F" },
-            { "v": "en-parler", "l": "Je préfère en parler" }
+            {
+              "v": "moins-175",
+              "l": "Moins de 175 000 F"
+            },
+            {
+              "v": "175-350",
+              "l": "175 000 – 350 000 F"
+            },
+            {
+              "v": "350-800",
+              "l": "350 000 – 800 000 F"
+            },
+            {
+              "v": "plus-800",
+              "l": "Plus de 800 000 F"
+            },
+            {
+              "v": "en-parler",
+              "l": "Je préfère en parler"
+            }
           ]
         },
         {
-          "id": "budget_mois", "type": "choix", "libelle": "Par mois",
+          "id": "budget_mois",
+          "type": "choix",
+          "libelle": "Par mois",
           "options": [
-            { "v": "aucun", "l": "Pas de suivi pour l'instant" },
-            { "v": "moins-25", "l": "Moins de 25 000 F" },
-            { "v": "25-50", "l": "25 000 – 50 000 F" },
-            { "v": "plus-50", "l": "Plus de 50 000 F" },
-            { "v": "en-parler", "l": "Je préfère en parler" }
+            {
+              "v": "aucun",
+              "l": "Pas de suivi pour l'instant"
+            },
+            {
+              "v": "moins-25",
+              "l": "Moins de 25 000 F"
+            },
+            {
+              "v": "25-50",
+              "l": "25 000 – 50 000 F"
+            },
+            {
+              "v": "plus-50",
+              "l": "Plus de 50 000 F"
+            },
+            {
+              "v": "en-parler",
+              "l": "Je préfère en parler"
+            }
           ]
         }
       ]

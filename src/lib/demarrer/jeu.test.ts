@@ -14,8 +14,8 @@ const lire = (): Jeu =>
 describe('Jeu « visibilité, sécurité privée »', () => {
   const jeu = lire()
 
-  it('13 questions, ids uniques, budget en dernier', () => {
-    assert.equal(jeu.questions.length, 13)
+  it('10 questions (3, 4 et 10 retirées par Saïbo le 22/11), ids uniques, budget en dernier', () => {
+    assert.equal(jeu.questions.length, 10)
     assert.equal(jeu.questions.at(-1)!.id, 'budget')
     assert.deepEqual(verifierJeu(jeu), [])
   })

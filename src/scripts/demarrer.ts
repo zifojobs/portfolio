@@ -301,7 +301,7 @@ function ecranAccueil() {
   const h = el('h1', { id: 'titre-question', tabIndex: -1, textContent: prenom ? `Bonjour ${prenom},` : 'Bonjour,' })
   const intro = el('p', {
     className: 'dm-intro',
-    textContent: `Je vais vous poser ${n} questions, environ 8 minutes. Vos réponses me permettent de vous préparer une proposition juste.`,
+    textContent: `Je vais vous poser ${n} questions, environ 5 minutes. Vos réponses me permettent de vous préparer une proposition juste.`,
   })
   const actions = el('div', { className: 'dm-apres' })
   if (brouillon && brouillon.index >= 0) {

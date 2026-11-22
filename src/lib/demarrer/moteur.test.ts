@@ -25,9 +25,16 @@ describe('estRepondue', () => {
   it('option autre sans texte = non', () => assert.equal(estRepondue(q('services'), { services: ['autre'] }), false))
   it('option autre avec texte = oui', () =>
     assert.equal(estRepondue(q('services'), { services: ['autre'], 'services.autre': 'Escorte' }), true))
-  it('auMoinsUn (legal) avec plus-tard = oui', () =>
-    assert.equal(estRepondue(q('legal'), { legal_plus_tard: 'plus-tard' }), true))
-  it('auMoinsUn (legal) sans rien = non', () => assert.equal(estRepondue(q('legal'), {}), false))
+  const auMoinsUn = {
+    id: 'legal', titre: 'T', pourquoi: 'P', auMoinsUn: true,
+    champs: [
+      { id: 'ninea', type: 'texte' as const, facultatif: true },
+      { id: 'plus_tard', type: 'choix' as const, facultatif: true, options: [{ v: 'plus-tard', l: 'Plus tard' }] },
+    ],
+  }
+  it('auMoinsUn avec plus-tard = oui', () => assert.equal(estRepondue(auMoinsUn, { plus_tard: 'plus-tard' }), true))
+  it('auMoinsUn sans rien = non', () => assert.equal(estRepondue(auMoinsUn, {}), false))
+  it('photos : « Sinon » et « Qui » sont facultatifs', () => assert.equal(estRepondue(q('photos'), { photos: ['aucune'] }), true))
   it('les deux choix du budget sont exigés', () =>
     assert.equal(estRepondue(q('budget'), { budget_depart: 'en-parler' }), false))
   it('avec lien, couleur absente ne bloque pas', () => {
@@ -37,9 +44,9 @@ describe('estRepondue', () => {
 })
 
 describe('questionsVisibles', () => {
-  it('avec lien retire couleur et logo, garde 13 questions', () => {
+  it('avec lien retire couleur et logo, garde 10 questions', () => {
     const v = questionsVisibles(jeu, true)
-    assert.equal(v.length, 13)
+    assert.equal(v.length, 10)
     assert.ok(!v[1].champs.some((c) => c.id === 'couleur' || c.id === 'logo'))
   })
   it('sans lien les garde', () => assert.ok(questionsVisibles(jeu, false)[1].champs.some((c) => c.id === 'couleur')))
