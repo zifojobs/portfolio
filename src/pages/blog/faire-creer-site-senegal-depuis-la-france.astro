@@ -1,0 +1,230 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+const article = {
+	slug: "faire-creer-site-senegal-depuis-la-france",
+	titre: "Faire créer son site au Sénégal depuis la France",
+	extrait: "Vous vivez en France, votre projet est au Sénégal ? Comment faire créer votre site web à distance : étapes, paiement, accès, pièges et bonnes questions.",
+	date: "2026-11-24",
+	tags: ["diaspora", "France", "création de site"],
+	tempsLecture: "8 min",
+};
+---
+
+<Layout
+	title={`${article.titre} — Saïbo Danfakha`}
+	description={article.extrait}
+	image="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=630&fit=crop&fm=jpg&q=80"
+	article={{ headline: article.titre, datePublished: article.date }}
+>
+	<article class="max-w-3xl mx-auto px-6 py-24 md:py-32">
+		<a href="/blog/" class="inline-flex items-center gap-2 text-sm text-sable-600 hover:text-noir-cafe transition-colors mb-12">
+			<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+				<line x1="19" y1="12" x2="5" y2="12"></line>
+				<polyline points="12 19 5 12 12 5"></polyline>
+			</svg>
+			Retour au blog
+		</a>
+
+		<header class="mb-12">
+			<div class="flex items-center gap-3 text-sm text-sable-600 mb-4">
+				<time datetime={article.date}>
+					{new Date(article.date).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}
+				</time>
+				<span>·</span>
+				<span>{article.tempsLecture} de lecture</span>
+			</div>
+
+			<h1 class="text-4xl md:text-5xl font-semibold leading-tight tracking-tight text-noir-cafe mb-6">
+				{article.titre}
+			</h1>
+
+			<div class="flex flex-wrap gap-2">
+				{article.tags.map((tag) => (
+					<span class="px-2.5 py-1 bg-terracotta/10 text-terracotta rounded-full text-xs">
+						#{tag}
+					</span>
+				))}
+			</div>
+		</header>
+
+		<figure class="mb-12 -mx-6 md:mx-0">
+			<img
+				src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=630&fit=crop&auto=format&q=80"
+				alt="Réseau de connexions lumineuses autour du globe — un projet mené entre la France et le Sénégal"
+				loading="eager"
+				class="w-full aspect-[16/9] object-cover md:rounded-xl"
+			/>
+		</figure>
+
+		<div class="prose prose-lg prose-noir-cafe max-w-none">
+			<p class="text-xl text-sable-600 mb-8 leading-relaxed">
+				Vous vivez à Paris, à Lyon ou à Marseille. Votre projet, lui, est au Sénégal : une boutique à Dakar, une activité de location à Saly, une entreprise familiale à Thiès, ou un service pour la diaspora. Vous voulez un site, et vous vous demandez comment s'y prendre de loin. <strong>La création d'un site web au Sénégal depuis la France se fait très bien à distance, à condition de cadrer trois choses dès le départ : ce que le site doit faire, comment on travaille ensemble, et qui possède quoi.</strong>
+			</p>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Beaucoup de projets de la diaspora finissent mal pour des raisons qui n'ont rien de technique. Un acompte versé à une connaissance qui ne répond plus. Un nom de domaine enregistré au nom du prestataire. Un site pensé pour un écran d'ordinateur parisien, alors que les clients le regardent sur téléphone à Dakar.
+			</p>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Cet article vous donne la méthode, étape par étape, et les questions à poser avant de signer. Il vaut pour n'importe quel prestataire, y compris moi.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Pourquoi passer par un prestataire basé au Sénégal ?</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Vous pouvez bien sûr faire appel à une agence en France. Mais si vos clients sont au Sénégal, un prestataire qui y vit a un avantage simple : il connaît leurs habitudes. Il sait qu'on contacte une entreprise par WhatsApp plus volontiers que par formulaire. Qu'une adresse se donne souvent avec des repères (« après la pharmacie, en face de la mosquée ») plutôt qu'avec un numéro de rue. Que les clients paient volontiers par Wave ou Orange Money. Que les prix s'affichent en FCFA.
+			</p>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Il peut aussi tester le site dans les vraies conditions : sur un téléphone d'entrée de gamme, avec une connexion mobile locale. Un site qui s'ouvre vite sur la fibre en France peut être lent sur une connexion 4G à Kaolack ou à Ziguinchor.
+			</p>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Si votre projet parle à la fois au Sénégal et à la diaspora, j'en parle plus en détail sur la page <a href="/site-web-diaspora/" class="text-terracotta hover:underline">site web pour la diaspora sénégalaise</a>.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Création de site web au Sénégal depuis la France : les étapes</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Un projet bien mené à distance suit à peu près toujours le même chemin. Voici comment je le fais, et ce que vous devriez retrouver chez tout prestataire sérieux.
+			</p>
+
+			<h3 class="text-xl font-semibold text-noir-cafe mt-8 mb-3">1. Un premier échange en visio</h3>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Trente minutes suffisent pour comprendre le projet : qui sont vos clients, où ils sont, ce qu'ils doivent pouvoir faire sur le site (appeler, commander, réserver, demander un devis). C'est aussi le moment de juger le prestataire : pose-t-il des questions sur votre activité, ou parle-t-il seulement de technique ? Pour gagner du temps, vous pouvez aussi répondre d'abord, depuis votre téléphone, à mes <a href="/demarrer/" class="text-terracotta hover:underline">10 questions de démarrage</a> : l'échange part alors de votre projet, pas d'une page blanche.
+			</p>
+
+			<h3 class="text-xl font-semibold text-noir-cafe mt-8 mb-3">2. Un cadrage écrit, puis un devis</h3>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Tout ce qui a été dit en visio doit finir par écrit : la liste des pages, les fonctions, ce que vous fournissez (textes, photos, logo), ce que le prestataire fournit, les délais, et le prix. Si vous ne savez pas par où commencer, ma liste des <a href="/blog/brief-client-10-questions/" class="text-terracotta hover:underline">10 questions à se poser avant de lancer un site</a> vous aidera à préparer cet échange.
+			</p>
+
+			<h3 class="text-xl font-semibold text-noir-cafe mt-8 mb-3">3. Une version de prévisualisation en ligne</h3>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				À distance, c'est l'outil le plus important. Le site se construit sur une adresse provisoire que vous pouvez ouvrir depuis votre téléphone, à Paris, et que votre frère ou votre associé peut ouvrir à Dakar. Vous voyez le site avancer pour de vrai, pas sur des captures d'écran. Vous faites vos remarques au même endroit, et chaque correction est visible en ligne.
+			</p>
+
+			<h3 class="text-xl font-semibold text-noir-cafe mt-8 mb-3">4. Un suivi régulier, sur un seul canal</h3>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Le plus simple : un groupe WhatsApp pour les échanges rapides, et l'e-mail pour ce qui doit rester écrit (devis, validations, factures). Fixez dès le départ un rythme, par exemple un point par semaine. Le décalage horaire n'est pas un problème : le Sénégal vit à l'heure GMT toute l'année, ce qui fait une heure de moins qu'en France en hiver, deux heures en été.
+			</p>
+
+			<h3 class="text-xl font-semibold text-noir-cafe mt-8 mb-3">5. La mise en ligne et la prise en main</h3>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Une fois le site validé, il passe sur votre vrai nom de domaine. Le prestataire doit ensuite vous montrer, en visio, comment modifier ce que vous changerez souvent : un prix, une photo, un horaire. Et vous remettre par écrit tous les accès.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Le point qu'on oublie : qui possède quoi</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				C'est le piège le plus fréquent dans les projets à distance. Le site marche, puis un jour le prestataire disparaît, et vous découvrez que vous ne pouvez plus rien modifier. Avant de payer, exigez que ces éléments soient <strong>à votre nom</strong> :
+			</p>
+
+			<ul class="list-disc pl-6 text-sable-600 mb-8 space-y-2">
+				<li><strong>Le nom de domaine</strong> (votreentreprise.sn ou .com) : enregistré avec votre nom et votre adresse e-mail, pas ceux du prestataire.</li>
+				<li><strong>L'hébergement</strong> : un compte que vous possédez, même si c'est le prestataire qui le gère au quotidien.</li>
+				<li><strong>Les accès administrateur</strong> du site, et ceux de la fiche Google Business si elle est créée en même temps.</li>
+				<li><strong>Les fichiers sources</strong> : textes, photos, logo, et le code du site si c'est un site sur mesure.</li>
+			</ul>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Un prestataire honnête n'a aucune raison de refuser. S'il hésite, c'est un signal.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Payer depuis la France, sans prendre de risque</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Le paiement inquiète souvent, et c'est normal. Quelques règles simples protègent les deux côtés :
+			</p>
+
+			<ul class="list-disc pl-6 text-sable-600 mb-8 space-y-2">
+				<li><strong>Un devis écrit avant tout versement</strong>, avec le détail de ce qui est compris.</li>
+				<li><strong>Un paiement par étapes</strong> : un acompte au démarrage, le reste à la validation ou à la mise en ligne. Ne payez jamais tout d'avance.</li>
+				<li><strong>Une devise claire</strong> : euros ou FCFA, c'est écrit sur le devis. La conversion est simple, puisque le franc CFA est lié à l'euro par une parité fixe (1 euro = 655,957 FCFA).</li>
+				<li><strong>Une facture pour chaque versement</strong>, même pour un petit montant.</li>
+				<li><strong>Un moyen de paiement traçable</strong> : virement ou service de transfert qui laisse une preuve. Évitez l'argent confié à un proche « qui passera le donner ».</li>
+			</ul>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Mes tarifs sont publics. Pour une première idée du budget, l'<a href="/estimateur/" class="text-terracotta hover:underline">estimateur</a> vous donne une fourchette en deux minutes ; le devis écrit vient ensuite, en FCFA ou en euros selon votre préférence.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Le contenu : la vraie difficulté à distance</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Ce qui retarde le plus un projet de la diaspora, ce n'est pas le développement. Ce sont les textes et les photos. Vous êtes en France, la boutique ou le terrain est au Sénégal : qui prend les photos ? Qui vérifie les horaires, l'adresse, les tarifs pratiqués sur place ?
+			</p>
+
+			<ul class="list-disc pl-6 text-sable-600 mb-8 space-y-2">
+				<li><strong>Désignez une personne sur place</strong> qui répond aux questions pratiques et valide ce qui concerne le terrain.</li>
+				<li><strong>Prévoyez de vraies photos</strong> : le local, les produits, les réalisations. Un téléphone récent et une bonne lumière du jour suffisent souvent. Les photos de banque d'images ne rassurent personne.</li>
+				<li><strong>Écrivez pour vos clients, pas pour vous</strong> : s'ils sont au Sénégal, parlez de leurs quartiers, de leurs moyens de paiement, de leurs délais.</li>
+			</ul>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Une langue ou deux ?</h2>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Depuis la France, on est tenté d'ajouter une version anglaise « au cas où ». Ce n'est utile que si une partie réelle de vos clients lit l'anglais. Si tout le monde est francophone, un site en français bien ciblé vaut mieux que deux versions à moitié entretenues. J'ai écrit un guide sur la question : <a href="/blog/diaspora-site-bilingue/" class="text-terracotta hover:underline">site bilingue, parler à la diaspora sénégalaise</a>.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Les questions à poser avant de signer</h2>
+
+			<ol class="list-decimal pl-6 text-sable-600 mb-8 space-y-2">
+				<li>Pouvez-vous me montrer des sites que vous avez livrés pour des clients à distance ?</li>
+				<li>Puis-je suivre l'avancement sur une version en ligne ?</li>
+				<li>Le nom de domaine et l'hébergement seront-ils à mon nom ?</li>
+				<li>Comment se passe le paiement, et à quelles étapes ?</li>
+				<li>Qui s'occupe du site après la mise en ligne, et comment ?</li>
+				<li>Le site sera-t-il testé sur téléphone, avec une connexion sénégalaise ?</li>
+				<li>Pourrai-je modifier moi-même les informations simples ?</li>
+			</ol>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Pour aller plus loin sur le choix du prestataire, lisez aussi <a href="/blog/comment-choisir-son-developpeur-web-freelance/" class="text-terracotta hover:underline">comment choisir son développeur web freelance au Sénégal</a>.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Comment je travaille avec mes clients à distance</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Je travaille depuis Kaolack, et une bonne partie de mes clients n'est pas au Sénégal. Pour Nur Alhayaa, une agence de décoration haut de gamme présente entre Paris, Dakar et Dubaï, j'ai réalisé un site multi-pages premium entièrement à distance. Je livre aussi des sites pour des clients au Canada.
+			</p>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				La méthode est toujours la même : un premier échange en visio, un cadrage écrit, une version de prévisualisation que vous ouvrez où que vous soyez, un suivi par WhatsApp et e-mail, et la remise de tous les accès à votre nom à la fin.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Ce qu'il faut retenir</h2>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Faire créer son site au Sénégal depuis la France, c'est tout à fait possible, et c'est souvent le meilleur choix quand vos clients sont au pays. La distance ne pose pas de problème si le projet est cadré par écrit, suivi sur une version en ligne, payé par étapes, et si le nom de domaine, l'hébergement et les accès sont à votre nom. Le reste, c'est une question de confiance, et la confiance se vérifie avant de signer.
+			</p>
+
+			<hr class="my-12 border-sable-300" />
+
+			<div class="bg-terracotta/10 border border-terracotta/30 rounded-xl p-6">
+				<h3 class="text-lg font-semibold text-noir-cafe mb-3">
+					Vous êtes en France, votre projet est au Sénégal ?
+				</h3>
+				<p class="text-sable-600 mb-4">
+					Dites-moi où vous êtes, où sont vos clients et ce que votre site doit faire. Je vous réponds avec une première piste concrète. Pour une première idée du budget : <a href="/estimateur/" class="text-terracotta hover:underline">l'estimateur</a>.
+				</p>
+				<a href="/site-web-diaspora/" class="inline-flex items-center gap-2 bg-noir-cafe text-creme px-6 py-3 rounded-md font-medium hover:bg-terracotta transition-colors">
+					Un site pour la diaspora
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+						<line x1="5" y1="12" x2="19" y2="12"></line>
+						<polyline points="12 5 19 12 12 19"></polyline>
+					</svg>
+				</a>
+				<a href="/#contact" class="mt-3 inline-flex text-sm text-sable-600 hover:text-noir-cafe transition-colors">
+					Me contacter →
+				</a>
+			</div>
+		</div>
+	</article>
+</Layout>
