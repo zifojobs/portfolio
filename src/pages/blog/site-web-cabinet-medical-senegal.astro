@@ -1,0 +1,265 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+const article = {
+	slug: "site-web-cabinet-medical-senegal",
+	titre: "Site web pour cabinet médical au Sénégal : le guide",
+	extrait: "Site web de cabinet médical au Sénégal : spécialités, horaires, rendez-vous, accès, déontologie et données de santé. Ce qu'il doit contenir, point par point.",
+	date: "2026-12-01",
+	tags: ["santé", "Sénégal", "création de site"],
+	tempsLecture: "8 min",
+};
+---
+
+<Layout
+	title={`${article.titre} — Saïbo Danfakha`}
+	description={article.extrait}
+	image="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&h=630&fit=crop&fm=jpg&q=80"
+	article={{ headline: article.titre, datePublished: article.date }}
+>
+	<article class="max-w-3xl mx-auto px-6 py-24 md:py-32">
+		<a href="/blog/" class="inline-flex items-center gap-2 text-sm text-sable-600 hover:text-noir-cafe transition-colors mb-12">
+			<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+				<line x1="19" y1="12" x2="5" y2="12"></line>
+				<polyline points="12 19 5 12 12 5"></polyline>
+			</svg>
+			Retour au blog
+		</a>
+
+		<header class="mb-12">
+			<div class="flex items-center gap-3 text-sm text-sable-600 mb-4">
+				<time datetime={article.date}>
+					{new Date(article.date).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}
+				</time>
+				<span>·</span>
+				<span>{article.tempsLecture} de lecture</span>
+			</div>
+
+			<h1 class="text-4xl md:text-5xl font-semibold leading-tight tracking-tight text-noir-cafe mb-6">
+				{article.titre}
+			</h1>
+
+			<div class="flex flex-wrap gap-2">
+				{article.tags.map((tag) => (
+					<span class="px-2.5 py-1 bg-terracotta/10 text-terracotta rounded-full text-xs">
+						#{tag}
+					</span>
+				))}
+			</div>
+		</header>
+
+		<figure class="mb-12 -mx-6 md:mx-0">
+			<img
+				src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&h=630&fit=crop&auto=format&q=80"
+				alt="Espace moderne, épuré et lumineux — un cabinet prêt à accueillir ses patients"
+				loading="eager"
+				class="w-full aspect-[16/9] object-cover md:rounded-xl"
+			/>
+		</figure>
+
+				<div class="prose prose-lg prose-noir-cafe max-w-none">
+			<p class="text-xl text-sable-600 mb-8 leading-relaxed">
+				Un enfant a de la fièvre un samedi matin. Sa mère prend son téléphone et tape « pédiatre Sacré-Cœur » ou « pédiatre ouvert samedi Dakar ». Elle appellera le premier cabinet qui lui donne une réponse claire. Un site web de cabinet médical au Sénégal a un seul travail : <strong>dire au patient, vite et sans ambiguïté, qui vous êtes, où vous êtes, quand vous recevez et comment prendre rendez-vous.</strong>
+			</p>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Un site de cabinet ne ressemble pas à celui d'un commerce. Il ne cherche pas à vendre. Il informe, il rassure et il évite des appels inutiles au secrétariat. Il doit aussi respecter deux choses que les autres sites n'ont pas à gérer de la même façon : les règles de déontologie de votre profession, et la confidentialité des informations de santé.
+			</p>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Voici ce qu'il doit contenir, dans l'ordre d'importance. Que vous teniez un cabinet de médecine générale à Thiès, un cabinet dentaire aux Almadies, une clinique de quartier à Pikine ou un cabinet de kinésithérapie à Saint-Louis, la liste est la même. Seuls le ton et le nombre de pages changent.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Ce que cherche le patient qui arrive sur votre site</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Le visiteur est presque toujours sur un téléphone. Il est parfois inquiet, souvent pressé. Il ne lit pas : il cherche des réponses. Ce sont presque toujours les mêmes :
+			</p>
+
+			<ol class="list-decimal pl-6 text-sable-600 mb-8 space-y-2">
+				<li><strong>Est-ce le bon médecin pour mon problème ?</strong> La spécialité et les actes pratiqués.</li>
+				<li><strong>Où est le cabinet, et comment y aller ?</strong> L'adresse et l'accès.</li>
+				<li><strong>Quand puis-je venir ?</strong> Les jours et heures de consultation.</li>
+				<li><strong>Comment avoir un rendez-vous ?</strong> Un numéro, un bouton WhatsApp ou un formulaire.</li>
+			</ol>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Si ces quatre réponses sont visibles dès l'accueil, sans chercher, votre site rend déjà le service qu'on attend de lui. Le reste vient compléter.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">1. Le médecin, la spécialité et les actes, présentés simplement</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Le patient veut savoir à qui il a affaire. Une page claire par praticien suffit :
+			</p>
+
+			<ul class="list-disc pl-6 text-sable-600 mb-6 space-y-2">
+				<li><strong>Le nom, la spécialité et les diplômes</strong>, écrits en toutes lettres.</li>
+				<li><strong>Les actes réellement pratiqués au cabinet</strong> : consultations, suivi de grossesse, vaccination, échographie, soins dentaires… Une liste précise évite des déplacements pour rien.</li>
+				<li><strong>Les langues parlées</strong> : français, wolof, pulaar, sérère, anglais. Pour beaucoup de patients, c'est une information décisive.</li>
+				<li><strong>Une photo du cabinet</strong>, de la façade ou de la salle d'attente, pour que le patient reconnaisse l'endroit en arrivant.</li>
+			</ul>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Le ton doit rester sobre et factuel. Un cabinet médical n'est pas une marque qui fait sa promotion : c'est un lieu de soin qui donne des informations utiles.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">2. Horaires, adresse et accès, visibles dès l'accueil</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Les horaires doivent être exacts, jour par jour, avec les exceptions : consultations seulement le matin certains jours, fermeture pendant les congés, jours fériés. Un patient qui se déplace, parfois de loin, et trouve porte close ne reviendra pas.
+			</p>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Pour l'adresse, à Dakar comme dans les autres villes, les repères comptent : « immeuble en face de la pharmacie », « deuxième étage, porte de gauche ». Indiquez aussi ce qui compte pour une personne malade ou âgée : y a-t-il un ascenseur, un endroit où se garer, un accès sans marches ? Ajoutez une carte Google Maps et un bouton « Itinéraire » qui ouvre l'application du téléphone.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">3. La prise de rendez-vous, adaptée à votre secrétariat</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				C'est la fonction la plus utile du site. Elle doit correspondre à la façon dont votre cabinet travaille vraiment :
+			</p>
+
+			<ul class="list-disc pl-6 text-sable-600 mb-8 space-y-2">
+				<li><strong>Vous prenez les rendez-vous par téléphone</strong> : un bouton « Appeler » toujours visible, en bas de l'écran, et les heures où le secrétariat répond.</li>
+				<li><strong>Vous utilisez WhatsApp</strong> : un bouton qui ouvre la conversation avec un message prérempli (« Bonjour, je souhaite un rendez-vous avec… »). Le patient n'écrit que son nom et ses disponibilités.</li>
+				<li><strong>Vous recevez beaucoup de demandes</strong> : un formulaire simple (nom, téléphone, motif général, créneau souhaité) qui arrive au secrétariat.</li>
+				<li><strong>Vous avez plusieurs praticiens et un agenda chargé</strong> : un outil de rendez-vous en ligne, où le patient choisit lui-même un créneau libre et reçoit un rappel. C'est le type d'outil que je construis sur mesure ; j'explique la démarche sur la page <a href="/application-web-sur-mesure/" class="text-terracotta hover:underline">application web sur mesure</a>.</li>
+			</ul>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				La règle : ne promettez rien que le secrétariat ne peut pas suivre. Une demande de rendez-vous restée sans réponse fait plus de tort qu'un simple numéro de téléphone.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">4. Les informations pratiques qui évitent des appels</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Une bonne partie des appels reçus par un secrétariat portent sur les mêmes questions. Répondez-y sur le site :
+			</p>
+
+			<ul class="list-disc pl-6 text-sable-600 mb-8 space-y-2">
+				<li><strong>Ce qu'il faut apporter</strong> : carnet de santé, ordonnances, résultats d'analyses, pièce d'identité.</li>
+				<li><strong>Les moyens de paiement acceptés</strong> : espèces, Wave, Orange Money, carte.</li>
+				<li><strong>Les prises en charge</strong> : si vous travaillez avec des IPM ou des assurances, dites lesquelles, ou invitez le patient à poser la question au secrétariat.</li>
+				<li><strong>Les consultations sans rendez-vous</strong>, si vous en faites, et à quelles heures.</li>
+			</ul>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">5. Les urgences : une phrase claire, en haut de page</h2>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Un site de cabinet ne doit jamais laisser croire qu'un message envoyé par formulaire ou par WhatsApp sera traité en urgence. Écrivez-le clairement, en haut du formulaire et sur la page de contact : « En cas d'urgence, ne nous écrivez pas : appelez les services d'urgence ou rendez-vous aux urgences de l'hôpital le plus proche. » Indiquez le numéro à appeler, et vérifiez-le avant la mise en ligne.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">6. Ce que la déontologie vous demande de ne pas faire</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Les médecins, les chirurgiens-dentistes et les autres professions de santé ont des règles de déontologie qui encadrent leur communication. Elles diffèrent d'une profession à l'autre, et je ne suis pas juriste : avant la mise en ligne, faites relire votre site par votre Ordre ou votre conseil professionnel en cas de doute. En pratique, un site de cabinet reste prudent sur quelques points :
+			</p>
+
+			<ul class="list-disc pl-6 text-sable-600 mb-8 space-y-2">
+				<li><strong>Pas de ton publicitaire</strong> : pas de « le meilleur cabinet de Dakar », pas de promotions, pas de promesse de résultat.</li>
+				<li><strong>Pas de témoignages de patients</strong> sur leur guérison, et pas de photos « avant / après ».</li>
+				<li><strong>Aucune photo de patient</strong>, même de dos, même avec son accord oral.</li>
+				<li><strong>Des informations vérifiables</strong> : diplômes, spécialité, inscription à l'Ordre.</li>
+			</ul>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Ces limites ne sont pas un handicap. Un site sobre, clair et exact inspire justement la confiance qu'un patient attend d'un médecin.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">7. Les données de santé : demander le minimum</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Tout ce qu'un patient écrit sur votre site peut contenir des informations sur sa santé. Ce sont des informations sensibles. Au Sénégal, la loi sur la protection des données personnelles s'applique, sous le contrôle de la Commission de protection des données personnelles (CDP). Sans entrer dans le droit, quelques réflexes simples :
+			</p>
+
+			<ul class="list-disc pl-6 text-sable-600 mb-8 space-y-2">
+				<li><strong>Ne demandez pas de diagnostic ni de symptômes détaillés</strong> dans le formulaire. Un « motif général » (consultation, suivi, vaccination) suffit pour organiser le rendez-vous.</li>
+				<li><strong>Le site doit être en HTTPS</strong> (le petit cadenas dans le navigateur), pour que ce qui est envoyé ne circule pas en clair.</li>
+				<li><strong>Les demandes arrivent à une adresse du cabinet</strong>, pas sur la boîte personnelle d'un stagiaire ou d'un ancien prestataire.</li>
+				<li><strong>Une page « Confidentialité »</strong> explique ce que vous collectez, pourquoi, et qui peut le lire.</li>
+				<li><strong>N'installez pas d'outils de suivi publicitaire</strong> sur les pages de prise de rendez-vous.</li>
+			</ul>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Être trouvé sur Google : la fiche et le site travaillent ensemble</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Quand un patient cherche « dentiste Thiès » ou « gynécologue Mermoz », Google affiche souvent d'abord une carte avec les fiches des cabinets proches, puis les sites. Il faut donc soigner les deux :
+			</p>
+
+			<ul class="list-disc pl-6 text-sable-600 mb-6 space-y-2">
+				<li><strong>Une fiche Google Business complète</strong> : catégorie exacte (pédiatre, dentiste, cabinet médical), horaires, photos du cabinet, lien vers le site. Tout est expliqué dans le <a href="/blog/fiche-google-business-pme-dakar/" class="text-terracotta hover:underline">guide de la fiche Google Business pour une PME à Dakar</a>.</li>
+				<li><strong>Une page par spécialité ou par praticien</strong>, avec un titre clair : « Pédiatre à Sacré-Cœur, Dakar — consultations et vaccination ».</li>
+				<li><strong>Le quartier et la ville écrits dans le texte</strong>, pas seulement sur la carte.</li>
+				<li><strong>Les mêmes coordonnées partout</strong> : nom, adresse et téléphone identiques sur le site, la fiche Google, Facebook et les annuaires.</li>
+			</ul>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Attention aux avis Google : vous avez le droit d'y répondre, mais jamais en donnant une information sur le patient, même s'il a lui-même parlé de sa maladie. Une réponse courte et polie, qui invite à contacter le cabinet, suffit. Pour aller plus loin sur la visibilité locale, lisez <a href="/blog/seo-local-senegal/" class="text-terracotta hover:underline">le référencement local au Sénégal</a>.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Un site web de cabinet médical au Sénégal doit être rapide et lisible</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Vos patients n'ont pas tous un téléphone récent ni une bonne connexion. Certains ont une vue qui baisse. Le site doit donc s'afficher vite, avec un texte assez grand et bien contrasté, et des boutons faciles à toucher. Pour vérifier la vitesse, tapez l'adresse de votre site dans l'outil gratuit PageSpeed Insights de Google et regardez le résultat « mobile ».
+			</p>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Les causes habituelles d'un site lent sont connues : photos trop lourdes, vidéo qui se lance toute seule, thème chargé de fonctions inutiles, hébergement trop faible. Elles se corrigent.
+			</p>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">Ce qu'on peut laisser de côté</h2>
+
+			<p class="text-sable-600 mb-6 leading-relaxed">
+				Un site de cabinet n'a pas besoin d'être grand. Évitez :
+			</p>
+
+			<ul class="list-disc pl-6 text-sable-600 mb-8 space-y-2">
+				<li>Les longs articles médicaux copiés d'ailleurs : ils n'apportent rien au patient et Google les repère.</li>
+				<li>Les animations d'accueil qui font attendre avant d'afficher le numéro de téléphone.</li>
+				<li>Une rubrique « Actualités » que personne n'aura le temps de tenir à jour.</li>
+				<li>Les fonctions que l'équipe ne peut pas suivre : chat en direct, téléconsultation, paiement en ligne, si personne n'est là pour s'en occuper.</li>
+			</ul>
+
+			<h2 class="text-2xl font-semibold text-noir-cafe mt-12 mb-4">La liste à garder</h2>
+
+			<ol class="list-decimal pl-6 text-sable-600 mb-8 space-y-2">
+				<li>Praticiens, spécialités, actes et langues parlées.</li>
+				<li>Horaires exacts, jour par jour.</li>
+				<li>Adresse avec repères, accès, carte et bouton « Itinéraire ».</li>
+				<li>Prise de rendez-vous adaptée au secrétariat : appel, WhatsApp, formulaire ou agenda en ligne.</li>
+				<li>Informations pratiques : documents à apporter, paiement, prises en charge.</li>
+				<li>Une phrase claire sur les urgences.</li>
+				<li>Un ton sobre, conforme à votre déontologie.</li>
+				<li>Un formulaire qui demande le minimum, en HTTPS, avec une page « Confidentialité ».</li>
+				<li>Une fiche Google Business à jour et les mêmes coordonnées partout.</li>
+				<li>Un site rapide et lisible sur téléphone.</li>
+			</ol>
+
+			<p class="text-sable-600 mb-8 leading-relaxed">
+				Un site web de cabinet médical au Sénégal n'a pas besoin d'impressionner. Il doit répondre juste, protéger la confidentialité des patients et faciliter le rendez-vous. La confiance, ensuite, se construit au cabinet.
+			</p>
+
+			<hr class="my-12 border-sable-300" />
+
+			<div class="bg-terracotta/10 border border-terracotta/30 rounded-xl p-6">
+				<h3 class="text-lg font-semibold text-noir-cafe mb-3">
+					Votre cabinet est-il facile à trouver ?
+				</h3>
+				<p class="text-sable-600 mb-4">
+					Envoyez-moi le lien de votre site, ou le nom de votre cabinet si vous n'avez pas encore de site. Je vous dis ce qui manque pour que vos patients vous trouvent et prennent rendez-vous facilement. Chaque projet est chiffré sur devis.
+				</p>
+				<a href="/referencement-site-web-senegal/" class="inline-flex items-center gap-2 bg-noir-cafe text-creme px-6 py-3 rounded-md font-medium hover:bg-terracotta transition-colors">
+					Un site rapide et bien référencé
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+						<line x1="5" y1="12" x2="19" y2="12"></line>
+						<polyline points="12 5 19 12 12 19"></polyline>
+					</svg>
+				</a>
+				<a href="/#contact" class="mt-3 inline-flex text-sm text-sable-600 hover:text-noir-cafe transition-colors">
+					Me contacter →
+				</a>
+			</div>
+		</div>
+	</article>
+</Layout>
